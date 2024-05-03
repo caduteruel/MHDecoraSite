@@ -1,0 +1,59 @@
+﻿<div class="container text-center">
+    <div style="margin-left: 11% !important; max-width: 75% !important;">
+        <div style="margin-left: 15% !important;">
+            <h2 class="mt-5 text-center">Orçamento</h2>
+            <hr class="hr-custom mb-4">
+        </div>
+
+        <form action="#" method="post">
+            <div class="form-group row">
+                <label for="nome" class="col-sm-2 col-form-label text-left">Nome:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="nome" name="nome" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="email" class="col-sm-2 col-form-label text-left">E-mail:</label>
+                <div class="col-sm-4">
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+
+                <label for="telefone" class="col-sm-2 col-form-label text-left">Telefone:</label>
+                <div class="col-sm-4">
+                    <input type="tel" id="telefone" name="telefone" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="data" class="col-sm-2 col-form-label text-left">Data:</label>
+                <div class="col-sm-4">
+                    <input type="date" id="data" name="data" class="form-control">
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-check">
+                        <input type="checkbox" id="ainda_nao_definido" name="ainda_nao_definido" class="form-check-input">
+                        <label class="form-check-label ml-2" for="ainda_nao_definido">Ainda não defini o dia</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row" style="text-align: left;">
+                <div class="col-md-12">
+                    <label for="mais_informacoes" class="col-form-label">Mais informações (Tema, Local do evento, frete...):</label>
+                </div>
+                <div class="col-md-12">
+                    <textarea id="mais_informacoes" name="mais_informacoes" class="form-control" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

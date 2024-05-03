@@ -1,0 +1,29 @@
+﻿@model SiteViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Renderização da Partial View para o Banner -->
+@await Html.PartialAsync("~/Views/Home/_Banner.cshtml", Model.Banners)
+
+<!-- Renderização da Partial View para a Quem Somos -->
+@await Html.PartialAsync("~/Views/Home/_QuemSomos.cshtml", Model.QuemSomos)
+
+<!-- Renderização da Partial View para o Montagens -->
+@await Html.PartialAsync("~/Views/Home/_Montagens.cshtml", Model.Montagens)
+
+<!-- Renderização da Partial View para o Temas -->
+@await Html.PartialAsync("~/Views/Home/_Temas.cshtml", Model.Temas)
+
+<!-- Renderização da Partial View para a Galeria de Destaques -->
+@await Html.PartialAsync("~/Views/Home/_GaleriaDestaques.cshtml")
+
+<!-- Renderização da Partial View para o Novidades -->
+@await Html.PartialAsync("~/Views/Home/_Novidades.cshtml")
+
+<!-- Renderização da Partial View para a Contato -->
+@await Html.PartialAsync("~/Views/Home/_Contato.cshtml")
+
+<!-- Renderização da Partial View para o Orçamento -->
+@await Html.PartialAsync("~/Views/Home/_Orcamento.cshtml")

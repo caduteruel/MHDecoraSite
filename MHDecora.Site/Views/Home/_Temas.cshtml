@@ -1,0 +1,58 @@
+﻿@model List<MHDecora.Site.Domain.Entities.Tema>
+
+<div class="mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mt-0 title-principais-telas text-center">Principais temas disponíveis</h2>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5">
+    <div class="owl-carousel owl-theme">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <div class="gallery-item">
+                    <div class="circle-outline">
+                        <!-- Adicione a imagem dentro do círculo -->
+                        <img src="@item.CaminhoImagem" alt="Imagem" class="rounded-circle" style="width: 109px;height: 109px;">
+                    </div>
+                </div>
+                <p class="item-text mt-4">@item.Texto</p>
+            </div>
+        }
+    </div>
+   
+</div>
+
+
+@section Scripts {
+  
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                // Adicione as opções do carrossel aqui
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            });
+        });
+
+
+    </script>
+}
+
+
+

@@ -1,0 +1,20 @@
+﻿@model MHDecora.Site.Domain.Entities.QuemSomos
+
+<div class="mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.CaminhoImagem" class="img-fluid" width="600" height="400" alt="Imagem Esquerda">
+        </div>
+        <div class="col-md-6">
+            <div class="ml-4 d-flex flex-column justify-content-start">
+                <div class="text-center title-container">
+                    <h2 class="mt-0 title-md-decora uppercase-text text-center">@Model.Titulo</h2>
+                    <hr class="hr-custom mb-4">
+                </div>
+                <div class="text-container">
+                    <p>@Model.Texto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

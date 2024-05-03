@@ -1,0 +1,30 @@
+﻿@model List<MHDecora.Site.Domain.Entities.Montagem>
+
+<div class="mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mt-0 title-md-decora text-center">Conheça nossas montagens</h2>
+            <hr class="hr-custom mb-4">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card-m text-center position-relative">
+                    <!-- Adicionado text-center para centralizar o conteúdo -->
+                    <div class="position-relative" style="height: 254px;">
+                        <img src="@item.CaminhoImagem" height="254" class="card-img-top position-relative" alt="Imagem 2">
+                        <div class="position-absolute top-50 start-50 translate-middle text-white dynamic-centered-text">
+                            <p>@item.TextoImagem</p>
+                        </div>
+                    </div>
+                    <h4 class="mt-3 text-justify custom-h3" style="height: 130px;">
+                        @item.Texto
+                    </h4>
+                    <button class="btn btn-primary btn-block mt-auto custom-button" href="@item.LinkBotao">@item.TextoBotao</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

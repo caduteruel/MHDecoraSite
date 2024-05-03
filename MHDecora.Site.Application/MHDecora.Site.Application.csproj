@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MHDecora.Site.Domain\MHDecora.Site.Domain.csproj" />
+    <ProjectReference Include="..\MHDecora.Site.Infra\MHDecora.Site.Infra.csproj" />
+  </ItemGroup>
+
+</Project>

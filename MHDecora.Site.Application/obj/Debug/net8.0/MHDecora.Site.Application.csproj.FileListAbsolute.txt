@@ -1,0 +1,34 @@
+D:\_dev\MHDecora\MHDecora.Application\bin\Debug\net8.0\MHDecora.Site.Application.deps.json
+D:\_dev\MHDecora\MHDecora.Application\bin\Debug\net8.0\MHDecora.Site.Application.dll
+D:\_dev\MHDecora\MHDecora.Application\bin\Debug\net8.0\MHDecora.Site.Application.pdb
+D:\_dev\MHDecora\MHDecora.Application\bin\Debug\net8.0\MHDecora.Site.Domain.dll
+D:\_dev\MHDecora\MHDecora.Application\bin\Debug\net8.0\MHDecora.Site.Infra.dll
+D:\_dev\MHDecora\MHDecora.Application\bin\Debug\net8.0\MHDecora.Site.Domain.pdb
+D:\_dev\MHDecora\MHDecora.Application\bin\Debug\net8.0\MHDecora.Site.Infra.pdb
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.csproj.AssemblyReference.cache
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.AssemblyInfoInputs.cache
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.AssemblyInfo.cs
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.csproj.CoreCompileInputs.cache
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.csproj.CopyComplete
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.dll
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\refint\MHDecora.Site.Application.dll
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\MHDecora.Site.Application.pdb
+D:\_dev\MHDecora\MHDecora.Application\obj\Debug\net8.0\ref\MHDecora.Site.Application.dll
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\bin\Debug\net8.0\MHDecora.Site.Application.deps.json
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\bin\Debug\net8.0\MHDecora.Site.Application.dll
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\bin\Debug\net8.0\MHDecora.Site.Application.pdb
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\bin\Debug\net8.0\MHDecora.Site.Domain.dll
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\bin\Debug\net8.0\MHDecora.Site.Infra.dll
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\bin\Debug\net8.0\MHDecora.Site.Domain.pdb
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\bin\Debug\net8.0\MHDecora.Site.Infra.pdb
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.csproj.AssemblyReference.cache
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.AssemblyInfoInputs.cache
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.AssemblyInfo.cs
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.csproj.CoreCompileInputs.cache
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.csproj.CopyComplete
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.dll
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\refint\MHDecora.Site.Application.dll
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\MHDecora.Site.Application.pdb
+C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Application\obj\Debug\net8.0\ref\MHDecora.Site.Application.dll

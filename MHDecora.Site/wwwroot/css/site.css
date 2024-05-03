@@ -1,0 +1,162 @@
+
+.menu-item {
+    margin-right: 40px;
+}
+
+.uppercase-text {
+    text-transform: uppercase;
+}
+/* Estilo para o traço */
+.hr-custom {
+    width: 200px; /* Largura desejada */
+    border-top: 1px solid black; /* Cor e estilo da linha */
+}
+/* Estilo para o título "MH DECORA" */
+.title-md-decora {
+    font-size: 60px; /* Tamanho da fonte desejado */
+}
+
+.title-principais-telas {
+    font-size: 30px; /* Tamanho da fonte desejado */
+}
+/* Customizando o texto */
+.custom-h3 {
+    font-size: 15px; /* Define o tamanho da fonte desejado */
+    margin-top: 10px; /* Define a margem superior */
+    line-height: 1.5; /* Define o espaçamento entre as linhas */
+}
+/* Espaço entre o texto e o botão - Saiba mais */
+
+.custom-button {
+    margin-top: 20px; /* Define a margem superior para o botão */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+    border-radius: 10px; /* Arredonda as bordas do botão */
+    width: 120px;
+    margin: 0 auto; /* Centraliza o botão horizontalmente */
+    display: block; /* Garante que o botão ocupe toda a largura da coluna */
+}
+
+
+.owl-carousel {
+    display: flex;
+    justify-content: center; /* Centralizar os itens */
+}
+
+.owl-item {
+    text-align: center;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Alinhar o texto abaixo do círculo */
+    margin: 0 10px; /* Espaçamento entre os itens */
+}
+
+.gallery-item {
+    width: 120px; /* Reduzindo a largura dos itens */
+    height: 120px; /* Reduzindo a altura dos itens */
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Posiciona os botões no lado esquerdo e direito */
+.owl-prev,
+.owl-next {
+    position: absolute;
+    top: 20%;
+}
+
+.owl-prev {
+    left: 0;
+}
+
+.owl-next {
+    right: 0;
+}
+
+
+.circle-outline {
+    width: 104px; /* Largura do círculo exterior */
+    height: 104px; /* Altura do círculo exterior */
+    border: 2px solid rgb(175, 175, 175); /* Cor e espessura da borda */
+    border-radius: 50%; /* Torna o elemento em forma de círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Espaçamento entre os círculos */
+}
+
+.gallery-item {
+    border: 1px solid red; /* Cor e espessura da borda */
+    padding: 3px; /* Espaçamento entre os círculos */
+}
+
+
+
+.carousel {
+    display: flex;
+    gap: 20px;
+}
+
+.card-m {
+    width: 100%; /* Cada card ocupa 25% da largura */    
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.dynamic-centered-text {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+}
+
+.circle-outline {
+    width: 109px; /* Ajuste o tamanho conforme necessário */
+    height: 109px; /* Ajuste o tamanho conforme necessário */
+    border-radius: 50%; /* Isso faz com que o div seja exibido como um círculo */
+    border: 0px solid rgb(255, 255, 255); /* Remova a borda */
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do círculo */
+}
+
+    .circle-outline img {
+        width: 100%; /* A imagem ocupa toda a largura do círculo */
+        height: auto; /* Mantém a proporção da imagem */
+        border-radius: 50%; /* Garante que a imagem seja exibida de forma circular */
+        display: block; /* Remove espaço extra abaixo da imagem */
+    }
+
+
+.card {
+    width: 100%; /* Cada card ocupa 25% da largura */
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+    .card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+.img-container {
+    margin-bottom: 20px; /* Espaçamento entre as linhas */
+}
+
+    .img-container img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+.contato {
+    padding: 20px;
+    background-color: rgb(228, 228, 228);
+}
