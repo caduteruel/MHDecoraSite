@@ -28,3 +28,19 @@ C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.
 C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Infra\obj\Debug\net8.0\refint\MHDecora.Site.Infra.dll
 C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.pdb
 C:\FW\projetos\MH Decora\MHDecora\MHDecora.Site.Infra\obj\Debug\net8.0\ref\MHDecora.Site.Infra.dll
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\bin\Debug\net8.0\MHDecora.Site.Infra.deps.json
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\bin\Debug\net8.0\MHDecora.Site.Infra.dll
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\bin\Debug\net8.0\MHDecora.Site.Infra.pdb
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\bin\Debug\net8.0\MHDecora.Site.Domain.dll
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\bin\Debug\net8.0\MHDecora.Site.Domain.pdb
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.csproj.AssemblyReference.cache
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.AssemblyInfoInputs.cache
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.AssemblyInfo.cs
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.csproj.CoreCompileInputs.cache
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.sourcelink.json
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.78982DD4.Up2Date
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.dll
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\refint\MHDecora.Site.Infra.dll
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\MHDecora.Site.Infra.pdb
+C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Site.Infra\obj\Debug\net8.0\ref\MHDecora.Site.Infra.dll
