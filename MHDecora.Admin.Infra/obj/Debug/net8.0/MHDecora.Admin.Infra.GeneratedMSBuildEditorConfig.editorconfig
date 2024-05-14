@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MHDecora.Admin.Infra
-build_property.ProjectDir = C:\Users\cadut\source\repos\MHDecoraSite\MHDecora.Admin.Infra\
+build_property.ProjectDir = C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

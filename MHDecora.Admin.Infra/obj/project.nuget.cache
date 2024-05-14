@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AZb9SozKMM0wnIeydk86N2zd8+hxZFRIYSA/abje+L7UhF7QAPWgMPOkJkYJRH6WmieQ3aqVkAoNutKRLpaA4g==",
+  "dgSpecHash": "ufZ6kOL/pnSN2x22TLE9uGiT6uiQN6DJdq48Zw1RTsYYC2NsEu4avoyexEXzvsR67flvI0UvOW0h7/P/xBa7gA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
+  "projectFilePath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
