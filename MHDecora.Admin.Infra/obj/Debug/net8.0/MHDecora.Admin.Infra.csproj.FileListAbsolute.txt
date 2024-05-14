@@ -30,3 +30,19 @@ C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Infra\
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\refint\MHDecora.Admin.Infra.dll
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.pdb
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\ref\MHDecora.Admin.Infra.dll
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Infra.deps.json
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Infra.dll
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Infra.pdb
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Domain.dll
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Domain.pdb
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.csproj.AssemblyReference.cache
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.AssemblyInfoInputs.cache
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.AssemblyInfo.cs
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.csproj.CoreCompileInputs.cache
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.sourcelink.json
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.C6D7F1CD.Up2Date
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.dll
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\refint\MHDecora.Admin.Infra.dll
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.pdb
+C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Infra\obj\Debug\net8.0\ref\MHDecora.Admin.Infra.dll
