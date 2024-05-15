@@ -51,6 +51,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -111,6 +121,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -175,6 +191,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -221,6 +247,9 @@
             "projectReferences": {
               "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj": {
                 "projectPath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj"
+              },
+              "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj": {
+                "projectPath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj"
               }
             }
           }

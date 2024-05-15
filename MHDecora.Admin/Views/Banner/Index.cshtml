@@ -1,0 +1,44 @@
+﻿@model List<MHDecora.Admin.Domain.Entities.Banner>
+
+
+<h1>Novo Banner</h1>
+
+<form asp-controller="Banner" asp-action="Criar" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Descrição</label>
+        <input name="Descricao" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Imagem</label>
+        <input type="file" name="Imagem" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+<br />
+<!-- Lista de Banners -->
+<h2>Lista de Banners</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="row">
+        @foreach (var banner in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@banner.CaminhoImagem" class="card-img-top" alt="Banner">
+                    <div class="card-body">
+                        <h5 class="card-title">@banner.Descricao</h5>
+                        <form asp-controller="Banner" asp-action="Excluir" method="post">
+                            <input type="hidden" name="Id" value="@banner.Id" />
+                            <button type="submit" class="btn btn-danger">Excluir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>Nenhum banner encontrado.</p>
+}

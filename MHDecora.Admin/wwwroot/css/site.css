@@ -20,3 +20,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.banner-thumbnail {
+    width: 100px; /* Defina a largura desejada para a miniatura */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 10px; /* Adiciona uma margem na parte inferior da miniatura */
+    border: 1px solid #ccc; /* Adiciona uma borda sólida com cor cinza */
+    border-radius: 5px; /* Adiciona uma borda arredondada */
+}
+
