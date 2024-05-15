@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "0zB1Gh2jxtiU3AXF1r8OD4f0UUkqjvc0WAUgh7BKQ85L4v89xJwES07D8GqBYt+d7zZVyOl+3GF+sKe6xoesnQ==",
+  "dgSpecHash": "jW2dUOffzNu8FJkINjbCuA4ssplEiEenWyE7WxNo2H0ftDsoyCM84Pl56903Dhgw/BMEFimqmiIAsWDzjlJnig==",
   "success": true,
   "projectFilePath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\cadut\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\cadut\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\cadut\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -150,7 +150,7 @@
                         </li>
 
                         <li>
-                            <a class="sidenav-item-link" asp-action="Banner">
+                            <a class="sidenav-item-link" asp-controller="Banner" asp-action="Index">
                                 <i class="mdi mdi-wechat"></i>
                                 <span class="nav-text">Banner</span>
                             </a>
@@ -594,25 +594,7 @@
         ===================================== -->
         <div class="content-wrapper">
             <div class="content">
-
-
-
-
-
-
-
-
-                    @RenderBody()
-                
-                    
-
-
-               
-
-
-                
-
-                
+                    @RenderBody()                                     
             </div>
 
         </div>

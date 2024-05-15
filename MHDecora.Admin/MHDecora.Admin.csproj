@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MHDecora.Admin.Application\MHDecora.Admin.Application.csproj" />
+    <ProjectReference Include="..\MHDecora.Admin.Infra\MHDecora.Admin.Infra.csproj" />
   </ItemGroup>
 
 </Project>

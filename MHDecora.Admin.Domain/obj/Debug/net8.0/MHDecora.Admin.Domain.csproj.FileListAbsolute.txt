@@ -34,3 +34,4 @@ C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Domain\obj\Debug\net8.0\MHDecora
 C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Domain\obj\Debug\net8.0\refint\MHDecora.Admin.Domain.dll
 C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Domain\obj\Debug\net8.0\MHDecora.Admin.Domain.pdb
 C:\FW\projetos\MH Decora\NovoDev\MHDecora.Admin.Domain\obj\Debug\net8.0\ref\MHDecora.Admin.Domain.dll
+C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Domain\obj\Debug\net8.0\MHDecora.Admin.Domain.csproj.AssemblyReference.cache
