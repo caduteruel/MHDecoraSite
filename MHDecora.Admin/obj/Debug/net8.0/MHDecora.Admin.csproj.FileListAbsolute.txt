@@ -402,7 +402,6 @@ C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\De
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.AssemblyInfoInputs.cache
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.AssemblyInfo.cs
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.csproj.CoreCompileInputs.cache
-C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.RazorAssemblyInfo.cache
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.RazorAssemblyInfo.cs

@@ -12,7 +12,7 @@ namespace MHDecora.Admin.Domain.Entities
     public class Banner
     {
         [Key]
-        public byte[] Id { get; set; }
+        public int Id { get; set; }
         public string Descricao { get; set; }
         public string CaminhoImagem { get; set; }
         public int Ordem { get; set; }

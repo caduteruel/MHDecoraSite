@@ -2,6 +2,7 @@
 using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,19 +14,18 @@ namespace MHDecora.Admin.Infra.Repositories
 {
     public class BannerRepository : IBannerRepository
     {
-        public readonly AdminContext _context;
+        public readonly AdminContext _adminContext;
         public readonly ILogger _logger;
-        public BannerRepository(AdminContext context, ILogger logger)
+        public BannerRepository(AdminContext adminContext, ILogger logger)
         {
-            _context = context;
+            _adminContext = adminContext;
             _logger = logger;
         }
 
         public async Task Criar(Banner banner, IFormFile imagem)
         {
-            List<Banner> _banners = new List<Banner>();
-            using (var transaction = await _context.Database.BeginTransactionAsync())
-            {
+            //List<Banner> _banners = new List<Banner>();
+
                 try
                 {
                     if (imagem != null && imagem.Length > 0)
@@ -42,23 +42,22 @@ namespace MHDecora.Admin.Infra.Repositories
                         banner.CaminhoImagem = "/banner/" + uniqueFileName;
                     }
 
-                    var GuidId = Guid.NewGuid();
-                    byte[] bytes = GuidId.ToByteArray();
-                    banner.Id = bytes;
-                    _banners.Add(banner);
+                    //_banners.Add(banner);
 
-                    await _context.SaveChangesAsync();
-                    await transaction.CommitAsync();
+                _adminContext.MH_BANNERS.Add(banner);
+                await _adminContext.SaveChangesAsync();
+               
 
                 }
                 catch (Exception ex)
                 {
-                    await transaction.RollbackAsync();
                     _logger.LogError(ex, "Ocorreu um erro ao tentar salvar o banner no banco de dados.");
                     throw;
                 }
-
-            }
+                finally
+                {
+                    await _adminContext.DisposeAsync();
+                }
         }
 
         public async Task <List<Banner>> GetBanners() 
@@ -73,7 +72,6 @@ namespace MHDecora.Admin.Infra.Repositories
                 {
                     var banner = new Banner
                     {                       
-                        Id = Guid.NewGuid().ToByteArray(), // Gere um ID único para cada banner
                         Descricao = Path.GetFileNameWithoutExtension(file),
                         CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
                     };

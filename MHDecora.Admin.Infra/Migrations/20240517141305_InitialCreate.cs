@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -19,7 +18,8 @@ namespace MHDecora.Admin.Infra.Migrations
                 schema: "DECORAPHP",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     Descricao = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     CaminhoImagem = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     Ordem = table.Column<int>(type: "NUMBER(10)", nullable: false)

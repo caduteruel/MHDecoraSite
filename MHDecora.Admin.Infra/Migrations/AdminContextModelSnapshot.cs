@@ -23,8 +23,11 @@ namespace MHDecora.Admin.Infra.Migrations
 
             modelBuilder.Entity("MHDecora.Admin.Domain.Entities.Banner", b =>
                 {
-                    b.Property<byte[]>("Id")
-                        .HasColumnType("RAW(900)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("NUMBER(10)");
+
+                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CaminhoImagem")
                         .IsRequired()
