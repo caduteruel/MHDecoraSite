@@ -13,7 +13,7 @@ using System.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("OracleConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 //builder.Services.AddDbContext<AdminContext>(options =>
 //    options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<AdminContext>(options =>
@@ -26,6 +26,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IBannerService, BannerService>();
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
+builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 
 var app = builder.Build();
 

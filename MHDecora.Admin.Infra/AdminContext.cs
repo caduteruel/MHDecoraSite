@@ -15,15 +15,14 @@ namespace MHDecora.Admin.Infra
         {
         }
 
-        public DbSet<Banner> MHBanners { get; set; }
+        public DbSet<Banner> MH_BANNERS { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<Banner>()
-            //    .ToTable("MHBanners", "DECORAPHP") // Define o nome da tabela e o schema
-            //    .HasOracleSchema("DECORAPHP"); // Define o schema Oracle
+            modelBuilder.Entity<Banner>()
+                .ToTable("MH_BANNERS", "DECORAPHP"); // Define o nome da tabela e o schema
         }
     }
 }
