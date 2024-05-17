@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MHDecora.Site")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+24f16b630284d4fee0ac87f774e81e9645dc5081")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f7614691df0fdc466987bba282e8e86d549b1f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("MHDecora.Site")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MHDecora.Site")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

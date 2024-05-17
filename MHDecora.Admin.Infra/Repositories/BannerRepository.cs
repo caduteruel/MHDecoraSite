@@ -42,7 +42,9 @@ namespace MHDecora.Admin.Infra.Repositories
                         banner.CaminhoImagem = "/banner/" + uniqueFileName;
                     }
 
-                    banner.Id = Guid.NewGuid();
+                    var GuidId = Guid.NewGuid();
+                    byte[] bytes = GuidId.ToByteArray();
+                    banner.Id = bytes;
                     _banners.Add(banner);
 
                     await _context.SaveChangesAsync();
@@ -70,8 +72,8 @@ namespace MHDecora.Admin.Infra.Repositories
                 foreach (var file in files)
                 {
                     var banner = new Banner
-                    {
-                        Id = Guid.NewGuid(), // Gere um ID único para cada banner
+                    {                       
+                        Id = Guid.NewGuid().ToByteArray(), // Gere um ID único para cada banner
                         Descricao = Path.GetFileNameWithoutExtension(file),
                         CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
                     };
