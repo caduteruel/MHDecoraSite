@@ -22,7 +22,8 @@ namespace MHDecora.Admin.Infra
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Banner>()
-                .ToTable("MH_BANNERS", "DECORAPHP"); // Define o nome da tabela e o schema
+                .ToTable("MH_BANNERS", "DECORAPHP")
+                .HasKey(x => x.Id);
         }
     }
 }
