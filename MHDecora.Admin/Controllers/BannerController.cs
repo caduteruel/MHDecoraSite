@@ -24,13 +24,6 @@ namespace MHDecora.Admin.Controllers
             return View(banners);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Criar(Banner banner, IFormFile imagem)
-        //{
-        //    await _bannerService.Criar(banner, imagem);
-        //    return View();
-        //}
-
         [HttpPost]
         public async Task<IActionResult> Criar(Banner banner, IFormFile imagem)
         {
@@ -54,8 +47,21 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Excluir(int bannerId)
         {
-            await _bannerService.Excluir(bannerId);
+            bool result = await _bannerService.Excluir(bannerId);
+            if (result)
+            {
+                return Ok("Banner excluído com Sucesso");
+            }
+            else
+            {
+                return BadRequest("Não foi possível excluir o Banner. Verifique.");
+            }           
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> GetBannerById(int bannerId)
+        {
+            await _bannerService.GetBannerById(bannerId);
             return Ok();
         }
 
