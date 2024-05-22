@@ -49,6 +49,7 @@
                                                 <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" data-id="@item.Id">Excluir</a>
                                             </div>
                                         </div>
+                                    <input type="hidden" id="bannerId" value="@item.Id" />
                                     </td>
                                 </tr>
                             }                            
@@ -97,7 +98,7 @@
                 $.ajax({
                     url: '@Url.Action("Excluir", "Banner")',
                     type: 'POST',
-                    data: { id: bannerId },
+                    data: { bannerId: bannerId },
                     success: function () {
                         $('#excluirModal').modal('hide');
                         location.reload(); // Recarrega a página para atualizar a lista de pessoas
