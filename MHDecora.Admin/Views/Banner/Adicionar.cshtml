@@ -64,28 +64,29 @@ else
       </div>
       <div class="card-body">
 
-        <form>
+      <form id="formAdicionar" asp-action="Adicionar" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="fname">Link</label>
-                        <input type="text" class="form-control" placeholder="Link da imagem">
+                         <input name="banner.CaminhoImagem" class="form-control" placeholder="Link da imagem" id="CaminhoImagem">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label for="lname">Ordem de Apresentação</label>
-                        <select class="form-control" id="exampleFormControlSelect12">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <label for="ordemSelect">Ordem de Apresentação</label>
+                        <!-- Altere o nome do ID para um valor exclusivo -->
+                        <select name="banner.Ordem" class="form-control" id="ordemSelect">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Selecione o Arquivo</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                <input type="file" name="imagem" class="form-control-file" id="imagem">
                     </div>
                 </div>
             </div>
@@ -151,4 +152,25 @@ else
 
 
   </div>
+
+  <script>
+        $('#formAdicionar').submit(function (e) {
+            e.preventDefault(); // Evita o envio padrão do formulário
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    // Lógica de sucesso
+                },
+                error: function (xhr, status, error) {
+                    // Lógica de erro
+                }
+            });
+        });
+  </script>
   

@@ -68,4 +68,8 @@
 /MHDecora.Admin.Application/obj/Debug/net8.0/MHDecora.Admin.Application.csproj.CoreCompileInputs.cache
 /MHDecora.Admin.Domain/obj/Debug/net8.0/MHDecora.Admin.Domain.csproj.CoreCompileInputs.cache
 /MHDecora.Admin.Domain/obj/Debug/net8.0/MHDecora.Admin.Domain.csproj.FileListAbsolute.txt
+<<<<<<< HEAD
 /MHDecora.Admin
+=======
+\obj
+>>>>>>> a89a027bbd01fdfb3cf207507a8953e71528fc15

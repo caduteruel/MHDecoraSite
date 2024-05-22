@@ -38,6 +38,13 @@ namespace MHDecora.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Adicionar(Banner banner, IFormFile imagem)
+        {
+            await _bannerService.Criar(banner, imagem);
+            return RedirectToAction("Index");
+        }
+
         [HttpGet]
         public async Task<IActionResult> Adicionar()
         {

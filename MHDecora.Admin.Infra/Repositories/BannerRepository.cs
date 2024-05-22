@@ -1,8 +1,11 @@
 ﻿using MHDecora.Admin.Domain.Entities;
 using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,29 +14,50 @@ namespace MHDecora.Admin.Infra.Repositories
 {
     public class BannerRepository : IBannerRepository
     {
-        public readonly AdminContext _context;
-        public BannerRepository(AdminContext context)
+        public readonly AdminContext _adminContext;
+        public readonly ILogger _logger;
+        public BannerRepository(AdminContext adminContext, ILogger logger)
         {
-            _context = context;
+            _adminContext = adminContext;
+            _logger = logger;
         }
 
         public async Task Criar(Banner banner, IFormFile imagem)
         {
-            List<Banner> _banners = new List<Banner>();
-            if (imagem != null && imagem.Length > 0)
-            {
-                string uploadsFolder = Path.Combine(banner.CaminhoImagem, "images/banner");
-                string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    imagem.CopyTo(fileStream);
-                }
-                banner.CaminhoImagem = "/banner/" + uniqueFileName;
-            }
+            //List<Banner> _banners = new List<Banner>();
 
-            banner.Id = Guid.NewGuid();
-            _banners.Add(banner);
+                try
+                {
+                    if (imagem != null && imagem.Length > 0)
+                    {
+                        banner.Descricao = banner.CaminhoImagem;
+                        string roothPath = Directory.GetCurrentDirectory();
+                        string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/banner");
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            imagem.CopyTo(fileStream);
+                        }
+                        banner.CaminhoImagem = "/banner/" + uniqueFileName;
+                    }
+
+                    //_banners.Add(banner);
+
+                _adminContext.MH_BANNERS.Add(banner);
+                await _adminContext.SaveChangesAsync();
+               
+
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Ocorreu um erro ao tentar salvar o banner no banco de dados.");
+                    throw;
+                }
+                finally
+                {
+                    await _adminContext.DisposeAsync();
+                }
         }
 
         public async Task <List<Banner>> GetBanners() 
@@ -47,8 +71,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 foreach (var file in files)
                 {
                     var banner = new Banner
-                    {
-                        Id = Guid.NewGuid(), // Gere um ID único para cada banner
+                    {                       
                         Descricao = Path.GetFileNameWithoutExtension(file),
                         CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
                     };
