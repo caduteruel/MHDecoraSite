@@ -43,5 +43,13 @@ namespace MHDecora.Admin.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Excluir(int bannerId)
+        {
+            await _bannerService.Excluir(bannerId);
+
+            return Ok();
+        }
     }
 }

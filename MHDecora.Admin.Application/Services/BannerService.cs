@@ -29,6 +29,9 @@ namespace MHDecora.Admin.Application.Services
             return await _bannerRepository.GetBanners();
         }
 
-        
+        public async Task Excluir(int bannerId)
+        {
+            await _bannerRepository.Excluir(bannerId);
+        }
     }
 }

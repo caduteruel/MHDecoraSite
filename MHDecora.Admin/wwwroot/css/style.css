@@ -12867,10 +12867,10 @@ code {
 .navbar.navbar-transparent input::placeholder {
   color: #8a909d;
 }
-.nav .sidenav-item-link:hover {
+.nav.sidenav-item-link:hover {
     background-color: #7c59b2;
 }
-.nav .active {
+.nav.active {
     background-color: #7c59b2; /* Cor de fundo azul */    
 }
 /* Cusmtom Dropdown */
