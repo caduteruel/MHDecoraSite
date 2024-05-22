@@ -1044,6 +1044,7 @@
       "MHDecora.Admin.Infra/1.0.0": {
         "dependencies": {
           "MHDecora.Admin.Domain": "1.0.0",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.EntityFrameworkCore": "8.0.5",
           "Microsoft.EntityFrameworkCore.Abstractions": "8.0.5",
           "Oracle.EntityFrameworkCore": "8.23.40"

@@ -1202,25 +1202,26 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "MHDecora.Admin.Domain >= 1.0.0",
+      "Microsoft.AspNetCore.Http.Features >= 5.0.17",
       "Microsoft.EntityFrameworkCore >= 8.0.5",
       "Microsoft.EntityFrameworkCore.Abstractions >= 8.0.5",
       "Oracle.EntityFrameworkCore >= 8.23.40"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rodrigo.pascoal_cadm\\.nuget\\packages\\": {}
+    "C:\\Users\\cadut\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
+      "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
       "projectName": "MHDecora.Admin.Infra",
-      "projectPath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
-      "packagesPath": "C:\\Users\\rodrigo.pascoal_cadm\\.nuget\\packages\\",
-      "outputPath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Infra\\obj\\",
+      "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
+      "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rodrigo.pascoal_cadm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1228,14 +1229,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
-              "projectPath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
+            "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
+              "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
             }
           }
         }
@@ -1255,6 +1257,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": {
+            "target": "Package",
+            "version": "[5.0.17, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.5, )"

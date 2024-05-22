@@ -122,19 +122,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rodrigo.pascoal_cadm\\.nuget\\packages\\": {}
+    "C:\\Users\\cadut\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
       "projectName": "MHDecora.Admin.Domain",
-      "projectPath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
-      "packagesPath": "C:\\Users\\rodrigo.pascoal_cadm\\.nuget\\packages\\",
-      "outputPath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Domain\\obj\\",
+      "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+      "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\rodrigo.pascoal_cadm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -142,6 +142,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

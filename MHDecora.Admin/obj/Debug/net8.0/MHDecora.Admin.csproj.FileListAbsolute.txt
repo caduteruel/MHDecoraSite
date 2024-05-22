@@ -577,3 +577,4 @@ C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\bin\De
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\bin\Debug\net8.0\runtimes\linux\lib\net8.0\System.DirectoryServices.Protocols.dll
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\bin\Debug\net8.0\runtimes\osx\lib\net8.0\System.DirectoryServices.Protocols.dll
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.DirectoryServices.Protocols.dll
+C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin\obj\Debug\net8.0\MHDecora.Admin.MvcApplicationPartsAssemblyInfo.cs

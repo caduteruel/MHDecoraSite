@@ -2,6 +2,7 @@
 using MHDecora.Admin.Domain.Entities;
 using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MHDecora.Admin.Application.Services
 {
@@ -29,9 +30,10 @@ namespace MHDecora.Admin.Application.Services
             return await _bannerRepository.GetBanners();
         }
 
-        public async Task Excluir(int bannerId)
+        public async Task<bool> Excluir(int bannerId)
         {
-            await _bannerRepository.Excluir(bannerId);
+           return await _bannerRepository.Excluir(bannerId);
         }
+
     }
 }

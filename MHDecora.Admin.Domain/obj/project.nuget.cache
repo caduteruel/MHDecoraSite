@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XGTaaaAWxpH+NKfAOBQC3tgarGgZt4gGvXrOA+J11PCp743eyo9GCNBK2rS04NU1BoJMywT6SI5qclB2Tdq3Ww==",
+  "dgSpecHash": "jW2dUOffzNu8FJkINjbCuA4ssplEiEenWyE7WxNo2H0ftDsoyCM84Pl56903Dhgw/BMEFimqmiIAsWDzjlJnig==",
   "success": true,
-  "projectFilePath": "C:\\FW\\projetos\\MH Decora\\NovoDev\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+  "projectFilePath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\rodrigo.pascoal_cadm\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\rodrigo.pascoal_cadm\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\rodrigo.pascoal_cadm\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+    "C:\\Users\\cadut\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\cadut\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\cadut\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }
