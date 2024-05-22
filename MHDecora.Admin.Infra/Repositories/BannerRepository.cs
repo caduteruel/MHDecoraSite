@@ -113,5 +113,32 @@ namespace MHDecora.Admin.Infra.Repositories
 
             
         }
+
+        public async Task<Banner> Editar(int bannerId)
+        {
+            //var banners = new List<Banner>();
+            //var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+
+            //if (Directory.Exists(imagePath))
+            //{
+            //    var files = Directory.GetFiles(imagePath);
+            //    foreach (var file in files)
+            //    {
+            //        var banner = new Banner
+            //        {
+            //            Id = Guid.NewGuid(), // Gere um ID único para cada banner
+            //            Descricao = Path.GetFileNameWithoutExtension(file),
+            //            CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
+            //        };
+            //        banners.Add(banner);
+            //    }
+            //}
+
+            // 1 - Consultar o nome do arquivo pelo bannerId
+            // 2 - Excluir a imagem
+            // 3 - Excluir o registro
+
+            return null;
+        }
     }
 }

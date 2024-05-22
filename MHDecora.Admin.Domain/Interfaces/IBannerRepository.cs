@@ -14,5 +14,6 @@ namespace MHDecora.Admin.Domain.Interfaces
         Task<List<Banner>> GetBanners();
         Task Criar(Banner banner, IFormFile imagem);
         Task Excluir(int bannerId);
+        Task<Banner> Editar(int bannerId);
     }
 }

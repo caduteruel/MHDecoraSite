@@ -32,25 +32,25 @@
                         {
                             foreach (var item in Model)
                             {
-                                <tr>
-                                    <td class="py-0">
-                                        <img src="images/products/products-xs-01.jpg" style="margin-top: 8px;" alt="Product Image">
-                                    </td>
-                                    <td>1</td>
-                                    <td>/Decoracao</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                            </a>
+                                    <tr>
+                                        <td class="py-0">
+                                            <img src="images/products/products-xs-01.jpg" style="margin-top: 8px;" alt="Product Image">
+                                        </td>
+                                        <td>1</td>
+                                        <td>/Decoracao</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                                </a>
 
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                <a class="dropdown-item" href="#">Editar</a>
-                                                <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" data-id="@item.Id">Excluir</a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                                    <a class="dropdown-item" href="@Url.Action("Editar", "Banner", new { bannerId = @item.Id })">Editar</a>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" data-id="@item.Id">Excluir</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
                             }                            
                         }
                     }
@@ -93,6 +93,7 @@
                 bannerId = button.data('id'); // Extrair informação dos atributos data-*
             });
 
+            // Excluir
             $('#confirmarExclusao').click(function () {
                 $.ajax({
                     url: '@Url.Action("Excluir", "Banner")',

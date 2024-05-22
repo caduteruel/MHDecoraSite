@@ -33,5 +33,9 @@ namespace MHDecora.Admin.Application.Services
         {
             await _bannerRepository.Excluir(bannerId);
         }
+        public async Task<Banner> Editar(int bannerId)
+        {
+            return await _bannerRepository.Editar(bannerId);
+        }
     }
 }

@@ -58,5 +58,13 @@ namespace MHDecora.Admin.Controllers
 
             return Ok();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Editar(int bannerId)
+        {
+            var responde = await _bannerService.Editar(bannerId);
+
+            return View(responde);
+        }
     }
 }
