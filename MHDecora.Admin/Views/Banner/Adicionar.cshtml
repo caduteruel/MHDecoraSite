@@ -69,14 +69,14 @@ else
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="fname">Link</label>
-                         <input name="banner.CaminhoImagem" class="form-control" placeholder="Link da imagem" id="CaminhoImagem">
+                        <input name="descricao" class="form-control" placeholder="Link da imagem" id="descricao">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="ordemSelect">Ordem de Apresentação</label>
                         <!-- Altere o nome do ID para um valor exclusivo -->
-                        <select name="banner.Ordem" class="form-control" id="ordemSelect">
+                        <select name="ordem" class="form-control" id="ordem">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -86,11 +86,18 @@ else
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Selecione o Arquivo</label>
-                                <input type="file" name="imagem" class="form-control-file" id="imagem">
+                        <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
                     </div>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-sm-4 mb-2">
+                    <div class="form-group">
+                        <label id="labelImage" for="fname" style="display:none">Imagem</label>
+                        <img id="previewImage" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                    </div>
+                </div>
+            </div>
             <div class="form-footer pt-5 border-top d-flex justify-content-between">
                     <a href="@Url.Action("Index", "Banner")" class="btn btn-primary text-left">
                     <i class="mdi mdi-undo mr-1"></i> Voltar
@@ -100,77 +107,40 @@ else
                     <button type="submit" class="btn btn-light ml-2">Cancelar</button>
                 </div>
             </div>
-
-
-          @* <div class="form-group">
-            <label for="exampleFormControlInput2">Link</label>
-            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Digite o link">
-            <span class="mt-2 d-block">We'll never share your email with anyone else.</span>
-          </div>
-          <div class="form-group col-xl-4">
-            <label for="exampleFormControlPassword">Password</label>
-            <input type="password" class="form-control" id="exampleFormControlPassword" placeholder="Password">
-          </div>
-          <div class="form-group col-xl-4">
-            <label for="exampleFormControlSelect12">Example select</label>
-            <select class="form-control" id="exampleFormControlSelect12">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControl2">Example multiple select</label>
-            <select multiple class="form-control" id="exampleFormControl2">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlFile1">Example file input</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-          </div>
-          <div class="form-footer mt-6">
-            <button type="submit" class="btn btn-primary btn-pill">Submit</button>
-            <button type="submit" class="btn btn-light btn-pill">Cancel</button>
-          </div> *@
         </form>
 
       </div>
     </div>
 
    
+    </div>
 
-
-  </div>
+</div>
 
   <script>
-        $('#formAdicionar').submit(function (e) {
-            e.preventDefault(); // Evita o envio padrão do formulário
-            var formData = new FormData(this);
+        // Função para exibir a visualização da imagem quando um arquivo é selecionado
+        function previewFile() {
+            var label = document.getElementById('labelImage');
+            var preview = document.getElementById('previewImage');
+            var fileInput = document.getElementById('fileInput').files[0];
+            var reader = new FileReader();
 
-            $.ajax({
-                url: $(this).attr('action'),
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    // Lógica de sucesso
-                },
-                error: function (xhr, status, error) {
-                    // Lógica de erro
-                }
-            });
-        });
+            reader.onloadend = function () {
+                //$("#imagem").attr('display', 'inline-block');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                label.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        // Adiciona um listener de mudança no campo de entrada do arquivo
+        document.getElementById('fileInput').addEventListener('change', previewFile);
   </script>
   

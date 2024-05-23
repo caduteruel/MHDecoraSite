@@ -19,7 +19,7 @@
             <table id="productsTable" class="table table-hover table-product" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Image</th>
+                        <th>Imagem</th>
                         <th>Ordem de Apresentação</th>
                         <th>Link da Imagem</th>
                         <th></th>
@@ -34,10 +34,10 @@
                             {
                                     <tr>
                                         <td class="py-0">
-                                            <img src="images/products/products-xs-01.jpg" style="margin-top: 8px;" alt="Product Image">
+                                            <img src="@item.CaminhoImagem" style="margin-top: 8px;max-width: 85px;" alt="Product Image">
                                         </td>
-                                        <td>1</td>
-                                        <td>/Decoracao</td>
+                                        <td>@item.Ordem</td>
+                                        <td>@item.Descricao</td>
                                         <td>
                                             <div class="dropdown">
                                                 <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
