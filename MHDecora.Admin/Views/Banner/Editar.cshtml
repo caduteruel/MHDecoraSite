@@ -57,21 +57,22 @@ else
         
         <form id="formEditar" asp-action="Editar" method="post" enctype="multipart/form-data">
             <div class="row">
+                <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="fname">Link</label>
-                        <input name="descricao" id="descricao" class="form-control" placeholder="Link da imagem" >
+                        <input name="descricao" id="descricao" class="form-control" placeholder="Link da imagem" value="@Model.Descricao">
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="ordemSelect">Ordem de Apresentação</label>
-                        <!-- Altere o nome do ID para um valor exclusivo -->
-                        <select name="ordem" class="form-control" id="ordem">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
+                                @Html.DropDownListFor(m => m.Ordem, new SelectList(new[]
+                                         {
+                                new SelectListItem { Text = "1", Value = "1" },
+                                new SelectListItem { Text = "2", Value = "2" },
+                                new SelectListItem { Text = "3", Value = "3" }
+                                }, "Value", "Text"), new { @class = "form-control", id = "ordem" })
                     </div>
                 </div>
                 <div class="col-sm-4">

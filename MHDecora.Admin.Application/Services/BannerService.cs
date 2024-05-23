@@ -34,9 +34,9 @@ namespace MHDecora.Admin.Application.Services
         {
            return await _bannerRepository.Excluir(bannerId);
         }
-        public async Task<Banner> Editar(int bannerId)
+        public async Task<bool> Editar(IFormFile arquivo, Banner banner)
         {
-            return await _bannerRepository.Editar(bannerId);
+            return await _bannerRepository.Editar(arquivo, banner);
         }
     }
 }

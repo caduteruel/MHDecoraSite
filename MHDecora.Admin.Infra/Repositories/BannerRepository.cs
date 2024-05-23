@@ -8,8 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MHDecora.Admin.Infra.Repositories
 {
@@ -29,7 +31,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 {
                     if (imagem != null && imagem.Length > 0)
                     {
-                        banner.Descricao = banner.CaminhoImagem;
+                        //banner.Descricao = banner.CaminhoImagem;
                         string roothPath = Directory.GetCurrentDirectory();
                         string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/banner");
                         string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
@@ -38,7 +40,7 @@ namespace MHDecora.Admin.Infra.Repositories
                         {
                             imagem.CopyTo(fileStream);
                         }
-                        banner.CaminhoImagem = "/banner/" + uniqueFileName;
+                        banner.CaminhoImagem = uniqueFileName;
                     }
 
                     //_banners.Add(banner);
@@ -60,29 +62,44 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task <List<Banner>> GetBanners() 
         {
-            var banners = new List<Banner>();
-            var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
 
-            if (Directory.Exists(imagePath))
+            var listaBanner = await _adminContext.MH_BANNERS.ToListAsync();
+
+            //var banners = new List<Banner>();
+            //var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+            var imagePath = Path.Combine("../images/banner/");
+
+            foreach(var img in listaBanner)
             {
-                var files = Directory.GetFiles(imagePath);
-                foreach (var file in files)
-                {
-                    var banner = new Banner
-                    {                       
-                        Descricao = Path.GetFileNameWithoutExtension(file),
-                        CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
-                    };
-                    banners.Add(banner);
-                }
+                img.CaminhoImagem = imagePath + img.CaminhoImagem;
             }
 
-            return banners;
+            return listaBanner;
+
+            //if (Directory.Exists(imagePath))
+            //{
+            //    var files = Directory.GetFiles(imagePath);
+            //    foreach (var file in files)
+            //    {
+            //        var banner = new Banner
+            //        {                       
+            //            Descricao = Path.GetFileNameWithoutExtension(file),
+            //            CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
+            //        };
+            //        banners.Add(banner);
+            //    }
+            //}
+
+            //return banners;
         }
 
         public async Task<Banner> GetById(int id)
         {
-            return await _adminContext.MH_BANNERS.FirstOrDefaultAsync(x => x.Id == id);
+            var imagem =  await _adminContext.MH_BANNERS.FirstOrDefaultAsync(x => x.Id == id);
+            var imagePath = Path.Combine("../images/banner/");
+            imagem.CaminhoImagem = imagePath + imagem.CaminhoImagem;
+            return imagem;
+
         }
 
         public async Task<bool> Excluir(int bannerId)
@@ -131,31 +148,44 @@ namespace MHDecora.Admin.Infra.Repositories
 
         }
 
-        public async Task<Banner> Editar(int bannerId)
+        public async Task<bool> Editar(IFormFile arquivo, Banner banner)
         {
-            //var banners = new List<Banner>();
-            //var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+            var bannerExistente = await _adminContext.MH_BANNERS.FindAsync(banner.Id);
 
-            //if (Directory.Exists(imagePath))
-            //{
-            //    var files = Directory.GetFiles(imagePath);
-            //    foreach (var file in files)
-            //    {
-            //        var banner = new Banner
-            //        {
-            //            Id = Guid.NewGuid(), // Gere um ID único para cada banner
-            //            Descricao = Path.GetFileNameWithoutExtension(file),
-            //            CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
-            //        };
-            //        banners.Add(banner);
-            //    }
-            //}
 
-            // 1 - Consultar o nome do arquivo pelo bannerId
-            // 2 - Excluir a imagem
-            // 3 - Excluir o registro
+            if (bannerExistente == null)
+            {
+                return false;
+            }
 
-            return null;
+            banner.CaminhoImagem = bannerExistente.CaminhoImagem;
+
+            if (arquivo != null)
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var nomeArquivoAntigo = bannerExistente.CaminhoImagem;
+                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                File.Delete(caminhoCompletoAntigo);
+
+
+                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+
+                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                {
+                    arquivo.CopyTo(fileStream);
+                }
+
+                banner.CaminhoImagem = nomeArquivoNovo;
+
+            }
+
+            _adminContext.Entry(bannerExistente).CurrentValues.SetValues(banner);
+            
+            //_adminContext.Entry(banner).State = EntityState.Modified;
+            await _adminContext.SaveChangesAsync();
+
+            return true;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace MHDecora.Admin.Application.Interfaces
         Task<Banner> GetBannerById(int id);
         Task<List<Banner>> GetBanners();
         Task Criar(Banner banner, IFormFile imagem);
-        Task<Banner> Editar(int bannerId);
+        Task<bool> Editar(IFormFile arquivo, Banner banner);
         Task<bool> Excluir(int bannerId);
     }
 }

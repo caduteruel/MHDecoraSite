@@ -21,25 +21,28 @@ namespace MHDecora.Admin.Controllers
         public async Task<IActionResult> Index()
         {
 
-            //var banners = await _bannerService.GetBanners();
+            var banners = await _bannerService.GetBanners();
 
-            List<Banner> bannerList = new List<Banner>();
+            //List<Banner> bannerList = new List<Banner>();
 
-            Banner banner = new Banner();
-            banner.Id = 1;
-            banner.CaminhoImagem = "../images/banner/imagem1.jpeg";
-            banner.Ordem = 1;
-            banner.Descricao = "/Teste";
+            //Banner banner = new Banner();
+            //banner.Id = 1;
+            //banner.CaminhoImagem = "../images/banner/imagem1.jpeg";
+            //banner.Ordem = 1;
+            //banner.Descricao = "/Teste";
 
-            bannerList.Add(banner);
+            //bannerList.Add(banner);
 
-            return View(bannerList);
+            return View(banners);
         }
 
         [HttpPost]
         public async Task<IActionResult> Criar(Banner banner, IFormFile imagem)
         {
             await _bannerService.Criar(banner, imagem);
+
+            Alert("Sucesso!", "O Banner foi cadastrado.", "success");
+
             return RedirectToAction("Index");
         }
 
@@ -80,12 +83,12 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Editar(int bannerId)
         {
-            //var responde = await _bannerService.Editar(bannerId);
-            Banner banner = new Banner();
-            banner.Id = 1;
-            banner.CaminhoImagem = "../images/banner/imagem1.jpeg";
-            banner.Ordem = 1;
-            banner.Descricao = "/Teste";
+            var banner = await _bannerService.GetBannerById(bannerId);
+            //Banner banner = new Banner();
+            //banner.Id = 1;
+            //banner.CaminhoImagem = "../images/banner/imagem1.jpeg";
+            //banner.Ordem = 1;
+            //banner.Descricao = "/Teste";
 
             return View(banner);
         }
@@ -93,26 +96,27 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Editar(IFormFile arquivo, Banner banner)
         {
-            if (arquivo == null || arquivo.Length == 0)
+
+            var result = await _bannerService.Editar(arquivo, banner);
+
+            if (!result)
             {
-                // Lógica para lidar com o envio sem arquivo selecionado
-                return BadRequest("Nenhum arquivo selecionado.");
+                return BadRequest("Banner não encontrado.");
             }
 
-            // Lógica para salvar o arquivo
-            var filePath = Path.Combine("wwwroot/banner", arquivo.FileName);
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await arquivo.CopyToAsync(stream);
-            }
-
-            // Lógica para redirecionar ou retornar uma resposta
-            return RedirectToAction("Index", "Home");
+            return Ok("Index");
         }
 
         public class ArquivoViewModel
         {
             public IFormFile Arquivo { get; set; }
+        }
+
+        private void Alert(string titulo, string mensagem, string alerta)
+        {
+            TempData["Titulo"] = titulo;
+            TempData["Mensagem"] = mensagem;
+            TempData["TipoAlerta"] = alerta;
         }
     }
 }
