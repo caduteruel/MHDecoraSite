@@ -98,7 +98,7 @@
                 $.ajax({
                     url: '@Url.Action("Excluir", "Banner")',
                     type: 'POST',
-                    data: { id: bannerId },
+                    data: { bannerId: bannerId },
                     success: function () {
                         $('#excluirModal').modal('hide');
                         location.reload(); // Recarrega a página para atualizar a lista de pessoas
