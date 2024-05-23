@@ -1,5 +1,20 @@
 ﻿@model List<MHDecora.Admin.Domain.Entities.Banner>
 
+@{
+    ViewBag.Title = "Banners";
+    string titulo = TempData["Titulo"] as string;
+    string mensagem = TempData["Mensagem"] as string;
+    string tipoAlerta = TempData["TipoAlerta"] as string;
+}
+
+@if (!string.IsNullOrEmpty(mensagem))
+{
+    <div id="autoCloseAlert" class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">
+        <strong>@titulo</strong> @mensagem.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+}
+
     <!-- Products Inventory -->
     <div class="card card-default">
         <div class="card-header">
@@ -85,6 +100,13 @@
 
 @section Scripts {
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Espera 5 segundos (5000 milissegundos) antes de fechar o alerta
+            setTimeout(function () {
+                $('#autoCloseAlert').alert('close');
+            }, 5000);
+        });
+
         $(document).ready(function () {
             var bannerId;
 

@@ -9,11 +9,6 @@
 
 @if (!string.IsNullOrEmpty(mensagem))
 {
-@*     <div class="alert btn-@tipoAlerta text-left" role="alert">
-        <a href="#" class="close" data-dismiss="alert" aria-label="Close">&times;</a>
-        @mensagem
-    </div> *@
-
     <div class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">
         <strong>@titulo</strong> @mensagem.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
