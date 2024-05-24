@@ -69,9 +69,11 @@ else
                         <label for="ordemSelect">Ordem de Apresentação</label>
                                 @Html.DropDownListFor(m => m.Ordem, new SelectList(new[]
                                          {
+                                new SelectListItem { Text = "-- Selecione a ordem --", Value = "0" },
                                 new SelectListItem { Text = "1", Value = "1" },
                                 new SelectListItem { Text = "2", Value = "2" },
-                                new SelectListItem { Text = "3", Value = "3" }
+                                new SelectListItem { Text = "3", Value = "3" },
+                                new SelectListItem { Text = "Banco", Value = "4" }
                                 }, "Value", "Text"), new { @class = "form-control", id = "ordem" })
                     </div>
                 </div>

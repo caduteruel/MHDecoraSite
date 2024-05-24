@@ -10,10 +10,12 @@
 @if (!string.IsNullOrEmpty(mensagem))
 {
     <div id="autoCloseAlert" class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">
-        <strong>@titulo</strong> @mensagem.
+        <strong>@titulo</strong> @mensagem
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
 }
+
+<div id="msgAlert"></div>
 
     <!-- Products Inventory -->
     <div class="card card-default">
@@ -61,7 +63,7 @@
 
                                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                                     <a class="dropdown-item" href="@Url.Action("Editar", "Banner", new { bannerId = @item.Id })">Editar</a>
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" data-id="@item.Id">Excluir</a>
+                                                    <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" data-id="@item.Id" id="excluirBanner" href="#">Excluir</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -77,59 +79,90 @@
     </div>
 
 @* Apagar *@
-<div class="modal fade" id="modalApagar" tabindex="-1" role="dialog" aria-labelledby="modalApagarLabel"
-     aria-hidden="true">
+<div class="modal fade" id="modalApagar" tabindex="-1" role="dialog" aria-labelledby="modalApagarLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalApagarLabel">Confirmar Exclusão</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
+        @using (Html.BeginForm("Excluir", "Banner", FormMethod.Post, new { enctype = "multipart/form-data", id = "formAdicionar" }))
+        {
+            <input type="hidden" value="" id="bannerId" name="bannerId">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalApagarLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja excluir este banner?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" id="confirmarExclusao">Sim</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>                
+                </div>
             </div>
-            <div class="modal-body">
-                Tem certeza que deseja excluir este banner?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="confirmarExclusao"">Sim</button>
-                <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>                
-            </div>
-        </div>
+        }
     </div>
 </div>
 
 @section Scripts {
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Espera 5 segundos (5000 milissegundos) antes de fechar o alerta
-            setTimeout(function () {
-                $('#autoCloseAlert').alert('close');
-            }, 5000);
-        });
-
+       
         $(document).ready(function () {
             var bannerId;
 
             $('#modalApagar').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget); // Botão que abriu o modal
-                bannerId = button.data('id'); // Extrair informação dos atributos data-*
+                var banner = button.data('id'); // Extrair informação dos atributos data-*
+                $("#bannerId").val(banner);
             });
 
-            // Excluir
-            $('#confirmarExclusao').click(function () {
-                $.ajax({
-                    url: '@Url.Action("Excluir", "Banner")',
-                    type: 'POST',
-                    data: { bannerId: bannerId },
-                    success: function () {
-                        $('#excluirModal').modal('hide');
-                        location.reload(); // Recarrega a página para atualizar a lista de pessoas
-                    },
-                    error: function () {
-                        alert('Ocorreu um erro ao tentar excluir esse banner.');
-                    }
-                });
-            });
+
+            // // Excluir            
+            // $('#modalApagar').on('show.bs.modal', function (event) {
+            //     var button = $(event.relatedTarget); // Botão que acionou o modal
+            //     var id = button.data('id'); // Extrai o id do atributo data-id do botão
+            //     var url = '@Url.Action("Excluir", "Banner")'; // URL da ação de exclusão
+            
+            //     // Adiciona o id à URL
+            //     var urlComId = url + '?bannerId=' + id;
+            
+            //     // Define o href do link com a URL que inclui o id
+            //     $('#confirmarExclusao').attr('href', urlComId);
+            // });
+
+
+            
+            // $('#confirmarExclusao').click(function () {
+            //     $.ajax({
+            //         url: '@Url.Action("Excluir", "Banner")',
+            //         type: 'POST',
+            //         data: { bannerId: bannerId },
+            //         success: function (result) {
+            //            // $('#excluirModal').modal('hide');
+            //            // location.reload(); // Recarrega a página para atualizar a lista de pessoas
+
+            //             if (result) {
+            //                 $('#excluirModal').modal('hide');
+                
+            //                 // Recarrega a página
+            //                 setTimeout(function() {
+            //                     location.reload();
+                    
+            //                     // Exibe o alerta após a página ser recarregada
+            //                     setTimeout(function() {
+            //                         Alert("Sucesso!", "O Banner foi excluído.", "success");
+            //                     }, 5000); // Aguarda 1 segundo após o recarregamento da página
+            //                 }, 100); // Aguarda 1 segundo antes de recarregar a página
+                            
+            //             }
+            //             else {
+            //                 Alert("Erro!", "Não foi possível excluir o banner, contate a equipe de suporte.", "danger");
+            //             }                        
+            //         },
+            //         error: function () {                        
+            //             Alert("Erro!", "Ocorreu um erro ao tentar excluir esse banner, contate a equipe de suporte.", "danger");
+            //         }
+            //     });
+            // });
         });
     </script>
 }
