@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.40" />
   </ItemGroup>
 
   <ItemGroup>

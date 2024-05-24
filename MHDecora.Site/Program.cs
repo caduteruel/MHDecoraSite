@@ -8,11 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Obtenha a string de conexão do arquivo de configuração diretamente
-var connectionString = builder.Configuration["ConnectionStrings:MHDConnection"];
-
-// Configuração do DbContext para PostgreSQL
-builder.Services.AddDbContext<SiteContext>(options => options.UseNpgsql(connectionString));
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("OracleConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//builder.Services.AddDbContext<AdminContext>(options =>
+//    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<SiteContext>(options =>
+            options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

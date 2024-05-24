@@ -4,59 +4,59 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MHDecora.Site.Infra.Repository
 {
-    public class BannerRepository : IBannerRepository
+    public class TemaRepository : ITemaRepository
     {
         private readonly SiteContext _context;
 
-        public BannerRepository(SiteContext context)
+        public TemaRepository(SiteContext context)
         {
             _context = context;
         }
 
-        public async Task Adicionar(Banner entity)
+        public async Task<List<Tema>> Buscar()
         {
-            _context.Banners.Add(entity);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Apagar(int id)
-        {
-            var entity = await _context.Banners.FindAsync(id);
-            _context.Banners.Remove(entity);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Atualizar(Banner entity)
-        {
-            _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task<Banner> BuscarPorId(int id)
-        {
-            return await _context.Banners.FindAsync(id);
-        }
-
-        public async Task<List<Banner>> BuscarTodos()
-        {
-            List<Banner> listaBanners =
+            List<Tema> listaTema =
             [
-                new Banner("/image/img1.jpg")
+                new Tema()
                 {
-                    Id = 1
+                    Id = 1,
+                    CaminhoImagem = "/image/img1.jpg",
+                    Texto = "Barbie"
                 },
-                new Banner("/image/img2.jpg")
+                new Tema()
                 {
-                    Id = 2
+                    Id = 2,
+                    CaminhoImagem = "/image/img2.jpg",
+                    Texto = "Patrulha Caninna"
                 },
-                new Banner("/image/img3.jpg")
+                new Tema()
                 {
-                    Id = 3
+                    Id = 3,
+                    CaminhoImagem = "/image/img3.jpg",
+                    Texto = "A Pequena Sereia"
+                },
+                new Tema()
+                {
+                    Id = 4,
+                    CaminhoImagem = "/image/img1.jpg",
+                    Texto = "Futebol"
+                },
+                new Tema()
+                {
+                    Id = 5,
+                    CaminhoImagem = "/image/img2.jpg",
+                    Texto = "Princesas"
+                },
+                new Tema()
+                {
+                    Id = 6,
+                    CaminhoImagem = "/image/img3.jpg",
+                    Texto = "A Pequena Sereia"
                 },
             ];
            // return await _context.Banners.ToListAsync();
 
-            return listaBanners;
+            return listaTema;
         }
     }
 }

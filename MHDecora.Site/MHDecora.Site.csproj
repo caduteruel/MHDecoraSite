@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MHDecora.Site.Application\MHDecora.Site.Application.csproj" />
   </ItemGroup>
 

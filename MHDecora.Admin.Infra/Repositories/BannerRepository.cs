@@ -2,6 +2,7 @@
 using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Oracle.ManagedDataAccess.Client;
 using System;
@@ -18,9 +19,12 @@ namespace MHDecora.Admin.Infra.Repositories
     public class BannerRepository : IBannerRepository
     {
         public readonly AdminContext _adminContext;
-        public BannerRepository(AdminContext adminContext)
+        private readonly IConfiguration _configuration;
+
+        public BannerRepository(AdminContext adminContext, IConfiguration configuration)
         {
             _adminContext = adminContext;
+            _configuration = configuration;
         }
 
         public async Task Criar(Banner banner, IFormFile imagem)
@@ -62,44 +66,23 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task <List<Banner>> GetBanners() 
         {
-
             var listaBanner = await _adminContext.MH_BANNERS.ToListAsync();
-
-            //var banners = new List<Banner>();
-            //var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
-            var imagePath = Path.Combine("../images/banner/");
 
             foreach(var img in listaBanner)
             {
-                img.CaminhoImagem = imagePath + img.CaminhoImagem;
+                img.CaminhoImagem = GetBannerPath() + img.CaminhoImagem;
             }
 
             return listaBanner;
-
-            //if (Directory.Exists(imagePath))
-            //{
-            //    var files = Directory.GetFiles(imagePath);
-            //    foreach (var file in files)
-            //    {
-            //        var banner = new Banner
-            //        {                       
-            //            Descricao = Path.GetFileNameWithoutExtension(file),
-            //            CaminhoImagem = Path.Combine("~/images/banner", Path.GetFileName(file))
-            //        };
-            //        banners.Add(banner);
-            //    }
-            //}
-
-            //return banners;
         }
 
         public async Task<Banner> GetById(int id)
         {
-            var imagem =  await _adminContext.MH_BANNERS.FirstOrDefaultAsync(x => x.Id == id);
-            var imagePath = Path.Combine("../images/banner/");
-            imagem.CaminhoImagem = imagePath + imagem.CaminhoImagem;
+            Banner imagem = await _adminContext.MH_BANNERS.FirstOrDefaultAsync(x => x.Id == id);
+            
+            imagem.CaminhoImagem = GetBannerPath() + imagem.CaminhoImagem;
+            
             return imagem;
-
         }
 
         public async Task<bool> Excluir(int bannerId)
@@ -108,9 +91,9 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 // Obtém o caminho completo da imagem do banner pelo ID
                 string imagePath = await _adminContext.MH_BANNERS
-                    .Where(b => b.Id == bannerId)
-                    .Select(b => b.CaminhoImagem)
-                    .FirstOrDefaultAsync();
+                                                                .Where(b => b.Id == bannerId)
+                                                                .Select(b => b.CaminhoImagem)
+                                                                .FirstOrDefaultAsync();
 
                 if (imagePath != null)
                 {
@@ -186,6 +169,11 @@ namespace MHDecora.Admin.Infra.Repositories
             await _adminContext.SaveChangesAsync();
 
             return true;
+        }
+
+        private string GetBannerPath()
+        {
+            return _configuration["ImagePath:Banner"];
         }
     }
 }

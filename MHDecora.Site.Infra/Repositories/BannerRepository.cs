@@ -1,62 +1,60 @@
 ﻿using MHDecora.Site.Domain.Entities;
 using MHDecora.Site.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace MHDecora.Site.Infra.Repository
 {
-    public class TemaRepository : ITemaRepository
+    public class BannerRepository : IBannerRepository
     {
         private readonly SiteContext _context;
+        private readonly IConfiguration _configuration;
 
-        public TemaRepository(SiteContext context)
+        public BannerRepository(SiteContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
-        public async Task<List<Tema>> Buscar()
+        public async Task Adicionar(Banner entity)
         {
-            List<Tema> listaTema =
-            [
-                new Tema()
-                {
-                    Id = 1,
-                    CaminhoImagem = "/image/img1.jpg",
-                    Texto = "Barbie"
-                },
-                new Tema()
-                {
-                    Id = 2,
-                    CaminhoImagem = "/image/img2.jpg",
-                    Texto = "Patrulha Caninna"
-                },
-                new Tema()
-                {
-                    Id = 3,
-                    CaminhoImagem = "/image/img3.jpg",
-                    Texto = "A Pequena Sereia"
-                },
-                new Tema()
-                {
-                    Id = 4,
-                    CaminhoImagem = "/image/img1.jpg",
-                    Texto = "Futebol"
-                },
-                new Tema()
-                {
-                    Id = 5,
-                    CaminhoImagem = "/image/img2.jpg",
-                    Texto = "Princesas"
-                },
-                new Tema()
-                {
-                    Id = 6,
-                    CaminhoImagem = "/image/img3.jpg",
-                    Texto = "A Pequena Sereia"
-                },
-            ];
-           // return await _context.Banners.ToListAsync();
+            _context.MH_BANNERS.Add(entity);
+            await _context.SaveChangesAsync();
+        }
 
-            return listaTema;
+        public async Task Apagar(int id)
+        {
+            var entity = await _context.MH_BANNERS.FindAsync(id);
+            _context.MH_BANNERS.Remove(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task Atualizar(Banner entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Banner> BuscarPorId(int id)
+        {
+            return await _context.MH_BANNERS.FindAsync(id);
+        }
+
+        public async Task<List<Banner>> BuscarTodos()
+        {
+            var listaBanner = await _context.MH_BANNERS.ToListAsync();
+
+            foreach (var img in listaBanner)
+            {
+                img.CaminhoImagem = GetBannerPath() + img.CaminhoImagem;
+            }
+
+            return listaBanner;
+        }
+
+        private string GetBannerPath()
+        {
+            return _configuration["ImagePath:Banner"];
         }
     }
 }
