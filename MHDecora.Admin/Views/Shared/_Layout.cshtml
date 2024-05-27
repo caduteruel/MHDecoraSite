@@ -90,6 +90,11 @@
     <!-- PLUGINS CSS DAS PÁGINAS COLOQUE AQUI -->
     <link href="~/plugins/prism/prism.css" rel="stylesheet" />
     <link href="~/plugins/DataTables/DataTables-1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="plugins/codemirror/codemirror.css" rel="stylesheet">
+    <link href="plugins/codemirror/addon/hint/show-hint.css" rel="stylesheet">
+
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     <!-- MONO CSS -->
     <link id="main-css-href" rel="stylesheet" href="~/css/style.css" />
@@ -106,6 +111,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="~/plugins/nprogress/nprogress.js"></script>
+
 </head>
 
 
@@ -151,7 +157,7 @@
             </a>
         </li>
         <li>
-            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "QuemSomos" ? "active" : "")" href="contacts.html">
+                            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "QuemSomos" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="QuemSomos" asp-action="Index">
                 <i class="mdi mdi-phone"></i>
                 <span class="nav-text">Quem Somos</span>
             </a>
@@ -206,7 +212,7 @@
             </a>
         </li>
         <li>
-                            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" ? "active" : "")" asp-controller="Banner" asp-action="Configuracao">
+            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" ? "active" : "")" asp-controller="Banner" asp-action="Configuracao">
                                 
                 <i class="mdi mdi-account-heart-outline"></i>
                 <span class="nav-text">Configurações</span>
@@ -442,13 +448,13 @@
 
 
     <script src="~/plugins/prism/prism.js"></script>
-
+    <script src="plugins/codemirror/codemirror.js"></script>
+    <script src="plugins/codemirror/mode/xml/xml.js"></script>
+    <script src="plugins/codemirror/mode/css/css.js"></script>
 
 
     <script src="~/plugins/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js"></script>
-
-
-
+    <script src="~/lib/quill.js"></script>
     <script src="~/plugins/apexcharts/apexcharts.js"></script>
 
     <script src="~/js/mono.js"></script>

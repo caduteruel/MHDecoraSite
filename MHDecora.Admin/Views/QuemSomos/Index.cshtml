@@ -18,7 +18,6 @@
 <div id="msgAlert"></div>
 
 <div class="row">
-
     <div class="col-xl-12">
         <!-- Basic Examples -->
         <div class="card card-default">
@@ -27,7 +26,7 @@
             </div>
             <div class="card-body">
 
-                @using (Html.BeginForm("QuemSomos", "Editar", FormMethod.Post, new { enctype = "multipart/form-data", id = "formEditar" }))
+                @using (Html.BeginForm("Salvar", "QuemSomos", FormMethod.Post, new { enctype = "multipart/form-data", id = "formSalvar" }))
                 {
                     <div class="row">
                         <div class="col-sm-4">
@@ -39,7 +38,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Selecione o Arquivo</label>
-                                <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
+                                <input type="file" name="imagem" class="form-control-file" id="fileInput" accept="image/*">
                             </div>
                         </div>
                     </div>
@@ -51,44 +50,39 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
+                    
+                   <input hidden="hidden" id="descricao" name="descricao" />
 
-                            <label for="fname">Descrição</label>
-                            <div id="standalone">
-                                <div id="toolbar">
-                                    <span class="ql-formats">
-                                        <select class="ql-font"></select>
-                                        <select class="ql-size"></select>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <button class="ql-bold"></button>
-                                        <button class="ql-italic"></button>
-                                        <button class="ql-underline"></button>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <select class="ql-color"></select>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <button class="ql-blockquote"></button>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <button class="ql-list" value="ordered"></button>
-                                        <button class="ql-list" value="bullet"></button>
-                                        <button class="ql-indent" value="-1"></button>
-                                        <button class="ql-indent" value="+1"></button>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <button class="ql-direction" value="rtl"></button>
-                                        <select class="ql-align"></select>
-                                    </span>
-                                </div>
-                            </div>
-                            <div id="editor"></div>
-                               
-                        </div>
-
+                    <label for="fname">Descrição</label>                           
+                    <div id="toolbar">
+                        <span class="ql-formats">
+                            <select class="ql-font"></select>
+                            <select class="ql-size"></select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <select class="ql-color"></select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-blockquote"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-list" value="ordered"></button>
+                            <button class="ql-list" value="bullet"></button>
+                            <button class="ql-indent" value="-1"></button>
+                            <button class="ql-indent" value="+1"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-direction" value="rtl"></button>
+                            <select class="ql-align"></select>
+                        </span>
                     </div>
+                    <div id="editor"></div>
+
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
                         <a href="@Url.Action("Index", "Banner")" class="btn btn-primary text-left">
                             <i class="mdi mdi-undo mr-1"></i> Voltar
@@ -99,35 +93,31 @@
                         </div>
                     </div>
                 }
-
             </div>
         </div>
-
-
     </div>
-
-
-
-
-
-
 </div>
 @section Scripts {
     <script>
-
+  
 
         $(document).ready(function () {
-            $('#formAdicionar').submit(function (e) {
+            $('#formSalvar').submit(function (e) {
                 e.preventDefault(); // Evita o envio padrão do formulário
 
-                var descricao = $("#descricao").val();
-                var ordem = $("#ordem").val();
+                // Seleciona a div com a classe ql-editor
+                var editor = document.querySelector('.ql-editor').innerHTML;
+
+                var descricao = $("#titulo").val();
                 var fileInput = $("#fileInput").val();
 
-                if (!descricao || ordem == "0" || !fileInput) {
+                if (!descricao || editor == "<p><br></p>" || !fileInput) {
                     Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }
+
+                // Obtém o texto digitado dentro do editor e atribui a variavel que está oculta
+                document.getElementById('descricao').value = editor;
 
                 // Se todos os campos estiverem preenchidos, envie o formulário
                 this.submit(); // Aqui corrigimos para enviar o formulário corretamente

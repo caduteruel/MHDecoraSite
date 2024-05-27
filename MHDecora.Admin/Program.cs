@@ -24,8 +24,14 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<AdminContext>();
 builder.Services.AddControllersWithViews();
 
+// Services
 builder.Services.AddScoped<IBannerService, BannerService>();
+builder.Services.AddScoped<IQuemSomosService, QuemSomosService>();
+
+// Repositories
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
+builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
+
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 
 var app = builder.Build();

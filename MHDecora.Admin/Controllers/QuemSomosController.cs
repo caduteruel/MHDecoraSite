@@ -1,6 +1,8 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.FlowAnalysis;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MHDecora.Admin.Controllers
 {
@@ -11,11 +13,6 @@ namespace MHDecora.Admin.Controllers
         public QuemSomosController(IQuemSomosService quemSomosService)
         {
             _quemSomosService = quemSomosService;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
 
         [HttpPost]
