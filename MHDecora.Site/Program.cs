@@ -1,10 +1,13 @@
 using MHDecora.Site.Application;
 using MHDecora.Site.Application.Interfaces;
+using MHDecora.Site.Domain.Entities;
 using MHDecora.Site.Domain.Interfaces;
 using MHDecora.Site.Infra;
 using MHDecora.Site.Infra.Repositories;
 using MHDecora.Site.Infra.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +34,17 @@ builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
 builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 
+
+var adminRootPath = Path.Combine(builder.Environment.ContentRootPath, "..", "MHDecora.Admin", "wwwroot", "images");
+
+builder.Services.AddSingleton(new PathOptions { AdminRootPath = adminRootPath });
+
+
 var app = builder.Build();
+
+
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -40,6 +53,15 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(adminRootPath),
+    RequestPath = "/images"
+});
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -53,3 +75,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
