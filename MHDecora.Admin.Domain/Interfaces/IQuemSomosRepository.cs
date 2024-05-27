@@ -11,6 +11,6 @@ namespace MHDecora.Admin.Domain.Interfaces
     public interface IQuemSomosRepository
     {
         Task Salvar(QuemSomos dados, IFormFile imagem);
-        Task<QuemSomos> GetDadosById(int id);
+        Task<QuemSomos> GetDados();
     }
 }

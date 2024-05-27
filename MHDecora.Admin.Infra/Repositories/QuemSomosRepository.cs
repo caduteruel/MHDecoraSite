@@ -22,9 +22,9 @@ namespace MHDecora.Admin.Infra.Repositories
             _configuration = configuration;
         }
 
-        public async Task<QuemSomos> GetDadosById(int id)
+        public async Task<QuemSomos> GetDados()
         {
-            return await _adminContext.MH_QUEMSOMOS.FindAsync(id);
+            return await _adminContext.MH_QUEMSOMOS.FirstAsync();
         }
 
         public async Task Salvar(QuemSomos dados, IFormFile imagem)

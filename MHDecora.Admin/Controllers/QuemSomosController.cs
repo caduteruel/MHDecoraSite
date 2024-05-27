@@ -15,29 +15,34 @@ namespace MHDecora.Admin.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         [HttpGet]
-        public async Task<IActionResult> GetDadosById(int id)
+        public async Task<IActionResult> Index()
         {
-            var dados = await _quemSomosService.GetDadosById(id);
-            if (dados == null)
+            var dados = await _quemSomosService.GetDados();
+
+            if (dados != null)
             {
+                var imageUrl = Url.Content($"~/images/quemsomos/{dados.CaminhoImagem}");
+
+                var result = new
+                {
+                    Dados = dados,
+                    ImageUrl = imageUrl
+                };
+
+                return Ok(result);
+            }
+            else
+            {
+                Alert("Erro!", "Não foi possível carregar os dados, contate a equipe de suporte.", "danger");
                 return NotFound();
             }
-
-            var imageUrl = Url.Content($"~/images/quemsomos/{dados.CaminhoImagem}");
-
-            var result = new
-            {
-                Dados = dados,
-                ImageUrl = imageUrl
-            };
-
-            return Ok(result);
+          
         }
 
         [HttpPost]
