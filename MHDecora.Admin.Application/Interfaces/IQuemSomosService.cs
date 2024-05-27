@@ -12,6 +12,6 @@ namespace MHDecora.Admin.Application.Interfaces
     public interface IQuemSomosService
     {
         Task Salvar(QuemSomos dados, IFormFile imagem);
-        Task<bool> Editar(QuemSomos dados, IFormFile imagem);
+        Task<QuemSomos> GetDadosById(int id);
     }
 }

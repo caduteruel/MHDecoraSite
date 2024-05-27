@@ -20,9 +20,9 @@ namespace MHDecora.Admin.Application.Services
             _quemSomosRepository = quemSomosRepository;
         }
 
-        public async Task<bool> Editar(QuemSomos dados, IFormFile imagem)
+        public async Task<QuemSomos> GetDadosById(int id)
         {
-            return await _quemSomosRepository.Editar(dados, imagem);
+            return await _quemSomosRepository.GetDadosById(id);
         }
 
         public async Task Salvar(QuemSomos dados, IFormFile imagem)

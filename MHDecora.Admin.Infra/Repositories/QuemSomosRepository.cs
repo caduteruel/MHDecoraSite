@@ -1,6 +1,7 @@
 ﻿using MHDecora.Admin.Domain.Entities;
 using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -21,43 +22,9 @@ namespace MHDecora.Admin.Infra.Repositories
             _configuration = configuration;
         }
 
-        public async Task<bool> Editar(QuemSomos dados, IFormFile imagem)
+        public async Task<QuemSomos> GetDadosById(int id)
         {
-            var imagemExistente = await _adminContext.MH_QUEMSOMOS.FindAsync(dados.Id);
-
-
-            if (imagemExistente == null)
-            {
-                return false;
-            }
-
-            dados.CaminhoImagem = imagemExistente.CaminhoImagem;
-
-            if (imagem != null)
-            {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "quemsomos");
-                var nomeArquivoAntigo = imagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
-                File.Delete(caminhoCompletoAntigo);
-
-
-                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
-
-                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
-                {
-                    imagem.CopyTo(fileStream);
-                }
-
-                dados.CaminhoImagem = nomeArquivoNovo;
-
-            }
-
-            _adminContext.Entry(imagemExistente).CurrentValues.SetValues(dados);
-
-            await _adminContext.SaveChangesAsync();
-
-            return true;
+            return await _adminContext.MH_QUEMSOMOS.FindAsync(id);
         }
 
         public async Task Salvar(QuemSomos dados, IFormFile imagem)

@@ -7,10 +7,12 @@ namespace MHDecora.Admin.Controllers
     public class QuemSomosController : Controller
     {
         private readonly IQuemSomosService _quemSomosService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public QuemSomosController(IQuemSomosService quemSomosService)
+        public QuemSomosController(IQuemSomosService quemSomosService, IWebHostEnvironment webHostEnvironment)
         {
             _quemSomosService = quemSomosService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -18,21 +20,24 @@ namespace MHDecora.Admin.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Editar(IFormFile imagem, QuemSomos dados)
+        [HttpGet]
+        public async Task<IActionResult> GetDadosById(int id)
         {
-            var result = await _quemSomosService.Editar(dados, imagem);
-
-            if (result)
+            var dados = await _quemSomosService.GetDadosById(id);
+            if (dados == null)
             {
-                Alert("Sucesso!", "A Seção Quem Somos foi editada.", "success");
-            }
-            else
-            {
-                Alert("Erro!", "Não foi possível editar a seção, contate a equipe de suporte.", "danger");
+                return NotFound();
             }
 
-            return RedirectToAction("Index");
+            var imageUrl = Url.Content($"~/images/quemsomos/{dados.CaminhoImagem}");
+
+            var result = new
+            {
+                Dados = dados,
+                ImageUrl = imageUrl
+            };
+
+            return Ok(result);
         }
 
         [HttpPost]
