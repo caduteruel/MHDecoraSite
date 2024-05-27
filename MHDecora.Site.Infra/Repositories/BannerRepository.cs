@@ -2,18 +2,24 @@
 using MHDecora.Site.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MHDecora.Site.Infra.Repository
 {
     public class BannerRepository : IBannerRepository
     {
+        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly PathOptions _adminRootPath;
         private readonly SiteContext _context;
         private readonly IConfiguration _configuration;
 
-        public BannerRepository(SiteContext context, IConfiguration configuration)
+
+        public BannerRepository(SiteContext context, IConfiguration configuration, PathOptions adminRootPath, IHostingEnvironment hostingEnvironment)
         {
+            _hostingEnvironment = hostingEnvironment;
             _context = context;
             _configuration = configuration;
+            _adminRootPath = adminRootPath;
         }
 
         public async Task Adicionar(Banner entity)
@@ -54,7 +60,11 @@ namespace MHDecora.Site.Infra.Repository
 
         private string GetBannerPath()
         {
-            return _configuration["ImagePath:Banner"];
+            string caminho = Path.Combine("..", "MhDecora.Admin", "wwwroot", "images/banner/");
+
+            string filePath = Path.Combine(_adminRootPath.ToString(), "banner");
+            return caminho;
+            //return _configuration["ImagePath:Banner"];
         }
     }
 }

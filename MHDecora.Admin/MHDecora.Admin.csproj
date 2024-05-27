@@ -37,4 +37,8 @@
     <ProjectReference Include="..\MHDecora.Admin.Infra\MHDecora.Admin.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\quemsomos\" />
+  </ItemGroup>
+
 </Project>
