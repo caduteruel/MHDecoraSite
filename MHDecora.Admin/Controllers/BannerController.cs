@@ -97,6 +97,12 @@ namespace MHDecora.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Configurar()
+        {
+            return View();
+        }
+
         private void Alert(string titulo, string mensagem, string alerta)
         {
             TempData["Titulo"] = titulo;
