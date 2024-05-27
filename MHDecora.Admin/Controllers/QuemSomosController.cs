@@ -19,6 +19,23 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Editar(IFormFile imagem, QuemSomos dados)
+        {
+            var result = await _quemSomosService.Editar(dados, imagem);
+
+            if (result)
+            {
+                Alert("Sucesso!", "A Seção Quem Somos foi editada.", "success");
+            }
+            else
+            {
+                Alert("Erro!", "Não foi possível editar a seção, contate a equipe de suporte.", "danger");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Salvar(QuemSomos dados, IFormFile imagem)
         {
             await _quemSomosService.Salvar(dados, imagem);

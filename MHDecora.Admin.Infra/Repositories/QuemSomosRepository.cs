@@ -20,6 +20,46 @@ namespace MHDecora.Admin.Infra.Repositories
             _adminContext = adminContext;
             _configuration = configuration;
         }
+
+        public async Task<bool> Editar(QuemSomos dados, IFormFile imagem)
+        {
+            var imagemExistente = await _adminContext.MH_QUEMSOMOS.FindAsync(dados.Id);
+
+
+            if (imagemExistente == null)
+            {
+                return false;
+            }
+
+            dados.CaminhoImagem = imagemExistente.CaminhoImagem;
+
+            if (imagem != null)
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "quemsomos");
+                var nomeArquivoAntigo = imagemExistente.CaminhoImagem;
+                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                File.Delete(caminhoCompletoAntigo);
+
+
+                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + imagem.FileName;
+                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+
+                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                {
+                    imagem.CopyTo(fileStream);
+                }
+
+                dados.CaminhoImagem = nomeArquivoNovo;
+
+            }
+
+            _adminContext.Entry(imagemExistente).CurrentValues.SetValues(dados);
+
+            await _adminContext.SaveChangesAsync();
+
+            return true;
+        }
+
         public async Task Salvar(QuemSomos dados, IFormFile imagem)
         {
             try
