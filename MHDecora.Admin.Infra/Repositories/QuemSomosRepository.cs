@@ -1,6 +1,7 @@
 ﻿using MHDecora.Admin.Domain.Entities;
 using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,12 @@ namespace MHDecora.Admin.Infra.Repositories
             _adminContext = adminContext;
             _configuration = configuration;
         }
+
+        public async Task<QuemSomos> GetDados()
+        {
+            return await _adminContext.MH_QUEMSOMOS.FirstAsync();
+        }
+
         public async Task Salvar(QuemSomos dados, IFormFile imagem)
         {
             try

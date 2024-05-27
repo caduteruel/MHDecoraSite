@@ -9,10 +9,42 @@ namespace MHDecora.Admin.Controllers
     public class QuemSomosController : Controller
     {
         private readonly IQuemSomosService _quemSomosService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public QuemSomosController(IQuemSomosService quemSomosService)
+        public QuemSomosController(IQuemSomosService quemSomosService, IWebHostEnvironment webHostEnvironment)
         {
             _quemSomosService = quemSomosService;
+            _webHostEnvironment = webHostEnvironment;
+        }
+
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var dados = await _quemSomosService.GetDados();
+
+            if (dados != null)
+            {
+                var imageUrl = Url.Content($"~/images/quemsomos/{dados.CaminhoImagem}");
+
+                var result = new
+                {
+                    Dados = dados,
+                    ImageUrl = imageUrl
+                };
+
+                return Ok(result);
+            }
+            else
+            {
+                Alert("Erro!", "Não foi possível carregar os dados, contate a equipe de suporte.", "danger");
+                return NotFound();
+            }
+          
         }
 
         [HttpPost]
