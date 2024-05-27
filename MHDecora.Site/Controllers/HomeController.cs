@@ -36,7 +36,10 @@ namespace MHDeroca.Site.Controllers
             
             //Temas
             List<Tema> tema = await _temaService.Buscar();
-            
+
+            //GaleriaDestaques
+            List<Tema> tema = await _temaService.Buscar();
+
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();
             siteViewModel.Banners = banner;

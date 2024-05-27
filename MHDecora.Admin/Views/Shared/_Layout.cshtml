@@ -205,6 +205,13 @@
                 <span class="nav-text">Rodapé</span>
             </a>
         </li>
+        <li>
+                            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" ? "active" : "")" asp-controller="Banner" asp-action="Configuracao">
+                                
+                <i class="mdi mdi-account-heart-outline"></i>
+                <span class="nav-text">Configurações</span>
+            </a>
+        </li>
 
     </ul>              
 </div>
