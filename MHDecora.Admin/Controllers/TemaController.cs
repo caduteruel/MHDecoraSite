@@ -1,12 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MHDecora.Admin.Application.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MHDecora.Admin.Controllers
 {
     public class TemaController : Controller
     {
+        private readonly ITemaService _temaService;
+
+        public TemaController(ITemaService temaService)
+        {
+            _temaService = temaService;
+        }
+
         public async Task<IActionResult> Index()
         {
-            var response = await _montagemService.Buscar();
+            var response = await _temaService.Buscar();
 
             if (response == null)
             {
@@ -16,6 +24,13 @@ namespace MHDecora.Admin.Controllers
             }
 
             return View(response);
+        }
+
+        private void Alert(string titulo, string mensagem, string alerta)
+        {
+            TempData["Titulo"] = titulo;
+            TempData["Mensagem"] = mensagem;
+            TempData["TipoAlerta"] = alerta;
         }
     }
 }

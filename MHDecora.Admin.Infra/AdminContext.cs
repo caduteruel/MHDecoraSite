@@ -19,6 +19,7 @@ namespace MHDecora.Admin.Infra
         public DbSet<Banner> MH_BANNERS { get; set; }
         public DbSet<QuemSomos> MH_QUEMSOMOS { get; set; }
         public DbSet<Montagem> MH_MONTAGEM { get; set; }
+        public DbSet<Tema> MH_TEMA { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,6 +40,10 @@ namespace MHDecora.Admin.Infra
 
             modelBuilder.Entity<QuemSomos>()
                 .ToTable("MH_MONTAGEM", "DECORAPHP")
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<QuemSomos>()
+                .ToTable("MH_TEMA", "DECORAPHP")
                 .HasKey(x => x.Id);
         }
     }

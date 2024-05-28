@@ -107,7 +107,7 @@
         </li>
 
         <li>
-            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Temas" ? "active" : "")" href="calendar.html">
+                            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Temas" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Tema" asp-action="Index">
                 <i class="mdi mdi-calendar-check"></i>
                 <span class="nav-text">Temas</span>
             </a>
