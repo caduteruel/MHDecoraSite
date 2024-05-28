@@ -1,7 +1,7 @@
 ﻿@model MHDecora.Admin.Domain.Entities.QuemSomos
 
 @{
-    ViewBag.Title = "Adicionar Banner";
+    ViewBag.Title = "Adicionar Seção Quem Somos";
     string titulo = TempData["Titulo"] as string;
     string mensagem = TempData["Mensagem"] as string;
     string tipoAlerta = TempData["TipoAlerta"] as string;
@@ -32,7 +32,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="fname">Link</label>
-                                <input name="titulo" class="form-control" placeholder="Título" id="titulo">
+                                <input name="titulo" class="form-control" placeholder="Título" id="titulo" value="@Model.Titulo">
                             </div>
                         </div>                        
                         <div class="col-sm-4">
@@ -45,8 +45,15 @@
                     <div class="row">
                         <div class="col-sm-4 mb-2">
                             <div class="form-group">
-                                <label id="labelImage" for="fname" style="display:none">Imagem</label>
-                                <img id="previewImage" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                                <label id="labelImage" for="fname" style="display:none">Imagem</label>                               
+                                @if (@Model.CaminhoImagem == null)
+                                {
+                                    <img id="previewImage" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                                }
+                                else
+                                {
+                                    <img id="previewImage" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                                }
                             </div>
                         </div>
                     </div>
@@ -84,7 +91,7 @@
                     <div id="editor"></div>
 
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
-                        <a href="@Url.Action("Index", "Banner")" class="btn btn-primary text-left">
+                        <a href="@Url.Action("Index", "QuemSomos")" class="btn btn-primary text-left">
                             <i class="mdi mdi-undo mr-1"></i> Voltar
                         </a>
                         <div>
@@ -102,6 +109,16 @@
   
 
         $(document).ready(function () {
+
+            var descr = '@Html.Raw(Model.Descricao)';
+
+            
+            if (descr != null) {
+
+                document.querySelector('.ql-editor').innerHTML = descr;
+            }
+           
+
             $('#formSalvar').submit(function (e) {
                 e.preventDefault(); // Evita o envio padrão do formulário
 
