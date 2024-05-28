@@ -37,7 +37,7 @@ namespace MHDecora.Admin.Infra
                 .ToTable("MH_QUEMSOMOS", "DECORAPHP")
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<QuemSomos>()
+            modelBuilder.Entity<Montagem>()
                 .ToTable("MH_MONTAGEM", "DECORAPHP")
                 .HasKey(x => x.Id);
         }

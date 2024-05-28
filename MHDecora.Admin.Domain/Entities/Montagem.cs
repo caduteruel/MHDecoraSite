@@ -1,7 +1,10 @@
-﻿namespace MHDecora.Admin.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MHDecora.Admin.Domain.Entities
 {
     public class Montagem
     {
+        [Key]
         public int Id { get; set; }
         public string CaminhoImagem { get; set; }
         public string TextoImagem { get; set; }

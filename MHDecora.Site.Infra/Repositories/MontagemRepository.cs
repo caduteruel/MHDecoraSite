@@ -59,7 +59,7 @@ namespace MHDecora.Site.Infra.Repositories
 
             //listaMontagens.Add(montagem);
 
-            listaMontagens = await _context.MH_MONTAGEM.ToListAsync();
+            //listaMontagens = await _context.MH_MONTAGEM.ToListAsync();
 
             foreach (var item in listaMontagens)
             {

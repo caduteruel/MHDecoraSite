@@ -38,7 +38,7 @@ namespace MHDeroca.Site.Controllers
             List<Tema> tema = await _temaService.Buscar();
 
             //GaleriaDestaques
-            List<Tema> tema = await _temaService.Buscar();
+            //List<Tema> tema = await _temaService.Buscar();
 
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();
