@@ -29,23 +29,23 @@ namespace MHDecora.Admin.Infra.Migrations
             //        table.PrimaryKey("PK_MH_BANNERS", x => x.Id);
             //    });
 
-            migrationBuilder.CreateTable(
-                name: "MH_MONTAGEM",
-                schema: "DECORAPHP",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    CaminhoImagem = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    TextoImagem = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    Texto = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    Titulo = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
-                    LinkBotao = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MH_MONTAGEM", x => x.Id);
-                });
+            //migrationBuilder.CreateTable(
+            //    name: "MH_MONTAGEM",
+            //    schema: "DECORAPHP",
+            //    columns: table => new
+            //    {
+            //        Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
+            //            .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+            //        CaminhoImagem = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+            //        TextoImagem = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+            //        Texto = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+            //        Titulo = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
+            //        LinkBotao = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false)
+            //    },
+            //    constraints: table =>
+            //    {
+            //        table.PrimaryKey("PK_MH_MONTAGEM", x => x.Id);
+            //    });
 
             //migrationBuilder.CreateTable(
             //    name: "MH_QUEMSOMOS",
@@ -71,9 +71,9 @@ namespace MHDecora.Admin.Infra.Migrations
             //    name: "MH_BANNERS",
             //    schema: "DECORAPHP");
 
-            migrationBuilder.DropTable(
-                name: "MH_MONTAGEM",
-                schema: "DECORAPHP");
+            //migrationBuilder.DropTable(
+            //    name: "MH_MONTAGEM",
+            //    schema: "DECORAPHP");
 
             //migrationBuilder.DropTable(
             //    name: "MH_QUEMSOMOS",
