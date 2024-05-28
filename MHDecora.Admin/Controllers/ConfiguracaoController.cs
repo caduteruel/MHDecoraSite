@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MHDecora.Admin.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MHDecora.Admin.Controllers
 {
@@ -11,9 +12,23 @@ namespace MHDecora.Admin.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Configurar()
+        public async Task<IActionResult> Categoria()
         {
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Tag()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SalvarCategoria(Categoria categoria)
+        {
+
+            return View();
+        }
+
     }
 }

@@ -30,7 +30,7 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Adicionar(Tema tema, IFormFile arquivo)
         {
-            await _temaService.Criar(tema, arquivo);
+            //await _temaService.Criar(tema, arquivo);
 
             Alert("Sucesso!", "O Tema foi cadastrado.", "success");
 

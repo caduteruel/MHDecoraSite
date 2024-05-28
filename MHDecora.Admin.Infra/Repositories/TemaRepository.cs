@@ -1,6 +1,5 @@
 ﻿using MHDecora.Admin.Domain.Entities;
 using MHDecora.Admin.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace MHDecora.Admin.Infra.Repository
