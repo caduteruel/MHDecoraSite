@@ -24,7 +24,9 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<QuemSomos> GetDados()
         {
-            var quemSomos =  await _adminContext.MH_QUEMSOMOS.FirstAsync();
+            var quemSomos = await _adminContext.MH_QUEMSOMOS
+                                    .OrderByDescending(x => x.Id)
+                                    .FirstOrDefaultAsync();
 
             quemSomos.CaminhoImagem = GetQuemsomosPath() + quemSomos.CaminhoImagem;
 
