@@ -29,13 +29,13 @@ namespace MHDecora.Admin.Infra.Repository
                 new Tema()
                 {
                     Id = 2,
-                    CaminhoImagem = "/image/img2.jpg",
+                    CaminhoImagem = "/image/img1.jpg",
                     Texto = "Patrulha Caninna"
                 },
                 new Tema()
                 {
                     Id = 3,
-                    CaminhoImagem = "/image/img3.jpg",
+                    CaminhoImagem = "/image/img1.jpg",
                     Texto = "A Pequena Sereia"
                 },
                 new Tema()
@@ -47,13 +47,13 @@ namespace MHDecora.Admin.Infra.Repository
                 new Tema()
                 {
                     Id = 5,
-                    CaminhoImagem = "/image/img2.jpg",
+                    CaminhoImagem = "/image/img1.jpg",
                     Texto = "Princesas"
                 },
                 new Tema()
                 {
                     Id = 6,
-                    CaminhoImagem = "/image/img3.jpg",
+                    CaminhoImagem = "/image/img1.jpg",
                     Texto = "A Pequena Sereia"
                 },
             ];

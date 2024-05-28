@@ -5,6 +5,7 @@ using MHDecora.Admin.Data;
 using MHDecora.Admin.Domain.Interfaces;
 using MHDecora.Admin.Infra;
 using MHDecora.Admin.Infra.Repositories;
+using MHDecora.Admin.Infra.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,12 +30,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IBannerService, BannerService>();
 builder.Services.AddScoped<IQuemSomosService, QuemSomosService>();
 builder.Services.AddScoped<IMontagemService, MonstagemService>();
+builder.Services.AddScoped<ITemaService, TemaService>();
 
 // Repositories
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
 builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
 builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
-
+builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 
