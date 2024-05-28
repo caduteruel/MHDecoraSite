@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MHDecora.Admin.Domain.Entities
-{
+{    
     public class QuemSomos
     {
         [Key]

@@ -4,18 +4,18 @@ using MHDecora.Site.Domain.Interfaces;
 
 namespace MHDecora.Site.Application
 {
-    public class MontagemService : IMontagemService
+    public class QuemSomosService : IQuemSomosService
     {
-        private readonly IMontagemRepository _montagemRepository;
+        private readonly IQuemSomosRepository _quemSomosRepository;
 
-        public MontagemService(IMontagemRepository montagemRepository)
+        public QuemSomosService(IQuemSomosRepository quemSomosRepository)
         {
-            _montagemRepository = montagemRepository;
+            _quemSomosRepository = quemSomosRepository;
         }
 
-        public async Task<List<Montagem>> Buscar()
+        public async Task<QuemSomos> Buscar()
         {
-            return await _montagemRepository.Buscar();
+            return await _quemSomosRepository.Buscar();
         }
     }
 }

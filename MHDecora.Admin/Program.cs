@@ -1,3 +1,4 @@
+using MHDecora.Admin.Application;
 using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Data;
@@ -27,10 +28,13 @@ builder.Services.AddControllersWithViews();
 // Services
 builder.Services.AddScoped<IBannerService, BannerService>();
 builder.Services.AddScoped<IQuemSomosService, QuemSomosService>();
+builder.Services.AddScoped<IMontagemService, MonstagemService>();
 
 // Repositories
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
 builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
+builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
+
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 

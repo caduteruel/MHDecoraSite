@@ -20,7 +20,7 @@ namespace MHDecora.Site.Infra.Repository
         {
             var contato = await _context.MH_CONTATO.ToListAsync();
 
-            return contato;
+            return null;
         }
 
         private string GetContatoPath()

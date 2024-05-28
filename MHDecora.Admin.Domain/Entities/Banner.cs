@@ -7,8 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MHDecora.Admin.Domain.Entities
-{
-    [Table("MHBanners", Schema = "DECORAPHP")]
+{    
     public class Banner
     {
         [Key]
