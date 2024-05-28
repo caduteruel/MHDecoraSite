@@ -65,14 +65,6 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetBannerById(int bannerId)
-        {
-            await _bannerService.GetBannerById(bannerId);
-
-            return Ok();
-        }
-
-        [HttpGet]
         public async Task<IActionResult> Editar(int bannerId)
         {
             var banner = await _bannerService.GetBannerById(bannerId);

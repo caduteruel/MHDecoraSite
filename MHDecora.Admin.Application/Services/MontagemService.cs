@@ -29,5 +29,9 @@ namespace MHDecora.Admin.Application
             return await _montagemRepository.Excluir(montagemId);
         }
 
+        public async Task<Montagem> GetById(int montagemId)
+        {
+            return await _montagemRepository.GetById(montagemId);
+        }
     }
 }

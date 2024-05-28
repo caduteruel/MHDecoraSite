@@ -3,6 +3,7 @@ using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Linq.Expressions;
 
 namespace MHDecora.Admin.Infra.Repositories
 {
@@ -44,6 +45,24 @@ namespace MHDecora.Admin.Infra.Repositories
             lista.Add(item1);
 
             return lista;
+        }
+
+        public async Task<Montagem> GetById(int montagemId)
+        {
+            try
+            {
+                var response = await _adminContext.MH_MONTAGEM.FindAsync(montagemId);
+
+                return response;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                await _adminContext.DisposeAsync();
+            }
         }
 
         public async Task<bool> Excluir(int montagemId)
@@ -124,8 +143,6 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 await _adminContext.DisposeAsync();
             }
-
-            return false;
         }
 
         //public async Task Criar(Banner banner, IFormFile imagem)

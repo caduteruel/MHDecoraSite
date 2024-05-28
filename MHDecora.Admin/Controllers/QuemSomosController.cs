@@ -27,7 +27,7 @@ namespace MHDecora.Admin.Controllers
                 return NotFound();
             }
 
-            return Ok(response);
+            return View(response);
         }
 
         [HttpPost]
