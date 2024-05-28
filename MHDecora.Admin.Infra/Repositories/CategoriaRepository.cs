@@ -17,12 +17,15 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             _adminContext = adminContext;
         }
-        public async Task Criar(Categoria categoria)
+        public async Task<bool> Criar(Categoria categoria)
         {
             try
             {
                 _adminContext.MH_CATEGORIAS.Add(categoria);
+                
                 await _adminContext.SaveChangesAsync();
+
+                return true;
             }
             catch(Exception ex)
             {
@@ -36,7 +39,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<bool> Editar(Categoria categoria)
         {
-            var categoriaExistente = await _adminContext.MH_BANNERS.FindAsync(categoria.Id);
+            var categoriaExistente = await _adminContext.MH_CATEGORIAS.FindAsync(categoria.Id);
 
             if (categoriaExistente == null)
             {

@@ -11,7 +11,7 @@ namespace MHDecora.Admin.Application.Interfaces
     {
         Task<Categoria> GetCategoriaById(int id);
         Task<List<Categoria>> GetCategorias();
-        Task Criar(Categoria categoria);
+        Task<bool> Criar(Categoria categoria);
         Task<bool> Editar(Categoria categoria);
         Task<bool> Excluir(int id);
     }

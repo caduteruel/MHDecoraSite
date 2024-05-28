@@ -31,12 +31,14 @@ builder.Services.AddScoped<IBannerService, BannerService>();
 builder.Services.AddScoped<IQuemSomosService, QuemSomosService>();
 builder.Services.AddScoped<IMontagemService, MonstagemService>();
 builder.Services.AddScoped<ITemaService, TemaService>();
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 
 // Repositories
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
 builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
 builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 

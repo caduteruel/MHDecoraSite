@@ -19,9 +19,9 @@ namespace MHDecora.Admin.Application.Services
             _categoriaRepository = categoriaRepository;
         }
 
-        public async Task Criar(Categoria categoria)
+        public async Task<bool> Criar(Categoria categoria)
         {
-            await _categoriaRepository.Criar(categoria);
+            return await _categoriaRepository.Criar(categoria);
         }
 
         public async Task<bool> Editar(Categoria categoria)
