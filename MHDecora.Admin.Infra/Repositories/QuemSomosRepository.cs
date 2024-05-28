@@ -24,11 +24,13 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<QuemSomos> GetDados()
         {
-            var quemSomos =  await _adminContext.MH_QUEMSOMOS.ToListAsync();
+            var quemSomos = await _adminContext.MH_QUEMSOMOS
+                                    .OrderByDescending(x => x.Id)
+                                    .FirstOrDefaultAsync();
 
-            quemSomos.FirstOrDefault().CaminhoImagem = GetQuemsomosPath() + quemSomos.FirstOrDefault().CaminhoImagem;
+            quemSomos.CaminhoImagem = GetQuemsomosPath() + quemSomos.CaminhoImagem;
 
-            return quemSomos.FirstOrDefault();
+            return quemSomos;
         }
 
         public async Task Salvar(QuemSomos dados, IFormFile imagem)
