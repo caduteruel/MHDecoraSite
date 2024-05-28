@@ -20,31 +20,31 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<List<Montagem>> Buscar()
         {
-            //var listaMontagem = await _adminContext.MH_MONTAGEM.ToListAsync();
+            var listaMontagem = await _adminContext.MH_MONTAGEM.ToListAsync();
 
-            //foreach (var img in listaMontagem)
-            //{
-            //    img.CaminhoImagem = GetMontagemPath() + img.CaminhoImagem;
-            //}
+            foreach (var img in listaMontagem)
+            {
+                img.CaminhoImagem = GetMontagemPath() + img.CaminhoImagem;
+            }
 
 
-            List<Montagem> lista = new List<Montagem>();
+            //List<Montagem> lista = new List<Montagem>();
 
-            var item1 = new Montagem() { 
-                Id = 1,
-                CaminhoImagem = "../images/montagens/quemsomos83dc2d91-b908-4338-ab7d-495a12c62734_1703857389655.jfif",
-                LinkBotao = "/teste.html",
-                Texto = "Testo safsdf asdf asdf sadff.",
-                TextoImagem = "Imagem",
-                Titulo = "Título das montagens"
-            };
+            //var item1 = new Montagem() { 
+            //    Id = 1,
+            //    CaminhoImagem = "../images/montagens/quemsomos83dc2d91-b908-4338-ab7d-495a12c62734_1703857389655.jfif",
+            //    LinkBotao = "/teste.html",
+            //    Texto = "Testo safsdf asdf asdf sadff.",
+            //    TextoImagem = "Imagem",
+            //    Titulo = "Título das montagens"
+            //};
 
-            lista.Add(item1);
-            lista.Add(item1);
-            lista.Add(item1);
-            lista.Add(item1);
+            //lista.Add(item1);
+            //lista.Add(item1);
+            //lista.Add(item1);
+            //lista.Add(item1);
 
-            return lista;
+            return listaMontagem;
         }
 
         public async Task<Montagem> GetById(int montagemId)
@@ -87,7 +87,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     await _adminContext.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine("wwwroot", "images\\banner", fileName);
+                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
 
                     if (File.Exists(imagePathToDelete))
                     {
@@ -119,7 +119,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (arquivo != null && arquivo.Length > 0)
                 {
                     string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/quemsomos");
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))

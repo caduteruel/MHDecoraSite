@@ -45,6 +45,39 @@ namespace MHDecora.Admin.Infra.Migrations
                     b.ToTable("MH_BANNERS", "DECORAPHP");
                 });
 
+            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.Montagem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("NUMBER(10)");
+
+                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CaminhoImagem")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("LinkBotao")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Texto")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("TextoImagem")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MH_MONTAGEM", "DECORAPHP");
+                });
+
             modelBuilder.Entity("MHDecora.Admin.Domain.Entities.QuemSomos", b =>
                 {
                     b.Property<int>("Id")
@@ -57,7 +90,7 @@ namespace MHDecora.Admin.Infra.Migrations
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("Texto")
+                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
