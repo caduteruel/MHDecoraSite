@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace MHDecora.Admin.Domain.Entities
-{    
+{
     public class Contato
     {
         [Key]
         public int Id { get; set; }
-        public string Descricao { get; set; }
-        public string CaminhoImagem { get; set; }
-        public int Ordem { get; set; }
+        public string Telefone { get; set; }
+        public string Celular { get; set; }
+        public string HorarioAtendimento { get; set; }
+        public string Endereco { get; set; }
+
     }
 }
