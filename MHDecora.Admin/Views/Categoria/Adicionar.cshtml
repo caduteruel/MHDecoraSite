@@ -18,6 +18,12 @@
                                 <input name="nome" id="nome" class="form-control" placeholder="Digite o nome da categoria">
                             </div>
                         </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">Descrição</label>
+                                <input name="descricao" id="descricao" class="form-control" placeholder="Descrição">
+                            </div>
+                        </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
                         <a href="@Url.Action("Index", "Categoria")" class="btn btn-primary text-left">
@@ -40,6 +46,7 @@
     <script>
         function cancelar() {
             $("#nome").val("");
+            $('#descricao').val("");
         }
     </script>
 }

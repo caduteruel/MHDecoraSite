@@ -62,7 +62,7 @@ namespace MHDecora.Admin.Controllers
                 Alert("Erro!", "Não foi possível criar esta categoria, contate a equipe de suporte.", "danger");
             }
 
-            return View(response);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
