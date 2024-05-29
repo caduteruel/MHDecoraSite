@@ -30,9 +30,58 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Adicionar(Tema tema, IFormFile arquivo)
         {
-            //await _temaService.Criar(tema, arquivo);
+            var response = await _temaService.Salvar(tema, arquivo);
 
-            Alert("Sucesso!", "O Tema foi cadastrado.", "success");
+            if (response)
+            {
+                Alert("Sucesso!", "O Tema foi cadastrado.", "success");
+            }
+            else
+            {
+                Alert("Erro!", "Não foi possível criar este tema, contate a equipe de suporte.", "danger");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Excluir(int temaId)
+        {
+            bool result = await _temaService.Excluir(temaId);
+
+            if (result)
+            {
+                Alert("Sucesso!", "O Tema foi excluído.", "success");
+            }
+            else
+            {
+                Alert("Erro!", "Não foi possível excluir o tema, contate a equipe de suporte.", "danger");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Editar(int temaId)
+        {
+            var tema = await _temaService.BuscarPorId(temaId);
+
+            return View(tema);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Editar(IFormFile arquivo, Tema tema)
+        {
+            var result = await _temaService.Editar(arquivo, tema);
+
+            if (result)
+            {
+                Alert("Sucesso!", "O Tema foi editado.", "success");
+            }
+            else
+            {
+                Alert("Erro!", "Não foi possível editar o tema, contate a equipe de suporte.", "danger");
+            }
 
             return RedirectToAction("Index");
         }
