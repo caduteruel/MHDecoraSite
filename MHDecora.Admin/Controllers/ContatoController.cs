@@ -1,22 +1,21 @@
-﻿using Azure;
-using MHDecora.Admin.Application.Interfaces;
+﻿using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MHDecora.Admin.Controllers
 {
-    public class TagController : Controller
+    public class ContatoController : Controller
     {
-        private readonly ITagService _tagService;
+        private readonly IContatoService _contatoService;
 
-        public TagController(ITagService tagService)
+        public ContatoController(IContatoService contatoService)
         {
-            _tagService = tagService;
+            _contatoService = contatoService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var tags = await _tagService.GetTags();
+            var contato = await _contatoService.GetTags();
 
             return View(tags);
         }
@@ -28,17 +27,17 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Adicionar(Tag tag)
+        public async Task<IActionResult> Adicionar(Contato contato)
         {
-            var response = await _tagService.Criar(tag);
+            var response = await _contatoService.Criar(contato);
 
             if (response)
             {
-                Alert("Sucesso!", "A Tag foi cadastrada.", "success");
+                Alert("Sucesso!", "O Contato foi cadastrado.", "success");
             }
             else
             {
-                Alert("Erro!", "Não foi possível criar a tag, contate a equipe de suporte.", "danger");
+                Alert("Erro!", "Não foi possível criar o contato, contate a equipe de suporte.", "danger");
             }
 
             return View();
@@ -47,23 +46,23 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
         {
-            var tag = await _tagService.GetTagById(id);
+            var tag = await _contatoService.GetTagById(id);
 
             return View(tag);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Editar(Tag tag)
+        public async Task<IActionResult> Editar(Contato contato)
         {
-            var response = await _tagService.Editar(tag);
+            var response = await _contatoService.Editar(contato);
 
             if (response)
             {
-                Alert("Sucesso!", "A Tag foi editada.", "success");
+                Alert("Sucesso!", "O Contato foi editado.", "success");
             }
             else
             {
-                Alert("Erro!", "Não foi possível editar esta tag, contate a equipe de suporte.", "danger");
+                Alert("Erro!", "Não foi possível editar o contato, contate a equipe de suporte.", "danger");
             }
 
             return RedirectToAction("Index");
@@ -72,15 +71,15 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Excluir(int id)
         {
-            bool result = await _tagService.Excluir(id);
+            bool result = await Contato.Excluir(id);
 
             if (result)
             {
-                Alert("Sucesso!", "A tag foi excluída.", "success");
+                Alert("Sucesso!", "O Contato foi excluído.", "success");
             }
             else
             {
-                Alert("Erro!", "Não foi possível excluir a tag, contate a equipe de suporte.", "danger");
+                Alert("Erro!", "Não foi possível excluir a contato, contate a equipe de suporte.", "danger");
             }
 
             return RedirectToAction("Index");

@@ -1,0 +1,45 @@
+﻿@model MHDecora.Admin.Domain.Entities.Tag
+
+<div class="row">
+    <div class="col-xl-12">
+        <!-- Basic Examples -->
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Editar Tag</h2>
+            </div>
+            <div class="card-body">
+
+                <form id="formEditar" asp-action="Editar" method="post">
+                    <div class="row">
+                        <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">Nome da Tag</label>
+                                <input name="nome" id="nome" class="form-control" placeholder="Digite o nome da tag" value="@Model.Nome">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer pt-5 border-top d-flex justify-content-between">
+                        <a href="@Url.Action("Index", "Tag")" class="btn btn-primary text-left">
+                            <i class="mdi mdi-undo mr-1"></i> Voltar
+                        </a>
+                        <div>
+                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button type="button" class="btn btn-light ml-2" onclick="cancelar()">Cancelar</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function cancelar() {
+            $("#nome").val('@Model.Nome.ToString()');
+        }
+    </script>
+}

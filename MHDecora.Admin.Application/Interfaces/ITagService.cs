@@ -11,7 +11,7 @@ namespace MHDecora.Admin.Application.Interfaces
     {
         Task<Tag> GetTagById(int id);
         Task<List<Tag>> GetTags();
-        Task Criar(Tag tag);
+        Task<bool> Criar(Tag tag);
         Task<bool> Editar(Tag tag);
         Task<bool> Excluir(int id);
     }

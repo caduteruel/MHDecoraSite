@@ -17,12 +17,14 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             _adminContext = adminContext;
         }
-        public async Task Criar(Tag tag)
+        public async Task<bool> Criar(Tag tag)
         {
             try
             {
                 _adminContext.MH_TAGS.Add(tag);
                 await _adminContext.SaveChangesAsync();
+
+                return true;
             }
             catch (Exception ex)
             {

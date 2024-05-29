@@ -55,7 +55,7 @@ namespace MHDecora.Admin.Controllers
 
             if (response)
             {
-                Alert("Sucesso!", "A Categoria foi cadastrada.", "success");
+                Alert("Sucesso!", "A Categoria foi editada.", "success");
             }
             else
             {

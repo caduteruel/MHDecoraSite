@@ -21,9 +21,9 @@ namespace MHDecora.Admin.Application.Services
             _tagRepository = tagRepository;
         }
 
-        public async Task Criar(Tag tag)
+        public async Task<bool> Criar(Tag tag)
         {
-            await _tagRepository.Criar(tag);
+            return await _tagRepository.Criar(tag);
         }
 
         public async Task<bool> Editar(Tag tag)

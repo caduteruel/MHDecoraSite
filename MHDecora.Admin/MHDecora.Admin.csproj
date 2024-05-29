@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\ConfiguracaoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\plugins\DataTables\DataTables-1.10.18\js\dataTables.bootstrap.js" />
     <None Include="wwwroot\plugins\DataTables\DataTables-1.10.18\js\dataTables.bootstrap.min.js" />
     <None Include="wwwroot\plugins\DataTables\DataTables-1.10.18\js\dataTables.bootstrap4.js" />

@@ -32,6 +32,7 @@ builder.Services.AddScoped<IQuemSomosService, QuemSomosService>();
 builder.Services.AddScoped<IMontagemService, MonstagemService>();
 builder.Services.AddScoped<ITemaService, TemaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<ITagService, TagService>();
 
 // Repositories
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
@@ -39,6 +40,7 @@ builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
 builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddScoped<ITagRepository, TagRepository>();
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 
