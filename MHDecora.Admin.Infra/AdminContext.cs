@@ -22,6 +22,7 @@ namespace MHDecora.Admin.Infra
         public DbSet<Tema> MH_TEMA { get; set; }
         public DbSet<Categoria> MH_CATEGORIAS { get; set; }
         public DbSet<Tag> MH_TAGS { get; set; }
+        public DbSet<Contato> MH_CONTATO { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -54,6 +55,10 @@ namespace MHDecora.Admin.Infra
 
             modelBuilder.Entity<Tag>()
                 .ToTable("MH_TAGS", "DECORAPHP")
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Contato>()
+                .ToTable("MH_CONTATO", "DECORAPHP")
                 .HasKey(x => x.Id);
         }
     }

@@ -15,9 +15,9 @@ namespace MHDecora.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var contato = await _contatoService.GetTags();
+            var contato = await _contatoService.GetContato();
 
-            return View(tags);
+            return View(contato);
         }
 
         [HttpGet]
@@ -46,7 +46,7 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
         {
-            var tag = await _contatoService.GetTagById(id);
+            var tag = await _contatoService.GetContatoById(id);
 
             return View(tag);
         }
@@ -71,7 +71,7 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Excluir(int id)
         {
-            bool result = await Contato.Excluir(id);
+            bool result = await _contatoService.Excluir(id);
 
             if (result)
             {

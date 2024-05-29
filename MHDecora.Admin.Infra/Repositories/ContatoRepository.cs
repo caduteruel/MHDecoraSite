@@ -17,7 +17,7 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             try
             {
-                _adminContext.MH_CONTATOS.Add(contato);
+                _adminContext.MH_CONTATO.Add(contato);
                 
                 await _adminContext.SaveChangesAsync();
 
@@ -35,7 +35,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<bool> Editar(Contato contato)
         {
-            var contatoExistente = await _adminContext.MH_CONTATOS.FindAsync(contato.Id);
+            var contatoExistente = await _adminContext.MH_CONTATO.FindAsync(contato.Id);
 
             if (contatoExistente == null)
             {
@@ -66,10 +66,13 @@ namespace MHDecora.Admin.Infra.Repositories
                 return false;
             }
         }
-
+        public async Task<List<Contato>> GetContato()
+        {
+            return await _adminContext.MH_CONTATO.OrderByDescending(x => x.Id).Take(1).ToListAsync();
+        }
         public async Task<Contato> GetContatoById(int id)
         {
-            return await _adminContext.MH_CONTATOS.FirstOrDefaultAsync(x => x.Id == id);
+            return await _adminContext.MH_CONTATO.FirstOrDefaultAsync(x => x.Id == id);
         }
     }
 }

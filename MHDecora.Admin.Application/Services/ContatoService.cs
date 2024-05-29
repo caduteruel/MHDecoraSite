@@ -28,6 +28,11 @@ namespace MHDecora.Admin.Application.Services
             return await _contatoRepository.Excluir(id);
         }
 
+        public async Task<List<Contato>> GetContato()
+        {
+            return await _contatoRepository.GetContato();
+        }
+
         public async Task<Contato> GetContatoById(int id)
         {
             return await _contatoRepository.GetContatoById(id);
