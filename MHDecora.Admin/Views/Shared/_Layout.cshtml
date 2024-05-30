@@ -181,7 +181,13 @@
 
                                     </a>
                                 </li>
+                                <li>
+                                    <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Produto" asp-action="Index">
 
+                                        <span class="nav-text">Produto</span>
+
+                                    </a>
+                                </li>
 
 
                 </div>
