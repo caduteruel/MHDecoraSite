@@ -2,6 +2,7 @@
 using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MHDecora.Admin.Infra.Repositories
 {
@@ -18,30 +19,66 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<bool> Criar(Produto produto, IFormFile arquivo0, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3)
         {
-            //List<Produto> _Produtos = new List<Produto>();
-
             try
             {
-                if (arquivo0 != null && arquivo0 != null && arquivo1 != null && arquivo2 != null)
+                // Imagem Maior
+                if (arquivo0 != null)
                 {
-                    //Produto.Descricao = Produto.CaminhoImagem;
                     string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/Produto");
-                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/produto");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo0.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
-                        imagem.CopyTo(fileStream);
+                        arquivo0.CopyTo(fileStream);
                     }
-                    Produto.CaminhoImagem = uniqueFileName;
+                    produto.CaminhoImagem[0] = uniqueFileName;
+                }
+                // Imagem menor
+                if (arquivo1 != null)
+                {
+                    string roothPath = Directory.GetCurrentDirectory();
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/produto");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        arquivo1.CopyTo(fileStream);
+                    }
+                    produto.CaminhoImagem[1] = uniqueFileName;
+                }
+                // Imagem menor
+                if (arquivo2 != null)
+                {
+                    string roothPath = Directory.GetCurrentDirectory();
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/produto");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        arquivo2.CopyTo(fileStream);
+                    }
+                    produto.CaminhoImagem[2] = uniqueFileName;
+                }
+                // Imagem menor
+                if (arquivo3 != null)
+                {
+                    string roothPath = Directory.GetCurrentDirectory();
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/produto");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        arquivo3.CopyTo(fileStream);
+                    }
+                    produto.CaminhoImagem[3] = uniqueFileName;
                 }
 
-                //_Produtos.Add(Produto);
+                _adminContext.MH_PRODUTO.Add(produto);
 
-                _adminContext.MH_ProdutoS.Add(Produto);
                 await _adminContext.SaveChangesAsync();
 
-
+                return true;
             }
             catch (Exception ex)
             {
@@ -52,8 +89,6 @@ namespace MHDecora.Admin.Infra.Repositories
                 await _adminContext.DisposeAsync();
             }
         }
-
-      
 
         public Task<bool> Editar(Produto produto, IFormFile arquivo0, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3)
         {

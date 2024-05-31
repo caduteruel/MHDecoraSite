@@ -23,6 +23,7 @@ namespace MHDecora.Admin.Infra
         public DbSet<Categoria> MH_CATEGORIAS { get; set; }
         public DbSet<Tag> MH_TAGS { get; set; }
         public DbSet<Contato> MH_CONTATO { get; set; }
+        public DbSet<Produto> MH_PRODUTO { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
