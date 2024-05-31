@@ -23,7 +23,6 @@ namespace MHDecora.Admin.Infra
         public DbSet<Categoria> MH_CATEGORIAS { get; set; }
         public DbSet<Tag> MH_TAGS { get; set; }
         public DbSet<Contato> MH_CONTATO { get; set; }
-        public DbSet<Produto> MH_PRODUTO { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -61,6 +60,13 @@ namespace MHDecora.Admin.Infra
             modelBuilder.Entity<Contato>()
                 .ToTable("MH_CONTATO", "DECORAPHP")
                 .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Montagem>(entity =>
+            {
+                entity.Property(e => e.MontagemDestaque)
+                      .HasColumnType("NUMBER(1)")
+                      .HasDefaultValue(false); // Define o valor padrão como falso
+            });
         }
     }
 }
