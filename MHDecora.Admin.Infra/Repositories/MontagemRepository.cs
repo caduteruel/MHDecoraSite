@@ -25,6 +25,9 @@ namespace MHDecora.Admin.Infra.Repositories
             foreach (var img in listaMontagem)
             {
                 img.CaminhoImagem = GetMontagemPath() + img.CaminhoImagem;
+                img.CaminhoImagem2 = GetMontagemPath() + img.CaminhoImagem2;
+                img.CaminhoImagem3 = GetMontagemPath() + img.CaminhoImagem3;
+                img.CaminhoImagem4 = GetMontagemPath() + img.CaminhoImagem4;
             }
 
 
@@ -81,8 +84,8 @@ namespace MHDecora.Admin.Infra.Repositories
                     string fileName = Path.GetFileName(imagePath);
 
                     // Exclui o registro do banner
-                    var banner = new Banner { Id = montagemId };
-                    _adminContext.Entry(banner).State = EntityState.Deleted;
+                    var montagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(montagem).State = EntityState.Deleted;
 
                     await _adminContext.SaveChangesAsync();
 
@@ -94,6 +97,88 @@ namespace MHDecora.Admin.Infra.Repositories
                         File.Delete(imagePathToDelete);
                     }
 
+                    //return true;
+                }
+                string imagePath2 = await _adminContext.MH_MONTAGEM
+                                                .Where(b => b.Id == montagemId)
+                                                .Select(b => b.CaminhoImagem2)
+                                                .FirstOrDefaultAsync();
+
+                if (imagePath2 != null)
+                {
+                    // Extrai apenas o nome do arquivo da parte final do caminho
+                    string fileName = Path.GetFileName(imagePath2);
+
+                    // Exclui o registro do banner
+                    var montagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(montagem).State = EntityState.Deleted;
+
+                    await _adminContext.SaveChangesAsync();
+
+                    // Exclui o arquivo de imagem da pasta wwwroot/banners
+                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
+
+                    if (File.Exists(imagePathToDelete))
+                    {
+                        File.Delete(imagePathToDelete);
+                    }
+
+                    //return true;
+                }
+                string imagePath3 = await _adminContext.MH_MONTAGEM
+                                                .Where(b => b.Id == montagemId)
+                                                .Select(b => b.CaminhoImagem3)
+                                                .FirstOrDefaultAsync();
+
+                if (imagePath3 != null)
+                {
+                    // Extrai apenas o nome do arquivo da parte final do caminho
+                    string fileName = Path.GetFileName(imagePath3);
+
+                    // Exclui o registro do banner
+                    var montagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(montagem).State = EntityState.Deleted;
+
+                    await _adminContext.SaveChangesAsync();
+
+                    // Exclui o arquivo de imagem da pasta wwwroot/banners
+                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
+
+                    if (File.Exists(imagePathToDelete))
+                    {
+                        File.Delete(imagePathToDelete);
+                    }
+
+                    //return true;
+                }
+                string imagePath4 = await _adminContext.MH_MONTAGEM
+                                                .Where(b => b.Id == montagemId)
+                                                .Select(b => b.CaminhoImagem4)
+                                                .FirstOrDefaultAsync();
+
+                if (imagePath4 != null)
+                {
+                    // Extrai apenas o nome do arquivo da parte final do caminho
+                    string fileName = Path.GetFileName(imagePath4);
+
+                    // Exclui o registro do banner
+                    var montagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(montagem).State = EntityState.Deleted;
+
+                    await _adminContext.SaveChangesAsync();
+
+                    // Exclui o arquivo de imagem da pasta wwwroot/banners
+                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
+
+                    if (File.Exists(imagePathToDelete))
+                    {
+                        File.Delete(imagePathToDelete);
+                    }
+
+                    //return true;
+                }
+                if(imagePath != null || imagePath2 != null || imagePath3 != null || imagePath4 != null)
+                {
                     return true;
                 }
                 else
@@ -250,7 +335,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
         private string GetMontagemPath()
         {
-            return _configuration["ImagePath:Montagem"];
+            return  _configuration["ImagePath:Montagem"];
         }
     }
 }

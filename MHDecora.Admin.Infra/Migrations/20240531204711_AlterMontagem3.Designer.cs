@@ -2,6 +2,7 @@
 using MHDecora.Admin.Infra;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -10,9 +11,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace MHDecora.Admin.Infra.Migrations
 {
     [DbContext(typeof(AdminContext))]
-    partial class AdminContextModelSnapshot : ModelSnapshot
+    [Migration("20240531204711_AlterMontagem3")]
+    partial class AlterMontagem3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,14 +123,14 @@ namespace MHDecora.Admin.Infra.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<string>("LinkBotao")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<bool>("MontagemDestaque")
+                    b.Property<bool>("DestaqueMontagem")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(1)")
                         .HasDefaultValue(false);
+
+                    b.Property<string>("LinkBotao")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Texto")
                         .IsRequired()
