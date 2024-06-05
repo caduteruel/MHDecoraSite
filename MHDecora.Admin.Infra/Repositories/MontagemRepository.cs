@@ -197,21 +197,57 @@ namespace MHDecora.Admin.Infra.Repositories
             }
         }
 
-        public async Task<bool> Salvar(Montagem montagem, IFormFile arquivo)
+        public async Task<bool> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
         {
             try
             {
-                if (arquivo != null && arquivo.Length > 0)
+                if (arquivo1 != null && arquivo1.Length > 0)
                 {
                     string roothPath = Directory.GetCurrentDirectory();
                     string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
-                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
-                        arquivo.CopyTo(fileStream);
+                        arquivo1.CopyTo(fileStream);
                     }
                     montagem.CaminhoImagem = uniqueFileName;
+                }
+                if (arquivo2 != null && arquivo2.Length > 0)
+                {
+                    string roothPath = Directory.GetCurrentDirectory();
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        arquivo2.CopyTo(fileStream);
+                    }
+                    montagem.CaminhoImagem2 = uniqueFileName;
+                }
+                if (arquivo3 != null && arquivo3.Length > 0)
+                {
+                    string roothPath = Directory.GetCurrentDirectory();
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        arquivo3.CopyTo(fileStream);
+                    }
+                    montagem.CaminhoImagem3 = uniqueFileName;
+                }
+                if (arquivo4 != null && arquivo4.Length > 0)
+                {
+                    string roothPath = Directory.GetCurrentDirectory();
+                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        arquivo4.CopyTo(fileStream);
+                    }
+                    montagem.CaminhoImagem4 = uniqueFileName;
                 }
 
                 _adminContext.MH_MONTAGEM.Add(montagem);
@@ -293,45 +329,108 @@ namespace MHDecora.Admin.Infra.Repositories
 
         //}
 
-        //public async Task<bool> Editar(IFormFile arquivo, Banner banner)
-        //{
-        //    var bannerExistente = await _adminContext.MH_BANNERS.FindAsync(banner.Id);
+        public async Task<bool> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
+        {
+            var montagemExistente = await _adminContext.MH_MONTAGEM.FindAsync(montagem.Id);
 
 
-        //    if (bannerExistente == null)
-        //    {
-        //        return false;
-        //    }
+            if (montagemExistente == null)
+            {
+                return false;
+            }
 
-        //    banner.CaminhoImagem = bannerExistente.CaminhoImagem;
+            montagem.CaminhoImagem = montagemExistente.CaminhoImagem;
+            montagem.CaminhoImagem2 = montagemExistente.CaminhoImagem2;
+            montagem.CaminhoImagem3 = montagemExistente.CaminhoImagem3;
+            montagem.CaminhoImagem4 = montagem.CaminhoImagem4;
 
-        //    if (arquivo != null)
-        //    {
-        //        var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
-        //        var nomeArquivoAntigo = bannerExistente.CaminhoImagem;
-        //        var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
-        //        File.Delete(caminhoCompletoAntigo);
+            if (arquivo1 != null)
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                File.Delete(caminhoCompletoAntigo);
 
 
-        //        var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-        //        var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
+                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
 
-        //        using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
-        //        {
-        //            arquivo.CopyTo(fileStream);
-        //        }
+                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                {
+                    arquivo1.CopyTo(fileStream);
+                }
 
-        //        banner.CaminhoImagem = nomeArquivoNovo;
+                montagem.CaminhoImagem = nomeArquivoNovo;
 
-        //    }
+            }
 
-        //    _adminContext.Entry(bannerExistente).CurrentValues.SetValues(banner);
+            if (arquivo2 != null)
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                File.Delete(caminhoCompletoAntigo);
 
-        //    //_adminContext.Entry(banner).State = EntityState.Modified;
-        //    await _adminContext.SaveChangesAsync();
 
-        //    return true;
-        //}
+                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
+                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+
+                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                {
+                    arquivo2.CopyTo(fileStream);
+                }
+
+                montagem.CaminhoImagem2 = nomeArquivoNovo;
+
+            }
+
+            if (arquivo3 != null)
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                File.Delete(caminhoCompletoAntigo);
+
+
+                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
+                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+
+                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                {
+                    arquivo3.CopyTo(fileStream);
+                }
+
+                montagem.CaminhoImagem3 = nomeArquivoNovo;
+
+            }
+
+            if (arquivo4 != null)
+            {
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                File.Delete(caminhoCompletoAntigo);
+
+
+                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
+                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+
+                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                {
+                    arquivo4.CopyTo(fileStream);
+                }
+
+                montagem.CaminhoImagem4 = nomeArquivoNovo;
+
+            }
+
+            _adminContext.Entry(montagemExistente).CurrentValues.SetValues(montagem);
+
+            //_adminContext.Entry(banner).State = EntityState.Modified;
+            await _adminContext.SaveChangesAsync();
+
+            return true;
+        }
 
         private string GetMontagemPath()
         {

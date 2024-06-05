@@ -1,4 +1,5 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
+using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,9 +36,9 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Salvar(Montagem montagem, IFormFile arquivo)
+        public async Task<IActionResult> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
         {
-            var response = await _montagemService.Salvar(montagem, arquivo);
+            var response = await _montagemService.Salvar(montagem, arquivo1, arquivo2, arquivo3, arquivo4);
 
             if (response)
             {
@@ -74,6 +75,23 @@ namespace MHDecora.Admin.Controllers
             var response = await _montagemService.GetById(montagemId);
 
             return View(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Editar(Montagem montagem, IFormFile arquivo, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3)
+        {
+            var response = await _montagemService.Editar(montagem, arquivo, arquivo1, arquivo2, arquivo3);
+
+            if (response)
+            {
+                Alert("Sucesso!", "O Contato foi editado.", "success");
+            }
+            else
+            {
+                Alert("Erro!", "Não foi possível editar o contato, contate a equipe de suporte.", "danger");
+            }
+
+            return RedirectToAction("Index");
         }
 
         private void Alert(string titulo, string mensagem, string alerta)
