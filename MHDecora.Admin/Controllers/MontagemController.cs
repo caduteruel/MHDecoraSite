@@ -35,6 +35,7 @@ namespace MHDecora.Admin.Controllers
         public async Task<IActionResult> Adicionar()
         {
             var categoria = await _categoriaService.GetCategorias();
+
             return View(categoria);
         }
 

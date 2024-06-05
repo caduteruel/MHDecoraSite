@@ -15,7 +15,7 @@ namespace MHDecora.Admin.Domain.Entities
         public string? Descricao { get; set; }
         public string Titulo { get; set; }
         public string LinkBotao { get; set; }
-        public bool MontagemDestaque    { get; set; }
+        public bool MontagemDestaque { get; set; }
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
     }

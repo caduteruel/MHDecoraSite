@@ -37,6 +37,8 @@
             <thead>
                 <tr>
                     <th>Imagem</th>
+                    <th>Categoria</th>
+                    <th>Destaque</th>
                     <th>Titulo</th>
                     <th>Nome</th>
                     <th>Texto</th>
@@ -54,7 +56,16 @@
                             <tr>
                                 <td class="py-0">
                                     <img src="@item.CaminhoImagem" style="margin-top: 8px;max-width: 85px;" alt="Product Image">
-                                </td>                              
+                                </td>
+                                <td>@item.Categoria.Nome</td>
+                                @if (@item.MontagemDestaque)
+                                {
+                                    <td>SIM</td>
+                                }
+                                else
+                                {
+                                    <td>NÃO</td>
+                                }
                                 <td>@item.Titulo</td>
                                 <td>@item.TextoImagem</td>
                                 <td>@item.Texto</td>

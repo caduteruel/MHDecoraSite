@@ -1,4 +1,4 @@
-﻿@model List<MHDecora.Admin.Domain.Entities.Montagem>
+﻿@model List<MHDecora.Admin.Domain.Entities.Categoria>
 
 @{
     ViewBag.Title = "Adicionar Banner";
@@ -59,13 +59,13 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleFormControlSelect12">Example select</label>
-                                <select class="form-control" id="exampleFormControlSelect12">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <label for="exampleFormControlSelect12">Categoria</label>
+                                <select class="form-control" name="categoriaId" id="categoriaId">
+                                    <option value="0">-- Selecione a categoria --</option>
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    <option value="@Model[i].Id">@Model[i].Nome</option>
+                                }
                                 </select>
                             </div>
                         </div>
@@ -73,10 +73,16 @@
                             <div class="form-group">
                                 <label for="fname">Produto em Destaque</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck">
-                                    <label class="form-check-label" for="disabledFieldsetCheck">
-                                        Selecione para ser apresentado
+                                    <input class="form-check-input" type="radio" name="MontagemDestaque" id="MontagemDestaqueSim" value="true">
+                                    <label class="form-check-label" for="MontagemDestaqueSim">
+                                        SIM
                                     </label>
+                                    <br />
+                                    <input class="form-check-input" type="radio" name="MontagemDestaque" id="MontagemDestaqueNao" value="false">
+                                    <label class="form-check-label" for="MontagemDestaqueNao">
+                                        NÃO
+                                    </label>
+
                                 </div>
                             </div>
                         </div>
@@ -164,10 +170,14 @@
                 var textoImagem = $("#textoImagem").val();
                 var linkBotao = $("#linkBotao").val();
                 var texto = $("#texto").val();
+                var categoria = $("#categoria").val();
 
-                var fileInput = $("#fileInput").val();
+                var fileInput1 = $("#fileInput1").val();
+                var fileInput2 = $("#fileInput2").val();
+                var fileInput3 = $("#fileInput3").val();
+                var fileInput4 = $("#fileInput4").val();
 
-                if (!titulo || !textoImagem || !linkBotao || !texto || !fileInput) {
+                if (!titulo || !textoImagem || !linkBotao || !texto || categoria == "0" || !fileInput1 || !fileInput2 || !fileInput3 || !fileInput4) {
                     Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }

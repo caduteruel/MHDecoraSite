@@ -3,6 +3,7 @@ using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Dynamic;
 using System.Linq.Expressions;
 
 namespace MHDecora.Admin.Infra.Repositories
@@ -20,7 +21,9 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<List<Montagem>> Buscar()
         {
-            var listaMontagem = await _adminContext.MH_MONTAGEM.ToListAsync();
+            var listaMontagem = await _adminContext.MH_MONTAGEM
+                                                            .Include(m => m.Categoria) // Inclui os dados da categoria associada a cada montagem
+                                                            .ToListAsync();
 
             foreach (var img in listaMontagem)
             {
@@ -55,6 +58,11 @@ namespace MHDecora.Admin.Infra.Repositories
             try
             {
                 var response = await _adminContext.MH_MONTAGEM.FindAsync(montagemId);
+
+                response.CaminhoImagem = GetMontagemPath() + response.CaminhoImagem;
+                response.CaminhoImagem2 = GetMontagemPath() + response.CaminhoImagem2;
+                response.CaminhoImagem3 = GetMontagemPath() + response.CaminhoImagem3;
+                response.CaminhoImagem4 = GetMontagemPath() + response.CaminhoImagem4;
 
                 return response;
             }
