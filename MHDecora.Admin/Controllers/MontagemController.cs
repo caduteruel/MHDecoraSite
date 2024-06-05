@@ -8,10 +8,12 @@ namespace MHDecora.Admin.Controllers
     public class MontagemController : Controller
     {
         private readonly IMontagemService _montagemService;
+        private readonly ICategoriaService _categoriaService;
 
-        public MontagemController(IMontagemService montagemService)
+        public MontagemController(IMontagemService montagemService, ICategoriaService categoriaService)
         {
             _montagemService = montagemService;
+            _categoriaService = categoriaService;
         }
 
         [HttpGet]
@@ -32,7 +34,8 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Adicionar()
         {
-            return View();
+            var categoria = await _categoriaService.GetCategorias();
+            return View(categoria);
         }
 
         [HttpPost]
