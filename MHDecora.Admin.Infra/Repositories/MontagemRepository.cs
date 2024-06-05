@@ -70,10 +70,6 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 throw;
             }
-            finally
-            {
-                await _adminContext.DisposeAsync();
-            }
         }
 
         public async Task<bool> Excluir(int montagemId)
@@ -81,19 +77,16 @@ namespace MHDecora.Admin.Infra.Repositories
             try
             {
                 // Obtém o caminho completo da imagem do banner pelo ID
-                string imagePath = await _adminContext.MH_MONTAGEM
-                                                                .Where(b => b.Id == montagemId)
-                                                                .Select(b => b.CaminhoImagem)
-                                                                .FirstOrDefaultAsync();
+                var montagem = await _adminContext.MH_MONTAGEM.Where(b => b.Id == montagemId).FirstOrDefaultAsync();
 
-                if (imagePath != null)
+                if (montagem != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
-                    string fileName = Path.GetFileName(imagePath);
+                    string fileName = Path.GetFileName(montagem.CaminhoImagem);
 
                     // Exclui o registro do banner
-                    var montagem = new Montagem { Id = montagemId };
-                    _adminContext.Entry(montagem).State = EntityState.Deleted;
+                    var imagemMontagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(imagemMontagem).State = EntityState.Deleted;
 
                     await _adminContext.SaveChangesAsync();
 
@@ -104,22 +97,16 @@ namespace MHDecora.Admin.Infra.Repositories
                     {
                         File.Delete(imagePathToDelete);
                     }
-
-                    //return true;
                 }
-                string imagePath2 = await _adminContext.MH_MONTAGEM
-                                                .Where(b => b.Id == montagemId)
-                                                .Select(b => b.CaminhoImagem2)
-                                                .FirstOrDefaultAsync();
 
-                if (imagePath2 != null)
+                if (montagem != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
-                    string fileName = Path.GetFileName(imagePath2);
+                    string fileName = Path.GetFileName(montagem.CaminhoImagem2);
 
                     // Exclui o registro do banner
-                    var montagem = new Montagem { Id = montagemId };
-                    _adminContext.Entry(montagem).State = EntityState.Deleted;
+                    var imagemMontagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(imagemMontagem).State = EntityState.Deleted;
 
                     await _adminContext.SaveChangesAsync();
 
@@ -130,22 +117,16 @@ namespace MHDecora.Admin.Infra.Repositories
                     {
                         File.Delete(imagePathToDelete);
                     }
-
-                    //return true;
                 }
-                string imagePath3 = await _adminContext.MH_MONTAGEM
-                                                .Where(b => b.Id == montagemId)
-                                                .Select(b => b.CaminhoImagem3)
-                                                .FirstOrDefaultAsync();
 
-                if (imagePath3 != null)
+                if (montagem != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
-                    string fileName = Path.GetFileName(imagePath3);
+                    string fileName = Path.GetFileName(montagem.CaminhoImagem3);
 
                     // Exclui o registro do banner
-                    var montagem = new Montagem { Id = montagemId };
-                    _adminContext.Entry(montagem).State = EntityState.Deleted;
+                    var imagemMontagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(imagemMontagem).State = EntityState.Deleted;
 
                     await _adminContext.SaveChangesAsync();
 
@@ -156,22 +137,16 @@ namespace MHDecora.Admin.Infra.Repositories
                     {
                         File.Delete(imagePathToDelete);
                     }
-
-                    //return true;
                 }
-                string imagePath4 = await _adminContext.MH_MONTAGEM
-                                                .Where(b => b.Id == montagemId)
-                                                .Select(b => b.CaminhoImagem4)
-                                                .FirstOrDefaultAsync();
 
-                if (imagePath4 != null)
+                if (montagem != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
-                    string fileName = Path.GetFileName(imagePath4);
+                    string fileName = Path.GetFileName(montagem.CaminhoImagem4);
 
                     // Exclui o registro do banner
-                    var montagem = new Montagem { Id = montagemId };
-                    _adminContext.Entry(montagem).State = EntityState.Deleted;
+                    var imagemMontagem = new Montagem { Id = montagemId };
+                    _adminContext.Entry(imagemMontagem).State = EntityState.Deleted;
 
                     await _adminContext.SaveChangesAsync();
 
@@ -182,10 +157,13 @@ namespace MHDecora.Admin.Infra.Repositories
                     {
                         File.Delete(imagePathToDelete);
                     }
-
-                    //return true;
                 }
-                if(imagePath != null || imagePath2 != null || imagePath3 != null || imagePath4 != null)
+
+                _adminContext.Entry(montagem).State = EntityState.Deleted;
+
+                await _adminContext.SaveChangesAsync();
+
+                if (montagem.CaminhoImagem != null || montagem.CaminhoImagem2 != null || montagem.CaminhoImagem3 != null || montagem.CaminhoImagem4 != null)
                 {
                     return true;
                 }
@@ -341,7 +319,6 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             var montagemExistente = await _adminContext.MH_MONTAGEM.FindAsync(montagem.Id);
 
-
             if (montagemExistente == null)
             {
                 return false;
@@ -350,11 +327,11 @@ namespace MHDecora.Admin.Infra.Repositories
             montagem.CaminhoImagem = montagemExistente.CaminhoImagem;
             montagem.CaminhoImagem2 = montagemExistente.CaminhoImagem2;
             montagem.CaminhoImagem3 = montagemExistente.CaminhoImagem3;
-            montagem.CaminhoImagem4 = montagem.CaminhoImagem4;
+            montagem.CaminhoImagem4 = montagemExistente.CaminhoImagem4;
 
             if (arquivo1 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
                 var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
@@ -374,7 +351,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo2 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
                 var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
@@ -394,7 +371,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo3 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
                 var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
@@ -414,7 +391,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo4 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
                 var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
@@ -434,7 +411,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
             _adminContext.Entry(montagemExistente).CurrentValues.SetValues(montagem);
 
-            //_adminContext.Entry(banner).State = EntityState.Modified;
+           // _adminContext.Entry(montagemExistente).State = EntityState.Modified;
             await _adminContext.SaveChangesAsync();
 
             return true;

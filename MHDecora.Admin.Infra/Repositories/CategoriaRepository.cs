@@ -76,7 +76,18 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<List<Categoria>> GetCategorias()
         {
-            return await _adminContext.MH_CATEGORIAS.ToListAsync();
+            try
+            {
+                return await _adminContext.MH_CATEGORIAS.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                await _adminContext.DisposeAsync();
+            }
         }
     }
 }

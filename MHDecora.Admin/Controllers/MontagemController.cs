@@ -2,6 +2,7 @@
 using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MHDecora.Admin.Controllers
 {
@@ -40,7 +41,7 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
+        public async Task<IActionResult> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, string[] tag)
         {
             var response = await _montagemService.Salvar(montagem, arquivo1, arquivo2, arquivo3, arquivo4);
 
@@ -78,13 +79,17 @@ namespace MHDecora.Admin.Controllers
         {
             var response = await _montagemService.GetById(montagemId);
 
+            var categoria = await _categoriaService.GetCategorias();
+
+            ViewBag.Categorias = new SelectList(categoria, "Id", "Nome");
+
             return View(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Editar(Montagem montagem, IFormFile arquivo, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3)
+        public async Task<IActionResult> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
         {
-            var response = await _montagemService.Editar(montagem, arquivo, arquivo1, arquivo2, arquivo3);
+            var response = await _montagemService.Editar(montagem, arquivo1, arquivo2, arquivo3, arquivo4);
 
             if (response)
             {
