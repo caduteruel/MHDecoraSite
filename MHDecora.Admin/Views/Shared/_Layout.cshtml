@@ -147,52 +147,39 @@
                 <span class="nav-text">Rodapé</span>
             </a>
         </li>
-@*         <li class="has-sub">
-            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" href="javascript:void(0)" data-toggle="collapse" data-target="#charts">
-                <i class="mdi mdi-account-heart-outline"></i>
-                <span class="nav-text">Configurações</span>
+
+
+        <li class="has-sub">
+            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
+                aria-expanded="false" aria-controls="charts">
+                <i class="mdi mdi-chart-pie"></i>
+                <span class="nav-text">Configurações</span> <b class="caret"></b>
             </a>
-        </li> *@
-
-                        <li class="has-sub">
-                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
-                               aria-expanded="false" aria-controls="charts">
-                                <i class="mdi mdi-chart-pie"></i>
-                                <span class="nav-text">Configurações</span> <b class="caret"></b>
-                            </a>
-                            <ul class="collapse" id="charts"
-                                data-parent="#sidebar-menu">
-                                <div class="sub-menu">
+            <ul class="collapse" id="charts"
+                data-parent="#sidebar-menu">
+                <div class="sub-menu">
 
 
-
-                                <li>
-                                    <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Categoria" asp-action="Index">
+                    <li>
+                        <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Categoria" asp-action="Index">
                                         
-                                        <span class="nav-text">Categoria</span>
+                            <span class="nav-text">Categoria</span>
 
-                                    </a>
-                                </li>
+                        </a>
+                    </li>
 
-                                <li>
-                                    <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Tag" asp-action="Index">
+                    <li>
+                        <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Tag" asp-action="Index">
 
-                                        <span class="nav-text">Tag</span>
+                            <span class="nav-text">Tag</span>
 
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Configuracoes" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Produto" asp-action="Index">
-
-                                        <span class="nav-text">Produto</span>
-
-                                    </a>
-                                </li>
+                        </a>
+                    </li>
 
 
                 </div>
-                </ul>
-                </li>
+            </ul>
+        </li>
 
     </ul>              
 </div>
