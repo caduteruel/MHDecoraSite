@@ -10,22 +10,22 @@ namespace MHDecora.Admin.Infra.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "MontagemDestaque",
-                schema: "DECORAPHP",
-                table: "MH_MONTAGEM",
-                type: "NUMBER(1)",
-                nullable: false,
-                defaultValue: 0);
+            //migrationBuilder.AddColumn<bool>(
+            //    name: "MontagemDestaque",
+            //    schema: "DECORAPHP",
+            //    table: "MH_MONTAGEM",
+            //    type: "NUMBER(1)",
+            //    nullable: false,
+            //    defaultValue: 0);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "MontagemDestaque",
-                schema: "DECORAPHP",
-                table: "MH_MONTAGEM");
+            //migrationBuilder.DropColumn(
+            //    name: "MontagemDestaque",
+            //    schema: "DECORAPHP",
+            //    table: "MH_MONTAGEM");
         }
     }
 }
