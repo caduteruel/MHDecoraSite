@@ -17,7 +17,7 @@ namespace MHDecora.Admin.Domain.Entities
         public bool MontagemDestaque { get; set; }
 
         public int TagId { get; set; }
-        public virtual IEnumerable<Tag> Tags { get; set; }
+        public virtual ICollection<MontagemTag> MontagensTags { get; set; }
 
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
