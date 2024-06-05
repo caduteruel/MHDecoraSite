@@ -57,6 +57,18 @@
                                 <textarea class="form-control" id="texto" name="texto" rows="5"></textarea>
                             </div>
                         </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect12">Example select</label>
+                                <select class="form-control" id="exampleFormControlSelect12">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="fname">Produto em Destaque</label>
@@ -74,35 +86,29 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Selecione o arquivo Principal</label>
-                                <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Selecione o arquivo do Topo </label>
                                 <input type="file" name="arquivo1" class="form-control-file" id="fileInput1" accept="image/*">
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Selecione o arquivo do Meio</label>
+                                <label for="exampleFormControlFile1">Selecione o arquivo do Topo </label>
                                 <input type="file" name="arquivo2" class="form-control-file" id="fileInput2" accept="image/*">
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Selecione o arquivo de Baixo</label>
+                                <label for="exampleFormControlFile1">Selecione o arquivo do Meio</label>
                                 <input type="file" name="arquivo3" class="form-control-file" id="fileInput3" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o arquivo de Baixo</label>
+                                <input type="file" name="arquivo4" class="form-control-file" id="fileInput4" accept="image/*">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-3 mb-2">
-                            <div class="form-group">
-                                <label id="labelImage" for="fname" style="display:none">Imagem</label>
-                                <img id="previewImage" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
-                            </div>
-                        </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label id="labelImage1" for="fname" style="display:none">Imagem</label>
@@ -121,6 +127,13 @@
                                 <img id="previewImage3" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
                             </div>
                         </div>
+                        <div class="col-sm-3 mb-2">
+                            <div class="form-group">
+                                <label id="labelImage4" for="fname" style="display:none">Imagem</label>
+                                <img id="previewImage4" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                            </div>
+                        </div>
+                  
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
                         <a href="@Url.Action("Index", "Montagem")" class="btn btn-primary text-left">
@@ -183,27 +196,6 @@
         }
 
         // Função para exibir a visualização da imagem quando um arquivo é selecionado
-        function previewFile() {
-            var label = document.getElementById('labelImage');
-            var preview = document.getElementById('previewImage');
-            var fileInput = document.getElementById('fileInput').files[0];
-            var reader = new FileReader();
-
-            reader.onloadend = function () {
-                //$("#imagem").attr('display', 'inline-block');
-                preview.src = reader.result;
-                preview.style.display = 'block';
-                label.style.display = 'block';
-            }
-
-            if (fileInput) {
-                reader.readAsDataURL(fileInput);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-            }
-        }
-
         function previewFile1() {
             var label = document.getElementById('labelImage1');
             var preview = document.getElementById('previewImage1');
@@ -267,11 +259,32 @@
             }
         }
         
+        function previewFile4() {
+            var label = document.getElementById('labelImage4');
+            var preview = document.getElementById('previewImage4');
+            var fileInput = document.getElementById('fileInput4').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                //$("#imagem").attr('display', 'inline-block');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                label.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
         // Adiciona um listener de mudança no campo de entrada do arquivo
-        document.getElementById('fileInput').addEventListener('change', previewFile);
         document.getElementById('fileInput1').addEventListener('change', previewFile1);
         document.getElementById('fileInput2').addEventListener('change', previewFile2);
         document.getElementById('fileInput3').addEventListener('change', previewFile3);
+        document.getElementById('fileInput4').addEventListener('change', previewFile4);
     </script>
 
 }
