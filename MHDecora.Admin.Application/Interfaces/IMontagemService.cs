@@ -8,6 +8,7 @@ namespace MHDecora.Admin.Application.Interfaces
         Task<List<Montagem>> Buscar();
         Task<bool> Excluir(int montagemId);
         Task<Montagem> GetById(int montagemId);
-        Task<bool> Salvar(Montagem montagem, IFormFile imagem);
+        Task<bool> Salvar(Montagem montagem, IFormFile imagem1, IFormFile imagem2, IFormFile imagem3, IFormFile imagem4);
+        Task<bool> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4);
     }
 }
