@@ -155,7 +155,7 @@
                     <div class="row">
                         <div class="col-sm-12 mb-5">
                             <label id="labelImage5" for="fname">Escolha as Tags</label>
-                            @Html.DropDownListFor(f => f.TagId, ViewBag.Tags as MultiSelectList, new { @class = "form-control", multiple = "multiple" })
+                            @Html.DropDownListFor(f => f.TagsList, ViewBag.Tags as MultiSelectList, new { @class = "form-control", multiple = "multiple" })
 
                             @* <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
                                 <option value="">-- Escolha as tags --</option>

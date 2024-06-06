@@ -4,6 +4,7 @@ using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Data;
 using MHDecora.Admin.Domain.Interfaces;
 using MHDecora.Admin.Infra;
+using MHDecora.Admin.Infra.CrossCutting;
 using MHDecora.Admin.Infra.Repositories;
 using MHDecora.Admin.Infra.Repository;
 using Microsoft.AspNetCore.Identity;
@@ -44,6 +45,7 @@ builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
+builder.Services.AddScoped<IOrcamentoRepository, OrcamentoRepository>();
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 
