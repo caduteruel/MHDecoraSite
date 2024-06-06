@@ -84,12 +84,9 @@ namespace MHDecora.Admin.Controllers
             var response = await _montagemService.GetById(id);
 
             var listaCategoria = await _categoriaService.GetCategorias();
-            
-            var listaTag = await _tagService.GetTags();
-
+          
             ViewBag.Categorias = new SelectList(listaCategoria, "Id", "Nome");
-            ViewBag.Tags = new MultiSelectList(listaTag, "Id", "Nome");
-
+            
             return View(response);
         }
 

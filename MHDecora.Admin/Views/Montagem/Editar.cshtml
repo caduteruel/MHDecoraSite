@@ -155,15 +155,14 @@
                     <div class="row">
                         <div class="col-sm-12 mb-5">
                             <label id="labelImage5" for="fname">Escolha as Tags</label>
-@*                             @Html.DropDownListFor(f => f.TagsList, ViewBag.Tags as MultiSelectList, new { @class = "form-control", multiple = "multiple" })
- *@
+
                             <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
                                 <option value="">-- Escolha as tags --</option>
-                                @if (@ViewBag.Tags != null)
+                                @if (@Model.TagsList != null)
                                 {
-                                    @for (int i = 0; i < @ViewBag.Tags.Count; i++)
+                                    @foreach (var item in @Model.TagsList)
                                     {
-                                       @*  <option value="@Model.Id Model[i].Id">@Model[i].Nome</option> *@
+                                        <option value="@item.Id">@item.Nome</option>
                                     }
                                 }
                             </select>

@@ -3,6 +3,7 @@ using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics;
 using System.Dynamic;
 using System.Linq.Expressions;
 
@@ -64,6 +65,14 @@ namespace MHDecora.Admin.Infra.Repositories
                 response.CaminhoImagem3 = GetMontagemPath() + response.CaminhoImagem3;
                 response.CaminhoImagem4 = GetMontagemPath() + response.CaminhoImagem4;
 
+                var listaTags = response.Tags.Split(",");
+                response.TagsList = new List<Tag>();
+                foreach (var tag in listaTags)
+                {
+                    var tag2 = _adminContext.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
+                    response.TagsList.Add(tag2);
+                }
+                
                 return response;
             }
             catch (Exception)
@@ -235,6 +244,17 @@ namespace MHDecora.Admin.Infra.Repositories
                     }
                     montagem.CaminhoImagem4 = uniqueFileName;
                 }
+
+                string tags = String.Empty;
+                if(tag.Count > 0)
+                {                    
+                    foreach(var item in tag)
+                    {
+                        tags = tags + "," + item;                       
+                    }
+                }
+                
+                montagem.Tags = tags.Remove(0, 1);
 
                 _adminContext.MH_MONTAGEM.Add(montagem);
 

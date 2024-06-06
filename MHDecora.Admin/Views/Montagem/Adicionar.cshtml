@@ -151,7 +151,7 @@
                                 {
                                     @for (int i = 0; i < @ViewBag.Tags.Count; i++)
                                     {
-                                        <option value="@Model[i].Id">@Model[i].Nome</option>
+                                        <option value="@ViewBag.Tags[i].Id">@ViewBag.Tags[i].Nome</option>
                                     }
                                 }                               
                             </select>
