@@ -1,8 +1,8 @@
 ﻿using MHDecora.Admin.Domain.Entities;
 
-namespace MHDecora.Admin.Domain.Interfaces.CrossCutting
+namespace MHDecora.Admin.Domain.Interfaces
 {
-    public interface IOrcamentoCC
+    public interface IOrcamentoRepository
     {
         Task<bool> Salvar(Orcamento orcamento);
     }

@@ -1,17 +1,17 @@
 ﻿using MHDecora.Admin.Domain.Entities;
-using MHDecora.Admin.Domain.Interfaces.CrossCutting;
+using MHDecora.Admin.Domain.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace MHDecora.Admin.Infra.CrossCutting
 {
-    public class OrcamentoRequest : IOrcamentoCC
+    public class OrcamentoRepository : IOrcamentoRepository
     {
         private readonly IConfiguration _configuration;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public OrcamentoRequest(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        public OrcamentoRepository(IHttpClientFactory httpClientFactory, IConfiguration configuration)
         {
             _httpClientFactory = httpClientFactory;
             _configuration = configuration;

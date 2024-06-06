@@ -47,6 +47,7 @@ builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
+builder.Services.AddScoped<IOrcamentoRepository, OrcamentoRepository>();
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 

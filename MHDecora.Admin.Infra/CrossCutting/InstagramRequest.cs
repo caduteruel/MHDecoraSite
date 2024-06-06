@@ -2,8 +2,6 @@
 using InstaSharper.API.Builder;
 using InstaSharper.Classes;
 using InstaSharper.Logger;
-using MHDecora.Admin.Domain.Entities;
-using MHDecora.Admin.Domain.Interfaces.CrossCutting;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Text;

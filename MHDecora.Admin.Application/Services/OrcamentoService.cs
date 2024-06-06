@@ -1,14 +1,14 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Domain.Entities;
-using MHDecora.Admin.Domain.Interfaces.CrossCutting;
+using MHDecora.Admin.Domain.Interfaces;
 
 namespace MHDecora.Admin.Application.Services
 {
     public class OrcamentoService : IOrcamentoService
     {
-        private readonly IOrcamentoCC _orcamentoRepository;
+        private readonly IOrcamentoRepository _orcamentoRepository;
 
-        public OrcamentoService(IOrcamentoCC orcamentoRepository)
+        public OrcamentoService(IOrcamentoRepository orcamentoRepository)
         {
             _orcamentoRepository = orcamentoRepository;
         }
