@@ -149,6 +149,21 @@ namespace MHDecora.Admin.Infra.Migrations
                     b.ToTable("MH_MONTAGEM", "DECORAPHP");
                 });
 
+            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.MontagemTag", b =>
+                {
+                    b.Property<int>("MontagemId")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("NUMBER(10)");
+
+                    b.HasKey("MontagemId", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("MH_MONTAGEM_TAGS");
+                });
+
             modelBuilder.Entity("MHDecora.Admin.Domain.Entities.QuemSomos", b =>
                 {
                     b.Property<int>("Id")
@@ -236,16 +251,33 @@ namespace MHDecora.Admin.Infra.Migrations
                     b.Navigation("Categoria");
                 });
 
-            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.Tag", b =>
+            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.MontagemTag", b =>
                 {
-                    b.HasOne("MHDecora.Admin.Domain.Entities.Montagem", null)
-                        .WithMany("Tags")
-                        .HasForeignKey("MontagemId");
+                    b.HasOne("MHDecora.Admin.Domain.Entities.Montagem", "Montagem")
+                        .WithMany("MontagensTags")
+                        .HasForeignKey("MontagemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MHDecora.Admin.Domain.Entities.Tag", "Tag")
+                        .WithMany("MontagensTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Montagem");
+
+                    b.Navigation("Tag");
                 });
 
             modelBuilder.Entity("MHDecora.Admin.Domain.Entities.Montagem", b =>
                 {
-                    b.Navigation("Tags");
+                    b.Navigation("MontagensTags");
+                });
+
+            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.Tag", b =>
+                {
+                    b.Navigation("MontagensTags");
                 });
 #pragma warning restore 612, 618
         }
