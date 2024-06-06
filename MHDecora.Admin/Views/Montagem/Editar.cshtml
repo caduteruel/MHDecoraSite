@@ -105,7 +105,7 @@
                                 <input type="file" name="arquivo1" class="form-control-file" id="fileInput1" accept="image/*">
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                       @*  <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Selecione o arquivo do Topo </label>
                                 <input type="file" name="arquivo2" class="form-control-file" id="fileInput2" accept="image/*">
@@ -122,7 +122,7 @@
                                 <label for="exampleFormControlFile1">Selecione o arquivo de Baixo</label>
                                 <input type="file" name="arquivo4" class="form-control-file" id="fileInput4" accept="image/*">
                             </div>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="row">
                         <div class="col-sm-3 mb-2">
@@ -131,7 +131,7 @@
                                 <img id="previewImage1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
                             </div>
                         </div>
-                        <div class="col-sm-3 mb-2">
+                       @*  <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label for="fname">Imagem</label>
                                 <img id="previewImage2" src="@Model.CaminhoImagem2" class="img-fluid" alt="Imagem do Banner" />
@@ -148,7 +148,7 @@
                                 <label for="fname">Imagem</label>
                                 <img id="previewImage4" src="@Model.CaminhoImagem4" class="img-fluid" alt="Imagem do Banner" />
                             </div>
-                        </div>
+                        </div> *@
 
                     </div>
 
@@ -243,7 +243,8 @@
 
         // Função para exibir a visualização da imagem quando um arquivo é selecionado
         function previewFile1() {
-            var label = document.getElementById('labelImage1');
+            // var label = document.getElementById('labelImage1');
+            alert("EREWr");
             var preview = document.getElementById('previewImage1');
             var fileInput = document.getElementById('fileInput1').files[0];
             var reader = new FileReader();
@@ -252,10 +253,10 @@
                 //$("#imagem").attr('display', 'inline-block');
                 preview.src = reader.result;
                 preview.style.display = 'block';
-                label.style.display = 'block';
+                // label.style.display = 'block';
             }
 
-            if (fileInput) {
+            if (fileInput1) {
                 reader.readAsDataURL(fileInput);
             } else {
                 preview.src = '';
@@ -263,74 +264,74 @@
             }
         }
 
-        function previewFile2() {
-            var label = document.getElementById('labelImage2');
-            var preview = document.getElementById('previewImage2');
-            var fileInput = document.getElementById('fileInput2').files[0];
-            var reader = new FileReader();
+        // function previewFile2() {
+        //     // var label = document.getElementById('labelImage2');
+        //     var preview = document.getElementById('previewImage2');
+        //     var fileInput = document.getElementById('fileInput2').files[0];
+        //     var reader = new FileReader();
 
-            reader.onloadend = function () {
-                //$("#imagem").attr('display', 'inline-block');
-                preview.src = reader.result;
-                preview.style.display = 'block';
-                label.style.display = 'block';
-            }
+        //     reader.onloadend = function () {
+        //         //$("#imagem").attr('display', 'inline-block');
+        //         preview.src = reader.result;
+        //         preview.style.display = 'block';
+        //         // label.style.display = 'block';
+        //     }
 
-            if (fileInput) {
-                reader.readAsDataURL(fileInput);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-            }
-        }
+        //     if (fileInput2) {
+        //         reader.readAsDataURL(fileInput);
+        //     } else {
+        //         preview.src = '';
+        //         preview.style.display = 'none';
+        //     }
+        // }
 
-        function previewFile3() {
-            var label = document.getElementById('labelImage3');
-            var preview = document.getElementById('previewImage3');
-            var fileInput = document.getElementById('fileInput3').files[0];
-            var reader = new FileReader();
+        // function previewFile3() {
+        //     // var label = document.getElementById('labelImage3');
+        //     var preview = document.getElementById('previewImage3');
+        //     var fileInput = document.getElementById('fileInput3').files[0];
+        //     var reader = new FileReader();
 
-            reader.onloadend = function () {
-                //$("#imagem").attr('display', 'inline-block');
-                preview.src = reader.result;
-                preview.style.display = 'block';
-                label.style.display = 'block';
-            }
+        //     reader.onloadend = function () {
+        //         //$("#imagem").attr('display', 'inline-block');
+        //         preview.src = reader.result;
+        //         preview.style.display = 'block';
+        //         // label.style.display = 'block';
+        //     }
 
-            if (fileInput) {
-                reader.readAsDataURL(fileInput);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-            }
-        }
+        //     if (fileInput3) {
+        //         reader.readAsDataURL(fileInput);
+        //     } else {
+        //         preview.src = '';
+        //         preview.style.display = 'none';
+        //     }
+        // }
 
-        function previewFile4() {
-            var label = document.getElementById('labelImage4');
-            var preview = document.getElementById('previewImage4');
-            var fileInput = document.getElementById('fileInput4').files[0];
-            var reader = new FileReader();
+        // function previewFile4() {
+        //     // var label = document.getElementById('labelImage4');
+        //     var preview = document.getElementById('previewImage4');
+        //     var fileInput = document.getElementById('fileInput4').files[0];
+        //     var reader = new FileReader();
 
-            reader.onloadend = function () {
-                //$("#imagem").attr('display', 'inline-block');
-                preview.src = reader.result;
-                preview.style.display = 'block';
-                label.style.display = 'block';
-            }
+        //     reader.onloadend = function () {
+        //         //$("#imagem").attr('display', 'inline-block');
+        //         preview.src = reader.result;
+        //         preview.style.display = 'block';
+        //         // label.style.display = 'block';
+        //     }
 
-            if (fileInput) {
-                reader.readAsDataURL(fileInput);
-            } else {
-                preview.src = '';
-                preview.style.display = 'none';
-            }
-        }
+        //     if (fileInput4) {
+        //         reader.readAsDataURL(fileInput);
+        //     } else {
+        //         preview.src = '';
+        //         preview.style.display = 'none';
+        //     }
+        // }
 
         // Adiciona um listener de mudança no campo de entrada do arquivo
         document.getElementById('fileInput1').addEventListener('change', previewFile1);
-        document.getElementById('fileInput2').addEventListener('change', previewFile2);
-        document.getElementById('fileInput3').addEventListener('change', previewFile3);
-        document.getElementById('fileInput4').addEventListener('change', previewFile4);
+        // document.getElementById('fileInput2').addEventListener('change', previewFile2);
+        // document.getElementById('fileInput3').addEventListener('change', previewFile3);
+        // document.getElementById('fileInput4').addEventListener('change', previewFile4);
     </script>
 
 }

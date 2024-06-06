@@ -67,6 +67,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
                 var listaTags = response.Tags.Split(",");
                 response.TagsList = new List<Tag>();
+
                 foreach (var tag in listaTags)
                 {
                     var tag2 = _adminContext.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
