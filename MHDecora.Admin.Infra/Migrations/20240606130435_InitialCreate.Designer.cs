@@ -11,7 +11,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace MHDecora.Admin.Infra.Migrations
 {
     [DbContext(typeof(AdminContext))]
-    [Migration("20240605214238_InitialCreate")]
+    [Migration("20240606130435_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -129,8 +129,9 @@ namespace MHDecora.Admin.Infra.Migrations
                         .HasColumnType("NUMBER(1)")
                         .HasDefaultValue(false);
 
-                    b.Property<int>("TagId")
-                        .HasColumnType("NUMBER(10)");
+                    b.Property<string>("Tags")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Texto")
                         .IsRequired()
@@ -149,21 +150,6 @@ namespace MHDecora.Admin.Infra.Migrations
                     b.HasIndex("CategoriaId");
 
                     b.ToTable("MH_MONTAGEM", "DECORAPHP");
-                });
-
-            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.MontagemTag", b =>
-                {
-                    b.Property<int>("MontagemId")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("NUMBER(10)");
-
-                    b.HasKey("MontagemId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("MH_MONTAGEM_TAGS");
                 });
 
             modelBuilder.Entity("MHDecora.Admin.Domain.Entities.QuemSomos", b =>
@@ -246,35 +232,6 @@ namespace MHDecora.Admin.Infra.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
-                });
-
-            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.MontagemTag", b =>
-                {
-                    b.HasOne("MHDecora.Admin.Domain.Entities.Montagem", "Montagem")
-                        .WithMany("MontagensTags")
-                        .HasForeignKey("MontagemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MHDecora.Admin.Domain.Entities.Tag", "Tag")
-                        .WithMany("MontagensTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Montagem");
-
-                    b.Navigation("Tag");
-                });
-
-            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.Montagem", b =>
-                {
-                    b.Navigation("MontagensTags");
-                });
-
-            modelBuilder.Entity("MHDecora.Admin.Domain.Entities.Tag", b =>
-                {
-                    b.Navigation("MontagensTags");
                 });
 #pragma warning restore 612, 618
         }

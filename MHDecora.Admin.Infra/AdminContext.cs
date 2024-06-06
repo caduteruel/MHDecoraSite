@@ -9,6 +9,17 @@ namespace MHDecora.Admin.Infra
         {
         }
 
+        public AdminContext() : base(GetOptions())
+        {
+        }
+
+        private static DbContextOptions<AdminContext> GetOptions()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AdminContext>();
+            optionsBuilder.UseOracle(@"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.1.100.95)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ofuracao)));User Id=furacaophp;Password=furacaoadm321");
+            return optionsBuilder.Options;
+        }
+
         public DbSet<Banner> MH_BANNERS { get; set; }
         public DbSet<QuemSomos> MH_QUEMSOMOS { get; set; }
         public DbSet<Montagem> MH_MONTAGEM { get; set; }
@@ -16,7 +27,6 @@ namespace MHDecora.Admin.Infra
         public DbSet<Categoria> MH_CATEGORIAS { get; set; }
         public DbSet<Tag> MH_TAGS { get; set; }
         public DbSet<Contato> MH_CONTATO { get; set; }
-        public DbSet<MontagemTag> MH_MONTAGEM_TAGS { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -62,18 +72,6 @@ namespace MHDecora.Admin.Infra
                       .HasDefaultValue(false); // Define o valor padrão como falso
             });
 
-            modelBuilder.Entity<MontagemTag>()
-                    .HasKey(bc => new { bc.MontagemId, bc.TagId });
-
-            modelBuilder.Entity<MontagemTag>()
-                .HasOne(bc => bc.Montagem)
-                .WithMany(b => b.MontagensTags)
-                .HasForeignKey(bc => bc.MontagemId);
-
-            modelBuilder.Entity<MontagemTag>()
-                .HasOne(bc => bc.Tag)
-                .WithMany(c => c.MontagensTags)
-                .HasForeignKey(bc => bc.TagId);
         }
     }
 }

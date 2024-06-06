@@ -124,7 +124,7 @@ namespace MHDecora.Admin.Infra.Migrations
                     Titulo = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     LinkBotao = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     MontagemDestaque = table.Column<bool>(type: "NUMBER(1)", nullable: false, defaultValue: false),
-                    TagId = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    Tags = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     CategoriaId = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
@@ -139,42 +139,11 @@ namespace MHDecora.Admin.Infra.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "MH_MONTAGEM_TAGS",
-                columns: table => new
-                {
-                    MontagemId = table.Column<int>(type: "NUMBER(10)", nullable: false),
-                    TagId = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MH_MONTAGEM_TAGS", x => new { x.MontagemId, x.TagId });
-                    table.ForeignKey(
-                        name: "FK_MH_MONTAGEM_TAGS_MH_MONTAGEM_MontagemId",
-                        column: x => x.MontagemId,
-                        principalSchema: "DECORAPHP",
-                        principalTable: "MH_MONTAGEM",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MH_MONTAGEM_TAGS_MH_TAGS_TagId",
-                        column: x => x.TagId,
-                        principalSchema: "DECORAPHP",
-                        principalTable: "MH_TAGS",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_MH_MONTAGEM_CategoriaId",
                 schema: "DECORAPHP",
                 table: "MH_MONTAGEM",
                 column: "CategoriaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MH_MONTAGEM_TAGS_TagId",
-                table: "MH_MONTAGEM_TAGS",
-                column: "TagId");
         }
 
         /// <inheritdoc />
@@ -189,22 +158,19 @@ namespace MHDecora.Admin.Infra.Migrations
                 schema: "DECORAPHP");
 
             migrationBuilder.DropTable(
-                name: "MH_MONTAGEM_TAGS");
+                name: "MH_MONTAGEM",
+                schema: "DECORAPHP");
 
             migrationBuilder.DropTable(
                 name: "MH_QUEMSOMOS",
                 schema: "DECORAPHP");
 
             migrationBuilder.DropTable(
-                name: "MH_TEMA",
-                schema: "DECORAPHP");
-
-            migrationBuilder.DropTable(
-                name: "MH_MONTAGEM",
-                schema: "DECORAPHP");
-
-            migrationBuilder.DropTable(
                 name: "MH_TAGS",
+                schema: "DECORAPHP");
+
+            migrationBuilder.DropTable(
+                name: "MH_TEMA",
                 schema: "DECORAPHP");
 
             migrationBuilder.DropTable(
