@@ -1,0 +1,325 @@
+﻿@model MHDecora.Admin.Domain.Entities.Montagem
+
+@{
+    ViewBag.Title = "Adicionar Banner";
+    string titulo = TempData["Titulo"] as string;
+    string mensagem = TempData["Mensagem"] as string;
+    string tipoAlerta = TempData["TipoAlerta"] as string;
+}
+
+@if (!string.IsNullOrEmpty(mensagem))
+{
+    <div id="autoCloseAlert" class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">
+        <strong>@titulo</strong> @mensagem
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+}
+
+<div id="msgAlert"></div>
+
+<div class="row">
+
+    <div class="col-xl-12">
+        <!-- Basic Examples -->
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Adicionar Montagem</h2>
+            </div>
+            <div class="card-body">
+
+                @using (Html.BeginForm("Editar", "Montagem", FormMethod.Post, new { enctype = "multipart/form-data", id = "formEditar" }))
+                {
+                    <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label for="fname">Título da Sessão</label>
+                                <input name="titulo" class="form-control" placeholder="Título da sessão" id="titulo" value="@Model.Titulo">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="fname">Texto em cima da Imagem</label>
+                                <input name="textoImagem" class="form-control" placeholder="Texto da imagem" id="textoImagem" value="@Model.TextoImagem">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">Link do Botão</label>
+                                <input name="linkBotao" class="form-control" placeholder="Link do botão" id="linkBotao" value="@Model.LinkBotao">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label for="fname">Texto em baixo da Imagem</label>
+                                @Html.TextAreaFor(m => m.Texto, new { @class = "form-control", @rows = "5" })
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="categoriaId">Categoria</label>
+                                @Html.DropDownListFor(f => f.CategoriaId, ViewBag.Categorias as SelectList, "-- Selecione a categoria --", new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">Produto em Destaque</label>
+                                <div class="form-check">
+                                    @if (Model.MontagemDestaque)
+                                    {
+                                        <input class="form-check-input" type="radio" name="MontagemDestaque" id="MontagemDestaqueSim" checked="checked" value="true")>
+                                        <label class="form-check-label" for="MontagemDestaqueSim">
+                                            SIM
+                                        </label>
+                                        <br />
+                                        <input class="form-check-input" type="radio" name="MontagemDestaque" id="MontagemDestaqueNao" value="false")>
+                                        <label class="form-check-label" for="MontagemDestaqueNao">
+                                            NÃO
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-check-input" type="radio" name="MontagemDestaque" id="MontagemDestaqueSim" value="false">
+                                        <label class="form-check-label" for="MontagemDestaqueSim">
+                                            SIM
+                                        </label>
+                                        <br />
+                                        <input class="form-check-input" type="radio" name="MontagemDestaque" id="MontagemDestaqueNao" checked="checked" value="true")>
+                                        <label class="form-check-label" for="MontagemDestaqueNao">
+                                            NÃO
+                                        </label>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o arquivo Principal</label>
+                                <input type="file" name="arquivo1" class="form-control-file" id="fileInput1" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o arquivo do Topo </label>
+                                <input type="file" name="arquivo2" class="form-control-file" id="fileInput2" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o arquivo do Meio</label>
+                                <input type="file" name="arquivo3" class="form-control-file" id="fileInput3" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o arquivo de Baixo</label>
+                                <input type="file" name="arquivo4" class="form-control-file" id="fileInput4" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 mb-2">
+                            <div class="form-group">
+                                <label for="fname">Imagem</label>
+                                <img id="previewImage1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-2">
+                            <div class="form-group">
+                                <label for="fname">Imagem</label>
+                                <img id="previewImage2" src="@Model.CaminhoImagem2" class="img-fluid" alt="Imagem do Banner" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-2">
+                            <div class="form-group">
+                                <label for="fname">Imagem</label>
+                                <img id="previewImage3" src="@Model.CaminhoImagem3" class="img-fluid" alt="Imagem do Banner" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-2">
+                            <div class="form-group">
+                                <label for="fname">Imagem</label>
+                                <img id="previewImage4" src="@Model.CaminhoImagem4" class="img-fluid" alt="Imagem do Banner" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 mb-5">
+                            <label id="labelImage5" for="fname">Escolha as Tags</label>
+                            @Html.DropDownListFor(f => f.TagId, ViewBag.Tags as MultiSelectList, new { @class = "form-control", multiple = "multiple" })
+
+                            @* <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
+                                <option value="">-- Escolha as tags --</option>
+                                @for (int i = 0; i < @ViewBag.Tags.Count; i++)
+                                {
+                                    <option value="@Model[i].Id">@Model[i].Nome</option>
+                                }
+                            </select> *@
+                        </div>
+                    </div>
+                    <div class="form-footer pt-5 border-top d-flex justify-content-between">
+                        <a href="@Url.Action("Index", "Montagem")" class="btn btn-primary text-left">
+                            <i class="mdi mdi-undo mr-1"></i> Voltar
+                        </a>
+                        <div>
+                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button type="button" class="btn btn-light ml-2" onclick="cancelar()">Cancelar</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+@section Scripts {
+    <script>
+
+
+        $(document).ready(function () {
+            $('#formAdicionar').submit(function (e) {
+                e.preventDefault(); // Evita o envio padrão do formulário
+
+                var titulo = $("#titulo").val();
+                var textoImagem = $("#textoImagem").val();
+                var linkBotao = $("#linkBotao").val();
+                var texto = $("#texto").val();
+                var categoria = $("#categoria").val();
+
+                var fileInput1 = $("#fileInput1").val();
+                var fileInput2 = $("#fileInput2").val();
+                var fileInput3 = $("#fileInput3").val();
+                var fileInput4 = $("#fileInput4").val();
+
+                if (!titulo || !textoImagem || !linkBotao || !texto || categoria == "0" || !fileInput1 || !fileInput2 || !fileInput3 || !fileInput4) {
+                    Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
+                    return;
+                }
+
+                // Se todos os campos estiverem preenchidos, envie o formulário
+                this.submit(); // Aqui corrigimos para enviar o formulário corretamente
+            });
+        });
+
+        // Função para exibir a visualização da imagem quando um arquivo é selecionado
+        function cancelar() {
+            $("#titulo").val("");
+            $("#textoImagem").val("");
+            $("#linkBotao").val("");
+            $("#texto").val("");
+
+            $('#fileInput').wrap('<form>').closest('form').get(0).reset();
+            $('#fileInput').unwrap();
+
+            var label = document.getElementById('labelImage');
+            var preview = document.getElementById('previewImage');
+
+            preview.src = '';
+            preview.style.display = 'none';
+            label.style.display = 'none';
+        }
+
+        // Função para exibir a visualização da imagem quando um arquivo é selecionado
+        function previewFile1() {
+            var label = document.getElementById('labelImage1');
+            var preview = document.getElementById('previewImage1');
+            var fileInput = document.getElementById('fileInput1').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                //$("#imagem").attr('display', 'inline-block');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                label.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        function previewFile2() {
+            var label = document.getElementById('labelImage2');
+            var preview = document.getElementById('previewImage2');
+            var fileInput = document.getElementById('fileInput2').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                //$("#imagem").attr('display', 'inline-block');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                label.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        function previewFile3() {
+            var label = document.getElementById('labelImage3');
+            var preview = document.getElementById('previewImage3');
+            var fileInput = document.getElementById('fileInput3').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                //$("#imagem").attr('display', 'inline-block');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                label.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        function previewFile4() {
+            var label = document.getElementById('labelImage4');
+            var preview = document.getElementById('previewImage4');
+            var fileInput = document.getElementById('fileInput4').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                //$("#imagem").attr('display', 'inline-block');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                label.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        // Adiciona um listener de mudança no campo de entrada do arquivo
+        document.getElementById('fileInput1').addEventListener('change', previewFile1);
+        document.getElementById('fileInput2').addEventListener('change', previewFile2);
+        document.getElementById('fileInput3').addEventListener('change', previewFile3);
+        document.getElementById('fileInput4').addEventListener('change', previewFile4);
+    </script>
+
+}
