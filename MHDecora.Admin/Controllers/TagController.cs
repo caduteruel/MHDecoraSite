@@ -70,9 +70,9 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Excluir(int id)
+        public async Task<IActionResult> Excluir(int tagId)
         {
-            bool result = await _tagService.Excluir(id);
+            bool result = await _tagService.Excluir(tagId);
 
             if (result)
             {

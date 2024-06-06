@@ -4,7 +4,7 @@ using MHDecora.Admin.Domain.Interfaces;
 
 namespace MHDecora.Admin.Application.Services
 {
-    public class ContatoService : IContatoService
+    public class ContatoService : IOrcamentoService
     {
         private readonly IContatoRepository _contatoRepository;
 

@@ -6,9 +6,9 @@ namespace MHDecora.Admin.Controllers
 {
     public class ContatoController : Controller
     {
-        private readonly IContatoService _contatoService;
+        private readonly IOrcamentoService _contatoService;
 
-        public ContatoController(IContatoService contatoService)
+        public ContatoController(IOrcamentoService contatoService)
         {
             _contatoService = contatoService;
         }
@@ -40,15 +40,15 @@ namespace MHDecora.Admin.Controllers
                 Alert("Erro!", "Não foi possível criar o contato, contate a equipe de suporte.", "danger");
             }
 
-            return View();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
         {
-            var tag = await _contatoService.GetContatoById(id);
+            var contato = await _contatoService.GetContatoById(id);
 
-            return View(tag);
+            return View(contato);
         }
 
         [HttpPost]
@@ -69,9 +69,9 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Excluir(int id)
+        public async Task<IActionResult> Excluir(int contatoId)
         {
-            bool result = await _contatoService.Excluir(id);
+            bool result = await _contatoService.Excluir(contatoId);
 
             if (result)
             {

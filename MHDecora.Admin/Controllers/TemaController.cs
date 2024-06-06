@@ -1,4 +1,5 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
+using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,11 +7,13 @@ namespace MHDecora.Admin.Controllers
 {
     public class TemaController : Controller
     {
+        private readonly ITagService _tagService;
         private readonly ITemaService _temaService;
 
-        public TemaController(ITemaService temaService)
+        public TemaController(ITemaService temaService, ITagService tagService)
         {
             _temaService = temaService;
+            _tagService = tagService;
         }
 
         public async Task<IActionResult> Index()
@@ -27,10 +30,18 @@ namespace MHDecora.Admin.Controllers
             return View(response);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Adicionar(Tema tema, IFormFile arquivo)
+        [HttpGet]
+        public async Task<IActionResult> Adicionar()
         {
-            var response = await _temaService.Salvar(tema, arquivo);
+            var tags = await _tagService.GetTags();
+
+            return View(tags);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Adicionar(Tema tema, IFormFile arquivo, List<string> tag)
+        {
+            var response = await _temaService.Salvar(tema, arquivo, tag);
 
             if (response)
             {

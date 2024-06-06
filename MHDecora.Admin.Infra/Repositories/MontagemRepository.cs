@@ -183,7 +183,7 @@ namespace MHDecora.Admin.Infra.Repositories
             }
         }
 
-        public async Task<bool> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
+        public async Task<bool> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         {
             try
             {
@@ -315,7 +315,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
         //}
 
-        public async Task<bool> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
+        public async Task<bool> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         {
             var montagemExistente = await _adminContext.MH_MONTAGEM.FindAsync(montagem.Id);
 

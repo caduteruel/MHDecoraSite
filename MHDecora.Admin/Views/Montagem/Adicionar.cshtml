@@ -145,27 +145,15 @@
                     <div class="row">
                         <div class="col-sm-12 mb-5">
                             <label id="labelImage5" for="fname">Escolha as Tags</label>
-                            <select class="form-select" id="tag" data-placeholder="Digite a tag" multiple>
-                                <option>Christmas Island</option>
-                                <option>South Sudan</option>
-                                <option>Jamaica</option>
-                                <option>Kenya</option>
-                                <option>French Guiana</option>
-                                <option>Mayotta</option>
-                                <option>Liechtenstein</option>
-                                <option>Denmark</option>
-                                <option>Eritrea</option>
-                                <option>Gibraltar</option>
-                                <option>Saint Helena, Ascension and Tristan da Cunha</option>
-                                <option>Haiti</option>
-                                <option>Namibia</option>
-                                <option>South Georgia and the South Sandwich Islands</option>
-                                <option>Vietnam</option>
-                                <option>Yemen</option>
-                                <option>Philippines</option>
-                                <option>Benin</option>
-                                <option>Czech Republic</option>
-                                <option>Russia</option>
+                            <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
+                                <option value="">-- Escolha as tags --</option>
+                                @if (@ViewBag.Tags != null)
+                                {
+                                    @for (int i = 0; i < @ViewBag.Tags.Count; i++)
+                                    {
+                                        <option value="@Model[i].Id">@Model[i].Nome</option>
+                                    }
+                                }                               
                             </select>
                         </div>
                     </div>
@@ -181,7 +169,6 @@
                 }
             </div>
         </div>
-
 
     </div>
 

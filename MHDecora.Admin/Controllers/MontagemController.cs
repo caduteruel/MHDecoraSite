@@ -8,13 +8,15 @@ namespace MHDecora.Admin.Controllers
 {
     public class MontagemController : Controller
     {
+        private readonly ITagService _tagService;
         private readonly IMontagemService _montagemService;
         private readonly ICategoriaService _categoriaService;
 
-        public MontagemController(IMontagemService montagemService, ICategoriaService categoriaService)
+        public MontagemController(IMontagemService montagemService, ICategoriaService categoriaService, ITagService tagService)
         {
             _montagemService = montagemService;
             _categoriaService = categoriaService;
+            _tagService = tagService;
         }
 
         [HttpGet]
@@ -35,15 +37,17 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Adicionar()
         {
-            var categoria = await _categoriaService.GetCategorias();
+            var categorias = await _categoriaService.GetCategorias();
 
-            return View(categoria);
+            ViewBag.Tags = await _tagService.GetTags();
+
+            return View(categorias);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, string[] tag)
+        public async Task<IActionResult> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         {
-            var response = await _montagemService.Salvar(montagem, arquivo1, arquivo2, arquivo3, arquivo4);
+            var response = await _montagemService.Salvar(montagem, arquivo1, arquivo2, arquivo3, arquivo4, tag);
 
             if (response)
             {
@@ -75,21 +79,24 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Editar(int montagemId)
+        public async Task<IActionResult> Editar(int id)
         {
-            var response = await _montagemService.GetById(montagemId);
+            var response = await _montagemService.GetById(id);
 
-            var categoria = await _categoriaService.GetCategorias();
+            var listaCategoria = await _categoriaService.GetCategorias();
+            
+            var listaTag = await _tagService.GetTags();
 
-            ViewBag.Categorias = new SelectList(categoria, "Id", "Nome");
+            ViewBag.Categorias = new SelectList(listaCategoria, "Id", "Nome");
+            ViewBag.Tags = new MultiSelectList(listaTag, "Id", "Nome");
 
             return View(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4)
+        public async Task<IActionResult> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         {
-            var response = await _montagemService.Editar(montagem, arquivo1, arquivo2, arquivo3, arquivo4);
+            var response = await _montagemService.Editar(montagem, arquivo1, arquivo2, arquivo3, arquivo4, tag);
 
             if (response)
             {

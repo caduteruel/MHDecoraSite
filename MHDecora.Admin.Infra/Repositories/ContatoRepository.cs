@@ -68,8 +68,9 @@ namespace MHDecora.Admin.Infra.Repositories
         }
         public async Task<List<Contato>> GetContato()
         {
-            return await _adminContext.MH_CONTATO.OrderByDescending(x => x.Id).Take(1).ToListAsync();
+            return await _adminContext.MH_CONTATO.ToListAsync();
         }
+
         public async Task<Contato> GetContatoById(int id)
         {
             return await _adminContext.MH_CONTATO.FirstOrDefaultAsync(x => x.Id == id);

@@ -39,7 +39,7 @@ namespace MHDecora.Admin.Infra.Repository
             return tema;
         }
 
-        public async Task<bool> Salvar(Tema tema, IFormFile arquivo)
+        public async Task<bool> Salvar(Tema tema, IFormFile arquivo, List<string> tag)
         {
             try
             {
@@ -118,7 +118,7 @@ namespace MHDecora.Admin.Infra.Repository
 
         }
 
-        public async Task<bool> Editar(IFormFile arquivo, Tema tema)
+        public async Task<bool> Editar(IFormFile arquivo, Tema tema, List<string> tag)
         {
             var temaExistente = await _context.MH_TEMA.FindAsync(tema.Id);
 

@@ -1,4 +1,4 @@
-﻿@model List<MHDecora.Admin.Domain.Entities.Tema>
+﻿@model List<MHDecora.Admin.Domain.Entities.Tag>
 
 @{
     ViewBag.Title = "Adicionar Banner";
@@ -23,7 +23,7 @@
         <!-- Basic Examples -->
         <div class="card card-default">
             <div class="card-header">
-                <h2>Adicionar Banner</h2>
+                <h2>Adicionar Tema</h2>
             </div>
             <div class="card-body">
 
@@ -32,14 +32,14 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="fname">Link</label>
-                                <input name="descricao" class="form-control" placeholder="Link da imagem" id="descricao">
+                                <label for="fname">Título</label>
+                                <input name="titulo" class="form-control" placeholder="Título da sessão" id="titulo">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="fname">Link</label>
-                                <input name="descricao" class="form-control" placeholder="Link da imagem" id="descricao">
+                                <label for="fname">Descrição</label>
+                                <input name="texto" class="form-control" placeholder="Descrição da imagem" id="texto">
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -55,6 +55,21 @@
                                 <label id="labelImage" for="fname" style="display:none">Imagem</label>
                                 <img id="previewImage" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 mb-5">
+                            <label id="labelImage5" for="fname">Escolha as Tags</label>
+                            <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
+                                <option value="">-- Escolha as tags --</option>
+                                @if (Model != null)
+                                {
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        <option value="@Model[i].Id">@Model[i].Nome</option>
+                                    }
+                                }
+                            </select>
                         </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
@@ -83,11 +98,11 @@
             $('#formAdicionar').submit(function (e) {
                 e.preventDefault(); // Evita o envio padrão do formulário
 
-                var descricao = $("#descricao").val();
-                var ordem = $("#ordem").val();
+                var descricao = $("#texto").val();
+                var titulo = $("#titulo").val();
                 var fileInput = $("#fileInput").val();
 
-                if (!descricao || ordem == "0" || !fileInput) {
+                if (!texto || !titulo || !fileInput) {
                     Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }
@@ -99,8 +114,8 @@
 
         // Função para exibir a visualização da imagem quando um arquivo é selecionado
         function cancelar() {
-            $("#descricao").val("");
-            $("#ordem").val("0");
+            $("#texto").val("");
+            $("#titulo").val("");
 
             $('#fileInput').wrap('<form>').closest('form').get(0).reset();
             $('#fileInput').unwrap();

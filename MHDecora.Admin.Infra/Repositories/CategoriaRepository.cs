@@ -84,10 +84,6 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 throw;
             }
-            finally
-            {
-                await _adminContext.DisposeAsync();
-            }
         }
     }
 }

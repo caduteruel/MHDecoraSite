@@ -7,8 +7,8 @@ namespace MHDecora.Admin.Domain.Interfaces
     {
         Task<List<Tema>> Buscar();
         Task<Tema> BuscarPorId(int id);
-        Task<bool> Salvar(Tema tema, IFormFile arquivo);
+        Task<bool> Salvar(Tema tema, IFormFile arquivo, List<string> tag);
         Task<bool> Excluir(int temaId);
-        Task<bool> Editar(IFormFile arquivo, Tema tema);
+        Task<bool> Editar(IFormFile arquivo, Tema tema, List<string> tag);
     }
 }
