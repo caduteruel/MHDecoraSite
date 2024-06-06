@@ -6,9 +6,9 @@ namespace MHDecora.Admin.Controllers
 {
     public class ContatoController : Controller
     {
-        private readonly IOrcamentoService _contatoService;
+        private readonly IContatoService _contatoService;
 
-        public ContatoController(IOrcamentoService contatoService)
+        public ContatoController(IContatoService contatoService)
         {
             _contatoService = contatoService;
         }

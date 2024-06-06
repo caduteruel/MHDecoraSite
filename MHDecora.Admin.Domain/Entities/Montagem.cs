@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MHDecora.Admin.Domain.Entities
 {
@@ -15,9 +16,10 @@ namespace MHDecora.Admin.Domain.Entities
         public string Titulo { get; set; }
         public string LinkBotao { get; set; }
         public bool MontagemDestaque { get; set; }
+        public string Tags { get; set; }
 
-        public int TagId { get; set; }
-        public virtual IEnumerable<Tag> Tags { get; set; }
+        [NotMapped]
+        public List<Tag> TagsList { get; set; }
 
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }

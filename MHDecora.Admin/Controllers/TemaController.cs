@@ -81,9 +81,9 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Editar(IFormFile arquivo, Tema tema)
+        public async Task<IActionResult> Editar(IFormFile arquivo, Tema tema, List<string> tag)
         {
-            var result = await _temaService.Editar(arquivo, tema);
+            var result = await _temaService.Editar(arquivo, tema, tag);
 
             if (result)
             {
