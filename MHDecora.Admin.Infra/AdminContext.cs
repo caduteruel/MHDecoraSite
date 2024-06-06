@@ -73,18 +73,6 @@ namespace MHDecora.Admin.Infra
                       .HasDefaultValue(false); // Define o valor padrão como falso
             });
 
-            modelBuilder.Entity<MontagemTag>()
-                    .HasKey(bc => new { bc.MontagemId, bc.TagId });
-
-            modelBuilder.Entity<MontagemTag>()
-                .HasOne(bc => bc.Montagem)
-                .WithMany(b => b.MontagensTags)
-                .HasForeignKey(bc => bc.MontagemId);
-
-            modelBuilder.Entity<MontagemTag>()
-                .HasOne(bc => bc.Tag)
-                .WithMany(c => c.MontagensTags)
-                .HasForeignKey(bc => bc.TagId);
         }
     }
 }
