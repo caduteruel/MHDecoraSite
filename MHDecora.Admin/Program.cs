@@ -3,7 +3,6 @@ using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Data;
 using MHDecora.Admin.Domain.Interfaces;
-using MHDecora.Admin.Domain.Interfaces.CrossCutting;
 using MHDecora.Admin.Infra;
 using MHDecora.Admin.Infra.CrossCutting;
 using MHDecora.Admin.Infra.Repositories;
@@ -36,7 +35,7 @@ builder.Services.AddScoped<ITemaService, TemaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<ITagService, TagService>();
 builder.Services.AddScoped<IContatoService, ContatoService>();
-builder.Services.AddScoped<IOrcamentoService, OrcamentoService>();
+//builder.Services.AddScoped<IOrcamentoService, OrcamentoService>();
 
 
 // Repositories
@@ -47,7 +46,7 @@ builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
-builder.Services.AddScoped<IOrcamentoRepository, OrcamentoRepository>();
+//builder.Services.AddScoped<IOrcamentoRepository, OrcamentoRepository>();
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 
