@@ -35,7 +35,8 @@ builder.Services.AddScoped<ITemaService, TemaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddScoped<ITagService, TagService>();
 builder.Services.AddScoped<IContatoService, ContatoService>();
-builder.Services.AddScoped<IOrcamentoService, OrcamentoService>();
+//builder.Services.AddScoped<IOrcamentoService, OrcamentoService>();
+
 
 // Repositories
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
@@ -45,7 +46,7 @@ builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
-builder.Services.AddScoped<IOrcamentoRepository, OrcamentoRepository>();
+//builder.Services.AddScoped<IOrcamentoRepository, OrcamentoRepository>();
 
 builder.Services.AddScoped<ILogger, Logger<AdminContext>>();
 

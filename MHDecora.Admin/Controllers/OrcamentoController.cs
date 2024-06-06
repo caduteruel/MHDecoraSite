@@ -5,12 +5,12 @@ namespace MHDecora.Admin.Controllers
 {
     public class OrcamentoController : Controller
     {
-        private readonly IOrcamentoService _orcamentoService;
+        //private readonly IOrcamentoService _orcamentoService;
 
-        public OrcamentoController(IOrcamentoService orcamentoService)
-        {
-            _orcamentoService = orcamentoService;
-        }
+        //public OrcamentoController(IOrcamentoService orcamentoService)
+        //{
+        //    _orcamentoService = orcamentoService;
+        //}
 
 
         public IActionResult Index()

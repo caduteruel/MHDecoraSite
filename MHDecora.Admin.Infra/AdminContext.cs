@@ -9,6 +9,17 @@ namespace MHDecora.Admin.Infra
         {
         }
 
+        public AdminContext() : base(GetOptions())
+        {
+        }
+
+        private static DbContextOptions<AdminContext> GetOptions()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AdminContext>();
+            optionsBuilder.UseOracle(@"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.1.100.95)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ofuracao)));User Id=furacaophp;Password=furacaoadm321");
+            return optionsBuilder.Options;
+        }
+
         public DbSet<Banner> MH_BANNERS { get; set; }
         public DbSet<QuemSomos> MH_QUEMSOMOS { get; set; }
         public DbSet<Montagem> MH_MONTAGEM { get; set; }
@@ -61,6 +72,7 @@ namespace MHDecora.Admin.Infra
                       .HasColumnType("NUMBER(1)")
                       .HasDefaultValue(false); // Define o valor padrão como falso
             });
+
         }
     }
 }
