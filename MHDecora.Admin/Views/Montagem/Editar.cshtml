@@ -160,10 +160,21 @@
                                 <option value="">-- Escolha as tags --</option>
                                 @if (@Model.TagsList != null)
                                 {
-                                    @foreach (var item in @Model.TagsList)
+
+                                    var itens = ViewBag.Tags;
+                                    var itensSelecionados = Model.TagsList;  // Itens que já estão selecionados
+
+                                    foreach (var item in itens)
                                     {
-                                        <option value="@item.Id">@item.Nome</option>
-                                    }
+                                        if (itensSelecionados.Any(x => x.Id.ToString() == item.Value))
+                                        {
+                                            <option value="@item.Value" selected="selected">@item.Text</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }                                   
                                 }
                             </select>
                         </div>

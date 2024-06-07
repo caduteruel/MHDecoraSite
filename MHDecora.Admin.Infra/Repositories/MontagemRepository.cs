@@ -430,6 +430,17 @@ namespace MHDecora.Admin.Infra.Repositories
 
             }
 
+            string tags = String.Empty;
+            if (tag.Count > 0)
+            {
+                foreach (var item in tag)
+                {
+                    tags = tags + "," + item;
+                }
+
+                montagem.Tags = tags.Remove(0, 1);
+            }
+
             _adminContext.Entry(montagemExistente).CurrentValues.SetValues(montagem);
 
            // _adminContext.Entry(montagemExistente).State = EntityState.Modified;
