@@ -84,7 +84,29 @@ namespace MHDecora.Admin.Controllers
             var response = await _montagemService.GetById(id);
 
             var listaCategoria = await _categoriaService.GetCategorias();
-          
+
+
+
+            // Suponha que você tenha uma lista de todos os itens possíveis
+            List<string> todosOsItens = new List<string>();
+            todosOsItens.Add("item1");
+            todosOsItens.Add("item2");
+            todosOsItens.Add("item3");
+
+            // Suponha que você tenha uma lista de itens selecionados no backend
+            List<string> itensSelecionados = new List<string>();
+            itensSelecionados.Add("item1");
+            itensSelecionados.Add("item3");
+
+            // Filtrar os itens selecionados da lista completa
+            List<string> itensParaSelecionar = todosOsItens.Intersect(itensSelecionados).ToList();
+
+            // Adicione essa lista ao modelo antes de renderizar a página Razor
+            ViewBag.ItensSelecionados = itensParaSelecionar;
+
+
+
+
             ViewBag.Categorias = new SelectList(listaCategoria, "Id", "Nome");
             
             return View(response);
