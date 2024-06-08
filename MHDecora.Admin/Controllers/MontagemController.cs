@@ -69,11 +69,11 @@ namespace MHDecora.Admin.Controllers
 
             if (result)
             {
-                Alert("Sucesso!", "O Banner foi excluído.", "success");
+                Alert("Sucesso!", "A montagem foi excluída.", "success");
             }
             else
             {
-                Alert("Erro!", "Não foi possível excluir o banner, contate a equipe de suporte.", "danger");
+                Alert("Erro!", "Não foi possível excluir a montagem, contate a equipe de suporte.", "danger");
             }
 
             return RedirectToAction("Index");
