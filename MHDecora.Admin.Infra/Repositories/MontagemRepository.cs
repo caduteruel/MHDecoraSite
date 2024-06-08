@@ -89,7 +89,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 // Obtém o caminho completo da imagem do banner pelo ID
                 var montagem = await _adminContext.MH_MONTAGEM.Where(b => b.Id == montagemId).FirstOrDefaultAsync();
 
-                if (montagem != null)
+                if (montagem.CaminhoImagem != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
                     string fileName = Path.GetFileName(montagem.CaminhoImagem);
@@ -109,7 +109,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     }
                 }
 
-                if (montagem != null)
+                if (montagem.CaminhoImagem2 != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
                     string fileName = Path.GetFileName(montagem.CaminhoImagem2);
@@ -129,7 +129,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     }
                 }
 
-                if (montagem != null)
+                if (montagem.CaminhoImagem3 != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
                     string fileName = Path.GetFileName(montagem.CaminhoImagem3);
@@ -149,7 +149,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     }
                 }
 
-                if (montagem != null)
+                if (montagem.CaminhoImagem4 != null)
                 {
                     // Extrai apenas o nome do arquivo da parte final do caminho
                     string fileName = Path.GetFileName(montagem.CaminhoImagem4);
@@ -187,7 +187,7 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 // Em caso de erro, você pode lidar com ele aqui
                 // Por exemplo, logar o erro ou retornar false
-                Console.WriteLine($"Erro ao excluir banner: {ex.Message}");
+                Console.WriteLine($"Erro ao excluir montagem: {ex.Message}");
 
                 return false;
             }
