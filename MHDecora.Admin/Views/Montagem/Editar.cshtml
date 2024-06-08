@@ -158,23 +158,32 @@
 
                             <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
                                 <option value="">-- Escolha as tags --</option>
-                                @if (@Model.TagsList != null)
-                                {
-
+                                @{
                                     var itens = ViewBag.Tags;
-                                    var itensSelecionados = Model.TagsList;  // Itens que já estão selecionados
 
-                                    foreach (var item in itens)
+                                    if (itens != null)
                                     {
-                                        if (itensSelecionados.Any(x => x.Id.ToString() == item.Value))
+                                        var itensSelecionados = Model.TagsList;  // Itens que já estão selecionados
+                                        
+                                        foreach (var item in itens)
                                         {
-                                            <option value="@item.Value" selected="selected">@item.Text</option>
+                                            if (itensSelecionados == null)
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                            else
+                                            {
+                                                if (itensSelecionados.Any(x => x.Id.ToString() == item.Value))
+                                                {
+                                                    <option value="@item.Value" selected="selected">@item.Text</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            }
                                         }
-                                        else
-                                        {
-                                            <option value="@item.Value">@item.Text</option>
-                                        }
-                                    }                                   
+                                    }
                                 }
                             </select>
                         </div>
