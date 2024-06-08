@@ -56,6 +56,18 @@ namespace MHDecora.Admin.Infra.Repository
                     tema.CaminhoImagem = uniqueFileName;
                 }
 
+                //string tags = String.Empty;
+
+                //if (tag.Count > 0)
+                //{
+                //    foreach (var item in tag)
+                //    {
+                //        tags = tags + "," + item;
+                //    }
+                //}
+
+                //tema.Tags = tags.Remove(0, 1);
+
                 _context.MH_TEMA.Add(tema);
 
                 await _context.SaveChangesAsync();

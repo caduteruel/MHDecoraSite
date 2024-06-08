@@ -252,6 +252,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 }
 
                 string tags = String.Empty;
+
                 if(tag.Count > 0)
                 {                    
                     foreach(var item in tag)
