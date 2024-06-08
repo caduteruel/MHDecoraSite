@@ -10,7 +10,7 @@ namespace MHDecora.Admin.Domain.Entities
         public string Email { get; set; }
         public string Telefone { get; set; }
         public DateTime Data { get; set; }
-        public bool DefinioDia { get; set; }
+        public bool AindaNaoDefiniODia { get; set; }
         public string MaisInformacao { get; set; }
     }
 }
