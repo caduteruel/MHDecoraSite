@@ -101,11 +101,11 @@ namespace MHDecora.Admin.Controllers
 
             if (response)
             {
-                Alert("Sucesso!", "O Contato foi editado.", "success");
+                Alert("Sucesso!", "A montagem foi editada.", "success");
             }
             else
             {
-                Alert("Erro!", "Não foi possível editar o contato, contate a equipe de suporte.", "danger");
+                Alert("Erro!", "Não foi possível editar a montagem, contate a equipe de suporte.", "danger");
             }
 
             return RedirectToAction("Index");

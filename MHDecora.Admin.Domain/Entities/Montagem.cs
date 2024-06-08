@@ -16,7 +16,7 @@ namespace MHDecora.Admin.Domain.Entities
         public string Titulo { get; set; }
         public string LinkBotao { get; set; }
         public bool MontagemDestaque { get; set; }
-        public string Tags { get; set; }
+        public string? Tags { get; set; }
 
         [NotMapped]
         public List<Tag> TagsList { get; set; }
