@@ -95,7 +95,7 @@
         </li>
         <li>
                             <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "QuemSomos" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="QuemSomos" asp-action="Index">
-                <i class="mdi mdi-phone"></i>
+                                <i class="mdi mdi-comment-question-outline"></i>
                 <span class="nav-text">Quem Somos</span>
             </a>
         </li>
@@ -109,12 +109,12 @@
 
         <li>
             <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Temas" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Tema" asp-action="Index">
-                <i class="mdi mdi-calendar-check"></i>
+                                <i class="mdi mdi-desktop-mac-dashboard"></i>
                 <span class="nav-text">Temas</span>
             </a>
         </li>
 
-        <li>
+        @* <li>
             <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "GaleriaDestaques" ? "active" : "")" href="calendar.html">
                 <i class="mdi mdi-airplane-landing"></i>
                 <span class="nav-text">Galeria de Destaques</span>
@@ -126,25 +126,18 @@
                 <i class="mdi mdi-album"></i>
                 <span class="nav-text">Novidades</span>
             </a>
-        </li>
+        </li> *@
 
         <li>
             <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Contato" ? "active" : "")" asp-controller="Contato" asp-action="Index">
-                <i class="mdi mdi-adobe"></i>
+                                <i class="mdi mdi-contact-mail"></i>
                 <span class="nav-text">Contato</span>
             </a>
         </li>
 
         <li>
-            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Orcamento" ? "active" : "")" href="calendar.html">
-                <i class="mdi mdi-airplane-off"></i>
-                <span class="nav-text">Orçamento</span>
-            </a>
-        </li>
-
-        <li>
-            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Rodape" ? "active" : "")" href="calendar.html">
-                <i class="mdi mdi-account-heart-outline"></i>
+                            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Rodape" ? "active" : "")" asp-controller="Rodape" asp-action="Index">
+                                <i class="mdi mdi-page-layout-footer"></i>
                 <span class="nav-text">Rodapé</span>
             </a>
         </li>
@@ -153,7 +146,7 @@
         <li class="has-sub">
             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
                 aria-expanded="false" aria-controls="charts">
-                <i class="mdi mdi-chart-pie"></i>
+                                <i class="mdi mdi-settings-outline"></i>
                 <span class="nav-text">Configurações</span> <b class="caret"></b>
             </a>
             <ul class="collapse" id="charts"
