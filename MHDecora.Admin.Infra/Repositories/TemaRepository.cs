@@ -150,6 +150,21 @@ namespace MHDecora.Admin.Infra.Repository
 
             }
 
+            string tags = String.Empty;
+            if (tag.Count > 0)
+            {
+                foreach (var item in tag)
+                {
+                    tags = tags + "," + item;
+                }
+
+                tema.Tags = tags.Remove(0, 1);
+            }
+            else
+            {
+                tags = String.Empty;
+            }
+
             _context.Entry(temaExistente).CurrentValues.SetValues(tema);
 
             await _context.SaveChangesAsync();

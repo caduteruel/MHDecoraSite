@@ -33,9 +33,9 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Adicionar()
         {
-            var tags = await _tagService.GetTags();
+            ViewBag.Tags = await _tagService.GetTags();
 
-            return View(tags);
+            return View();
         }
 
         [HttpPost]

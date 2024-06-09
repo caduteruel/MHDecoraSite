@@ -66,6 +66,10 @@ namespace MHDecora.Admin.Infra
                 .ToTable("MH_CONTATO", "DECORAPHP")
                 .HasKey(x => x.Id);
 
+            modelBuilder.Entity<Orcamento>()
+                .ToTable("MH_ORCAMENTO", "DECORAPHP")
+                .HasKey(x => x.Id);
+
             modelBuilder.Entity<Montagem>(entity =>
             {
                 entity.Property(e => e.MontagemDestaque)

@@ -1,5 +1,7 @@
-﻿using MHDecora.Site.Domain.Entities;
+﻿using MHDecora.Admin.Infra;
+using MHDecora.Site.Domain.Entities;
 using MHDecora.Site.Domain.Interfaces;
+using MHDecora.Site.Domain.Mappers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -8,28 +10,28 @@ namespace MHDecora.Site.Infra.Repositories
     public class QuemSomosRepository : IQuemSomosRepository
     {
         private readonly SiteContext _context;
+        private readonly AdminContext _adminContext;
         private readonly IConfiguration _configuration;
         
-        public QuemSomosRepository(SiteContext context, IConfiguration configuration)
+        public QuemSomosRepository(SiteContext context, IConfiguration configuration, AdminContext adminContext)
         {
             _context = context;
             _configuration = configuration;
+            _adminContext = adminContext;
         }
 
         public async Task<QuemSomos> Buscar()
         {
-            //QuemSomos quemSomos = new QuemSomos();
-            //quemSomos.Id = 1;
-            //quemSomos.Titulo = "MH Decora";
-            //quemSomos.CaminhoImagem = "/image/img3.jpg";
-            //quemSomos.Texto = "A MH Decora é uma loja especializada em montagens de  decorações para os mais diversos tipos de evento. Aqui temos decoradas parceiros e disponíveis para te ajudar a tirar a sua idéia do papel.<br><br>\r\n                        Ag werewr sdfgdf sdfg herewr oj oj sdfpohj sdf oijh  oiuhg sdoifh asdiofhg 9wer9 9u i oi oiusdhf io asd f oiu oisduf oiasud foiasd fghiosdufgiosadf gsoidf g oaisdfu.<br><br>\r\n                        Também asjdhkh iouh oisdio sd gbfiosad fisao fosiafds werwer ojkherwe iriwe grig iyeg wrigw eoirg we irwe oiw rgwe ori oi.";
+            var quemSomos = await _adminContext.MH_QUEMSOMOS
+                                   .OrderByDescending(q => q.Id)
+                                   .FirstOrDefaultAsync();
 
-            //return await Task.FromResult(quemSomos);
-            //QuemSomos quemSomos = await _context.MH_QUEMSOMOS.ToListAsync();
-            QuemSomos quemSomos = new QuemSomos();
-            quemSomos.CaminhoImagem = GetQuemSomosPath() + quemSomos.CaminhoImagem;
+            if (quemSomos != null)
+            {
+                quemSomos.CaminhoImagem = GetQuemSomosPath() + quemSomos.CaminhoImagem;
+            }
 
-            return quemSomos;
+            return quemSomos.ToSiteModel();
         }
 
         private string GetQuemSomosPath()
