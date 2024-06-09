@@ -62,10 +62,10 @@
                                 <label for="exampleFormControlSelect12">Categoria</label>
                                 <select class="form-control" name="categoriaId" id="categoriaId">
                                     <option value="0">-- Selecione a categoria --</option>
-                                @for (int i = 0; i < Model.Count; i++)
-                                {
-                                    <option value="@Model[i].Id">@Model[i].Nome</option>
-                                }
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        <option value="@Model[i].Id">@Model[i].Nome</option>
+                                    }
                                 </select>
                             </div>
                         </div>

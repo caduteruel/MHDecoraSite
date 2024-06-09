@@ -3,6 +3,8 @@ using MHDecora.Site.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using MHDecora.Admin.Infra;
+using MHDecora.Site.Domain.Mappers;
 
 namespace MHDecora.Site.Infra.Repository
 {
@@ -12,14 +14,17 @@ namespace MHDecora.Site.Infra.Repository
         private readonly PathOptions _adminRootPath;
         private readonly SiteContext _context;
         private readonly IConfiguration _configuration;
+        private readonly AdminContext _adminContext;
 
 
-        public BannerRepository(SiteContext context, IConfiguration configuration, PathOptions adminRootPath, IHostingEnvironment hostingEnvironment)
+        public BannerRepository(SiteContext context, IConfiguration configuration, PathOptions adminRootPath, 
+            IHostingEnvironment hostingEnvironment, AdminContext adminContext)
         {
             _hostingEnvironment = hostingEnvironment;
             _context = context;
             _configuration = configuration;
             _adminRootPath = adminRootPath;
+            _adminContext = adminContext;
         }
 
         public async Task Adicionar(Banner entity)
@@ -48,23 +53,26 @@ namespace MHDecora.Site.Infra.Repository
 
         public async Task<List<Banner>> BuscarTodos()
         {
-            var listaBanner = await _context.MH_BANNERS.ToListAsync();
+            var listaBanner = await _adminContext.MH_BANNERS
+                                     .OrderBy(b => b.Ordem) 
+                                     .Take(3) 
+                                     .ToListAsync();
 
             foreach (var img in listaBanner)
             {
                 img.CaminhoImagem = GetBannerPath() + img.CaminhoImagem;
             }
 
-            return listaBanner;
+            return listaBanner.ToSiteModel();
         }
 
         private string GetBannerPath()
         {
-            string caminho = Path.Combine("..", "MhDecora.Admin", "wwwroot", "images/banner/");
+            //string caminho = Path.Combine("..", "MhDecora.Admin", "wwwroot", "images/banner/");
 
-            string filePath = Path.Combine(_adminRootPath.ToString(), "banner");
-            return caminho;
-            //return _configuration["ImagePath:Banner"];
+            //string filePath = Path.Combine(_adminRootPath.ToString(), "banner");
+            //return caminho;
+            return _configuration["ImagePath:Banner"];
         }
     }
 }

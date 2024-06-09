@@ -11,6 +11,6 @@ namespace MHDecora.Admin.Domain.Entities
         public string Telefone { get; set; }
         public DateTime Data { get; set; }
         public bool AindaNaoDefiniODia { get; set; }
-        public string MaisInformacao { get; set; }
+        public string MaisInformacoes { get; set; }
     }
 }

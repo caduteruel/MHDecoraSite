@@ -71,9 +71,21 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Rota específica para o Site
+app.MapControllerRoute(
+    name: "site",
+    pattern: "site/{controller=Home}/{action=Index}/{id?}");
+
+// Rota específica para Admin, se necessário
+app.MapControllerRoute(
+    name: "admin",
+    pattern: "admin/{controller=Home}/{action=Index}/{id?}");
+
+// Rota padrão
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();

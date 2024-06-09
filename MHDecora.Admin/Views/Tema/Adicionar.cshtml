@@ -1,7 +1,7 @@
 ﻿@model List<MHDecora.Admin.Domain.Entities.Tag>
 
 @{
-    ViewBag.Title = "Adicionar Banner";
+    ViewBag.Title = "Adicionar Tema";
     string titulo = TempData["Titulo"] as string;
     string mensagem = TempData["Mensagem"] as string;
     string tipoAlerta = TempData["TipoAlerta"] as string;
@@ -62,11 +62,11 @@
                             <label id="labelImage5" for="fname">Escolha as Tags</label>
                             <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
                                 <option value="">-- Escolha as tags --</option>
-                                @if (Model != null)
+                                @if (@ViewBag.Tags != null)
                                 {
-                                    @for (int i = 0; i < Model.Count; i++)
+                                    @for (int i = 0; i < @ViewBag.Tags.Count; i++)
                                     {
-                                        <option value="@Model[i].Id">@Model[i].Nome</option>
+                                        <option value="@ViewBag.Tags[i].Id">@ViewBag.Tags[i].Nome</option>
                                     }
                                 }
                             </select>
