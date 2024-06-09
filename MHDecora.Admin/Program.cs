@@ -75,19 +75,32 @@ app.UseAuthorization();
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(@"C:\FW\projetos\MH Decora\site-novo", "Imagens")),
-    RequestPath = "/Imagens"
+        Path.Combine(@"C:\Imagens", "banner")),
+    RequestPath = "/banner"
 });
 
-// Rota específica para o Site
-app.MapControllerRoute(
-    name: "site",
-    pattern: "site/{controller=Home}/{action=Index}/{id?}");
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(@"C:\Imagens", "montagem")),
+    RequestPath = "/montagem"
+});
 
-// Rota específica para Admin, se necessário
-app.MapControllerRoute(
-    name: "admin",
-    pattern: "admin/{controller=Home}/{action=Index}/{id?}");
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(@"C:\Imagens", "quemsomos")),
+    RequestPath = "/quemsomos"
+});
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(@"C:\Imagens", "tema")),
+    RequestPath = "/tema"
+});
+
+
 
 // Rota padrão
 app.MapControllerRoute(

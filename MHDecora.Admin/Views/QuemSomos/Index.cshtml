@@ -32,7 +32,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="fname">Link</label>
-                                <input name="titulo" class="form-control" placeholder="Título" id="titulo" value="@Model.Titulo">
+                                <input name="titulo" class="form-control" placeholder="Título" id="titulo" value="@Model?.Titulo">
                             </div>
                         </div>                        
                         <div class="col-sm-4">
@@ -46,13 +46,13 @@
                         <div class="col-sm-4 mb-2">
                             <div class="form-group">
                                 <label id="labelImage" for="fname" style="display:none">Imagem</label>                               
-                                @if (@Model.CaminhoImagem == null)
+                                @if (@Model?.CaminhoImagem == null)
                                 {
                                     <img id="previewImage" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
                                 }
                                 else
                                 {
-                                    <img id="previewImage" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                                    <img id="previewImage" src="@Model?.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
                                 }
                             </div>
                         </div>
@@ -110,7 +110,7 @@
 
         $(document).ready(function () {
 
-            var descr = '@Html.Raw(Model.Descricao)';
+            var descr = '@Html.Raw(Model?.Descricao)';
 
             
             if (descr != null) {

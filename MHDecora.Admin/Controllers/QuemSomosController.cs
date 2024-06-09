@@ -24,7 +24,7 @@ namespace MHDecora.Admin.Controllers
             {
                 Alert("Erro!", "Não foi possível carregar os dados, contate a equipe de suporte.", "danger");
 
-                return NotFound();
+                return View();
             }
 
             return View(response);

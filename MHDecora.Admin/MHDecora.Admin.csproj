@@ -5,7 +5,9 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-MHDecora.Admin-4fd6c00a-f792-400b-9a2b-24e6f8d241c2</UserSecretsId>
+	 <CopyRetryCount>20</CopyRetryCount>
   </PropertyGroup>
+
 
   <ItemGroup>
     <Compile Remove="Controllers\ConfiguracaoController.cs" />

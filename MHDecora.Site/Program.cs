@@ -48,7 +48,7 @@ app.UseStaticFiles();
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(@"C:\FW\projetos\MH Decora\site-novo", "Imagens")),
+        Path.Combine(@"C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite", "Imagens")),
     RequestPath = "/Imagens"
 });
 
