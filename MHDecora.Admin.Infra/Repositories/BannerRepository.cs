@@ -35,11 +35,8 @@ namespace MHDecora.Admin.Infra.Repositories
                 {
                     if (imagem != null && imagem.Length > 0)
                     {
-                        //banner.Descricao = banner.CaminhoImagem;
-                        string roothPath = Directory.GetCurrentDirectory();
-                        string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/banner");
                         string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        string filePath = Path.Combine(@"/Imagens/banner/", uniqueFileName);
                         using (var fileStream = new FileStream(filePath, FileMode.Create))
                         {
                             imagem.CopyTo(fileStream);
@@ -47,12 +44,9 @@ namespace MHDecora.Admin.Infra.Repositories
                         banner.CaminhoImagem = uniqueFileName;
                     }
 
-                    //_banners.Add(banner);
+                    _adminContext.MH_BANNERS.Add(banner);
 
-                _adminContext.MH_BANNERS.Add(banner);
-                await _adminContext.SaveChangesAsync();
-               
-
+                    await _adminContext.SaveChangesAsync();
                 }
                 catch (Exception ex)
                 {
@@ -68,9 +62,9 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             var listaBanner = await _adminContext.MH_BANNERS.ToListAsync();
 
-            foreach(var img in listaBanner)
+            foreach (var img in listaBanner)
             {
-                img.CaminhoImagem = GetBannerPath() + img.CaminhoImagem;
+                img.CaminhoImagem = @"/Imagens/banner/" + img.CaminhoImagem;
             }
 
             return listaBanner;
@@ -80,7 +74,7 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             Banner imagem = await _adminContext.MH_BANNERS.FirstOrDefaultAsync(x => x.Id == id);
             
-            imagem.CaminhoImagem = GetBannerPath() + imagem.CaminhoImagem;
+            imagem.CaminhoImagem = @"/Imagens/banner/" + imagem.CaminhoImagem;
             
             return imagem;
         }
@@ -106,7 +100,8 @@ namespace MHDecora.Admin.Infra.Repositories
                     await _adminContext.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine("wwwroot", "images\\banner", fileName);
+                    string imagePathToDelete = Path.Combine(@"/Imagens/banner/", fileName);
+
                     if (File.Exists(imagePathToDelete))
                     {
                         File.Delete(imagePathToDelete);
@@ -127,8 +122,6 @@ namespace MHDecora.Admin.Infra.Repositories
                 Console.WriteLine($"Erro ao excluir banner: {ex.Message}");
                 return false;
             }
-
-
         }
 
         public async Task<bool> Editar(IFormFile arquivo, Banner banner)
@@ -145,14 +138,13 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "banner");
                 var nomeArquivoAntigo = bannerExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                var caminhoCompletoAntigo = Path.Combine(@"/Imagens/banner/", nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+                var caminhoCompletoNovo = Path.Combine(@"/Imagens/banner/", nomeArquivoNovo);
 
                 using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
                 {

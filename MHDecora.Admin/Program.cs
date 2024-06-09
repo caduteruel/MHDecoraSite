@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -70,6 +71,13 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(@"C:\FW\projetos\MH Decora\site-novo", "Imagens")),
+    RequestPath = "/Imagens"
+});
 
 // Rota específica para o Site
 app.MapControllerRoute(

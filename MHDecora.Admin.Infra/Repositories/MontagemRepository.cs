@@ -29,10 +29,10 @@ namespace MHDecora.Admin.Infra.Repositories
 
             foreach (var img in listaMontagem)
             {
-                img.CaminhoImagem = GetMontagemPath() + img.CaminhoImagem;
-                img.CaminhoImagem2 = GetMontagemPath() + img.CaminhoImagem2;
-                img.CaminhoImagem3 = GetMontagemPath() + img.CaminhoImagem3;
-                img.CaminhoImagem4 = GetMontagemPath() + img.CaminhoImagem4;
+                img.CaminhoImagem = @"/Imagens/montagem/" + img.CaminhoImagem;
+                img.CaminhoImagem2 = @"/Imagens/montagem/" + img.CaminhoImagem2;
+                img.CaminhoImagem3 = @"/Imagens/montagem/" + img.CaminhoImagem3;
+                img.CaminhoImagem4 = @"/Imagens/montagem/" + img.CaminhoImagem4;
             }
 
 
@@ -61,10 +61,10 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 var response = await _adminContext.MH_MONTAGEM.FindAsync(montagemId);
 
-                response.CaminhoImagem = GetMontagemPath() + response.CaminhoImagem;
-                response.CaminhoImagem2 = GetMontagemPath() + response.CaminhoImagem2;
-                response.CaminhoImagem3 = GetMontagemPath() + response.CaminhoImagem3;
-                response.CaminhoImagem4 = GetMontagemPath() + response.CaminhoImagem4;
+                response.CaminhoImagem = @"/Imagens/montagem/" + response.CaminhoImagem;
+                response.CaminhoImagem2 = @"/Imagens/montagem/" + response.CaminhoImagem2;
+                response.CaminhoImagem3 = @"/Imagens/montagem/" + response.CaminhoImagem3;
+                response.CaminhoImagem4 = @"/Imagens/montagem/" + response.CaminhoImagem4;
 
                 if(response.Tags != null)
                 {
@@ -106,7 +106,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     await _adminContext.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
+                    string imagePathToDelete = Path.Combine(@"/Imagens/montagem/", fileName);
 
                     if (File.Exists(imagePathToDelete))
                     {
@@ -126,7 +126,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     await _adminContext.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
+                    string imagePathToDelete = Path.Combine(@"/Imagens/montagem/", fileName);
 
                     if (File.Exists(imagePathToDelete))
                     {
@@ -146,7 +146,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     await _adminContext.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
+                    string imagePathToDelete = Path.Combine(@"/Imagens/montagem/", fileName);
 
                     if (File.Exists(imagePathToDelete))
                     {
@@ -166,7 +166,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     await _adminContext.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine("wwwroot", "images\\montagem", fileName);
+                    string imagePathToDelete = Path.Combine(@"/Imagens/montagem/", fileName);
 
                     if (File.Exists(imagePathToDelete))
                     {
@@ -204,10 +204,8 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 if (arquivo1 != null && arquivo1.Length > 0)
                 {
-                    string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    string filePath = Path.Combine(@"/Imagens/montagem/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo1.CopyTo(fileStream);
@@ -216,10 +214,8 @@ namespace MHDecora.Admin.Infra.Repositories
                 }
                 if (arquivo2 != null && arquivo2.Length > 0)
                 {
-                    string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    string filePath = Path.Combine(@"/Imagens/montagem/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo2.CopyTo(fileStream);
@@ -228,10 +224,8 @@ namespace MHDecora.Admin.Infra.Repositories
                 }
                 if (arquivo3 != null && arquivo3.Length > 0)
                 {
-                    string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    string filePath = Path.Combine(@"/Imagens/montagem/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo3.CopyTo(fileStream);
@@ -240,10 +234,8 @@ namespace MHDecora.Admin.Infra.Repositories
                 }
                 if (arquivo4 != null && arquivo4.Length > 0)
                 {
-                    string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/montagem");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    string filePath = Path.Combine(@"/Imagens/montagem/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo4.CopyTo(fileStream);
@@ -358,14 +350,13 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo1 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                var caminhoCompletoAntigo = Path.Combine(@"/Imagens/montagem/", nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
-                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+                var caminhoCompletoNovo = Path.Combine(@"/Imagens/montagem/", nomeArquivoNovo);
 
                 using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
                 {
@@ -378,14 +369,13 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo2 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                var caminhoCompletoAntigo = Path.Combine(@"/Imagens/montagem/", nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
-                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+                var caminhoCompletoNovo = Path.Combine(@"/Imagens/montagem/", nomeArquivoNovo);
 
                 using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
                 {
@@ -398,14 +388,13 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo3 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                var caminhoCompletoAntigo = Path.Combine(@"/Imagens/montagem/", nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
-                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+                var caminhoCompletoNovo = Path.Combine(@"/Imagens/montagem/", nomeArquivoNovo);
 
                 using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
                 {
@@ -418,14 +407,13 @@ namespace MHDecora.Admin.Infra.Repositories
 
             if (arquivo4 != null)
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "montagem");
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(uploadPath, nomeArquivoAntigo);
+                var caminhoCompletoAntigo = Path.Combine(@"/Imagens/montagem/", nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
-                var caminhoCompletoNovo = Path.Combine(uploadPath, nomeArquivoNovo);
+                var caminhoCompletoNovo = Path.Combine(@"/Imagens/montagem/", nomeArquivoNovo);
 
                 using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
                 {
@@ -461,7 +449,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
         private string GetMontagemPath()
         {
-            return  _configuration["ImagePath:Montagem"];
+            return @"/Imagens/montagem/";
         }
     }
 }

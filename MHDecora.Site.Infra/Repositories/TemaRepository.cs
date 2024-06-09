@@ -18,52 +18,11 @@ namespace MHDecora.Site.Infra.Repository
 
         public async Task<List<Tema>> Buscar()
         {
-            //List<Tema> listaTema =
-            //[
-            //    new Tema()
-            //    {
-            //        Id = 1,
-            //        CaminhoImagem = "/image/img1.jpg",
-            //        Texto = "Barbie"
-            //    },
-            //    new Tema()
-            //    {
-            //        Id = 2,
-            //        CaminhoImagem = "/image/img2.jpg",
-            //        Texto = "Patrulha Caninna"
-            //    },
-            //    new Tema()
-            //    {
-            //        Id = 3,
-            //        CaminhoImagem = "/image/img3.jpg",
-            //        Texto = "A Pequena Sereia"
-            //    },
-            //    new Tema()
-            //    {
-            //        Id = 4,
-            //        CaminhoImagem = "/image/img1.jpg",
-            //        Texto = "Futebol"
-            //    },
-            //    new Tema()
-            //    {
-            //        Id = 5,
-            //        CaminhoImagem = "/image/img2.jpg",
-            //        Texto = "Princesas"
-            //    },
-            //    new Tema()
-            //    {
-            //        Id = 6,
-            //        CaminhoImagem = "/image/img3.jpg",
-            //        Texto = "A Pequena Sereia"
-            //    },
-            //];
-            // return await _context.Banners.ToListAsync();
-
-            List<Tema> listaTemas = await _context.MH_TEMA.ToListAsync();
+            var listaTemas = await _context.MH_TEMA.ToListAsync();
 
             foreach (var item in listaTemas)
             {
-                item.CaminhoImagem = GetTemaPath() + item.CaminhoImagem;
+                item.CaminhoImagem = @"/Imagens/tema/" + item.CaminhoImagem;
             }
 
             return listaTemas;

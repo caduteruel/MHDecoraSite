@@ -1,12 +1,13 @@
 ﻿@model SiteViewModel
 
 @{
+    
     ViewData["Title"] = "Home Page";
 }
 
 <!-- Renderização da Partial View para o Banner -->
 @await Html.PartialAsync("~/Views/Home/_Banner.cshtml", Model.Banners)
-
+ 
 <!-- Renderização da Partial View para a Quem Somos -->
 @await Html.PartialAsync("~/Views/Home/_QuemSomos.cshtml", Model.QuemSomos)
 

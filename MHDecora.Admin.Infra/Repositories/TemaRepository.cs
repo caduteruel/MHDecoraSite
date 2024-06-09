@@ -48,7 +48,10 @@ namespace MHDecora.Admin.Infra.Repository
                     string roothPath = Directory.GetCurrentDirectory();
                     string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/tema");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                    string caminhoDaPastaCompartilhada = @"../Imagens/tema/";
+
+                    string filePath = Path.Combine(caminhoDaPastaCompartilhada, uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo.CopyTo(fileStream);

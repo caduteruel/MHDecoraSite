@@ -28,7 +28,7 @@ namespace MHDecora.Admin.Infra.Repositories
                                     .OrderByDescending(x => x.Id)
                                     .FirstOrDefaultAsync();
 
-            quemSomos.CaminhoImagem = GetQuemsomosPath() + quemSomos.CaminhoImagem;
+            quemSomos.CaminhoImagem = @"/Imagens/quemsomos/" + quemSomos.CaminhoImagem;
 
             return quemSomos;
         }
@@ -39,19 +39,14 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 if (imagem != null && imagem.Length > 0)
                 {
-                    //banner.Descricao = banner.CaminhoImagem;
-                    string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/quemsomos");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    string filePath = Path.Combine(@"/Imagens/quemsomos/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         imagem.CopyTo(fileStream);
                     }
                     dados.CaminhoImagem = uniqueFileName;
                 }
-
-                //_banners.Add(banner);
 
                 _adminContext.MH_QUEMSOMOS.Add(dados);
                 await _adminContext.SaveChangesAsync();

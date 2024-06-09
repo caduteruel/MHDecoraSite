@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MHDecora.Admin.Domain\MHDecora.Admin.Domain.csproj" />
-    <ProjectReference Include="..\MHDecora.Admin\MHDecora.Admin.csproj" />
   </ItemGroup>
 
 </Project>

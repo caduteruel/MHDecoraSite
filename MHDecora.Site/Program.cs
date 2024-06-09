@@ -1,48 +1,22 @@
-using MHDecora.Admin.Data;
-using MHDecora.Admin.Infra;
 using MHDecora.Site.Application;
 using MHDecora.Site.Application.Interfaces;
-using MHDecora.Site.Domain.Entities;
 using MHDecora.Site.Domain.Interfaces;
 using MHDecora.Site.Infra;
 using MHDecora.Site.Infra.Repositories;
 using MHDecora.Site.Infra.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona configuração para carregar o appsettings.json do MHDecora.Admin
-builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
-{
-    var env = hostingContext.HostingEnvironment;
-    config.SetBasePath(Directory.GetCurrentDirectory());
-    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
-          .AddJsonFile(Path.Combine("..", "MHDecora.Admin", "appsettings.json"), optional: true, reloadOnChange: true)
-          .AddEnvironmentVariables();
-
-    if (args != null)
-    {
-        config.AddCommandLine(args);
-    }
-});
-
-// Acessa a configuração
-var configuration = builder.Configuration;
-var connectionString = configuration.GetConnectionString("OracleConnection") ?? throw new InvalidOperationException("Connection string 'OracleConnection' not found.");
-
-// Configura os contextos e serviços
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("OracleConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//builder.Services.AddDbContext<AdminContext>(options =>
+//    options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<SiteContext>(options =>
-            options.UseOracle(connectionString));
-
-// Adiciona o contexto AdminContext se necessário
-builder.Services.AddDbContext<AdminContext>(options =>
             options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
-            builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// Adiciona serviços ao contêiner
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 // Configuração da injeção de dependência
@@ -58,29 +32,28 @@ builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
 builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 
-// Configura o caminho para o conteúdo estático do MHDecora.Admin
-var adminRootPath = Path.Combine(builder.Environment.ContentRootPath, "..", "MHDecora.Admin", "wwwroot");
-builder.Services.AddSingleton(new PathOptions { AdminRootPath = adminRootPath });
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-// Configura o uso de arquivos estáticos para servir o conteúdo do MHDecora.Admin
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(adminRootPath),
-    RequestPath = string.Empty // Serve diretamente do root
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(@"C:\FW\projetos\MH Decora\site-novo", "Imagens")),
+    RequestPath = "/Imagens"
 });
 
 app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(

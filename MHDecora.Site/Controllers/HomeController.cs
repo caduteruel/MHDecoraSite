@@ -6,7 +6,6 @@ using System.Diagnostics;
 
 namespace MHDeroca.Site.Controllers
 {
-    [Route("site/[controller]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -29,22 +28,20 @@ namespace MHDeroca.Site.Controllers
             //Banners
             List<Banner> banner = await _bannerService.BuscarTodos();
 
-            //Quem Somos
+            ////Quem Somos
             QuemSomos quemSomos = await _quemSomosService.Buscar();
 
-            //Montagens
+            ////Montagens
             List<Montagem> montagem = await _montagemService.Buscar();
             
-            //Temas
+            ////Temas
             List<Tema> tema = await _temaService.Buscar();
 
-            //GaleriaDestaques
-            //List<Tema> tema = await _temaService.Buscar();
 
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();
             siteViewModel.Banners = banner;
-            siteViewModel.QuemSomos = quemSomos;
+           siteViewModel.QuemSomos = quemSomos;
             siteViewModel.Montagens = montagem;
             siteViewModel.Temas = tema;
 

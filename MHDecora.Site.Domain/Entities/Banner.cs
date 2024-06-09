@@ -2,14 +2,13 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MHDecora.Site.Domain.Entities
-{
-    [Table("MHBanners", Schema = "DECORAPHP")]
+{    
     public class Banner
     {
         [Key]
         public int Id { get; set; }
         public string Descricao { get; set; }
         public string CaminhoImagem { get; set; }
-        public int Ordem { get; set; }
+       // public int Ordem { get; set; }
     }
 }
