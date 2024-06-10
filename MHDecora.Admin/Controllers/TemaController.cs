@@ -3,6 +3,7 @@ using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MHDecora.Admin.Controllers
 {
@@ -91,9 +92,13 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Editar(int temaId)
+        public async Task<IActionResult> Editar(int id)
         {
-            var tema = await _temaService.BuscarPorId(temaId);
+            var tema = await _temaService.BuscarPorId(id);
+
+            var listaTags = await _tagService.GetTags();
+
+            ViewBag.Tags = new SelectList(listaTags, "Id", "Nome");
 
             return View(tema);
         }
