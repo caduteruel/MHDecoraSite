@@ -59,68 +59,29 @@
         <h1>Principais temas disponiveis</h1>
         <div class="theme-content">
             <div class="swiper-wrapper">
-                <article class="theme-article swiper-slide" style="margin-right: 20px;">
-                    <div class="theme-image">
+                @foreach (var tema in @Model)
+                {
+                    var caminhoImagem = tema.CaminhoImagem;
+                    caminhoImagem = caminhoImagem.Replace("/Imagens", "");
+
+                    <article class="theme-article swiper-slide" style="margin-right: 20px;">
+                        <div class="theme-image">
+                            <img src="@caminhoImagem" alt="" />
+                        </div>
+
+                        <div class="theme-data">
+                            <div class="theme-name">@tema.Titulo</div>
+                        </div>
+                    </article>
+                }
+                @* <article class="theme-article swiper-slide" style="margin-right: 20px;">
+                   @*  <div class="theme-image">
                         <img src="images/theme/theme1.jpg" alt="" />
                     </div>
 
                     <div class="theme-data">
                         <div class="theme-name">Barbie</div>
-                    </div>
-                </article>
-                <article class="theme-article swiper-slide">
-                    <div class="theme-image">
-                        <img src="images/theme/theme2.jpg" alt="" />
-                    </div>
-
-                    <div class="theme-data">
-                        <div class="theme-name">Patrulha Canina</div>
-                    </div>
-                </article>
-                <article class="theme-article swiper-slide">
-                    <div class="theme-image">
-                        <img src="images/theme/theme3.jpg" alt="" />
-                    </div>
-
-                    <div class="theme-data">
-                        <div class="theme-name">A Pequena Seria</div>
-                    </div>
-                </article>
-                <article class="theme-article swiper-slide">
-                    <div class="theme-image">
-                        <img src="images/theme/theme4.png" alt="" />
-                    </div>
-
-                    <div class="theme-data">
-                        <div class="theme-name">Princesas</div>
-                    </div>
-                </article>
-                <article class="theme-article swiper-slide">
-                    <div class="theme-image">
-                        <img src="images/theme/theme5.jpg" alt="" />
-                    </div>
-
-                    <div class="theme-data">
-                        <div class="theme-name">Bolofofo</div>
-                    </div>
-                </article>
-                <article class="theme-article swiper-slide">
-                    <div class="theme-image">
-                        <img src="images/theme/theme6.jpg" alt="" />
-                    </div>
-
-                    <div class="theme-data">
-                        <div class="theme-name">Futebol</div>
-                    </div>
-                </article>
-                <article class="theme-article swiper-slide">
-                    <div class="theme-image">
-                        <img src="images/theme/theme4.png" alt="" />
-                    </div>
-
-                    <div class="theme-data">
-                        <div class="theme-name">Princesas</div>
-                    </div>
+                    </div> *@
                 </article>
             </div>
         </div>

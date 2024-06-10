@@ -18,9 +18,9 @@ namespace MHDecora.Site.Infra.Repository
               
         public async Task<Contato> Buscar()
         {
-            var contato = await _context.MH_CONTATO.ToListAsync();
+            var contato = await _context.MH_CONTATO.FirstOrDefaultAsync();
 
-            return null;
+            return contato;
         }
 
         private string GetContatoPath()
