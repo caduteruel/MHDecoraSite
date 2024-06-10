@@ -1,4 +1,6 @@
-﻿@* <div class="mt-lg-5 container">
+﻿@model MHDecora.Site.Domain.Entities.Contato
+
+@* <div class="mt-lg-5 container">
     <div class="container">
     <div class="row contato">
         <div class="col-md-6">
@@ -26,8 +28,8 @@
             <h1>Entre em contato <br />com nossa equipe</h1>
 
             <div class="map-icon">
-                <p><i class="fa-solid fa-phone"></i>(99) 99999-9999</p>
-                <p><i class="fa-brands fa-whatsapp"></i>(99) 99999-9999</p>
+                <p><i class="fa-solid fa-phone"></i>@Model.Celular</p>
+                <p><i class="fa-brands fa-whatsapp"></i>@Model.Telefone</p>
             </div>
 
             <div class="map-info">
@@ -38,8 +40,7 @@
                 <div class="map-info-text">
                     <h5>Horario de atendimento</h5>
                     <p>
-                        De segunda-feira a sexta-feira: 08h ás 18h.<br />
-                        Sabado: 08h ás 15h.
+                        @Model.HorarioAtendimento
                     </p>
                 </div>
             </div>
@@ -54,8 +55,8 @@
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-            <p>
-                <i class="fa-solid fa-location-dot"></i>Rua ficticia silva 333
+            <p style="text-align: right; display: flex; justify-content: flex-end; align-items: center;">
+                <i class="fa-solid fa-location-dot"></i>@Model.Endereco
             </p>
         </div>
     </div>

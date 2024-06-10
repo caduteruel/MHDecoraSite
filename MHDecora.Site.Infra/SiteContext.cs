@@ -34,6 +34,10 @@ namespace MHDecora.Site.Infra
             modelBuilder.Entity<Tema>()
                 .ToTable("MH_TEMA", "DECORAPHP")
                 .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Contato>()
+                .ToTable("MH_CONTATO", "DECORAPHP")
+                .HasKey(x => x.Id);
         }
     }
 }

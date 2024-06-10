@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MHDecora.Site.Domain.Entities
 {
-    [Table("MHContato", Schema = "DECORAPHP")]
     public class Contato
     {
         [Key]

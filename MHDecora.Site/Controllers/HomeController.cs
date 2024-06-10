@@ -13,14 +13,17 @@ namespace MHDeroca.Site.Controllers
         private readonly IQuemSomosService _quemSomosService;
         private readonly IMontagemService _montagemService;
         private readonly ITemaService _temaService;
+        private readonly IContatoService _contatoService;
 
-        public HomeController(ILogger<HomeController> logger, IBannerService bannerService, IQuemSomosService quemSomosService, IMontagemService montagemService, ITemaService temaService)
+        public HomeController(ILogger<HomeController> logger, IBannerService bannerService, IQuemSomosService quemSomosService, 
+            IMontagemService montagemService, ITemaService temaService, IContatoService contatoService)
         {
             _logger = logger;
             _bannerService = bannerService;
             _quemSomosService = quemSomosService;
             _montagemService = montagemService;
             _temaService = temaService;
+            _contatoService = contatoService;
         }
 
         public async Task<IActionResult> Index()
@@ -37,13 +40,17 @@ namespace MHDeroca.Site.Controllers
             ////Temas
             List<Tema> tema = await _temaService.Buscar();
 
+            ////Contato
+            Contato contato = await _contatoService.GetContato();
+
 
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();
             siteViewModel.Banners = banner;
-           siteViewModel.QuemSomos = quemSomos;
+            siteViewModel.QuemSomos = quemSomos;
             siteViewModel.Montagens = montagem;
             siteViewModel.Temas = tema;
+            siteViewModel.Contato = contato;
 
             return View(siteViewModel);
         }

@@ -24,6 +24,7 @@ builder.Services.AddScoped<IBannerService, BannerService>();
 builder.Services.AddScoped<IQuemSomosService, QuemSomosService>();
 builder.Services.AddScoped<IMontagemService, MontagemService>();
 builder.Services.AddScoped<ITemaService, TemaService>();
+builder.Services.AddScoped<IContatoService, ContatoService>();
 
 // Registrar o serviço do repositório e a implementação
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
@@ -31,6 +32,7 @@ builder.Services.AddScoped<IBannerRepository, BannerRepository>();
 builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
 builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
+builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
 
 var app = builder.Build();
 

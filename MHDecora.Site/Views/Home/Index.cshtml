@@ -24,7 +24,7 @@
 @await Html.PartialAsync("~/Views/Home/_Novidades.cshtml")
 
 <!-- Renderização da Partial View para a Contato -->
-@await Html.PartialAsync("~/Views/Home/_Contato.cshtml")
+@await Html.PartialAsync("~/Views/Home/_Contato.cshtml", Model.Contato)
 
 <!-- Renderização da Partial View para o Orçamento -->
 @await Html.PartialAsync("~/Views/Home/_Orcamento.cshtml")
