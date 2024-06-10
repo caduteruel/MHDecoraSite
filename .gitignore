@@ -218,3 +218,6 @@
 /MHDecora.Admin/obj/Debug/net8.0/MHDecora.Admin.RazorAssemblyInfo.cs
 /MHDecora.Admin/MHDecora.Admin.csproj
 /MHDecora.Admin/MHDecora.Admin.csproj
+/MHDecora.Site.Domain/bin/Debug/net8.0/MHDecora.Admin.Domain.dll
+/MHDecora.Site.Domain/bin/Debug/net8.0/MHDecora.Admin.Domain.pdb
+/MHDecora.Site.Domain/obj/Debug/net8.0/MHDecora.Site.Domain.csproj.CoreCompileInputs.cache
