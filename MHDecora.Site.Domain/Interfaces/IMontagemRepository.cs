@@ -5,5 +5,7 @@ namespace MHDecora.Site.Domain.Interfaces
     public interface IMontagemRepository
     {
         Task<List<Montagem>> Buscar();
+        Task<List<Montagem>> BuscarDestaque();
+
     }
 }

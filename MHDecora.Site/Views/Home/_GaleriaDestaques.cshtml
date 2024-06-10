@@ -1,4 +1,6 @@
-﻿@* <div class="container">
+﻿@model List<MHDecora.Site.Domain.Entities.Montagem>
+
+@* <div class="container">
     <h2 class="mt-5 text-center">GALERIA</h2>    
     <div class="carousel mt-5">
         <div class="card">
@@ -34,25 +36,17 @@
         <h1>Galeria</h1>
     </div>
     <div class="gallery-container">
-        <div class="gallery">
-            <div class="gallery-content">
-                <img src="images/gallery/galeria.png" alt="" />
 
-                
-                <p>Mesa P</p>
-                <h1>Harry Potter</h1>
-            </div>
-        </div>
-        @if (Model.Count > 0)
+        @if (Model != null)
         {
             foreach (var item in Model)
             {
                 <div class="gallery">
                     <div class="gallery-content">
-                        <img src="images/gallery/galeria.png" alt="" />
+                        <img src="@item.CaminhoImagem" alt="" />
 
-                        <p>Pegue e Monte</p>
-                        <h1>Harry Potter</h1>
+                        <p>@item.Titulo</p>
+                        <h1>@item.Categoria.Nome</h1>
                     </div>
                 </div>
             }

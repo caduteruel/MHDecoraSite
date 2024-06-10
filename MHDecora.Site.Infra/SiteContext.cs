@@ -14,6 +14,7 @@ namespace MHDecora.Site.Infra
         public DbSet<Contato> MH_CONTATO { get; set; }
         public DbSet<QuemSomos> MH_QUEMSOMOS { get; set; }
         public DbSet<Montagem> MH_MONTAGEM { get; set; }
+        public DbSet<Categoria> MH_CATEGORIAS { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -36,13 +37,31 @@ namespace MHDecora.Site.Infra
                 .ToTable("MH_TEMA", "DECORAPHP")
                 .HasKey(x => x.Id);
 
-            modelBuilder.Entity<Montagem>()
-                .ToTable("MH_MONTAGEM", "DECORAPHP")
+            //modelBuilder.Entity<Montagem>()
+            //    .ToTable("MH_MONTAGEM", "DECORAPHP")
+            //    .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Montagem>(entity =>
+            {
+                entity.ToTable("MH_MONTAGEM", "DECORAPHP")
                 .HasKey(x => x.Id);
+                entity.Property(e => e.MontagemDestaque)
+                      .HasColumnName("MontagemDestaque")
+                      .HasConversion(
+                          v => v ? 1 : 0,  // Converte bool para número
+                          v => v == 1      // Converte número para bool
+                      );
+
+                // Outras configurações
+            });
 
             modelBuilder.Entity<Contato>()
                 .ToTable("MH_CONTATO", "DECORAPHP")
                 .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Categoria>()
+               .ToTable("MH_CATEGORIAS", "DECORAPHP")
+               .HasKey(x => x.Id);
         }
     }
 }

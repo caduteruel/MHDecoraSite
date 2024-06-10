@@ -18,6 +18,8 @@ namespace MHDecora.Site.Infra.Repository
 
         public async Task<List<GaleriaDestaque>> Buscar()
         {
+            //var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.MontagemDestaque).ToListAsync();
+
             //List<GaleriaDestaque> listaGaleriaDestaque = await _context.MH_GALERIADESTAQUE.ToListAsync();
             List<GaleriaDestaque> listaGaleriaDestaque = new List<GaleriaDestaque>();
 

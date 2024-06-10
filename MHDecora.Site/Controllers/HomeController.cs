@@ -40,8 +40,11 @@ namespace MHDeroca.Site.Controllers
             ////Temas
             List<Tema> tema = await _temaService.Buscar();
 
-            ////Contato
-            Contato contato = await _contatoService.GetContato();
+            ////Galeria
+            List<Montagem> galeria = await _montagemService.BuscarDestaque();
+
+            ////Galeria
+           // Contato contato = await _conmontagemService.BuscarDestaque();
 
 
             //ViewModel
@@ -50,7 +53,8 @@ namespace MHDeroca.Site.Controllers
             siteViewModel.QuemSomos = quemSomos;
             siteViewModel.Montagens = montagem;
             siteViewModel.Temas = tema;
-            siteViewModel.Contato = contato;
+            siteViewModel.Galerias = galeria;
+            //siteViewModel.Contato = galeria;
 
             return View(siteViewModel);
         }

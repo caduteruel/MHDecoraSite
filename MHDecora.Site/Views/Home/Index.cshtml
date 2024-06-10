@@ -18,7 +18,7 @@
 @await Html.PartialAsync("~/Views/Home/_Temas.cshtml", Model.Temas)
 
 <!-- Renderização da Partial View para a Galeria de Destaques -->
-@await Html.PartialAsync("~/Views/Home/_GaleriaDestaques.cshtml")
+@await Html.PartialAsync("~/Views/Home/_GaleriaDestaques.cshtml", Model.Galerias)
 
 <!-- Renderização da Partial View para o Novidades -->
 @await Html.PartialAsync("~/Views/Home/_Novidades.cshtml")

@@ -18,11 +18,28 @@ namespace MHDecora.Site.Infra.Repositories
 
         public async Task<List<Montagem>> Buscar()
         {
-            var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.MontagemDestaque == true).ToListAsync();
+            var listaMontagens = await _context.MH_MONTAGEM.ToListAsync();
 
             foreach (var img in listaMontagens)
             {
                 img.CaminhoImagem = @"/montagem/" + img.CaminhoImagem;
+            }
+
+            return listaMontagens;
+        }
+
+        public async Task<List<Montagem>> BuscarDestaque()
+        {
+            var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.MontagemDestaque)
+                                                                                        .Include(x => x.Categoria)
+                                                                                        .ToListAsync();
+
+            foreach (var img in listaMontagens)
+            {
+                img.CaminhoImagem = @"/montagem/" + img.CaminhoImagem;
+                img.CaminhoImagem2 = @"/montagem/" + img.CaminhoImagem;
+                img.CaminhoImagem3 = @"/montagem/" + img.CaminhoImagem;
+                img.CaminhoImagem4 = @"/montagem/" + img.CaminhoImagem;
             }
 
             return listaMontagens;
