@@ -1,4 +1,5 @@
-﻿using MHDecora.Admin.Application.Interfaces;
+﻿using Azure;
+using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +19,29 @@ namespace MHDecora.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var response = await _temaService.Buscar();
+            var response = await _temaService.Buscar();                     
+
+            if(response != null)
+            {
+                
+                foreach (var item in response)
+                {
+                    string tags = String.Empty;
+                    if (item.Tags != null)
+                    {
+                        foreach (var elemnt in item.TagsList)
+                        {
+                            tags = tags + " - " + elemnt.Nome;
+                        }
+
+                        item.Tags = tags.Remove(0, 3);
+                    }
+                }
+            }
+
 
             if (response == null)
-            {
-                Alert("Erro!", "Não foi possível carregar os dados, contate a equipe de suporte.", "danger");
-
+            {                
                 return View(response);
             }
 

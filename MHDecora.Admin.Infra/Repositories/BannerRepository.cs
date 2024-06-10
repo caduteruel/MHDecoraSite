@@ -62,7 +62,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
             foreach (var img in listaBanner)
             {
-                img.CaminhoImagem = @"/Imagens/banner/" + img.CaminhoImagem;
+                img.CaminhoImagem = @"/banner/" + img.CaminhoImagem;
             }
 
             return listaBanner;
@@ -72,7 +72,7 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             Banner imagem = await _adminContext.MH_BANNERS.FirstOrDefaultAsync(x => x.Id == id);
             
-            imagem.CaminhoImagem = @"/Imagens/banner/" + imagem.CaminhoImagem;
+            imagem.CaminhoImagem = @"/banner/" + imagem.CaminhoImagem;
             
             return imagem;
         }

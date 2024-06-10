@@ -24,17 +24,29 @@ namespace MHDecora.Admin.Infra.Repository
 
             foreach (var item in listaTemas)
             {
-                item.CaminhoImagem = GetTemaPath() + item.CaminhoImagem;
+                item.CaminhoImagem = @"/tema/" + item.CaminhoImagem;
+
+                if (item.Tags != null)
+                {
+                    var listaTags = item.Tags.Split(",");
+                    item.TagsList = new List<Tag>();
+
+                    foreach (var tag in listaTags)
+                    {
+                        var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
+                        item.TagsList.Add(tag2);
+                    }
+                }
             }
 
             return listaTemas;
         }
 
-        public async Task<Tema> BuscarPorId(int id)
+        public async Task<Tema> BuscarPorId(int montagemId)
         {
-           Tema tema = await _context.MH_TEMA.FindAsync(id);
+           Tema tema = await _context.MH_TEMA.FindAsync(montagemId);
 
-            tema.CaminhoImagem = GetTemaPath() + tema.CaminhoImagem;
+            tema.CaminhoImagem = @"/tema/" + tema.CaminhoImagem;
 
             return tema;
         }
@@ -45,13 +57,8 @@ namespace MHDecora.Admin.Infra.Repository
             {
                 if (arquivo != null && arquivo.Length > 0)
                 {
-                    string roothPath = Directory.GetCurrentDirectory();
-                    string uploadsFolder = Path.Combine(roothPath, "wwwroot", "images/tema");
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-
-                    string caminhoDaPastaCompartilhada = @"../Imagens/tema/";
-
-                    string filePath = Path.Combine(caminhoDaPastaCompartilhada, uniqueFileName);
+                    string filePath = Path.Combine(@"/Imagens/tema/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo.CopyTo(fileStream);
@@ -60,16 +67,19 @@ namespace MHDecora.Admin.Infra.Repository
                 }
 
                 string tags = String.Empty;
-
                 if (tag.Count > 0)
                 {
                     foreach (var item in tag)
                     {
                         tags = tags + "," + item;
                     }
-                }
 
-                tema.Tags = tags.Remove(0, 1);
+                    tema.Tags = tags.Remove(0, 1);
+                }
+                else
+                {
+                    tags = String.Empty;
+                }
 
                 _context.MH_TEMA.Add(tema);
 
@@ -103,12 +113,12 @@ namespace MHDecora.Admin.Infra.Repository
                     string fileName = Path.GetFileName(imagePath);
 
                     // Exclui o registro do tema
-                    var tema = new Banner { Id = temaId };
+                    var tema = new Tema { Id = temaId };
                     _context.Entry(tema).State = EntityState.Deleted;
                     await _context.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine("wwwroot", "images\\tema", fileName);
+                    string imagePathToDelete = Path.Combine(@"/Imagens/tema/", fileName);
                     if (File.Exists(imagePathToDelete))
                     {
                         File.Delete(imagePathToDelete);

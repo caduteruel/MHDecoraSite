@@ -29,10 +29,10 @@ namespace MHDecora.Admin.Infra.Repositories
 
             foreach (var img in listaMontagem)
             {
-                img.CaminhoImagem = @"/Imagens/montagem/" + img.CaminhoImagem;
-                img.CaminhoImagem2 = @"/Imagens/montagem/" + img.CaminhoImagem2;
-                img.CaminhoImagem3 = @"/Imagens/montagem/" + img.CaminhoImagem3;
-                img.CaminhoImagem4 = @"/Imagens/montagem/" + img.CaminhoImagem4;
+                img.CaminhoImagem = @"/montagem/" + img.CaminhoImagem;
+                img.CaminhoImagem2 = @"/montagem/" + img.CaminhoImagem2;
+                img.CaminhoImagem3 = @"/montagem/" + img.CaminhoImagem3;
+                img.CaminhoImagem4 = @"/montagem/" + img.CaminhoImagem4;
             }
 
 
@@ -61,10 +61,10 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 var response = await _adminContext.MH_MONTAGEM.FindAsync(montagemId);
 
-                response.CaminhoImagem = @"/Imagens/montagem/" + response.CaminhoImagem;
-                response.CaminhoImagem2 = @"/Imagens/montagem/" + response.CaminhoImagem2;
-                response.CaminhoImagem3 = @"/Imagens/montagem/" + response.CaminhoImagem3;
-                response.CaminhoImagem4 = @"/Imagens/montagem/" + response.CaminhoImagem4;
+                response.CaminhoImagem = @"/montagem/" + response.CaminhoImagem;
+                response.CaminhoImagem2 = @"/montagem/" + response.CaminhoImagem2;
+                response.CaminhoImagem3 = @"/montagem/" + response.CaminhoImagem3;
+                response.CaminhoImagem4 = @"/montagem/" + response.CaminhoImagem4;
 
                 if(response.Tags != null)
                 {
@@ -244,16 +244,19 @@ namespace MHDecora.Admin.Infra.Repositories
                 }
 
                 string tags = String.Empty;
-
-                if(tag.Count > 0)
-                {                    
-                    foreach(var item in tag)
+                if (tag.Count > 0)
+                {
+                    foreach (var item in tag)
                     {
-                        tags = tags + "," + item;                       
+                        tags = tags + "," + item;
                     }
+
+                    montagem.Tags = tags.Remove(0, 1);
                 }
-                
-                montagem.Tags = tags.Remove(0, 1);
+                else
+                {
+                    tags = String.Empty;
+                }
 
                 _adminContext.MH_MONTAGEM.Add(montagem);
 

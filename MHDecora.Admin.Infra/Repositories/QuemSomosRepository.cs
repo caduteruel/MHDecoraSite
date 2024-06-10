@@ -27,9 +27,11 @@ namespace MHDecora.Admin.Infra.Repositories
             var quemSomos = await _adminContext.MH_QUEMSOMOS
                                     .OrderByDescending(x => x.Id)
                                     .FirstOrDefaultAsync();
-
-            quemSomos.CaminhoImagem = @"/Imagens/quemsomos/" + quemSomos.CaminhoImagem;
-
+            if(quemSomos != null)
+            {
+                quemSomos.CaminhoImagem = @"/quemsomos/" + quemSomos.CaminhoImagem;
+            }
+            
             return quemSomos;
         }
 
