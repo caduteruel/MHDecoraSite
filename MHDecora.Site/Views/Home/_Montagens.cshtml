@@ -1,6 +1,6 @@
 ﻿@model List<MHDecora.Site.Domain.Entities.Montagem>
 
-<div class="mt-5">
+@* <div class="mt-5">
     <div class="row">
         <div class="col-md-12">
             <h2 class="mt-0 title-md-decora text-center">@Model.FirstOrDefault().Titulo</h2>
@@ -30,4 +30,73 @@
             }
         }
     </div>
-</div>
+</div> *@
+
+
+
+<section class="card-wrapper" id="montagens">
+    <div class="card-title">
+        <h1>Conheça nossas montagens</h1>
+    </div>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-image">
+                <img src="decoration.png" alt="" />
+                <h1>Decorações</h1>
+            </div>
+
+            <div class="card-content">
+                <p>
+                    Mesas tradicionais com decorações modernas dos temas mais
+                    pedidos no mercado, disponíveis no tamanho P e G.
+                </p>
+                <a href="pages/decoracoes.html" class="card-button">Saiba mais</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="decoration.png" alt="" />
+                <h1>Pegue e monte</h1>
+            </div>
+
+            <div class="card-content">
+                <p>
+                    Decorações compactas e excelentes para você que quer modernidade
+                    e temas em alta no mercado.
+                </p>
+                <a href="pages/pegue-e-monte.html" class="card-button">Saiba mais</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="decoration.png" alt="" />
+                <h1>Mini Table</h1>
+            </div>
+
+            <div class="card-content">
+                <p>
+                    Decoração em formato menor, com 3 cilindros e uma mesa, super
+                    versátil. Ideal para quem quer praticidade.
+                </p>
+                <a href="pages/mini-table.html" class="card-button">Saiba mais</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-image">
+                <img src="decoration.png" alt="" />
+                <h1>Projetos Personalizados</h1>
+            </div>
+
+            <div class="card-content">
+                <p>
+                    Projetos modernos e totalmente personalizados conforme o seu
+                    gosto. Escolha o melhor para o seu evento!
+                </p>
+                <a href="pages/projetos-personalizados.html" class="card-button">Saiba mais</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -29,34 +29,32 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task Criar(Banner banner, IFormFile imagem)
         {
-            //List<Banner> _banners = new List<Banner>();
-
-                try
+            try
+            {
+                if (imagem != null && imagem.Length > 0)
                 {
-                    if (imagem != null && imagem.Length > 0)
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
+                    string filePath = Path.Combine(@"/Imagens/banner/", uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
-                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                        string filePath = Path.Combine(@"/Imagens/banner/", uniqueFileName);
-                        using (var fileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            imagem.CopyTo(fileStream);
-                        }
-                        banner.CaminhoImagem = uniqueFileName;
+                        imagem.CopyTo(fileStream);
                     }
+                    banner.CaminhoImagem = uniqueFileName;
+                }
 
-                    _adminContext.MH_BANNERS.Add(banner);
+                _adminContext.MH_BANNERS.Add(banner);
 
-                    await _adminContext.SaveChangesAsync();
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-                finally
-                {
-                    await _adminContext.DisposeAsync();
-                }
-        }
+                await _adminContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                await _adminContext.DisposeAsync();
+            }
+    }
 
         public async Task <List<Banner>> GetBanners() 
         {

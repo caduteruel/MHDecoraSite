@@ -46,7 +46,7 @@ namespace MHDecora.Site.Infra.Repository
 
             foreach (var img in listaBanner)
             {
-               img.CaminhoImagem = @"/Imagens/banner/" + img.CaminhoImagem;
+               img.CaminhoImagem = @"/banner/" + img.CaminhoImagem;
             }
 
             return listaBanner;

@@ -1,4 +1,4 @@
-﻿<div class="container text-center">
+﻿@* <div class="container text-center">
     <div style="margin-left: 11% !important; max-width: 75% !important;">
         <div style="margin-left: 15% !important;">
             <h2 class="mt-5 text-center">Orçamento</h2>
@@ -57,3 +57,65 @@
         </form>
     </div>
 </div>
+ *@
+
+<section class="contact-wrapper" id="contato">
+    <div class="contact-form">
+        <h1 class="heading">Orçamento</h1>
+
+        <div class="contactForm">
+            <form action="#">
+                <div class="input-form">
+                    <label for="">Nome:</label>
+                    <input type="text"
+                           class="input"
+                           required
+                           placeholder="seu nome" />
+                </div>
+
+                <div class="input-form horizontal">
+                    <div class="input-group">
+                        <label for="">Email:</label>
+                        <input type="text"
+                               class="input"
+                               placeholder="email@gmail.com"
+                               required />
+                    </div>
+                    <div class="input-group">
+                        <label for="">Telefone:</label>
+                        <input type="tel"
+                               class="input"
+                               placeholder="+55 (99) 99928-3984"
+                               required />
+                    </div>
+                </div>
+
+                <div class="input-form"></div>
+
+                <div class="input-form horizontal">
+                    <div class="input-group">
+                        <label for="">Data:</label>
+                        <input type="text"
+                               class="input"
+                               placeholder="DD / MM / AAAA" />
+                    </div>
+                    <div class="input-group checkbox-group">
+                        <input type="checkbox" id="no-date" class="checkbox" />
+                        <label for="no-date">Ainda não defini o dia</label>
+                    </div>
+                </div>
+
+                <div class="input-form">
+                    <p>Mais informações(Tema, Local do evento, frete...)</p>
+                    <textarea class="input"
+                              cols="30"
+                              rows="5"
+                              placeholder="sua mensagem..."
+                              required></textarea>
+                </div>
+
+                <input type="submit" class="input submit" value="Enviar" />
+            </form>
+        </div>
+    </div>
+</section>

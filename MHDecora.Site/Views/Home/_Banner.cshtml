@@ -1,6 +1,6 @@
 ﻿@model List<MHDecora.Site.Domain.Entities.Banner>
 
-<div id="carouselExampleIndicators" class="carousel slide mt-4" data-ride="carousel">
+@* <div id="carouselExampleIndicators" class="carousel slide mt-4" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -21,4 +21,40 @@
     <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
         <span class="sr-only">Next</span>
     </a>
-</div>
+</div> *@
+
+
+<section class="slider-wrapper" id="home">
+    <div class="slider-box active show">
+        <div class="slider-image">
+            <img src="@Model[0].CaminhoImagem" alt="" />
+        </div>
+        <div class="slider-text">
+            Transforme<br />
+            seu sonho <br />em realidade
+        </div>
+    </div>
+    <div class="slider-box">
+        <div class="slider-image">
+            <img src="@Model[1].CaminhoImagem" alt="" />
+        </div>
+        <div class="slider-text">
+            Faça<br />
+            seu sonho <br />uma realidade
+        </div>
+    </div>
+    <div class="slider-box">
+        <div class="slider-image">
+            <img src="@Model[2].CaminhoImagem" alt="" />
+        </div>
+        <div class="slider-text">
+            Faça<br />
+            seu sonho <br />uma realidade
+        </div>
+    </div>
+    <div class="slider-nava" id="slider-home">
+        <a class="slider-nav-link" data-index="0"></a>
+        <a class="slider-nav-link" data-index="1"></a>
+        <a class="slider-nav-link" data-index="2"></a>
+    </div>
+</section>

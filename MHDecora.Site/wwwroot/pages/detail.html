@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decora | Detalhe do Produto</title>
+    <link rel="stylesheet" href="../css/detail.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="nav-logo">Decora</div>
+
+        <div class="menu-icon" id="menu"><span class="fas fa-bars"></span></div>
+
+        <div class="nav-items">
+          <li class="nav-links">
+            <a href="../index.html" class="active">MH Decora</a>
+          </li>
+          <li class="nav-links">
+            <a href="../index.html#montagens">Montagens</a>
+          </li>
+          <li class="nav-links">
+            <a href="../index.html#novidades">Novidades</a>
+          </li>
+          <li class="nav-links"><a href="../index.html#contato">Contato</a></li>
+          <li class="nav-links">
+            <a href="../index.html#contato">Orçamento</a>
+          </li>
+        </div>
+
+        <form action="" class="nav-search">
+          <input
+            type="text"
+            class="nav-search-data"
+            required
+            placeholder="O que você procura..."
+          />
+          <button class="fas fa-search nav-search-button"></button>
+        </form>
+
+        <div class="nav-social">
+          <a href="" class="nav-social-link"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="" class="nav-social-link"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="" class="nav-social-link"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="detail">
+        <h1 class="name" style="text-align: center"></h1>
+
+        <div class="image">
+          <img src="" id="image-principal" />
+
+          <div class="image-grid">
+            <img src="../images/decoration/decoration1.jpg" />
+            <img src="../images/decoration/decoration3.jpg" />
+            <img src="../images/decoration/decoration4.jpg" />
+          </div>
+        </div>
+
+        <div class="content">
+          <h1 class="name">Descrição do produto</h1>
+
+          <div class="description"></div>
+          <div class="buttons">
+            <a href="index.html#contato">Solicitar orçamento</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-list">
+        <div class="title">Veja também</div>
+        <div class="listProduct"></div>
+      </div>
+
+      <a href="../index.html" class="btn-back"
+        ><i class="fa-solid fa-arrow-left"></i
+      ></a>
+    </div>
+
+    <footer>
+      <div class="footer-col">
+        <ul>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#home">Decora</a></li>
+          <li><a href="../index.html">Cerimonial</a></li>
+          <li><a href="../index.html#novidades">Novidades</a></li>
+          <li><a href="../index.html#contato">Orçamento</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <ul>
+          <li><a href="decoracoes.html">Decorações</a></li>
+          <li><a href="pegue-e-monte.html">Pegue e monte</a></li>
+          <li><a href="mini-table.html">Mini table</a></li>
+          <li>
+            <a href="projetos-personalizados.html">Projetos personalizados</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col autorais">
+        <img src="https://placehold.jp/150x150.png" alt="" />
+
+        <div class="links">Direitos Autorais</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Redes Socials</h4>
+        <div class="links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let products = null;
+      // get data from file json
+      fetch("../data/products.json")
+        .then((response) => response.json())
+        .then((data) => {
+          products = data;
+          showDetail();
+        });
+
+      function showDetail() {
+        // remove default data from HTML
+        let detail = document.querySelector(".detail");
+        let listProduct = document.querySelector(".listProduct");
+        let productId = new URLSearchParams(window.location.search).get("id");
+        let thisProduct = products.filter((value) => value.id == productId)[0];
+        // if there is no product with id = productId => return to home page
+        if (!thisProduct) {
+          window.location.href = "/";
+        }
+
+        detail.querySelector(".image img").src = thisProduct.image;
+        detail.querySelector(".name").innerText = thisProduct.name;
+        detail.querySelector(".description").innerText =
+          "" + thisProduct.description;
+
+        products
+          .filter((value) => value.id != productId)
+          .slice(0, 4) // Limit to the first 4 products
+          .forEach((product) => {
+            let newProduct = document.createElement("a");
+            newProduct.href = "detail.html?id=" + product.id;
+            newProduct.classList.add("item");
+            newProduct.innerHTML = `<img src="${product.image}" alt="">
+      <h2>${product.name}</h2><a href=${newProduct.href}>Saiba mais</a>
+      `;
+            listProduct.appendChild(newProduct);
+          });
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const principalImage = document.getElementById("image-principal");
+        const gridImages = document.querySelectorAll(".image-grid img");
+
+        gridImages.forEach(function (img) {
+          img.addEventListener("click", function () {
+            principalImage.src = this.src;
+          });
+        });
+      });
+    </script>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

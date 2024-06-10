@@ -1,118 +1,130 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MHDeroca.Site</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Adicione o link para a biblioteca Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Decora</title>
 
+    <link rel="stylesheet" href="~/css/style.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 <body>
     <header>
-        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MHDeroca.Site</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+        <nav class="nav">
+            <div class="nav-logo">Decora</div>
+
+            <div class="menu-icon" id="menu"><span class="fas fa-bars"></span></div>
+
+            <div class="nav-items">
+                <li class="nav-links">
+                    <a href="#home" class="active">MH Decora</a>
+                </li>
+                <li class="nav-links"><a href="#montagens">Montagens</a></li>
+                <li class="nav-links"><a href="#novidades">Novidades</a></li>
+                <li class="nav-links"><a href="#contato">Contato</a></li>
+                <li class="nav-links"><a href="#contato">Orçamento</a></li>
             </div>
-        </nav> *@
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">Logo</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <!-- Utilizando a classe mx-auto para centralizar -->
-                        <li class="nav-item menu-item">
-                            <!-- Adicionando a classe menu-item -->
-                            <a class="nav-link" href="#">MH Decora</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <!-- Adicionando a classe menu-item -->
-                            <a class="nav-link" href="#">Montagens</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <!-- Adicionando a classe menu-item -->
-                            <a class="nav-link" href="#">Novidades</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <!-- Adicionando a classe menu-item -->
-                            <a class="nav-link" href="#">Contato</a>
-                        </li>
-                        <li class="nav-item menu-item">
-                            <!-- Adicionando a classe menu-item -->
-                            <a class="nav-link" href="#">Orçamento</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline">
-                        <div class="input-group">
-                            <input class="form-control" type="search" placeholder="O que você precisa..." aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="assets/instagram.png"><i class="fab fa-instagram"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="assets/facebook.png"><i class="fab fa-facebook"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="assets/whatsapp.png"><i class="fab fa-whatsapp"></i></a>
-                        </li>
-                    </ul>
-                </div>
+
+            <form action="" class="nav-search">
+                <input type="text"
+                       class="nav-search-data"
+                       required
+                       placeholder="O que você procura..." />
+                <button class="fas fa-search nav-search-button"></button>
+            </form>
+
+            <div class="nav-social">
+                <a href="" class="nav-social-link">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="" class="nav-social-link">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="" class="nav-social-link">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            <!-- Renderização da Partial View para o Rodapé -->
-            @await Html.PartialAsync("~/Views/Home/_Rodape.cshtml")
+    <main>
+        @RenderBody()
+        
+    </main>
+
+    <footer>
+        <div class="footer-col">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Decora</a></li>
+                <li><a href="#novidades">Cerimonial</a></li>
+                <li><a href="#novidades">Novidades</a></li>
+                <li><a href="#contato">Orçamento</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <ul>
+                <li><a href="pages/decoracoes.html">Decorações</a></li>
+                <li><a href="pages/pegue-e-monte.html">Pegue e monte</a></li>
+                <li><a href="pages/mini-table.html">Mini table</a></li>
+                <li>
+                    <a href="pages/projetos-personalizados.html">Projetos personalizados</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-col autorais">
+            <img src="https://placehold.jp/150x150.png" alt="" />
+
+            <div class="links">Direitos Autorais</div>
+        </div>
+
+        <div class="footer-col">
+            <h4>Redes Socials</h4>
+            <div class="links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="~/js/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="~/js/swiper.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="https://kit.fontawesome.com/77ebc8126c.js" crossorigin="anonymous"></script>
 
-    <script src="~/js/site.js" asp-append-version="false"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.querySelectorAll(".slider-box");
+            const sliderNav = document.querySelectorAll(".slider-nav-link");
 
-    @await RenderSectionAsync("Scripts", required: false)
+            sliderNav.forEach((link) => {
+                link.addEventListener("click", () => {
+                    const index = link.getAttribute("data-index");
+
+                    slides.forEach((slide, i) => {
+                        if (i == index) {
+                            slide.classList.add("active", "show");
+                        } else {
+                            slide.classList.remove("active", "show");
+                        }
+                    });
+
+                    sliderNav.forEach((nav) => {
+                        nav.classList.remove("active");
+                    });
+
+                    link.classList.add("active");
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 ﻿@model List<MHDecora.Site.Domain.Entities.Tema>
 
-<div class="mt-5">
+@* <div class="mt-5">
     <div class="row">
         <div class="col-md-12">
             <h2 class="mt-0 title-principais-telas text-center">@Model.FirstOrDefault().Titulo</h2>
@@ -24,11 +24,11 @@
         }
     </div>
    
-</div>
+</div> *@
 
 
 @section Scripts {
-  
+@*   
     <script>
         $(document).ready(function () {
             $(".owl-carousel").owlCarousel({
@@ -51,8 +51,84 @@
         });
 
 
-    </script>
+    </script> *@
 }
 
+<section class="theme" id="decoracoes">
+    <div class="theme-container swiper">
+        <h1>Principais temas disponiveis</h1>
+        <div class="theme-content">
+            <div class="swiper-wrapper">
+                <article class="theme-article swiper-slide" style="margin-right: 20px;">
+                    <div class="theme-image">
+                        <img src="images/theme/theme1.jpg" alt="" />
+                    </div>
 
+                    <div class="theme-data">
+                        <div class="theme-name">Barbie</div>
+                    </div>
+                </article>
+                <article class="theme-article swiper-slide">
+                    <div class="theme-image">
+                        <img src="images/theme/theme2.jpg" alt="" />
+                    </div>
 
+                    <div class="theme-data">
+                        <div class="theme-name">Patrulha Canina</div>
+                    </div>
+                </article>
+                <article class="theme-article swiper-slide">
+                    <div class="theme-image">
+                        <img src="images/theme/theme3.jpg" alt="" />
+                    </div>
+
+                    <div class="theme-data">
+                        <div class="theme-name">A Pequena Seria</div>
+                    </div>
+                </article>
+                <article class="theme-article swiper-slide">
+                    <div class="theme-image">
+                        <img src="images/theme/theme4.png" alt="" />
+                    </div>
+
+                    <div class="theme-data">
+                        <div class="theme-name">Princesas</div>
+                    </div>
+                </article>
+                <article class="theme-article swiper-slide">
+                    <div class="theme-image">
+                        <img src="images/theme/theme5.jpg" alt="" />
+                    </div>
+
+                    <div class="theme-data">
+                        <div class="theme-name">Bolofofo</div>
+                    </div>
+                </article>
+                <article class="theme-article swiper-slide">
+                    <div class="theme-image">
+                        <img src="images/theme/theme6.jpg" alt="" />
+                    </div>
+
+                    <div class="theme-data">
+                        <div class="theme-name">Futebol</div>
+                    </div>
+                </article>
+                <article class="theme-article swiper-slide">
+                    <div class="theme-image">
+                        <img src="images/theme/theme4.png" alt="" />
+                    </div>
+
+                    <div class="theme-data">
+                        <div class="theme-name">Princesas</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="swiper-button-prev">
+            <i class="fa-solid fa-arrow-left"></i>
+        </div>
+        <div class="swiper-button-next">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+</section>
