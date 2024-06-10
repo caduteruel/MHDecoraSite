@@ -13435,14 +13435,14 @@ label {
   border-bottom: 1px solid rgba(229, 233, 242, 0.25);
 }
 .app-brand a {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 76px;
-  line-height: 76px;
-  width: 250px;
-  transition: width 0.3s ease-in-out;
-  padding-left: 1.56rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 76px;
+    line-height: 76px;
+    width: 250px;
+    transition: width 0.3s ease-in-out;
+    padding-left: 4.56rem;
 }
 @media (prefers-reduced-motion: reduce) {
   .app-brand a {
