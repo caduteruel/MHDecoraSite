@@ -64,7 +64,7 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="@Url.Action("Editar", "Tema", new { montagemId = @item.Id })">Editar</a>
+                                            <a class="dropdown-item" href="@Url.Action("Editar", "Tema", new { Id = @item.Id })">Editar</a>
                                             <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" onclick="setaID(@item.Id)" id="excluirTema" href="#">Excluir</a>
                                         </div>
                                     </div>

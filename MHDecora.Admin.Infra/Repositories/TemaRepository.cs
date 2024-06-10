@@ -42,11 +42,23 @@ namespace MHDecora.Admin.Infra.Repository
             return listaTemas;
         }
 
-        public async Task<Tema> BuscarPorId(int montagemId)
+        public async Task<Tema> BuscarPorId(int id)
         {
-           Tema tema = await _context.MH_TEMA.FindAsync(montagemId);
+           Tema tema = await _context.MH_TEMA.FindAsync(id);
 
             tema.CaminhoImagem = @"/tema/" + tema.CaminhoImagem;
+
+            if (tema.Tags != null)
+            {
+                var listaTags = tema.Tags.Split(",");
+                tema.TagsList = new List<Tag>();
+
+                foreach (var tag in listaTags)
+                {
+                    var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
+                    tema.TagsList.Add(tag2);
+                }
+            }            
 
             return tema;
         }
