@@ -44,7 +44,7 @@ namespace MHDeroca.Site.Controllers
             List<Montagem> galeria = await _montagemService.BuscarDestaque();
 
             ////Galeria
-           // Contato contato = await _conmontagemService.BuscarDestaque();
+            Contato contato = await _contatoService.GetContato();
 
 
             //ViewModel
@@ -54,9 +54,25 @@ namespace MHDeroca.Site.Controllers
             siteViewModel.Montagens = montagem;
             siteViewModel.Temas = tema;
             siteViewModel.Galerias = galeria;
-            //siteViewModel.Contato = galeria;
+            siteViewModel.Contato = contato;
 
             return View(siteViewModel);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Consulta(int categoriaId)
+        {
+            List<Montagem> montagens = await _montagemService.BuscarPorCategoria(categoriaId);
+
+            return View(montagens);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Detalhes(int montagemId)
+        {
+            Montagem montagem = await _montagemService.BuscarPorId(montagemId);
+
+            return View(montagem);
         }
 
         public IActionResult Privacy()

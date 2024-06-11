@@ -22,5 +22,15 @@ namespace MHDecora.Site.Application
         {
             return await _montagemRepository.BuscarDestaque();
         }
+
+        public async Task<List<Montagem>> BuscarPorCategoria(int categoriaId)
+        {
+            return await _montagemRepository.BuscarPorCategoria(categoriaId);
+        }
+
+        public async Task<Montagem> BuscarPorId(int montagemId)
+        {
+            return await _montagemRepository.BuscarPorId(montagemId);
+        }
     }
 }

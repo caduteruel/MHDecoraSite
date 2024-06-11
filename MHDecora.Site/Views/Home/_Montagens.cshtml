@@ -53,7 +53,14 @@
                         <p>
                             @item.Texto
                         </p>
-                        <a href="pages/decoracoes.html" class="card-button">Saiba mais</a>
+                        @if (string.IsNullOrEmpty(item.LinkBotao))
+                        {
+                            <a href="@item.LinkBotao" class="card-button">Saiba mais</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Consulta", "Home", new { categoriaId = item.CategoriaId })" class="card-button">Saiba mais</a>
+                        }
                     </div>
                 </div>
             }

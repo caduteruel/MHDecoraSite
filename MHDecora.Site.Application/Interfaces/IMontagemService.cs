@@ -6,5 +6,7 @@ namespace MHDecora.Site.Application.Interfaces
     {
         Task<List<Montagem>> Buscar();
         Task<List<Montagem>> BuscarDestaque();
+        Task<List<Montagem>> BuscarPorCategoria(int categoriaId);
+        Task<Montagem> BuscarPorId(int montagemId);
     }
 }

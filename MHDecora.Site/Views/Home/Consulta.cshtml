@@ -1,0 +1,192 @@
+﻿@model List<MHDecora.Site.Domain.Entities.Montagem>
+
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<body style="min-height: 100vh">
+
+
+    <div class="container-filter">
+        <div class="filter-text">
+            <h1>Decorações</h1>
+
+            <p>
+                Mesas tradicionais com decorações modernas dos temas mais pedidos no
+                mercado, disponiveis em tamanho P e G
+            </p>
+        </div>
+
+        <div class="filter-buttons">
+            <select id="filter-select" name="filters">
+                <option value="" disabled selected>Filtrar por</option>
+                <option value="order" data-name="order">Ordem Alfabética</option>
+                <option value="recent" data-name="recent">Recentes</option>
+            </select>
+        </div>
+
+        <div class="filterable-cards">
+            @{
+                if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="card" data-name="">
+                            <img src="@item.CaminhoImagem" alt="recent" />
+                            <div class="card-body">
+                                <h6 class="card-title">@item.Titulo</h6>
+                                <p class="card-text">@item.TextoImagem</p>
+                                <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
+                            </div>
+                        </div>
+                    }
+
+                }
+            }
+        </div>
+
+        <div class="pagination">
+            <a href=""><</a>
+            <a href="" class="active">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">></a>
+        </div>
+    </div>
+
+
+    <script src="../js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".filterable-cards .card");
+            const pagination = document.querySelector(".pagination");
+            const cardsPerPage = 12;
+            let currentPage = 1;
+
+            function showPage(page) {
+                const start = (page - 1) * cardsPerPage;
+                const end = page * cardsPerPage;
+
+                cards.forEach((card, index) => {
+                    card.style.display =
+                        index >= start && index < end ? "block" : "none";
+                });
+
+                updatePagination(page);
+            }
+
+            function updatePagination(page) {
+                pagination.innerHTML = "";
+
+                const totalPages = Math.ceil(cards.length / cardsPerPage);
+                const paginationFragment = document.createDocumentFragment();
+
+                const prevLink = document.createElement("a");
+                prevLink.href = "#";
+                prevLink.textContent = "<";
+                if (page === 1) {
+                    prevLink.classList.add("disabled");
+                }
+                prevLink.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if (currentPage > 1) {
+                        currentPage -= 1;
+                        showPage(currentPage);
+                    }
+                });
+                paginationFragment.appendChild(prevLink);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageLink = document.createElement("a");
+                    pageLink.href = "#";
+                    pageLink.textContent = i;
+                    if (i === page) {
+                        pageLink.classList.add("active");
+                    }
+                    pageLink.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        currentPage = i;
+                        showPage(currentPage);
+                    });
+
+                    paginationFragment.appendChild(pageLink);
+                }
+
+                const nextLink = document.createElement("a");
+                nextLink.href = "#";
+                nextLink.textContent = ">";
+                if (page === totalPages) {
+                    nextLink.classList.add("disabled");
+                }
+                nextLink.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if (currentPage < totalPages) {
+                        currentPage += 1;
+                        showPage(currentPage);
+                    }
+                });
+                paginationFragment.appendChild(nextLink);
+
+                pagination.appendChild(paginationFragment);
+            }
+
+            showPage(currentPage);
+        });
+    </script>
+
+    <script src="../js/filter.js"></script>
+
+    <script>
+        let products = null;
+        // get datas from file json
+        fetch("../data/products.json")
+            .then((response) => response.json())
+            .then((data) => {
+                products = data;
+                addDataToHTML();
+            });
+
+        function addDataToHTML() {
+            // remove datas default from HTML
+            let listProductHTML = document.querySelector(".listProduct");
+
+            // add new datas
+            if (products != null) {
+                // if has data
+                products.forEach((product) => {
+                    let newProduct = document.createElement("a");
+                    newProduct.href = "/detail.html?id=" + product.id;
+                    newProduct.classList.add("item");
+                    newProduct.innerHTML = `<img src="${product.image}" alt="">
+                            <h2>${product.name}</h2>
+                            `;
+                    listProductHTML.appendChild(newProduct);
+                });
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var filterDropdown = document.querySelector(".filter-dropdown");
+
+            filterDropdown.addEventListener("click", function () {
+                filterDropdown.classList.toggle("active");
+            });
+
+            // Fechar o submenu se clicar fora dele
+            window.addEventListener("click", function (e) {
+                if (!filterDropdown.contains(e.target)) {
+                    filterDropdown.classList.remove("active");
+                }
+            });
+        });
+    </script>
+</body>
