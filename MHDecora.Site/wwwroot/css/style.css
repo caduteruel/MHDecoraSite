@@ -1229,7 +1229,7 @@ select {
 /* ========= SWIPER CLASS ========= */
 
 .swiper {
-    width: 1300px;
+    width: 1200px;
 }
 
 .swiper-button-next::after, .swiper-button-prev::after {

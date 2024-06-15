@@ -85,3 +85,35 @@
         </div>
     </div>
 </section>
+
+<script src="~/js/swiper.js"></script>
+<script src="~/js/main.js"></script>
+<script src="https://kit.fontawesome.com/77ebc8126c.js"
+        crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".slider-box");
+        const sliderNav = document.querySelectorAll(".slider-nav-link");
+
+        sliderNav.forEach((link) => {
+            link.addEventListener("click", () => {
+                const index = link.getAttribute("data-index");
+
+                slides.forEach((slide, i) => {
+                    if (i == index) {
+                        slide.classList.add("active", "show");
+                    } else {
+                        slide.classList.remove("active", "show");
+                    }
+                });
+
+                sliderNav.forEach((nav) => {
+                    nav.classList.remove("active");
+                });
+
+                link.classList.add("active");
+            });
+        });
+    });
+</script>
