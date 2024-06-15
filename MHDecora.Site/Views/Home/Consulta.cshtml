@@ -14,11 +14,10 @@
 
     <div class="container-filter">
         <div class="filter-text">
-            <h1>Decorações</h1>
+            <h1>@Model.FirstOrDefault().Titulo</h1>
 
             <p>
-                Mesas tradicionais com decorações modernas dos temas mais pedidos no
-                mercado, disponiveis em tamanho P e G
+                @Model.FirstOrDefault().Texto
             </p>
         </div>
 

@@ -62,3 +62,19 @@ C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecor
 C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Infra\obj\Debug\net8.0\refint\MHDecora.Admin.Infra.dll
 C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.pdb
 C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Infra\obj\Debug\net8.0\ref\MHDecora.Admin.Infra.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Infra.deps.json
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Infra.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Infra.pdb
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Domain.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\bin\Debug\net8.0\MHDecora.Admin.Domain.pdb
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.csproj.AssemblyReference.cache
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.AssemblyInfoInputs.cache
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.AssemblyInfo.cs
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.csproj.CoreCompileInputs.cache
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.sourcelink.json
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.C6D7F1CD.Up2Date
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\refint\MHDecora.Admin.Infra.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\MHDecora.Admin.Infra.pdb
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Infra\obj\Debug\net8.0\ref\MHDecora.Admin.Infra.dll

@@ -70,3 +70,21 @@ C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\M
 C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\refint\MHDecora.Admin.Application.dll
 C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.pdb
 C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\ref\MHDecora.Admin.Application.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Application.deps.json
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Application.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Application.pdb
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Domain.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Infra.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Domain.pdb
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Infra.pdb
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.csproj.AssemblyReference.cache
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.AssemblyInfoInputs.cache
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.AssemblyInfo.cs
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.csproj.CoreCompileInputs.cache
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.sourcelink.json
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.39CEB2B8.Up2Date
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\refint\MHDecora.Admin.Application.dll
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.pdb
+C:\_mhDecora\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\ref\MHDecora.Admin.Application.dll

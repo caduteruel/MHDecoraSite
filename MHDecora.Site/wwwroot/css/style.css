@@ -65,7 +65,7 @@ ul{
 .nav .nav-items {
     display: flex;
     list-style: none;
-    gap: 80px;
+    gap: 40px;
 }
 
 .nav .nav-items .nav-links a {
@@ -119,9 +119,9 @@ ul{
 }
 
 .nav .nav-social .nav-social-link {
-    background-color: var(--color-primary);
+/*    background-color: var(--color-primary);*/
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 2px;
     font-size: 20px;
     border-radius: 55%;
     
