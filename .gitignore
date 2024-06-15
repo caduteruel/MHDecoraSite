@@ -221,3 +221,9 @@
 /MHDecora.Site.Domain/bin/Debug/net8.0/MHDecora.Admin.Domain.dll
 /MHDecora.Site.Domain/bin/Debug/net8.0/MHDecora.Admin.Domain.pdb
 /MHDecora.Site.Domain/obj/Debug/net8.0/MHDecora.Site.Domain.csproj.CoreCompileInputs.cache
+/MHDecora.Site/bin/Debug/net8.0/MHDecora.Admin.Domain.dll
+/MHDecora.Site/bin/Debug/net8.0/MHDecora.Admin.Domain.pdb
+/MHDecora.Site.Application/bin/Debug/net8.0/MHDecora.Admin.Domain.dll
+/MHDecora.Site.Application/bin/Debug/net8.0/MHDecora.Admin.Domain.pdb
+/MHDecora.Site.Infra/bin/Debug/net8.0/MHDecora.Admin.Domain.dll
+/MHDecora.Site.Infra/bin/Debug/net8.0/MHDecora.Admin.Domain.pdb
