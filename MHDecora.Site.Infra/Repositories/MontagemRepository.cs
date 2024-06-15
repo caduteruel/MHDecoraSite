@@ -48,6 +48,15 @@ namespace MHDecora.Site.Infra.Repositories
                                                            .Include(x => x.Categoria)
                                                            .ToListAsync();
 
+            foreach (var item in listaMontagens)
+            {
+                item.CaminhoImagem = @"/montagem/" + item.CaminhoImagem;
+                item.CaminhoImagem2 = @"/montagem/" + item.CaminhoImagem2;
+                item.CaminhoImagem3 = @"/montagem/" + item.CaminhoImagem3;
+                item.CaminhoImagem4 = @"/montagem/" + item.CaminhoImagem4;
+
+            }
+
             return listaMontagens;
         }
 
