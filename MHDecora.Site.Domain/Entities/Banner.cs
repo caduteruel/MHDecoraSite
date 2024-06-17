@@ -7,7 +7,7 @@ namespace MHDecora.Site.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        public string Descricao { get; set; }
+        public string? Descricao { get; set; }
         public string CaminhoImagem { get; set; }
        // public int Ordem { get; set; }
     }
