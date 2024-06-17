@@ -27,19 +27,40 @@
 <section class="slider-wrapper" id="home">
     <div class="slider-box active show">
         <div class="slider-image">
-            <img src="@Model[0].CaminhoImagem" alt="" />
+            @if (!string.IsNullOrEmpty(Model[0].Descricao))
+            {
+                <img href="@Model[0].Descricao" src="@Model[0].CaminhoImagem" alt="" />
+            }
+            else
+            {
+                <img href="@Model[0].Descricao" src="@Model[0].CaminhoImagem" alt="" />
+            }            
         </div>
        
     </div>
     <div class="slider-box">
         <div class="slider-image">
-            <img src="@Model[1].CaminhoImagem" alt="" />
+            @if (!string.IsNullOrEmpty(Model[1].Descricao))
+            {
+                <img href="@Model[1].Descricao" src="@Model[1].CaminhoImagem" alt="" />
+            }
+            else
+            {
+                <img href="@Model[1].Descricao" src="@Model[1].CaminhoImagem" alt="" />
+            }
         </div>
        
     </div>
     <div class="slider-box">
         <div class="slider-image">
-            <img src="@Model[2].CaminhoImagem" alt="" />
+            @if (!string.IsNullOrEmpty(Model[2].Descricao))
+            {
+                <img href="@Model[2].Descricao" src="@Model[2].CaminhoImagem" alt="" />
+            }
+            else
+            {
+                <img href="@Model[2].Descricao" src="@Model[2].CaminhoImagem" alt="" />
+            }
         </div>
        
     </div>
