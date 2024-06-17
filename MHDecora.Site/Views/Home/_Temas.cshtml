@@ -53,43 +53,46 @@
 
     </script> *@
 }
-
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <section class="theme" id="decoracoes">
-    <div class="theme-container swiper">
-        <h1>Principais temas disponiveis</h1>
-        <div class="theme-content">
+        <div class="theme-container swiper">
+          <h1>Principais temas disponíveis</h1>
+          <div class="theme-content">
             <div class="swiper-wrapper">
-                @foreach (var tema in @Model)
-                {
-                    var caminhoImagem = tema.CaminhoImagem;
-                    caminhoImagem = caminhoImagem.Replace("/Imagens", "");
+             
+              @foreach (var tema in @Model)
+              {
+                    <article class="theme-article swiper-slide" >
+                        <a href="@Url.Action("ConsultaTagsTema", "Home", new { temaId = @tema.Id })" class="theme-link">
+                            <div class="theme-image">
+                                <img src="@tema.CaminhoImagem" href="@Url.Action("ConsultaTagsTema", "Home", new { temaId = @tema.Id })" alt="" />
+                            </div>
 
-                    <article class="theme-article swiper-slide" style="margin-right: 20px;">
-                        <div class="theme-image">
-                            <img src="@caminhoImagem" alt="" />
-                        </div>
-
-                        <div class="theme-data">
-                            <div class="theme-name">@tema.Titulo</div>
-                        </div>
+                            <div class="theme-data">
+                                <div class="theme-name">@tema.Titulo</div>
+                            </div>
+                        </a>
                     </article>
-                }               
+              }
+
             </div>
-        </div>
-        <div class="swiper-button-prev">
+          </div>
+          <div class="swiper-button-prev" style="display: flex;">
             <i class="fa-solid fa-arrow-left"></i>
-        </div>
-        <div class="swiper-button-next">
+          </div>
+        <div class="swiper-button-next" style="display: flex;">
             <i class="fa-solid fa-arrow-right"></i>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
+
+
+
 
 <script src="~/js/swiper.js"></script>
 <script src="~/js/main.js"></script>
-<script src="https://kit.fontawesome.com/77ebc8126c.js"
-        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/77ebc8126c.js" crossorigin="anonymous"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {

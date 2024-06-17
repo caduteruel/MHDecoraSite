@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Decora</title>
 
+    <link rel="stylesheet" href="~/css/detail.css" />
     <link rel="stylesheet" href="~/css/style.css" />
 
     <link rel="stylesheet"
@@ -13,7 +14,7 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -34,12 +35,12 @@
                 <li class="nav-links"><a href="#contato">Orçamento</a></li>
             </div>
 
-            <form action="" class="nav-search">
-                <input type="text"
+            <form asp-controller="Home" asp-action="Pesquisa" method="get" class="nav-search">
+                <input type="text" id="texto" name="texto"
                        class="nav-search-data"
                        required
                        placeholder="O que você procura..." />
-                <button class="fas fa-search nav-search-button"></button>
+                <button type="submit" class="fas fa-search nav-search-button"></button>
             </form>
 
             <div class="nav-social">
@@ -91,16 +92,22 @@
             <div class="links">Direitos Autorais</div>
         </div>
 
-        <div class="footer-col">
-            <h4>Redes Socials</h4>
-            <div class="links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        <div >
+            <h4>MH Decora</h4>
+            <div class="">
+             
+                    <img src="~/images/site/insta-rodape.svg" alt="Instagram Icon" style="width: 40px;" />
+                  
+            
+                    <img src="~/images/site/face-rodape.svg" alt="Facebook Icon" style="width: 40px;" />
+                    
+             
+            
             </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="~/js/swiper.js"></script>
     <script src="~/js/main.js"></script>
     <script src="https://kit.fontawesome.com/77ebc8126c.js" crossorigin="anonymous"></script>

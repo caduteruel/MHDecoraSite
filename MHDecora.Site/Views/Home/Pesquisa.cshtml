@@ -14,10 +14,11 @@
 
     <div class="container-filter">
         <div class="filter-text">
-            <h1>@Model.FirstOrDefault().Titulo</h1>
-
+            <span style="font-size: xxx-large">Você buscou por: "@Model.FirstOrDefault().Titulo"</span>
+            <br />
+            <br />
             <p>
-                @Model.FirstOrDefault().Texto
+                Resultado da pesquisa:
             </p>
         </div>
 
@@ -164,8 +165,8 @@
                     newProduct.href = "/detail.html?id=" + product.id;
                     newProduct.classList.add("item");
                     newProduct.innerHTML = `<img src="${product.image}" alt="">
-                                    <h2>${product.name}</h2>
-                                    `;
+                            <h2>${product.name}</h2>
+                            `;
                     listProductHTML.appendChild(newProduct);
                 });
             }

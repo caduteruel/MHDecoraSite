@@ -6,12 +6,7 @@
     string url = "https://wa.me/" + numero + "?text=" + System.Uri.EscapeDataString(texto);
 }
 
-<link rel="stylesheet" href="~/css/detail.css" />
-<link rel="stylesheet" href="~/css/style.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-
-    <div class="container">
+<div class="container">
     @{
         if (Model != null)
         {
@@ -43,23 +38,50 @@
         }
     }
 
-        <div class="product-list">
-            <div class="title">Veja também</div>
-            <div class="listProduct"></div>
-        </div>
+    <div class="product-list">
+        <div class="title">Veja também</div>
+        
+        <div class="listProduct">
 
-        <a href="../index.html" class="btn-back">
-            <i class="fa-solid fa-arrow-left"></i>
-        </a>
+
+            <div class="filterable-cards-detalhe">
+                <div class="card" data-name="" style="display: block;">
+                    <img src="/montagem/e00ee845-6458-40ab-8e47-d3411ea98681_Captura de tela 2024-06-07 151036.png" alt="recent">
+                    <div class="card-body">
+                        <h6 class="card-title">jkjhkjh</h6>
+                        <p class="card-text">ertertert</p>
+                        <a href="/Home/Detalhes?montagemId=102" class="btn">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="card" data-name="" style="display: block;">
+                    <img src="/montagem/a4773d20-93de-4f19-ba61-3c806488688c_Captura de tela 2024-06-10 151903.png" alt="recent">
+                    <div class="card-body">
+                        <h6 class="card-title">dfghdfgh</h6>
+                        <p class="card-text">dfghdfgh</p>
+                        <a href="/Home/Detalhes?montagemId=105" class="btn">Saiba mais</a>
+                    </div>
+                </div>
+                <div class="card" data-name="" style="display: block;">
+                    <img src="/montagem/6cc432d3-db41-4fb5-8af6-b8c01c86f2a1_Captura de tela 2024-06-08 163347.png" alt="recent">
+                    <div class="card-body">
+                        <h6 class="card-title">yerty</h6>
+                        <p class="card-text">hdfgh</p>
+                        <a href="/Home/Detalhes?montagemId=104" class="btn">Saiba mais</a>
+                    </div>
+                </div>
+               
+            </div>
+
+        </div>
     </div>
 
+    @* <a href="../index.html" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i>
+    </a> *@
+</div>
 
 
-
-
-        <script src="~/js/main.js"></script>
-
-    <script>
+    <script type="text/javascript">
         // let products = null;
         // // get data from file json
         // fetch("../data/products.json")
@@ -111,4 +133,3 @@
         });
         
     </script>
-

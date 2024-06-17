@@ -15,6 +15,7 @@ namespace MHDecora.Site.Infra
         public DbSet<QuemSomos> MH_QUEMSOMOS { get; set; }
         public DbSet<Montagem> MH_MONTAGEM { get; set; }
         public DbSet<Categoria> MH_CATEGORIAS { get; set; }
+        public DbSet<Tag> MH_TAGS { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -62,6 +63,10 @@ namespace MHDecora.Site.Infra
             modelBuilder.Entity<Categoria>()
                .ToTable("MH_CATEGORIAS", "DECORAPHP")
                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Tag>()
+                .ToTable("MH_TAGS", "DECORAPHP")
+                .HasKey(x => x.Id);
         }
     }
 }

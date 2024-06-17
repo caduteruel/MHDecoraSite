@@ -18,6 +18,11 @@ namespace MHDecora.Site.Application
             return await _montagemRepository.Buscar();
         }
 
+        public async Task<List<Montagem>> Pesquisa(string texto)
+        {
+            return await _montagemRepository.Pesquisa(texto);
+        }
+
         public async Task<List<Montagem>> BuscarDestaque()
         {
             return await _montagemRepository.BuscarDestaque();
@@ -31,6 +36,11 @@ namespace MHDecora.Site.Application
         public async Task<Montagem> BuscarPorId(int montagemId)
         {
             return await _montagemRepository.BuscarPorId(montagemId);
+        }
+
+        public async Task<List<Montagem>> BuscarPorTagsTema(int temaId)
+        {
+            return await _montagemRepository.BuscarPorTagsTema(temaId);
         }
     }
 }

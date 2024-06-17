@@ -60,6 +60,14 @@ namespace MHDeroca.Site.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> Pesquisa(string texto)
+        {
+            List<Montagem> montagens = await _montagemService.Pesquisa(texto);
+
+            return View(montagens);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Consulta(int categoriaId)
         {
             List<Montagem> montagens = await _montagemService.BuscarPorCategoria(categoriaId);
@@ -73,6 +81,14 @@ namespace MHDeroca.Site.Controllers
             Montagem montagem = await _montagemService.BuscarPorId(montagemId);
 
             return View(montagem);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConsultaTagsTema(int temaId)
+        {
+            List<Montagem> montagens = await _montagemService.BuscarPorTagsTema(temaId);
+
+            return View("Consulta", montagens);
         }
 
         public IActionResult Privacy()

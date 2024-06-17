@@ -22,7 +22,7 @@ namespace MHDecora.Site.Infra.Repository
 
             foreach (var item in listaTemas)
             {
-                item.CaminhoImagem = @"/Imagens/tema/" + item.CaminhoImagem;
+                item.CaminhoImagem = @"/tema/" + item.CaminhoImagem;
             }
 
             return listaTemas;

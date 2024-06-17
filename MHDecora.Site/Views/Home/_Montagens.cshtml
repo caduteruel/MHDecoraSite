@@ -53,7 +53,7 @@
                         <p>
                             @item.Texto
                         </p>
-                        @if (string.IsNullOrEmpty(item.LinkBotao))
+                        @if (!string.IsNullOrEmpty(item.LinkBotao))
                         {
                             <a href="@item.LinkBotao" class="card-button">Saiba mais</a>
                         }
