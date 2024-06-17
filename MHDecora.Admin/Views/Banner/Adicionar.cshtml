@@ -94,7 +94,7 @@
                 var ordem = $("#ordem").val();
                 var fileInput = $("#fileInput").val();
 
-                if (!descricao || ordem == "0" || !fileInput) {
+                if (ordem == "0" || !fileInput) {
                     Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }

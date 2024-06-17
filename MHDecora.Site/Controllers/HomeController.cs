@@ -88,7 +88,11 @@ namespace MHDeroca.Site.Controllers
         {
             List<Montagem> montagens = await _montagemService.BuscarPorTagsTema(temaId);
 
-            return View("Consulta", montagens);
+            if(montagens != null)
+            {
+                return View("Consulta", montagens);
+            }
+            return View("Index");
         }
 
         public IActionResult Privacy()
