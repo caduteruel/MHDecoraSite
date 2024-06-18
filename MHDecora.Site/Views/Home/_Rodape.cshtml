@@ -1,6 +1,65 @@
-﻿
+﻿<div class="footer-col">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#home">Decora</a></li>
+        <li><a href="#novidades">Cerimonial</a></li>
+        <li><a href="#novidades">Novidades</a></li>
+        <li><a href="#contato">Orçamento</a></li>
+    </ul>
+</div>
+<div class="footer-col">
+    <ul id="dynamicLinks">
+        <li><a href="#">Decorações</a></li>
+        <li><a href="#">Pegue e monte</a></li>
+        <li><a href="#">Mini table</a></li>
+        <li><a href="#">Projetos personalizados</a></li>
+    </ul>
+</div>
+<div class="footer-col autorais">
+    <img src="~/images/site/logo-rodape.svg" style="width:150px" alt="" />
+    <div class="links">Direitos Autorais</div>
+</div>
+<div>
+    <h4>MH Decora</h4>
+    <div class="">
+        <img src="~/images/site/insta-rodape.svg" alt="Instagram Icon" style="width: 40px;" />
+        <img src="~/images/site/face-rodape.svg" alt="Facebook Icon" style="width: 40px;" />
+    </div>
+</div>
 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script>
+    // JavaScript para exibir um alert ao carregar a página
+    window.onload = function () {
+        
+        $.ajax({
+            url: '/Home/Rodape',  // URL para a ação no backend que retorna os links
+            type: 'GET',  // ou 'POST' dependendo da sua necessidade
+            data: { /* Dados a enviar, se houver */ },
+            success: function (result) {
+                // Manipular a resposta do backend
+                if (result && result.length > 0) {
+                    var $ul = $('#dynamicLinks'); // Seleciona a ul onde os links serão inseridos
+                    $ul.empty(); // Limpa os links existentes, se houver
 
-            &copy; 2024 - MHDeroca.Site - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    // Itera sobre os links recebidos do backend
+                    result.forEach(function (link) {
+                        // Cria um novo elemento li com o link recebido
+                        var $li = $('<li>');
+                        var $a = $('<a>').attr('href', link.url).text(link.nome); // Ajustado para usar link diretamente
+                        $li.append($a);
+                        $ul.append($li);
+                    });
+                } else {
+                    console.log('Nenhum link recebido do backend.');
+                }
+            },
+            error: function (xhr, status, error) {
+                // Lidar com erros de requisição, se houver
+                console.error('Erro na requisição: ' + status + ' - ' + error);
+            }
+        });
+    };
+</script>

@@ -2,6 +2,7 @@ using MHDecora.Site.Application.Interfaces;
 using MHDecora.Site.Domain.Entities;
 using MHDeroca.Site.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
 
 namespace MHDeroca.Site.Controllers
@@ -93,6 +94,22 @@ namespace MHDeroca.Site.Controllers
                 return View("Consulta", montagens);
             }
             return View("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Rodape()
+        {
+            List<Montagem> montagem = await _montagemService.Buscar();
+
+            var link = new List<object>
+            {
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[0].CategoriaId }), Nome = montagem[0].Titulo },
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[1].CategoriaId }), Nome = montagem[1].Titulo },
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[2].CategoriaId }), Nome = montagem[2].Titulo },
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[3].CategoriaId }), Nome = montagem[3].Titulo }
+            };
+
+            return Json(link); // Retorna os dados como JSON
         }
 
         public IActionResult Privacy()

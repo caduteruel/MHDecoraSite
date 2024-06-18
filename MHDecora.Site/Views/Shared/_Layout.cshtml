@@ -61,50 +61,11 @@
     </header>
 
     <main>
-        @RenderBody()
-        
+        @RenderBody()        
     </main>
 
     <footer>
-        <div class="footer-col">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#home">Decora</a></li>
-                <li><a href="#novidades">Cerimonial</a></li>
-                <li><a href="#novidades">Novidades</a></li>
-                <li><a href="#contato">Orçamento</a></li>
-            </ul>
-        </div>
-        <div class="footer-col">
-            <ul>
-                <li><a href="pages/decoracoes.html">Decorações</a></li>
-                <li><a href="pages/pegue-e-monte.html">Pegue e monte</a></li>
-                <li><a href="pages/mini-table.html">Mini table</a></li>
-                <li>
-                    <a href="pages/projetos-personalizados.html">Projetos personalizados</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer-col autorais">
-            <img src="~/images/site/logo-rodape.svg" style="width:150px" alt="" />
-
-            <div class="links">Direitos Autorais</div>
-        </div>
-
-        <div >
-            <h4>MH Decora</h4>
-            <div class="">
-             
-                    <img src="~/images/site/insta-rodape.svg" alt="Instagram Icon" style="width: 40px;" />
-                  
-            
-                    <img src="~/images/site/face-rodape.svg" alt="Facebook Icon" style="width: 40px;" />
-                    
-             
-            
-            </div>
-        </div>
+        @await Html.PartialAsync("~/Views/Home/_Rodape.cshtml")       
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -138,5 +99,7 @@
             });
         });
     </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
