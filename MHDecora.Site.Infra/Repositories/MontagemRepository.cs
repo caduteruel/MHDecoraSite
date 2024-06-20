@@ -35,10 +35,10 @@ namespace MHDecora.Site.Infra.Repositories
 
             foreach (var item in listaMontagens)
             {
-                item.CaminhoImagem = @"/montagem/" + item.CaminhoImagem;
-                item.CaminhoImagem2 = @"/montagem/" + item.CaminhoImagem2;
-                item.CaminhoImagem3 = @"/montagem/" + item.CaminhoImagem3;
-                item.CaminhoImagem4 = @"/montagem/" + item.CaminhoImagem4;
+                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
+                item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
+                item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
             }
 
             return listaMontagens;
@@ -52,10 +52,10 @@ namespace MHDecora.Site.Infra.Repositories
 
             foreach (var item in listaMontagens)
             {
-                item.CaminhoImagem = @"/montagem/" + item.CaminhoImagem;
-                item.CaminhoImagem2 = @"/montagem/" + item.CaminhoImagem2;
-                item.CaminhoImagem3 = @"/montagem/" + item.CaminhoImagem3;
-                item.CaminhoImagem4 = @"/montagem/" + item.CaminhoImagem4;
+                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
+                item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
+                item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
 
             }
 
@@ -67,10 +67,10 @@ namespace MHDecora.Site.Infra.Repositories
             var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.Id == montagemId).FirstOrDefaultAsync();
 
 
-            listaMontagens.CaminhoImagem = @"/montagem/" + listaMontagens.CaminhoImagem;
-            listaMontagens.CaminhoImagem2 = @"/montagem/" + listaMontagens.CaminhoImagem2;
-            listaMontagens.CaminhoImagem3 = @"/montagem/" + listaMontagens.CaminhoImagem3;
-            listaMontagens.CaminhoImagem4 = @"/montagem/" + listaMontagens.CaminhoImagem4;
+            listaMontagens.CaminhoImagem = GetPathImagens() + listaMontagens.CaminhoImagem;
+            listaMontagens.CaminhoImagem2 = GetPathImagens() + listaMontagens.CaminhoImagem2;
+            listaMontagens.CaminhoImagem3 = GetPathImagens() + listaMontagens.CaminhoImagem3;
+            listaMontagens.CaminhoImagem4 = GetPathImagens() + listaMontagens.CaminhoImagem4;
 
 
             return listaMontagens;
@@ -119,10 +119,10 @@ namespace MHDecora.Site.Infra.Repositories
 
                         foreach (var item in listaMontagens)
                         {
-                            item.CaminhoImagem = @"/montagem/" + item.CaminhoImagem;
-                            item.CaminhoImagem2 = @"/montagem/" + item.CaminhoImagem2;
-                            item.CaminhoImagem3 = @"/montagem/" + item.CaminhoImagem3;
-                            item.CaminhoImagem4 = @"/montagem/" + item.CaminhoImagem4;
+                            item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                            item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
+                            item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
+                            item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
                         }
 
                         return listaMontagens;
@@ -147,19 +147,19 @@ namespace MHDecora.Site.Infra.Repositories
 
             foreach (var item in listaMontagens)
             {
-                item.CaminhoImagem = @"/montagem/" + item.CaminhoImagem;
-                item.CaminhoImagem2 = @"/montagem/" + item.CaminhoImagem2;
-                item.CaminhoImagem3 = @"/montagem/" + item.CaminhoImagem3;
-                item.CaminhoImagem4 = @"/montagem/" + item.CaminhoImagem4;
+                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
+                item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
+                item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
 
             }
 
             return listaMontagens;
         }
 
-        private string GetMontagemPath()
+        private string GetPathImagens()
         {
-            return _configuration["ImagePath:QuemSomos"];
+            return _configuration["ImagePath:Imagens"] + "/montagem/";
         }
     }
 }

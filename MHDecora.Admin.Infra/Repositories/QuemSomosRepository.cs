@@ -29,7 +29,7 @@ namespace MHDecora.Admin.Infra.Repositories
                                     .FirstOrDefaultAsync();
             if(quemSomos != null)
             {
-                quemSomos.CaminhoImagem = @"/quemsomos/" + quemSomos.CaminhoImagem;
+                quemSomos.CaminhoImagem = GetPathImagens() + quemSomos.CaminhoImagem;
             }
             
             return quemSomos;
@@ -42,7 +42,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (imagem != null && imagem.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                    string filePath = Path.Combine(@"/Imagens/quemsomos/", uniqueFileName);
+                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         imagem.CopyTo(fileStream);
@@ -65,9 +65,9 @@ namespace MHDecora.Admin.Infra.Repositories
             }
         }
 
-        private string GetQuemsomosPath()
+        private string GetPathImagens()
         {
-            return _configuration["ImagePath:QuemSomos"];
+            return _configuration["ImagePath:Imagens"] + "/quemsomos/";
         }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.Extensions.FileProviders;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("OracleConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+//var connectionString = builder.Configuration.GetConnectionString("OracleConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 //builder.Services.AddDbContext<AdminContext>(options =>
 //    options.UseSqlServer(connectionString));
 builder.Services.AddDbContext<SiteContext>(options =>
@@ -47,33 +47,33 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(@"C:\Imagens", "banner")),
-    RequestPath = "/banner"
-});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(
+//        Path.Combine(@"C:\Imagens", "banner")),
+//    RequestPath = "/banner"
+//});
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(@"C:\Imagens", "montagem")),
-    RequestPath = "/montagem"
-});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(
+//        Path.Combine(@"C:\Imagens", "montagem")),
+//    RequestPath = "/montagem"
+//});
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(@"C:\Imagens", "quemsomos")),
-    RequestPath = "/quemsomos"
-});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(
+//        Path.Combine(@"C:\Imagens", "quemsomos")),
+//    RequestPath = "/quemsomos"
+//});
 
-app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(@"C:\Imagens", "tema")),
-    RequestPath = "/tema"
-});
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(
+//        Path.Combine(@"C:\Imagens", "tema")),
+//    RequestPath = "/tema"
+//});
 
 app.UseRouting();
 

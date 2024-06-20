@@ -22,15 +22,14 @@ namespace MHDecora.Site.Infra.Repository
 
             foreach (var item in listaTemas)
             {
-                item.CaminhoImagem = @"/tema/" + item.CaminhoImagem;
+                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
             }
 
             return listaTemas;
         }
-
-        private string GetTemaPath()
+        private string GetPathImagens()
         {
-            return _configuration["ImagePath:QuemSomos"];
+            return _configuration["ImagePath:Imagens"] + "/tema/";
         }
     }
 }

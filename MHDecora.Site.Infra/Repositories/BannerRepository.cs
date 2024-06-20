@@ -46,19 +46,15 @@ namespace MHDecora.Site.Infra.Repository
 
             foreach (var img in listaBanner)
             {
-               img.CaminhoImagem = @"/banner/" + img.CaminhoImagem;
+               img.CaminhoImagem = GetPathImagens() + img.CaminhoImagem;
             }
 
             return listaBanner;
         }
 
-        private string GetBannerPath()
+        private string GetPathImagens()
         {
-            //string caminho = Path.Combine("..", "MhDecora.Admin", "wwwroot", "images/banner/");
-
-            //string filePath = Path.Combine(_adminRootPath.ToString(), "banner");
-            //return caminho;
-            return _configuration["ImagePath:Banner"];
+            return _configuration["ImagePath:Imagens"] + "/banner/";
         }
     }
 }

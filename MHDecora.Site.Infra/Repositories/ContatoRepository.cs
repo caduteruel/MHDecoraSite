@@ -21,11 +21,6 @@ namespace MHDecora.Site.Infra.Repository
             var contato = await _context.MH_CONTATO.FirstOrDefaultAsync();
 
             return contato;
-        }
-
-        private string GetContatoPath()
-        {
-            return _configuration["ImagePath:Banner"];
-        }
+        }        
     }
 }

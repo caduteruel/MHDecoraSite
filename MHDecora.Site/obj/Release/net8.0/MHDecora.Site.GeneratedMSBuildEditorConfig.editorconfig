@@ -9,75 +9,95 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MHDecora.Site
 build_property.RootNamespace = MHDecora.Site
-build_property.ProjectDir = C:\FW\projetos\MH Decora\Dev\MHDecora.Site\
+build_property.ProjectDir = C:\FW\projetos\MH Decora\site-novo\MHDecora.Site\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\FW\projetos\MH Decora\Dev\MHDecora.Site
+build_property.MSBuildProjectDirectory = C:\FW\projetos\MH Decora\site-novo\MHDecora.Site
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/Index.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/Buscar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCdXNjYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/Consulta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb25zdWx0YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/Detalhes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhbGhlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/Privacy.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/Pesquisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQZXNxdWlzYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_Banner.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_Banner.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQmFubmVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_Contato.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_Contato.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfQ29udGF0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_GaleriaDestaques.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_GaleriaDestaques.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfR2FsZXJpYURlc3RhcXVlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_Montagens.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_Montagens.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTW9udGFnZW5zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_Novidades.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_Novidades.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTm92aWRhZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_Orcamento.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_Orcamento.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfT3JjYW1lbnRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_QuemSomos.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_QuemSomos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUXVlbVNvbW9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_Rodape.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_Rodape.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUm9kYXBlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Home/_Temas.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Home/_Temas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfVGVtYXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Shared/Error.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/_ViewImports.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/_ViewStart.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/FW/projetos/MH Decora/Dev/MHDecora.Site/Views/Shared/_Layout.cshtml]
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Shared/_Layout-old.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQtb2xkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-1d58df3lrp
+
+[C:/FW/projetos/MH Decora/site-novo/MHDecora.Site/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-pqu0xtidi5

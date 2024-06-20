@@ -24,15 +24,15 @@ namespace MHDecora.Site.Infra.Repositories
 
             if (quemSomos != null)
             {
-                quemSomos.CaminhoImagem = @"/Imagens/quemsomos/" + quemSomos.CaminhoImagem;
+                quemSomos.CaminhoImagem = GetPathImagens() + quemSomos.CaminhoImagem;
             }
 
             return quemSomos;
         }
 
-        private string GetQuemSomosPath()
+        private string GetPathImagens()
         {
-            return _configuration["ImagePath:QuemSomos"];
+            return _configuration["ImagePath:Imagens"] + "/quemsomos/";
         }
     }
 }

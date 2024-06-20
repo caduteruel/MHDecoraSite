@@ -18,22 +18,19 @@ namespace MHDecora.Site.Infra.Repository
 
         public async Task<List<GaleriaDestaque>> Buscar()
         {
-            //var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.MontagemDestaque).ToListAsync();
-
-            //List<GaleriaDestaque> listaGaleriaDestaque = await _context.MH_GALERIADESTAQUE.ToListAsync();
             List<GaleriaDestaque> listaGaleriaDestaque = new List<GaleriaDestaque>();
 
             foreach (var item in listaGaleriaDestaque)
             {
-                item.CaminhoImagem = GetTemaPath() + item.CaminhoImagem;
+                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
             }
 
             return listaGaleriaDestaque;
         }
 
-        private string GetTemaPath()
+        private string GetPathImagens()
         {
-            return _configuration["ImagePath:QuemSomos"];
+            return _configuration["ImagePath:Imagens"] + "/montagem/";
         }
     }
 }

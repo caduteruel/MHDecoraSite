@@ -227,3 +227,14 @@
 /MHDecora.Site.Application/bin/Debug/net8.0/MHDecora.Admin.Domain.pdb
 /MHDecora.Site.Infra/bin/Debug/net8.0/MHDecora.Admin.Domain.dll
 /MHDecora.Site.Infra/bin/Debug/net8.0/MHDecora.Admin.Domain.pdb
+/MHDecora.Admin.Application/bin/Release/net8.0
+/MHDecora.Admin.Infra/bin/Release/net8.0
+/MHDecora.Site/bin/Release/net8.0
+/MHDecora.Admin.Domain/bin/Release/net8.0
+/MHDecora.Site.Application/bin/Release/net8.0
+/MHDecora.Site.Domain/bin/Release/net8.0
+/MHDecora.Site.Infra/bin/Release/net8.0
+/MHDecora.Admin.Infra/obj/Release/net8.0/MHDecora.Admin.Infra.AssemblyInfo.cs
+/MHDecora.Admin.Infra/obj/Release/net8.0/MHDecora.Admin.Infra.AssemblyInfoInputs.cache
+/MHDecora.Admin.Infra/obj/Release/net8.0/MHDecora.Admin.Infra.assets.cache
+/MHDecora.Admin.Infra/obj/Release/net8.0/MHDecora.Admin.Infra.GeneratedMSBuildEditorConfig.editorconfig

@@ -34,7 +34,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (imagem != null && imagem.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                    string filePath = Path.Combine(@"/Imagens/banner/", uniqueFileName);
+                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         imagem.CopyTo(fileStream);
@@ -62,7 +62,7 @@ namespace MHDecora.Admin.Infra.Repositories
 
             foreach (var img in listaBanner)
             {
-                img.CaminhoImagem = @"/banner/" + img.CaminhoImagem;
+                img.CaminhoImagem = GetPathImagens() + img.CaminhoImagem;
             }
 
             return listaBanner;
@@ -72,7 +72,7 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             Banner imagem = await _adminContext.MH_BANNERS.FirstOrDefaultAsync(x => x.Id == id);
             
-            imagem.CaminhoImagem = @"/banner/" + imagem.CaminhoImagem;
+            imagem.CaminhoImagem = GetPathImagens() + imagem.CaminhoImagem;
             
             return imagem;
         }
@@ -98,7 +98,7 @@ namespace MHDecora.Admin.Infra.Repositories
                     await _adminContext.SaveChangesAsync();
 
                     // Exclui o arquivo de imagem da pasta wwwroot/banners
-                    string imagePathToDelete = Path.Combine(@"/Imagens/banner/", fileName);
+                    string imagePathToDelete = Path.Combine(GetPathImagens(), fileName);
 
                     if (File.Exists(imagePathToDelete))
                     {
@@ -137,12 +137,12 @@ namespace MHDecora.Admin.Infra.Repositories
             if (arquivo != null)
             {
                 var nomeArquivoAntigo = bannerExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(@"/Imagens/banner/", nomeArquivoAntigo);
+                var caminhoCompletoAntigo = Path.Combine(GetPathImagens(), nomeArquivoAntigo);
                 File.Delete(caminhoCompletoAntigo);
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                var caminhoCompletoNovo = Path.Combine(@"/Imagens/banner/", nomeArquivoNovo);
+                var caminhoCompletoNovo = Path.Combine(GetPathImagens(), nomeArquivoNovo);
 
                 using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
                 {
@@ -161,9 +161,9 @@ namespace MHDecora.Admin.Infra.Repositories
             return true;
         }
 
-        private string GetBannerPath()
+        private string GetPathImagens()
         {
-            return _configuration["ImagePath:Banner"];
+            return _configuration["ImagePath:Imagens"] + "/banner/";
         }
     }
 }
