@@ -88,12 +88,8 @@ namespace MHDeroca.Site.Controllers
         public async Task<IActionResult> ConsultaTagsTema(int temaId)
         {
             List<Montagem> montagens = await _montagemService.BuscarPorTagsTema(temaId);
-
-            if(montagens != null)
-            {
-                return View("Consulta", montagens);
-            }
-            return View("Index");
+           
+            return View("Consulta", montagens);
         }
 
         [HttpGet]

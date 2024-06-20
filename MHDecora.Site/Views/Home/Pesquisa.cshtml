@@ -13,51 +13,70 @@
 
 
     <div class="container-filter">
-        <div class="filter-text">
-            <span style="font-size: xxx-large">Você buscou por: "@Model.FirstOrDefault().Titulo"</span>
-            <br />
-            <br />
-            <p>
-                Resultado da pesquisa:
-            </p>
-        </div>
 
-        <div class="filter-buttons">
-            <select id="filter-select" name="filters">
-                <option value="" disabled selected>Filtrar por</option>
-                <option value="order" data-name="order">Ordem Alfabética</option>
-                <option value="recent" data-name="recent">Recentes</option>
-            </select>
-        </div>
+        @{
+            if (Model.Count() == 0)
+            {
+               
+                <div class="text-center" style="text-align: center;">
+                    <h1 class="text-center">Ops!</h1>
 
-        <div class="filterable-cards">
-            @{
-                if (Model != null)
-                {
-                    foreach (var item in Model)
-                    {
-                        <div class="card" data-name="">
-                            <img src="@item.CaminhoImagem" alt="recent" />
-                            <div class="card-body">
-                                <h6 class="card-title">@item.Titulo</h6>
-                                <p class="card-text">@item.TextoImagem</p>
-                                <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
-                            </div>
-                        </div>
-                    }
-
-                }
+                    <p class="text-center">
+                        Não foi encontrado nenhum resuldao.
+                    </p>
+                </div>
+               
             }
-        </div>
+            else
+            {
+                <div class="filter-text">
+                    <span style="font-size: xxx-large">Você buscou por: "@Model.FirstOrDefault().Titulo"</span>
+                    <br />
+                    <br />
+                    <p>
+                        Resultado da pesquisa
+                    </p>
+                </div>
 
-        <div class="pagination">
-            <a href=""><</a>
-            <a href="" class="active">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href="">></a>
-        </div>
+                <div class="filter-buttons">
+                    <select id="filter-select" name="filters">
+                        <option value="" disabled selected>Filtrar por</option>
+                        <option value="order" data-name="order">Ordem Alfabética</option>
+                        <option value="recent" data-name="recent">Recentes</option>
+                    </select>
+                </div>
+
+                <div class="filterable-cards">
+                    @{
+                        if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="card" data-name="">
+                                    <img src="@item.CaminhoImagem" alt="recent" />
+                                    <div class="card-body">
+                                        <h6 class="card-title">@item.Titulo</h6>
+                                        <p class="card-text">@item.TextoImagem</p>
+                                        <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    }
+                </div>
+
+                <div class="pagination">
+                    <a href=""></a>
+                    <a href="" class="active">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">4</a>
+                    <a href="">></a>
+                </div>
+            }
+        }
+        
     </div>
 
 

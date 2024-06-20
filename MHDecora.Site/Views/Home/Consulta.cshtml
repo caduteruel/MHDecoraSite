@@ -1,6 +1,5 @@
 ﻿@model List<MHDecora.Site.Domain.Entities.Montagem>
 
-
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
@@ -11,56 +10,74 @@
 
 <body style="min-height: 100vh">
 
+    @{
+        if (Model.Count() == 0)
+        {
+            <div class="container-filter">
+                <div class="text-center" style="text-align: center;">
+                    <h1 class="text-center">Ops!</h1>
 
-    <div class="container-filter">
-        <div class="filter-text">
-            <h1>@Model.FirstOrDefault().Titulo</h1>
+                    <p class="text-center">
+                        Não foi encontrado nenhum resuldao.
+                    </p>
+                </div>
+            </div>           
+        }
+        else
+        {
+            <div class="container-filter">        
 
-            <p>
-                @Model.FirstOrDefault().Texto
-            </p>
-        </div>
+                <div class="filter-text">
+                     <h1>@Model.FirstOrDefault().Titulo</h1>
 
-        <div class="filter-buttons">
-            <select id="filter-select" name="filters">
-                <option value="" disabled selected>Filtrar por</option>
-                <option value="order" data-name="order">Ordem Alfabética</option>
-                <option value="recent" data-name="recent">Recentes</option>
-            </select>
-        </div>
+                    <p>
+                        @Model.FirstOrDefault().Texto
+                    </p>
+                </div>
 
-        <div class="filterable-cards">
-            @{
-                if (Model != null)
-                {
-                    foreach (var item in Model)
-                    {
-                        <div class="card" data-name="">
-                            <img src="@item.CaminhoImagem" alt="recent" />
-                            <div class="card-body">
-                                <h6 class="card-title">@item.Titulo</h6>
-                                <p class="card-text">@item.TextoImagem</p>
-                                <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
-                            </div>
-                        </div>
+                <div class="filter-buttons">
+                    <select id="filter-select" name="filters">
+                        <option value="" disabled selected>Filtrar por</option>
+                        <option value="order" data-name="order">Ordem Alfabética</option>
+                        <option value="recent" data-name="recent">Recentes</option>
+                    </select>
+                </div>
+
+                <div class="filterable-cards">
+                    @{
+                        if (Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="card" data-name="">
+                                    <img src="@item.CaminhoImagem" alt="recent" />
+                                    <div class="card-body">
+                                        <h6 class="card-title">@item.Titulo</h6>
+                                        <p class="card-text">@item.TextoImagem</p>
+                                        <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
+                                    </div>
+                                </div>
+                            }
+
+                        }
                     }
+                </div>
 
-                }
-            }
-        </div>
+                <div class="pagination">
+                    <a href=""></a>
+                    <a href="" class="active">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">4</a>
+                    <a href="">></a>
+                </div>
+            </div>
+        }
+    }
+    
 
-        <div class="pagination">
-            <a href=""><</a>
-            <a href="" class="active">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href="">></a>
-        </div>
-    </div>
 
-
-    <script src="../js/main.js"></script>
+    <script src="~/js/main.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -140,17 +157,17 @@
         });
     </script>
 
-    <script src="../js/filter.js"></script>
+    <script src="~/js/filter.js"></script>
 
     <script>
         let products = null;
         // get datas from file json
-        fetch("../data/products.json")
-            .then((response) => response.json())
-            .then((data) => {
-                products = data;
-                addDataToHTML();
-            });
+        // fetch("../data/products.json")
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         products = data;
+        //         addDataToHTML();
+        //     });
 
         function addDataToHTML() {
             // remove datas default from HTML

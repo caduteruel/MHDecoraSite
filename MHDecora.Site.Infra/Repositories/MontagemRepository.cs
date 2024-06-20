@@ -82,7 +82,8 @@ namespace MHDecora.Site.Infra.Repositories
             {
                 // Buscar o tema para recuprar suas TAGs
                 var tema = await _context.MH_TEMA.Where(x => x.Id == temaId).FirstOrDefaultAsync();
-
+                
+                if (tema != null)
                 if (tema.Tags != null)
                 {
                     string[] listaIdTags = tema.Tags.Split(",");
@@ -131,7 +132,7 @@ namespace MHDecora.Site.Infra.Repositories
                     return null;
                 }
 
-                return null;
+                return new List<Montagem>();
             }
             catch (Exception ex)
             {
@@ -144,17 +145,21 @@ namespace MHDecora.Site.Infra.Repositories
             var listaMontagens = await _context.MH_MONTAGEM
                                                     .Where(x => x.Texto.Contains(texto) || x.Titulo.Contains(texto) || (x.Tags != null && x.Tags.Contains(texto)))
                                                     .ToListAsync();
-
-            foreach (var item in listaMontagens)
+            if (listaMontagens.Any())
             {
-                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
-                item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
-                item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
-                item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
+                foreach (var item in listaMontagens)
+                {
+                    item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                    item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
+                    item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
+                    item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
 
+                }
+
+                return listaMontagens;
             }
 
-            return listaMontagens;
+            return new List<Montagem>();
         }
 
         private string GetPathImagens()
