@@ -1,11 +1,14 @@
 using MHDecora.Site.Application;
 using MHDecora.Site.Application.Interfaces;
+using MHDecora.Site.Domain.Entities;
 using MHDecora.Site.Domain.Interfaces;
 using MHDecora.Site.Infra;
+using MHDecora.Site.Infra.CrossCutting;
 using MHDecora.Site.Infra.Repositories;
 using MHDecora.Site.Infra.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SiteContext>(options =>
             options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
 
+builder.Services.Configure<Instagram>(builder.Configuration.GetSection("InstagramAccess"));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -25,6 +30,8 @@ builder.Services.AddScoped<IQuemSomosService, QuemSomosService>();
 builder.Services.AddScoped<IMontagemService, MontagemService>();
 builder.Services.AddScoped<ITemaService, TemaService>();
 builder.Services.AddScoped<IContatoService, ContatoService>();
+builder.Services.AddScoped<IInstagramService, InstagramService>();
+
 
 // Registrar o serviço do repositório e a implementação
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
@@ -33,6 +40,7 @@ builder.Services.AddScoped<IQuemSomosRepository, QuemSomosRepository>();
 builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
+builder.Services.AddScoped<IInstagramRepository, InstagramAccess>();
 
 var app = builder.Build();
 

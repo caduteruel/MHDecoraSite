@@ -1,64 +1,47 @@
-﻿@* <div class="container">
-    <h2 class="mt-5 text-center">Novidades</h2>
-    <hr class="hr-custom mb-4">
-    <div class="row img-container">
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 1">
-        </div>
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 2">
-        </div>
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 3">
-        </div>
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 4">
-        </div>
-    </div>
-    <div class="row img-container">
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 5">
-        </div>
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 6">
-        </div>
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 7">
-        </div>
-        <div class="col-md-3">
-            <img src="https://via.placeholder.com/300" alt="Imagem 8">
-        </div>
-    </div>
-</div> *@
+﻿@using Newtonsoft.Json.Linq
+
+@{
+    IEnumerable<JToken> instagramPosts = null;
+
+    if (ViewBag.InstagramPosts != null)
+    {
+        instagramPosts = ViewBag.InstagramPosts.SelectTokens("$..data[?(@.media_type == 'CAROUSEL_ALBUM')]");
+    }
+}
 
 <section class="news-wrapper" id="novidades">
     <div class="news-title">
         <h1>Novidades</h1>
     </div>
     <div class="news-container">
-        <div class="news">
-            <img src="images/news/news1.jpg" alt="" />
-        </div>
-        <div class="news">
-            <img src="images/news/news2.jpg" alt="" />
-        </div>
-        <div class="news">
-            <img src="images/news/news3.jpg" alt="" />
-        </div>
-        <div class="news">
-            <img src="images/news/news4.jpg" alt="" />
-        </div>
-        <div class="news">
-            <img src="images/news/news5.jpg" alt="" />
-        </div>
-        <div class="news">
-            <img src="images/news/news6.jpg" alt="" />
-        </div>
-        <div class="news">
-            <img src="images/news/news7.jpg" alt="" />
-        </div>
-        <div class="news">
-            <img src="images/news/news8.jpg" alt="" />
-        </div>
+        @if (instagramPosts != null)
+        {
+            @foreach (var item in instagramPosts.Select((value, idx) => new { idx, value }))
+            {
+                @if (item.value.SelectToken("media_url") != null && item.idx < 8)
+                {
+                    IEnumerable<JToken> children = item.value.SelectToken("children").SelectTokens("$..data[?(@.media_url != '')]");
+@* 
+                    <div class="col-md-3 item-novidade">
+                        <a data-lightbox="@item.value.SelectToken("id")" href="@item.value.SelectToken("media_url")">
+                            <img src="@item.value.SelectToken("media_url")">
+                        </a>
+                        @foreach (var i in children.Select((value, idx) => new { idx, value }))
+                        {
+                            @if (i.value.SelectToken("media_url") != null && i.idx > 0)
+                            {
+                                <a data-lightbox="@item.value.SelectToken("id")" style="display: none;" rel="@item.value.SelectToken("id")" href="@i.value.SelectToken("media_url")">
+                                    <img src="@i.value.SelectToken("media_url")">
+                                </a>
+                            }
+                        }
+                    </div> *@
+
+                    <div class="news">
+                        <img src="@item.value.SelectToken("media_url")" alt="" />
+                    </div>
+                }
+            }
+        }
     </div>
 </section>

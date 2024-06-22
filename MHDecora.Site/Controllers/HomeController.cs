@@ -1,7 +1,10 @@
+using MHDecora.Site.Application;
 using MHDecora.Site.Application.Interfaces;
 using MHDecora.Site.Domain.Entities;
 using MHDeroca.Site.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Diagnostics;
 
@@ -9,15 +12,17 @@ namespace MHDeroca.Site.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IMemoryCache _memoryCache;
         private readonly ILogger<HomeController> _logger;
         private readonly IBannerService _bannerService;
         private readonly IQuemSomosService _quemSomosService;
         private readonly IMontagemService _montagemService;
         private readonly ITemaService _temaService;
         private readonly IContatoService _contatoService;
+        private readonly IInstagramService _instagramService;
 
         public HomeController(ILogger<HomeController> logger, IBannerService bannerService, IQuemSomosService quemSomosService, 
-            IMontagemService montagemService, ITemaService temaService, IContatoService contatoService)
+            IMontagemService montagemService, ITemaService temaService, IContatoService contatoService, IInstagramService instagramService, IMemoryCache memoryCache)
         {
             _logger = logger;
             _bannerService = bannerService;
@@ -25,6 +30,8 @@ namespace MHDeroca.Site.Controllers
             _montagemService = montagemService;
             _temaService = temaService;
             _contatoService = contatoService;
+            _instagramService = instagramService;
+            _memoryCache = memoryCache;
         }
 
         public async Task<IActionResult> Index()
@@ -47,6 +54,17 @@ namespace MHDeroca.Site.Controllers
             ////Galeria
             Contato contato = await _contatoService.GetContato();
 
+            ////Novidades
+            if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
+            {
+                cacheValue = _instagramService.GetRecentsPosts().Result;
+
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
+
+                _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
+            }
+
+            ViewBag.InstagramPosts = cacheValue;
 
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();
