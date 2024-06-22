@@ -1,0 +1,16 @@
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\bin\Release\net8.0\MHDecora.Site.Domain.deps.json
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\bin\Release\net8.0\MHDecora.Site.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\bin\Release\net8.0\MHDecora.Site.Domain.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\bin\Release\net8.0\MHDecora.Admin.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\bin\Release\net8.0\MHDecora.Admin.Domain.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.csproj.AssemblyReference.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.AssemblyInfoInputs.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.AssemblyInfo.cs
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.csproj.CoreCompileInputs.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.sourcelink.json
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.BA5EBC45.Up2Date
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\refint\MHDecora.Site.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\MHDecora.Site.Domain.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Site.Domain\obj\Release\net8.0\ref\MHDecora.Site.Domain.dll

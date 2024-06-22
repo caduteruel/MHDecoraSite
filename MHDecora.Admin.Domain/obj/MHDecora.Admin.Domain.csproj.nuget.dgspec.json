@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {}
+    "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
+    "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+        "projectUniqueName": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
         "projectName": "MHDecora.Admin.Domain",
-        "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
-        "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\obj\\",
+        "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+        "packagesPath": "C:\\Users\\rodrigo.pascoal\\.nuget\\packages\\",
+        "outputPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rodrigo.pascoal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

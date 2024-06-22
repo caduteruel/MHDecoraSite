@@ -34,3 +34,21 @@ C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Applic
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\refint\MHDecora.Admin.Application.dll
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.pdb
 C:\Users\cadut\source\repos\MHDecoraSiteAdmin\MHDecoraSite\MHDecora.Admin.Application\obj\Debug\net8.0\ref\MHDecora.Admin.Application.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Application.deps.json
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Application.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Application.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Infra.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Domain.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\bin\Debug\net8.0\MHDecora.Admin.Infra.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.csproj.AssemblyReference.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.AssemblyInfoInputs.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.AssemblyInfo.cs
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.csproj.CoreCompileInputs.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.sourcelink.json
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.39CEB2B8.Up2Date
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\refint\MHDecora.Admin.Application.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\MHDecora.Admin.Application.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Application\obj\Debug\net8.0\ref\MHDecora.Admin.Application.dll

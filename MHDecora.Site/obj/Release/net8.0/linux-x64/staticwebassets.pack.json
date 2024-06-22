@@ -1,0 +1,593 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\obj\\Release\\net8.0\\linux-x64\\scopedcss\\projectbundle\\MHDecora.Site.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MHDecora.Site.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\css\\detail.css",
+      "PackagePath": "staticwebassets\\css\\detail.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\data\\products.json",
+      "PackagePath": "staticwebassets\\data\\products.json"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\about\\about.png",
+      "PackagePath": "staticwebassets\\images\\about\\about.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\banner\\banner1.png",
+      "PackagePath": "staticwebassets\\images\\banner\\banner1.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\banner\\banner2.png",
+      "PackagePath": "staticwebassets\\images\\banner\\banner2.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\decoration\\decoration1.jpg",
+      "PackagePath": "staticwebassets\\images\\decoration\\decoration1.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\decoration\\decoration2.jpg",
+      "PackagePath": "staticwebassets\\images\\decoration\\decoration2.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\decoration\\decoration3.jpg",
+      "PackagePath": "staticwebassets\\images\\decoration\\decoration3.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\decoration\\decoration4.jpg",
+      "PackagePath": "staticwebassets\\images\\decoration\\decoration4.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\gallery\\galeria.png",
+      "PackagePath": "staticwebassets\\images\\gallery\\galeria.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\gallery\\gallery1.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\gallery1.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\gallery\\gallery2.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\gallery2.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\gallery\\gallery3.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\gallery3.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\gallery\\gallery4.jpg",
+      "PackagePath": "staticwebassets\\images\\gallery\\gallery4.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news1.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news1.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news2.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news2.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news3.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news3.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news4.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news4.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news5.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news5.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news6.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news6.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news7.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news7.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\news\\news8.jpg",
+      "PackagePath": "staticwebassets\\images\\news\\news8.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\banner-1.png",
+      "PackagePath": "staticwebassets\\images\\site\\banner-1.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\categoria-1.png",
+      "PackagePath": "staticwebassets\\images\\site\\categoria-1.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\categoria-2.png",
+      "PackagePath": "staticwebassets\\images\\site\\categoria-2.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\categoria-3.png",
+      "PackagePath": "staticwebassets\\images\\site\\categoria-3.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\categoria-4.png",
+      "PackagePath": "staticwebassets\\images\\site\\categoria-4.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\face-rodape.png",
+      "PackagePath": "staticwebassets\\images\\site\\face-rodape.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\face-rodape.svg",
+      "PackagePath": "staticwebassets\\images\\site\\face-rodape.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\facebook.png",
+      "PackagePath": "staticwebassets\\images\\site\\facebook.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\facebook.svg",
+      "PackagePath": "staticwebassets\\images\\site\\facebook.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\galeria.png",
+      "PackagePath": "staticwebassets\\images\\site\\galeria.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\horario-contato.png",
+      "PackagePath": "staticwebassets\\images\\site\\horario-contato.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\horario-contato.svg",
+      "PackagePath": "staticwebassets\\images\\site\\horario-contato.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\insta-rodape.png",
+      "PackagePath": "staticwebassets\\images\\site\\insta-rodape.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\insta-rodape.svg",
+      "PackagePath": "staticwebassets\\images\\site\\insta-rodape.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\instagram.png",
+      "PackagePath": "staticwebassets\\images\\site\\instagram.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\instagram.svg",
+      "PackagePath": "staticwebassets\\images\\site\\instagram.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\logo-rodape.png",
+      "PackagePath": "staticwebassets\\images\\site\\logo-rodape.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\logo-rodape.svg",
+      "PackagePath": "staticwebassets\\images\\site\\logo-rodape.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\logo-topo.png",
+      "PackagePath": "staticwebassets\\images\\site\\logo-topo.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\lupa-busca.png",
+      "PackagePath": "staticwebassets\\images\\site\\lupa-busca.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\lupa-busca.svg",
+      "PackagePath": "staticwebassets\\images\\site\\lupa-busca.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\mapa-contato.png",
+      "PackagePath": "staticwebassets\\images\\site\\mapa-contato.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\mapa-contato.svg",
+      "PackagePath": "staticwebassets\\images\\site\\mapa-contato.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\mh-decora.png",
+      "PackagePath": "staticwebassets\\images\\site\\mh-decora.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\tel-contato.png",
+      "PackagePath": "staticwebassets\\images\\site\\tel-contato.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\tel-contato.svg",
+      "PackagePath": "staticwebassets\\images\\site\\tel-contato.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\whatts-contato.png",
+      "PackagePath": "staticwebassets\\images\\site\\whatts-contato.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\whatts-contato.svg",
+      "PackagePath": "staticwebassets\\images\\site\\whatts-contato.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\whatts.png",
+      "PackagePath": "staticwebassets\\images\\site\\whatts.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\site\\whatts.svg",
+      "PackagePath": "staticwebassets\\images\\site\\whatts.svg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\socialmidia\\facebook.png",
+      "PackagePath": "staticwebassets\\images\\socialmidia\\facebook.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\socialmidia\\instagram.png",
+      "PackagePath": "staticwebassets\\images\\socialmidia\\instagram.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\socialmidia\\whatts.png",
+      "PackagePath": "staticwebassets\\images\\socialmidia\\whatts.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\theme\\theme1.jpg",
+      "PackagePath": "staticwebassets\\images\\theme\\theme1.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\theme\\theme2.jpg",
+      "PackagePath": "staticwebassets\\images\\theme\\theme2.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\theme\\theme3.jpg",
+      "PackagePath": "staticwebassets\\images\\theme\\theme3.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\theme\\theme4.png",
+      "PackagePath": "staticwebassets\\images\\theme\\theme4.png"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\theme\\theme5.jpg",
+      "PackagePath": "staticwebassets\\images\\theme\\theme5.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\images\\theme\\theme6.jpg",
+      "PackagePath": "staticwebassets\\images\\theme\\theme6.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\js\\filter.js",
+      "PackagePath": "staticwebassets\\js\\filter.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\js\\main-old.js",
+      "PackagePath": "staticwebassets\\js\\main-old.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\js\\product.js",
+      "PackagePath": "staticwebassets\\js\\product.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\js\\swiper.js",
+      "PackagePath": "staticwebassets\\js\\swiper.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\css\\site.css",
+      "PackagePath": "staticwebassets\\old\\css\\site.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\banner\\12f2b58d-2b5e-48d7-adb3-c3172b10b3eb_imagem1.jpeg",
+      "PackagePath": "staticwebassets\\old\\images\\banner\\12f2b58d-2b5e-48d7-adb3-c3172b10b3eb_imagem1.jpeg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\banner\\4eb5d7e2-73b0-4147-80be-b446b38218fe_IMG_20180105_115527592_HDR.jpg",
+      "PackagePath": "staticwebassets\\old\\images\\banner\\4eb5d7e2-73b0-4147-80be-b446b38218fe_IMG_20180105_115527592_HDR.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\banner\\9d9a988c-310b-4d8a-938b-8f3e2398962a_1690258000780.gif",
+      "PackagePath": "staticwebassets\\old\\images\\banner\\9d9a988c-310b-4d8a-938b-8f3e2398962a_1690258000780.gif"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\banner\\ea42ec74-35d6-4804-8e44-bd2faba0f0b7_a90f3364-6cef-4dc4-a82a-4c7d53095f05.jpeg",
+      "PackagePath": "staticwebassets\\old\\images\\banner\\ea42ec74-35d6-4804-8e44-bd2faba0f0b7_a90f3364-6cef-4dc4-a82a-4c7d53095f05.jpeg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\banner\\fe5b8e7f-61b4-45e1-b2a3-7d9e843bfad6_1691725052657.jfif",
+      "PackagePath": "staticwebassets\\old\\images\\banner\\fe5b8e7f-61b4-45e1-b2a3-7d9e843bfad6_1691725052657.jfif"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\banner\\imagem1.jpeg",
+      "PackagePath": "staticwebassets\\old\\images\\banner\\imagem1.jpeg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\img1.jpg",
+      "PackagePath": "staticwebassets\\old\\images\\img1.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\img2.jpg",
+      "PackagePath": "staticwebassets\\old\\images\\img2.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\images\\img3.jpg",
+      "PackagePath": "staticwebassets\\old\\images\\img3.jpg"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\js\\popper.min.js",
+      "PackagePath": "staticwebassets\\old\\js\\popper.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\js\\site.js",
+      "PackagePath": "staticwebassets\\old\\js\\site.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\old\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\old\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\old\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\pages\\decoracoes.html",
+      "PackagePath": "staticwebassets\\pages\\decoracoes.html"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\pages\\detail.html",
+      "PackagePath": "staticwebassets\\pages\\detail.html"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\pages\\mini-table.html",
+      "PackagePath": "staticwebassets\\pages\\mini-table.html"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\pages\\pegue-e-monte.html",
+      "PackagePath": "staticwebassets\\pages\\pegue-e-monte.html"
+    },
+    {
+      "Id": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Site\\wwwroot\\pages\\projetos-personalizados.html",
+      "PackagePath": "staticwebassets\\pages\\projetos-personalizados.html"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\linux-x64\\staticwebassets\\msbuild.MHDecora.Site.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\linux-x64\\staticwebassets\\msbuild.build.MHDecora.Site.props",
+      "PackagePath": "build\\MHDecora.Site.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\linux-x64\\staticwebassets\\msbuild.buildMultiTargeting.MHDecora.Site.props",
+      "PackagePath": "buildMultiTargeting\\MHDecora.Site.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\linux-x64\\staticwebassets\\msbuild.buildTransitive.MHDecora.Site.props",
+      "PackagePath": "buildTransitive\\MHDecora.Site.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

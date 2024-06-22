@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin\\MHDecora.Admin.csproj": {}
+    "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin\\MHDecora.Admin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj": {
+    "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj",
+        "projectUniqueName": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj",
         "projectName": "MHDecora.Admin.Application",
-        "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj",
-        "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Application\\obj\\",
+        "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj",
+        "packagesPath": "C:\\Users\\rodrigo.pascoal\\.nuget\\packages\\",
+        "outputPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rodrigo.pascoal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,11 +29,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
-                "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
+              "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
+                "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
               },
-              "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj": {
-                "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj"
+              "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj": {
+                "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj"
               }
             }
           }
@@ -68,21 +68,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
+    "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+        "projectUniqueName": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
         "projectName": "MHDecora.Admin.Domain",
-        "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
-        "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\obj\\",
+        "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+        "packagesPath": "C:\\Users\\rodrigo.pascoal\\.nuget\\packages\\",
+        "outputPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rodrigo.pascoal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,21 +129,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj": {
+    "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
+        "projectUniqueName": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
         "projectName": "MHDecora.Admin.Infra",
-        "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
-        "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\obj\\",
+        "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
+        "packagesPath": "C:\\Users\\rodrigo.pascoal\\.nuget\\packages\\",
+        "outputPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rodrigo.pascoal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -158,8 +158,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
-                "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
+              "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
+                "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
               }
             }
           }
@@ -194,21 +194,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin\\MHDecora.Admin.csproj": {
+    "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin\\MHDecora.Admin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin\\MHDecora.Admin.csproj",
+        "projectUniqueName": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin\\MHDecora.Admin.csproj",
         "projectName": "MHDecora.Admin",
-        "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin\\MHDecora.Admin.csproj",
-        "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin\\obj\\",
+        "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin\\MHDecora.Admin.csproj",
+        "packagesPath": "C:\\Users\\rodrigo.pascoal\\.nuget\\packages\\",
+        "outputPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rodrigo.pascoal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -223,8 +223,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj": {
-                "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj"
+              "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj": {
+                "projectPath": "C:\\FW\\projetos\\MH Decora\\site-novo\\MHDecora.Admin.Application\\MHDecora.Admin.Application.csproj"
               }
             }
           }
@@ -246,23 +246,25 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.6, )"
             }
           },
           "imports": [
@@ -284,7 +286,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decora | Mini Table</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body style="min-height: 100vh">
+    <header>
+      <nav class="nav">
+        <div class="nav-logo">Decora</div>
+
+        <div class="menu-icon" id="menu"><span class="fas fa-bars"></span></div>
+
+        <div class="nav-items">
+          <li class="nav-links">
+            <a href="../index.html" class="active">MH Decora</a>
+          </li>
+          <li class="nav-links">
+            <a href="../index.html#montagens">Montagens</a>
+          </li>
+          <li class="nav-links">
+            <a href="../index.html#novidades">Novidades</a>
+          </li>
+          <li class="nav-links"><a href="../index.html#contato">Contato</a></li>
+          <li class="nav-links">
+            <a href="../index.html#contato">Orçamento</a>
+          </li>
+        </div>
+
+        <form action="" class="nav-search">
+          <input
+            type="text"
+            class="nav-search-data"
+            required
+            placeholder="O que você procura..."
+          />
+          <button class="fas fa-search nav-search-button"></button>
+        </form>
+
+        <div class="nav-social">
+          <a href="" class="nav-social-link"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="" class="nav-social-link"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="" class="nav-social-link"
+            ><i class="fa-brands fa-whatsapp"></i
+          ></a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-filter">
+      <div class="filter-text">
+        <h1>Mini Table</h1>
+
+        <p>
+          Decoração em formato menor, com 3 cilindros e uma mesa, super
+          versátil. Ideal para quem quer praticidade e decorações minamalistas.
+        </p>
+      </div>
+
+      <div class="filter-buttons">
+        <select id="filter-select" name="filters">
+          <option value="" disabled selected>Filtrar por</option>
+          <option value="order" data-name="order">Ordem Alfabética</option>
+          <option value="recent" data-name="recent">Recentes</option>
+        </select>
+      </div>
+
+      <div class="filterable-cards">
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=3" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=4" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">dwadwdwHarry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=1" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=3" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=4" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">dwadwdwHarry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=1" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=3" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=4" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">dwadwdwHarry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=1" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=3" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=4" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">dwadwdwHarry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=1" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=3" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=4" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">dwadwdwHarry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=1" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=3" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=4" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration3.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration2.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration1.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+        <div class="card" data-name="">
+          <img src="../images/decoration/decoration4.jpg" alt="recent" />
+          <div class="card-body">
+            <h6 class="card-title">Harry Potter</h6>
+            <p class="card-text">Mesa P</p>
+            <a href="detail.html?id=2" class="btn">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <a href=""><</a>
+        <a href="" class="active">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        <a href="">4</a>
+        <a href="">></a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-col">
+        <ul>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#home">Decora</a></li>
+          <li><a href="../index.html">Cerimonial</a></li>
+          <li><a href="../index.html#novidades">Novidades</a></li>
+          <li><a href="../index.html#contato">Orçamento</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <ul>
+          <li><a href="decoracoes.html">Decorações</a></li>
+          <li><a href="pegue-e-monte.html">Pegue e monte</a></li>
+          <li><a href="mini-table.html">Mini table</a></li>
+          <li>
+            <a href="projetos-personalizados.html">Projetos personalizados</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col autorais">
+        <img src="https://placehold.jp/150x150.png" alt="" />
+
+        <div class="links">Direitos Autorais</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Redes Socials</h4>
+        <div class="links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".filterable-cards .card");
+        const pagination = document.querySelector(".pagination");
+        const cardsPerPage = 12;
+        let currentPage = 1;
+
+        function showPage(page) {
+          const start = (page - 1) * cardsPerPage;
+          const end = page * cardsPerPage;
+
+          cards.forEach((card, index) => {
+            card.style.display =
+              index >= start && index < end ? "block" : "none";
+          });
+
+          updatePagination(page);
+        }
+
+        function updatePagination(page) {
+          pagination.innerHTML = "";
+
+          const totalPages = Math.ceil(cards.length / cardsPerPage);
+          const paginationFragment = document.createDocumentFragment();
+
+          const prevLink = document.createElement("a");
+          prevLink.href = "#";
+          prevLink.textContent = "<";
+          if (page === 1) {
+            prevLink.classList.add("disabled");
+          }
+          prevLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+              currentPage -= 1;
+              showPage(currentPage);
+            }
+          });
+          paginationFragment.appendChild(prevLink);
+
+          for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement("a");
+            pageLink.href = "#";
+            pageLink.textContent = i;
+            if (i === page) {
+              pageLink.classList.add("active");
+            }
+            pageLink.addEventListener("click", (e) => {
+              e.preventDefault();
+              currentPage = i;
+              showPage(currentPage);
+            });
+
+            paginationFragment.appendChild(pageLink);
+          }
+
+          const nextLink = document.createElement("a");
+          nextLink.href = "#";
+          nextLink.textContent = ">";
+          if (page === totalPages) {
+            nextLink.classList.add("disabled");
+          }
+          nextLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+              currentPage += 1;
+              showPage(currentPage);
+            }
+          });
+          paginationFragment.appendChild(nextLink);
+
+          pagination.appendChild(paginationFragment);
+        }
+
+        showPage(currentPage);
+      });
+    </script>
+
+    <script src="../js/filter.js"></script>
+
+    <script>
+      let products = null;
+      // get datas from file json
+      fetch("../data/products.json")
+        .then((response) => response.json())
+        .then((data) => {
+          products = data;
+          addDataToHTML();
+        });
+
+      function addDataToHTML() {
+        // remove datas default from HTML
+        let listProductHTML = document.querySelector(".listProduct");
+
+        // add new datas
+        if (products != null) {
+          // if has data
+          products.forEach((product) => {
+            let newProduct = document.createElement("a");
+            newProduct.href = "/detail.html?id=" + product.id;
+            newProduct.classList.add("item");
+            newProduct.innerHTML = `<img src="${product.image}" alt="">
+                <h2>${product.name}</h2>
+                `;
+            listProductHTML.appendChild(newProduct);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

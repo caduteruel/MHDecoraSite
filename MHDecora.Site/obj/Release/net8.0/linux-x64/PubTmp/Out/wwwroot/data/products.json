@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "name":"AHarry Potter",
+        "image": "../images/decoration/decoration1.jpg",
+        "description": "Transforme sua festa de aniversário em uma experiência inesquecível com uma decoração inspirada no mundo mágico de Harry Potter. Desde a entrada até os mínimos detalhes da mesa, cada elemento da decoração pode transportar seus convidados diretamente para Hogwarts, tornando a celebração ainda mais especial."
+    },
+    {
+        "id": 2,
+        "name":"CHarry Potter",
+        "image": "../images/decoration/decoration2.jpg",
+        "description": "Transforme sua festa de aniversário em uma experiência inesquecível com uma decoração inspirada no mundo mágico de Harry Potter. Desde a entrada até os mínimos detalhes da mesa, cada elemento da decoração pode transportar seus convidados diretamente para Hogwarts, tornando a celebração ainda mais especial."
+    },
+    {
+        "id": 3,
+        "name":"DHarry Potter",
+        "image": "../images/decoration/decoration3.jpg",
+        "description": "Transforme sua festa de aniversário em uma experiência inesquecível com uma decoração inspirada no mundo mágico de Harry Potter. Desde a entrada até os mínimos detalhes da mesa, cada elemento da decoração pode transportar seus convidados diretamente para Hogwarts, tornando a celebração ainda mais especial."
+    },
+    {
+        "id": 4,
+        "name":"BHarry Potter",
+        "image": "../images/decoration/decoration4.jpg",
+        "description": "Transforme sua festa de aniversário em uma experiência inesquecível com uma decoração inspirada no mundo mágico de Harry Potter. Desde a entrada até os mínimos detalhes da mesa, cada elemento da decoração pode transportar seus convidados diretamente para Hogwarts, tornando a celebração ainda mais especial."
+    },
+    {
+        "id": 5,
+        "name":"AHarry Potter",
+        "image": "../images/decoration/decoration1.jpg",
+        "description": "Transforme sua festa de aniversário em uma experiência inesquecível com uma decoração inspirada no mundo mágico de Harry Potter. Desde a entrada até os mínimos detalhes da mesa, cada elemento da decoração pode transportar seus convidados diretamente para Hogwarts, tornando a celebração ainda mais especial."
+    }
+
+]

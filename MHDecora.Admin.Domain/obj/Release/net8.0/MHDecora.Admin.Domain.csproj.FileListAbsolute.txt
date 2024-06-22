@@ -1,0 +1,13 @@
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\bin\Release\net8.0\MHDecora.Admin.Domain.deps.json
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\bin\Release\net8.0\MHDecora.Admin.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\bin\Release\net8.0\MHDecora.Admin.Domain.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.csproj.AssemblyReference.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.AssemblyInfoInputs.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.AssemblyInfo.cs
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.csproj.CoreCompileInputs.cache
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.sourcelink.json
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\refint\MHDecora.Admin.Domain.dll
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\MHDecora.Admin.Domain.pdb
+C:\FW\projetos\MH Decora\site-novo\MHDecora.Admin.Domain\obj\Release\net8.0\ref\MHDecora.Admin.Domain.dll
