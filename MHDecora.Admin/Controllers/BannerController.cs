@@ -1,10 +1,12 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MHDecora.Admin.Controllers
 {
+    [Authorize]
     public class BannerController : Controller
     {
         private readonly IBannerService _bannerService;

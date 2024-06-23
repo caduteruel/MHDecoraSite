@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
 
 <!--
  // WEBSITE: https://themefisher.com
@@ -74,7 +77,7 @@
                 <!-- Aplication Brand -->
                 <div class="app-brand">
                     <a href="/index.html">
-                        <img src="images/logo-rodape.svg" style="width: 80px;" alt="MHDecora">
+                        <img src="~/images/logo-rodape.svg" style="width: 80px;" alt="MHDecora">
                     </a>
                 </div>
                 <!-- begin sidebar scrollbar -->
@@ -211,16 +214,20 @@
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="d-none d-lg-inline-block">Usuario</span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-footer">
-                                    <a class="dropdown-link-item" href="sign-in.html"> <i class="mdi mdi-logout"></i> Sair </a>
-                                </li>
-                            </ul>
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-footer">
+                                        <a class="dropdown-link-item" asp-controller="Home" asp-action="Logout"> <i class="mdi mdi-logout"></i> Sair </a>
+                                    </li>
+                                </ul>
+                                }
+
                         </li>
                     </ul>
                 </div>
             </nav>
-
+           
 
         </header>
 

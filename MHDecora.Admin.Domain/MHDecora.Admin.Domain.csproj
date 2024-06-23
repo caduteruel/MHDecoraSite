@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <Compile Remove="Interfaces\CrossCutting\**" />
+    <EmbeddedResource Remove="Interfaces\CrossCutting\**" />
+    <None Remove="Interfaces\CrossCutting\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\CrossCutting\" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
   </ItemGroup>
 
 </Project>

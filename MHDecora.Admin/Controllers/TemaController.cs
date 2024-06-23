@@ -2,11 +2,13 @@
 using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Application.Services;
 using MHDecora.Admin.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MHDecora.Admin.Controllers
 {
+    [Authorize]
     public class TemaController : Controller
     {
         private readonly ITagService _tagService;

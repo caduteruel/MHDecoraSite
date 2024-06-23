@@ -1,11 +1,13 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.FlowAnalysis;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MHDecora.Admin.Controllers
 {
+    [Authorize]
     public class QuemSomosController : Controller
     {
         private readonly IQuemSomosService _quemSomosService;

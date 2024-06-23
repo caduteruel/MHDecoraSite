@@ -1,9 +1,11 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MHDecora.Admin.Controllers
 {
+    [Authorize]
     public class ContatoController : Controller
     {
         private readonly IContatoService _contatoService;
