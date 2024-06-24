@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MHDecora.Site.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58f57ed1a0226b9936629a563c84859bda9dad56")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe38c06c3e8541e90ff9f27fb1c85a4811b65c91")]
 [assembly: System.Reflection.AssemblyProductAttribute("MHDecora.Site.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MHDecora.Site.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
