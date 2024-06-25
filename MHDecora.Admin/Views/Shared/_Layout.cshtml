@@ -1,6 +1,6 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@* @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<IdentityUser> UserManager *@
 <!DOCTYPE html>
 
 <!--
@@ -138,6 +138,13 @@
             </a>
         </li>
 
+        <li>
+            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Mídias Sociais" ? "active" : "")" asp-controller="MidiaSocial" asp-action="Index">
+                <i class="mdi mdi-webhook"></i>
+                <span class="nav-text">Mídias Sociais</span>
+            </a>
+        </li>
+
 @*         <li>
                             <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Rodape" ? "active" : "")" asp-controller="Rodape" asp-action="Index">
                                 <i class="mdi mdi-page-layout-footer"></i>
@@ -214,14 +221,14 @@
                                 <i class="mdi mdi-account-circle"></i>
                                 <span class="d-none d-lg-inline-block">Usuario</span>
                             </button>
-                                @if (SignInManager.IsSignedIn(User))
-                                {
+                               @*  @if (SignInManager.IsSignedIn(User))
+                                { *@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li class="dropdown-footer">
                                         <a class="dropdown-link-item" asp-controller="Home" asp-action="Logout"> <i class="mdi mdi-logout"></i> Sair </a>
                                     </li>
                                 </ul>
-                                }
+                                @* } *@
 
                         </li>
                     </ul>

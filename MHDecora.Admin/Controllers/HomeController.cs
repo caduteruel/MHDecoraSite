@@ -12,13 +12,11 @@ namespace MHDecora.Admin.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserManager<IdentityUser> _userManager;
         private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _userManager = userManager;
             _configuration = configuration;
         }
 
