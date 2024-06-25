@@ -28,6 +28,7 @@ namespace MHDecora.Admin.Infra
         public DbSet<Tag> MH_TAGS { get; set; }
         public DbSet<Contato> MH_CONTATO { get; set; }
         public DbSet<Orcamento> MH_ORCAMENTO { get; set; }
+        public DbSet<MidiaSocial> MH_MIDIASOCIAL { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -68,6 +69,10 @@ namespace MHDecora.Admin.Infra
 
             modelBuilder.Entity<Orcamento>()
                 .ToTable("MH_ORCAMENTO", "DECORAPHP")
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<MidiaSocial>()
+                .ToTable("MH_MIDIASOCIAL", "DECORAPHP")
                 .HasKey(x => x.Id);
 
             modelBuilder.Entity<Montagem>(entity =>

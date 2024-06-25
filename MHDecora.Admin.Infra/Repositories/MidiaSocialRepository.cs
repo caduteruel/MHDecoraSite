@@ -17,7 +17,7 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             try
             {
-                _adminContext.MH_CONTATO.Add(midiaSocial);
+                _adminContext.MH_MIDIASOCIAL.Add(midiaSocial);
                 
                 await _adminContext.SaveChangesAsync();
 
@@ -35,14 +35,14 @@ namespace MHDecora.Admin.Infra.Repositories
 
         public async Task<bool> Editar(MidiaSocial midiaSocial)
         {
-            var contatoExistente = await _adminContext.MH_CONTATO.FindAsync(midiaSocial.Id);
+            var existente = await _adminContext.MH_MIDIASOCIAL.FindAsync(midiaSocial.Id);
 
-            if (contatoExistente == null)
+            if (existente == null)
             {
                 return false;
             }
 
-            _adminContext.Entry(contatoExistente).CurrentValues.SetValues(midiaSocial);
+            _adminContext.Entry(existente).CurrentValues.SetValues(midiaSocial);
 
             await _adminContext.SaveChangesAsync();
 
@@ -53,9 +53,9 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             try
             {
-                var contato = new Contato { Id = midiaSocialId };
+                var midiaSocial = new MidiaSocial { Id = midiaSocialId };
 
-                _adminContext.Entry(contato).State = EntityState.Deleted;
+                _adminContext.Entry(midiaSocial).State = EntityState.Deleted;
 
                 await _adminContext.SaveChangesAsync();
 
@@ -68,7 +68,7 @@ namespace MHDecora.Admin.Infra.Repositories
         }
         public async Task<MidiaSocial> Consultar()
         {
-            return await _adminContext.MH_CONTATO.ToListAsync();
+            return await _adminContext.MH_MIDIASOCIAL.FirstAsync();
         }
     }
 }
