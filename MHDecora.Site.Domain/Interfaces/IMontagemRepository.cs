@@ -12,6 +12,6 @@ namespace MHDecora.Site.Domain.Interfaces
         
         Task<List<Montagem>> Pesquisa(string texto);
 
-        Task<Montagem> BuscarPorId(int montagemId);
+        Task<Detalhe> BuscarPorId(int montagemId);
     }
 }

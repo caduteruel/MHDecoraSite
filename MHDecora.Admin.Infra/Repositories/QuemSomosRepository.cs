@@ -41,6 +41,8 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 var quemSomosExistente = await _adminContext.MH_QUEMSOMOS.FindAsync(dados.Id);
 
+                dados.CaminhoImagem = quemSomosExistente.CaminhoImagem;
+
                 if (imagem != null && imagem.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;

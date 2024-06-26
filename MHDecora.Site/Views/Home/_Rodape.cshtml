@@ -1,5 +1,6 @@
-﻿@{
-    var midias = ViewBag.MidiaSocial;
+﻿@using MHDecora.Site.Domain.Entities
+@{
+    var midias = ViewData["MidiaSocial"] as MidiaSocial;
 }
 
 <div class="footer-col">
@@ -23,15 +24,15 @@
     <a href="/Home/Index">
         <img src="~/images/site/logo-rodape.svg" style="width:150px" alt="" />
     </a>
-    <div class="links">Direitos Autorais</div>
+    <div class="links">Copyright © - Designed by Grupo FWD</div>
 </div>
 <div>
     <h4>MH Decora</h4>
     <div class="">
-        <a href="@midias.Instagram">
+        <a href="@midias?.Instagram" target="_blank">
             <img src="~/images/site/insta-rodape.svg" alt="Instagram Icon" style="width: 40px;" />
         </a>
-        <a href="@midias.Facebook">
+        <a href="@midias?.Facebook" target="_blank">
             <img src="~/images/site/face-rodape.svg" alt="Facebook Icon" style="width: 40px;" />
         </a>
     </div>

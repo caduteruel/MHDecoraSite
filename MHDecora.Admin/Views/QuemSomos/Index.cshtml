@@ -22,7 +22,7 @@
         <!-- Basic Examples -->
         <div class="card card-default">
             <div class="card-header">
-                <h2>Adicionar Seção Quem Somos</h2>
+                <h2>Adicionar Quem Somos</h2>
             </div>
             <div class="card-body">
 
@@ -127,10 +127,12 @@
                 // Seleciona a div com a classe ql-editor
                 var editor = document.querySelector('.ql-editor').innerHTML;
 
+                var preview = document.getElementById('previewImage');
+
                 var descricao = $("#titulo").val();
                 var fileInput = $("#fileInput").val();
 
-                if (!descricao || editor == "<p><br></p>" || !fileInput) {
+                if (!descricao || editor == "<p><br></p>" || (!fileInput && (!preview.src || preview.src === ""))) {
                     Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }

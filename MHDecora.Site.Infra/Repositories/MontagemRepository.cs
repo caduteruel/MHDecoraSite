@@ -1,8 +1,10 @@
 ﻿using MHDecora.Site.Domain.Entities;
 using MHDecora.Site.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -62,18 +64,43 @@ namespace MHDecora.Site.Infra.Repositories
             return listaMontagens;
         }
 
-        public async Task<Montagem> BuscarPorId(int montagemId)
+        public async Task<Detalhe> BuscarPorId(int montagemId)
         {
-            var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.Id == montagemId).FirstOrDefaultAsync();
+            Detalhe detalhe = new Detalhe();
+
+            Montagem montagem = new Montagem();
+
+            montagem = await _context.MH_MONTAGEM.Where(x => x.Id == montagemId).FirstOrDefaultAsync();
+
+            montagem.CaminhoImagem = GetPathImagens() + montagem.CaminhoImagem;
+            montagem.CaminhoImagem2 = GetPathImagens() + montagem.CaminhoImagem2;
+            montagem.CaminhoImagem3 = GetPathImagens() + montagem.CaminhoImagem3;
+            montagem.CaminhoImagem4 = GetPathImagens() + montagem.CaminhoImagem4;
+
+            detalhe.ListaMontagem.Add(montagem);
 
 
-            listaMontagens.CaminhoImagem = GetPathImagens() + listaMontagens.CaminhoImagem;
-            listaMontagens.CaminhoImagem2 = GetPathImagens() + listaMontagens.CaminhoImagem2;
-            listaMontagens.CaminhoImagem3 = GetPathImagens() + listaMontagens.CaminhoImagem3;
-            listaMontagens.CaminhoImagem4 = GetPathImagens() + listaMontagens.CaminhoImagem4;
+            var atuais = await _context.MH_MONTAGEM.Take(4).ToListAsync();
+            atuais.RemoveAt(0); // Remove o 0 que é o de cima :-)
 
+            foreach (var item in atuais)
+            {
+                if (item.CaminhoImagem.Contains("/images/"))
+                {
+                    detalhe.ListaMontagem.Add(item);
+                }
+                else
+                {
+                    item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                    item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
+                    item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
+                    item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
 
-            return listaMontagens;
+                    detalhe.ListaMontagem.Add(item);
+                }
+            }
+
+            return detalhe;
         }
 
         public async Task<List<Montagem>> BuscarPorTagsTema(int temaId)
@@ -142,9 +169,15 @@ namespace MHDecora.Site.Infra.Repositories
 
         public async Task<List<Montagem>> Pesquisa(string texto)
         {
+
             var listaMontagens = await _context.MH_MONTAGEM
-                                                    .Where(x => x.Texto.Contains(texto) || x.Titulo.Contains(texto) || (x.Tags != null && x.Tags.Contains(texto)))
+                                                    .Where(x => x.Texto.Contains(texto) || x.Titulo.Contains(texto))
                                                     .ToListAsync();
+
+
+
+
+
             if (listaMontagens.Any())
             {
                 foreach (var item in listaMontagens)

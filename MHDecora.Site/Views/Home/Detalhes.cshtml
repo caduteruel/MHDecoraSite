@@ -1,8 +1,8 @@
-﻿ @model MHDecora.Site.Domain.Entities.Montagem
+﻿ @model MHDecora.Site.Domain.Entities.Detalhe
 
 @{
     string numero = "5519983603822"; // Substitua com o número desejado, incluindo o código do país
-    string texto = "Título: " + Model.Titulo; // Texto pré-definido a ser incluído na mensagem
+    string texto = "Título: " + Model.ListaMontagem[0].Titulo; // Texto pré-definido a ser incluído na mensagem
     string url = "https://wa.me/" + numero + "?text=" + System.Uri.EscapeDataString(texto);
 }
 
@@ -12,22 +12,22 @@
         {
 
             <div class="detail">
-                <h1 class="name" style="text-align: center">@Model.Titulo</h1>
+                <h1 class="name" style="text-align: center">@Model.ListaMontagem[0].Titulo</h1>
 
                 <div class="image">
-                    <img src="@Model.CaminhoImagem" id="image-principal" />
+                    <img src="@Model.ListaMontagem[0].CaminhoImagem" id="image-principal" />
 
                     <div class="image-grid">
-                        <img src="@Model.CaminhoImagem2" />
-                        <img src="@Model.CaminhoImagem3" />
-                        <img src="@Model.CaminhoImagem4" />
+                        <img src="@Model.ListaMontagem[0].CaminhoImagem2" />
+                        <img src="@Model.ListaMontagem[0].CaminhoImagem3" />
+                        <img src="@Model.ListaMontagem[0].CaminhoImagem4" />
                     </div>
                 </div>
 
                 <div class="content">
                     <h1 class="name">Descrição do produto</h1>
 
-                    <div class="description">@Model.Texto</div>
+                    <div class="description">@Model.ListaMontagem[0].Texto</div>
                     <div class="buttons">
                         <a href="@url" target="_blank">Solicitar orçamento</a>
                     </div>
@@ -39,37 +39,23 @@
     }
 
     <div class="product-list">
-        <div class="title">Veja também</div>
+        <div class="title"><strong>Veja também</strong></div>
         
         <div class="listProduct">
 
 
             <div class="filterable-cards-detalhe">
-                <div class="card" data-name="" style="display: block;">
-                    <img src="/montagem/e00ee845-6458-40ab-8e47-d3411ea98681_Captura de tela 2024-06-07 151036.png" alt="recent">
-                    <div class="card-body">
-                        <h6 class="card-title">jkjhkjh</h6>
-                        <p class="card-text">ertertert</p>
-                        <a href="/Home/Detalhes?montagemId=102" class="btn">Saiba mais</a>
+                @for (var x = 1; x < Model.ListaMontagem.Count(); x ++)
+                {
+                    <div class="card" data-name="" style="display: block;">
+                        <img src="@Model.ListaMontagem[x].CaminhoImagem" alt="recent">
+                        <div class="card-body">
+                            <h6 class="card-title">@Model.ListaMontagem[x].Titulo</h6>
+                            <p class="card-text">@Model.ListaMontagem[x].TextoImagem</p>
+                            <a href="/Home/Detalhes?montagemId=@Model.ListaMontagem[x].Id" class="btn">Saiba mais</a>
+                        </div>
                     </div>
-                </div>
-                <div class="card" data-name="" style="display: block;">
-                    <img src="/montagem/a4773d20-93de-4f19-ba61-3c806488688c_Captura de tela 2024-06-10 151903.png" alt="recent">
-                    <div class="card-body">
-                        <h6 class="card-title">dfghdfgh</h6>
-                        <p class="card-text">dfghdfgh</p>
-                        <a href="/Home/Detalhes?montagemId=105" class="btn">Saiba mais</a>
-                    </div>
-                </div>
-                <div class="card" data-name="" style="display: block;">
-                    <img src="/montagem/6cc432d3-db41-4fb5-8af6-b8c01c86f2a1_Captura de tela 2024-06-08 163347.png" alt="recent">
-                    <div class="card-body">
-                        <h6 class="card-title">yerty</h6>
-                        <p class="card-text">hdfgh</p>
-                        <a href="/Home/Detalhes?montagemId=104" class="btn">Saiba mais</a>
-                    </div>
-                </div>
-               
+                }
             </div>
 
         </div>

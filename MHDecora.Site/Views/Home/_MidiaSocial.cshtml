@@ -1,20 +1,24 @@
-﻿@* @model MHDecora.Site.Domain.Entities.MidiaSocial *@
+﻿@using MHDecora.Site.Domain.Entities
+@* @model MHDecora.Site.Domain.Entities.MidiaSocial *@
 
 @{
-    var midias = ViewBag.MidiaSocial;
+    var midias = ViewData["MidiaSocial"] as MidiaSocial;
 }
 
-<div class="nav-social">
-    <a href="@midias.Instagram" class="nav-social-link">
-        <img src="~/images/socialmidia/instagram.png" alt="Instagram Icon" style="width: 40px;" />
-        @* <i class="fa-brands fa-instagram"></i> *@
-    </a>
-    <a href="@midias.Facebook" class="nav-social-link">
-        <img src="~/images/socialmidia/facebook.png" alt="Facebook Icon" style="width: 40px;" />
-        @*  <i class="fa-brands fa-facebook"></i> *@
-    </a>
-    <a href="@midias.WhatsApp" class="nav-social-link">
-        <img src="~/images/socialmidia/whatts.png" alt="WhattsApp Icon" style="width: 40px;" />
-        @* <i class="fa-brands fa-whatsapp"></i> *@
-    </a>
-</div>
+@if (midias != null)
+{
+    <div class="nav-social">
+        <a href="@midias?.Instagram" target="_blank" class="nav-social-link">
+            <img src="~/images/socialmidia/instagram.png" alt="Instagram Icon" style="width: 40px;" />
+            @* <i class="fa-brands fa-instagram"></i> *@
+        </a>
+        <a href="@midias?.Facebook" target="_blank" class="nav-social-link">
+            <img src="~/images/socialmidia/facebook.png" alt="Facebook Icon" style="width: 40px;" />
+            @*  <i class="fa-brands fa-facebook"></i> *@
+        </a>
+        <a href="@midias?.WhatsApp" target="_blank" class="nav-social-link">
+            <img src="~/images/socialmidia/whatts.png" alt="WhattsApp Icon" style="width: 40px;" />
+            @* <i class="fa-brands fa-whatsapp"></i> *@
+        </a>
+    </div>
+}

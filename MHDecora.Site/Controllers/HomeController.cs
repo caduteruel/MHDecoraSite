@@ -60,18 +60,18 @@ namespace MHDeroca.Site.Controllers
             Contato contato = await _contatoService.GetContato();
 
             ////Novidades
-            if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
-            {
-                cacheValue = _instagramService.GetRecentsPosts().Result;
+            //if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
+            //{
+            //    cacheValue = _instagramService.GetRecentsPosts().Result;
 
-                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
+            //    var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
 
-                _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
-            }
+            //    _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
+            //}
 
-            ViewBag.InstagramPosts = cacheValue;
+            //ViewBag.InstagramPosts = cacheValue;
 
-            ViewBag.MidiaSocial = midiaSocial;
+            ViewData["MidiaSocial"] = midiaSocial;
 
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();            
@@ -90,6 +90,8 @@ namespace MHDeroca.Site.Controllers
         {
             List<Montagem> montagens = await _montagemService.Pesquisa(texto);
 
+            ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
+
             return View(montagens);
         }
 
@@ -97,23 +99,29 @@ namespace MHDeroca.Site.Controllers
         public async Task<IActionResult> Consulta(int categoriaId)
         {
             List<Montagem> montagens = await _montagemService.BuscarPorCategoria(categoriaId);
-
+            
+            ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
+            
             return View(montagens);
         }
 
         [HttpGet]
         public async Task<IActionResult> Detalhes(int montagemId)
         {
-            Montagem montagem = await _montagemService.BuscarPorId(montagemId);
+            Detalhe detalhe = await _montagemService.BuscarPorId(montagemId);
 
-            return View(montagem);
+            ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
+
+            return View(detalhe);
         }
 
         [HttpGet]
         public async Task<IActionResult> ConsultaTagsTema(int temaId)
         {
             List<Montagem> montagens = await _montagemService.BuscarPorTagsTema(temaId);
-           
+
+            ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
+
             return View("Consulta", montagens);
         }
 
