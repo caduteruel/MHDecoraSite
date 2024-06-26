@@ -10,22 +10,22 @@ namespace MHDecora.Admin.Infra.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "LinkTema",
-                schema: "DECORAPHP",
-                table: "MH_TEMA");
+            //migrationBuilder.DropColumn(
+            //    name: "LinkTema",
+            //    schema: "DECORAPHP",
+            //    table: "MH_TEMA");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "LinkTema",
-                schema: "DECORAPHP",
-                table: "MH_TEMA",
-                type: "NVARCHAR2(2000)",
-                nullable: false,
-                defaultValue: "");
+            //migrationBuilder.AddColumn<string>(
+            //    name: "LinkTema",
+            //    schema: "DECORAPHP",
+            //    table: "MH_TEMA",
+            //    type: "NVARCHAR2(2000)",
+            //    nullable: false,
+            //    defaultValue: "");
         }
     }
 }
