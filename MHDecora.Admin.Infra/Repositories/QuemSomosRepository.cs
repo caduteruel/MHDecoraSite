@@ -42,7 +42,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (imagem != null && imagem.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
+                    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/quemsomos/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         imagem.CopyTo(fileStream);

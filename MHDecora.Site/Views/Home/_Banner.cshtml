@@ -71,12 +71,12 @@
 
     @if (Model.Count() > 0)
     {
-        for (var x = 0; x < Model.Count(); x++)
-        {
-            <div class="slider-nava" id="slider-home">
+        <div class="slider-nava" id="slider-home">
+            @for (var x = 0; x < Model.Count(); x++)
+            {            
                 <a class="slider-nav-link" data-index="@x"></a>
-            </div>
-        }
+            }
+        </div>
     }
     
 </section>

@@ -1,5 +1,114 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<MHDecora.Admin.Domain.Entities.Banner>
+
 @{
+    ViewBag.Title = "Banners";
+    string titulo = TempData["Titulo"] as string;
+    string mensagem = TempData["Mensagem"] as string;
+    string tipoAlerta = TempData["TipoAlerta"] as string;
+}
+
+@if (!string.IsNullOrEmpty(mensagem))
+{
+    <div id="autoCloseAlert" class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">
+        <strong>@titulo</strong> @mensagem
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+}
+
+<div id="msgAlert"></div>
+
+<!-- Products Inventory -->
+<div class="card card-default">
+    <div class="card-header">
+        <h2>Banners</h2>
+
+        <a href="@Url.Action("Adicionar", "MidiaSocial")" class="btn btn-primary">
+            <i class="mdi mdi-plus mr-1"></i> Adicionar
+        </a>
+
+    </div>
+    <div class="card-body">
+        <div class="collapse" id="collapse-data-tables">
+            <pre class="language-html mb-4">
+
+                </pre>
+        </div>
+        <table id="productsTable" class="table table-hover table-product" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Imagem</th>
+                    <th>Ordem de Apresentação</th>
+                    <th>Link da Imagem</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{
+                    if (Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td class="py-0">
+                                    <img src="@item.CaminhoImagem" style="margin-top: 8px;max-width: 85px;" alt="Product Image">
+                                </td>
+                                <td>@item.Ordem</td>
+                                <td>@item.Descricao</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                        </a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="@Url.Action("Editar", "Banner", new { bannerId = @item.Id })">Editar</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" onclick="setaID(@item.Id)" id="excluirBanner" href="#">Excluir</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+@* Apagar *@
+<div class="modal fade" id="modalApagar" tabindex="-1" role="dialog" aria-labelledby="modalApagarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        @using (Html.BeginForm("Excluir", "Banner", FormMethod.Post, new { enctype = "multipart/form-data", id = "formExcluir" }))
+        {
+            <input type="hidden" value="" id="bannerId" name="bannerId">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalApagarLabel">Confirmar Exclusão</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja excluir este banner?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" id="confirmarExclusao">Sim</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function setaID(id) {
+            $('#bannerId').val(id);
+        }
+    </script>
 }

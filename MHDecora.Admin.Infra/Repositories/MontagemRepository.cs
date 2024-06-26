@@ -188,7 +188,8 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (arquivo1 != null && arquivo1.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
-                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
+                    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
+
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo1.CopyTo(fileStream);
@@ -198,7 +199,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (arquivo2 != null && arquivo2.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
-                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
+                    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo2.CopyTo(fileStream);
@@ -208,7 +209,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (arquivo3 != null && arquivo3.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
-                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
+                    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo3.CopyTo(fileStream);
@@ -218,7 +219,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 if (arquivo4 != null && arquivo4.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
-                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
+                    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo4.CopyTo(fileStream);
@@ -266,6 +267,9 @@ namespace MHDecora.Admin.Infra.Repositories
                 return false;
             }
 
+            _adminContext.Entry<Montagem>(montagemExistente).State = EntityState.Detached;
+
+
             montagem.CaminhoImagem = montagemExistente.CaminhoImagem;
             montagem.CaminhoImagem2 = montagemExistente.CaminhoImagem2;
             montagem.CaminhoImagem3 = montagemExistente.CaminhoImagem3;
@@ -279,9 +283,9 @@ namespace MHDecora.Admin.Infra.Repositories
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
-                var caminhoCompletoNovo = Path.Combine(GetPathImagens(), nomeArquivoNovo);
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     arquivo1.CopyTo(fileStream);
                 }
@@ -298,9 +302,9 @@ namespace MHDecora.Admin.Infra.Repositories
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
-                var caminhoCompletoNovo = Path.Combine(GetPathImagens(), nomeArquivoNovo);
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     arquivo2.CopyTo(fileStream);
                 }
@@ -317,9 +321,9 @@ namespace MHDecora.Admin.Infra.Repositories
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
-                var caminhoCompletoNovo = Path.Combine(GetPathImagens(), nomeArquivoNovo);
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     arquivo3.CopyTo(fileStream);
                 }
@@ -336,9 +340,9 @@ namespace MHDecora.Admin.Infra.Repositories
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
-                var caminhoCompletoNovo = Path.Combine(GetPathImagens(), nomeArquivoNovo);
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     arquivo4.CopyTo(fileStream);
                 }
@@ -362,7 +366,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 tags = String.Empty;
             }
 
-            _adminContext.Entry(montagemExistente).CurrentValues.SetValues(montagem);
+            _adminContext.Entry(montagem).State = EntityState.Modified;
 
             await _adminContext.SaveChangesAsync();
 

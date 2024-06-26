@@ -70,7 +70,7 @@ namespace MHDecora.Admin.Infra.Repository
                 if (arquivo != null && arquivo.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                    string filePath = Path.Combine(GetPathImagens(), uniqueFileName);
+                    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", uniqueFileName);
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         arquivo.CopyTo(fileStream);
@@ -165,6 +165,8 @@ namespace MHDecora.Admin.Infra.Repository
                 return false;
             }
 
+            _context.Entry<Tema>(temaExistente).State = EntityState.Detached;
+
             tema.CaminhoImagem = temaExistente.CaminhoImagem;
 
             if (arquivo != null)
@@ -176,9 +178,9 @@ namespace MHDecora.Admin.Infra.Repository
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                var caminhoCompletoNovo = Path.Combine(GetPathImagens(), nomeArquivoNovo);
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(caminhoCompletoNovo, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     arquivo.CopyTo(fileStream);
                 }
@@ -202,7 +204,7 @@ namespace MHDecora.Admin.Infra.Repository
                 tags = String.Empty;
             }
 
-            _context.Entry(temaExistente).CurrentValues.SetValues(tema);
+            _context.Entry(tema).State = EntityState.Modified;
 
             await _context.SaveChangesAsync();
 
