@@ -28,6 +28,8 @@
 
                 @using (Html.BeginForm("Salvar", "QuemSomos", FormMethod.Post, new { enctype = "multipart/form-data", id = "formSalvar" }))
                 {
+                    <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
+
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">

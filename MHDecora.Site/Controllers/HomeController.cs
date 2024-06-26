@@ -14,6 +14,7 @@ namespace MHDeroca.Site.Controllers
     {
         private readonly IMemoryCache _memoryCache;
         private readonly ILogger<HomeController> _logger;
+        private readonly IMidiaSocialService _midiaSocialService;
         private readonly IBannerService _bannerService;
         private readonly IQuemSomosService _quemSomosService;
         private readonly IMontagemService _montagemService;
@@ -21,10 +22,11 @@ namespace MHDeroca.Site.Controllers
         private readonly IContatoService _contatoService;
         private readonly IInstagramService _instagramService;
 
-        public HomeController(ILogger<HomeController> logger, IBannerService bannerService, IQuemSomosService quemSomosService, 
+        public HomeController(ILogger<HomeController> logger, IMidiaSocialService midiaSocialService, IBannerService bannerService, IQuemSomosService quemSomosService, 
             IMontagemService montagemService, ITemaService temaService, IContatoService contatoService, IInstagramService instagramService, IMemoryCache memoryCache)
         {
             _logger = logger;
+            _midiaSocialService = midiaSocialService;
             _bannerService = bannerService;
             _quemSomosService = quemSomosService;
             _montagemService = montagemService;
@@ -36,6 +38,9 @@ namespace MHDeroca.Site.Controllers
 
         public async Task<IActionResult> Index()
         {
+            //Banners
+            MidiaSocial midiaSocial = await _midiaSocialService.GetMidiaSocial();
+
             //Banners
             List<Banner> banner = await _bannerService.BuscarTodos();
 
@@ -66,8 +71,10 @@ namespace MHDeroca.Site.Controllers
 
             ViewBag.InstagramPosts = cacheValue;
 
+            ViewBag.MidiaSocial = midiaSocial;
+
             //ViewModel
-            SiteViewModel siteViewModel = new SiteViewModel();
+            SiteViewModel siteViewModel = new SiteViewModel();            
             siteViewModel.Banners = banner;
             siteViewModel.QuemSomos = quemSomos;
             siteViewModel.Montagens = montagem;

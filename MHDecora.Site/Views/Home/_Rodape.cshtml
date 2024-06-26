@@ -1,4 +1,8 @@
-﻿<div class="footer-col">
+﻿@{
+    var midias = ViewBag.MidiaSocial;
+}
+
+<div class="footer-col">
     <ul>
         <li><a href="/Home/Index">Home</a></li>
         <li><a href="/Home/#quemsomos">Decora</a></li>
@@ -24,8 +28,12 @@
 <div>
     <h4>MH Decora</h4>
     <div class="">
-        <img src="~/images/site/insta-rodape.svg" alt="Instagram Icon" style="width: 40px;" />
-        <img src="~/images/site/face-rodape.svg" alt="Facebook Icon" style="width: 40px;" />
+        <a href="@midias.Instagram">
+            <img src="~/images/site/insta-rodape.svg" alt="Instagram Icon" style="width: 40px;" />
+        </a>
+        <a href="@midias.Facebook">
+            <img src="~/images/site/face-rodape.svg" alt="Facebook Icon" style="width: 40px;" />
+        </a>
     </div>
 </div>
 

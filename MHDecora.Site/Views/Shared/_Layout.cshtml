@@ -45,20 +45,8 @@
                 <button type="submit" class="fas fa-search nav-search-button"></button>
             </form>
 
-            <div class="nav-social">
-                <a href="" class="nav-social-link">
-                    <img src="~/images/socialmidia/instagram.png" alt="Instagram Icon" style="width: 40px;" />
-                    @* <i class="fa-brands fa-instagram"></i> *@
-                </a>
-                <a href="" class="nav-social-link">
-                    <img src="~/images/socialmidia/facebook.png" alt="Facebook Icon" style="width: 40px;" />
-                   @*  <i class="fa-brands fa-facebook"></i> *@
-                </a>
-                <a href="" class="nav-social-link">
-                    <img src="~/images/socialmidia/whatts.png" alt="WhattsApp Icon" style="width: 40px;" />
-                    @* <i class="fa-brands fa-whatsapp"></i> *@
-                </a>
-            </div>
+            <!-- Renderização da Partial View para as Midias Sociais -->
+            @await Html.PartialAsync("~/Views/Home/_MidiaSocial.cshtml")
         </nav>
     </header>
 

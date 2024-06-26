@@ -144,12 +144,14 @@ namespace MHDecora.Admin.Infra.Repositories
             if (arquivo != null)
             {
                 var nomeArquivoAntigo = bannerExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(GetPathImagens(), nomeArquivoAntigo);
-                File.Delete(caminhoCompletoAntigo);
+
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", nomeArquivoAntigo);
+
+                File.Delete(filePath);
 
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
 
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", uniqueFileName);
+                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", uniqueFileName);
                         
 
                 using (var fileStream = new FileStream(filePath, FileMode.CreateNew))

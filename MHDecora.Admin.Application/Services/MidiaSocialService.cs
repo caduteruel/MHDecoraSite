@@ -23,6 +23,11 @@ namespace MHDecora.Admin.Application.Services
             return await _midiaSocialRepository.Criar(midiaSocial);
         }
 
+        public async Task<MidiaSocial> GetById(int midiaSocialId)
+        {
+            return await _midiaSocialRepository.GetById(midiaSocialId);
+        }
+
         public async Task<bool> Editar(MidiaSocial midiaSocial)
         {
             return await _midiaSocialRepository.Editar(midiaSocial);

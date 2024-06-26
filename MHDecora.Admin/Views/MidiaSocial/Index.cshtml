@@ -1,7 +1,7 @@
-﻿@model List<MHDecora.Admin.Domain.Entities.Banner>
+﻿@model MHDecora.Admin.Domain.Entities.MidiaSocial
 
 @{
-    ViewBag.Title = "Banners";
+    ViewBag.Title = "Tags";
     string titulo = TempData["Titulo"] as string;
     string mensagem = TempData["Mensagem"] as string;
     string tipoAlerta = TempData["TipoAlerta"] as string;
@@ -20,7 +20,7 @@
 <!-- Products Inventory -->
 <div class="card card-default">
     <div class="card-header">
-        <h2>Banners</h2>
+        <h2>Mídias Sociais</h2>
 
         <a href="@Url.Action("Adicionar", "MidiaSocial")" class="btn btn-primary">
             <i class="mdi mdi-plus mr-1"></i> Adicionar
@@ -37,26 +37,23 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Imagem</th>
-                    <th>Ordem de Apresentação</th>
-                    <th>Link da Imagem</th>
+                    <th>Instagram</th>
+                    <th>Facebook</th>
+                    <th>WhatsApp</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
 
                 @{
-                    if (Model.Count > 0)
+                    if (Model != null)
                     {
-                        foreach (var item in Model)
-                        {
+                       
                             <tr>
-                                <td>@item.Id</td>
-                                <td class="py-0">
-                                    <img src="@item.CaminhoImagem" style="margin-top: 8px;max-width: 85px;" alt="Product Image">
-                                </td>
-                                <td>@item.Ordem</td>
-                                <td>@item.Descricao</td>
+                                <td>@Model.Id</td>
+                                <td>@Model.Instagram</td>
+                                <td>@Model.Facebook</td>
+                                <td>@Model.WhatsApp</td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
@@ -64,13 +61,13 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="@Url.Action("Editar", "Banner", new { bannerId = @item.Id })">Editar</a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" onclick="setaID(@item.Id)" id="excluirBanner" href="#">Excluir</a>
+                                            <a class="dropdown-item" href="@Url.Action("Editar", "MidiaSocial", new { midiaSocialId = @Model.Id })">Editar</a>
+                                        <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" onclick="setaID(@Model.Id)" id="excluirMidiaSocial" href="#">Excluir</a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                        }
+                        
                     }
                 }
 
@@ -83,9 +80,9 @@
 @* Apagar *@
 <div class="modal fade" id="modalApagar" tabindex="-1" role="dialog" aria-labelledby="modalApagarLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        @using (Html.BeginForm("Excluir", "Banner", FormMethod.Post, new { enctype = "multipart/form-data", id = "formExcluir" }))
+        @using (Html.BeginForm("Excluir", "MidiaSocial", FormMethod.Post, new { enctype = "multipart/form-data", id = "formExcluir" }))
         {
-            <input type="hidden" value="" id="bannerId" name="bannerId">
+            <input type="hidden" value="" id="midiaSocialId" name="midiaSocialId">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalApagarLabel">Confirmar Exclusão</h5>
@@ -94,7 +91,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Tem certeza que deseja excluir este banner?
+                    Tem certeza que deseja excluir essas Mídias Sociais?
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-danger" id="confirmarExclusao">Sim</button>
@@ -108,7 +105,7 @@
 @section Scripts {
     <script>
         function setaID(id) {
-            $('#bannerId').val(id);
+            $('#midiaSocialId').val(id);
         }
     </script>
 }

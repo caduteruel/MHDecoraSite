@@ -1,0 +1,20 @@
+﻿@* @model MHDecora.Site.Domain.Entities.MidiaSocial *@
+
+@{
+    var midias = ViewBag.MidiaSocial;
+}
+
+<div class="nav-social">
+    <a href="@midias.Instagram" class="nav-social-link">
+        <img src="~/images/socialmidia/instagram.png" alt="Instagram Icon" style="width: 40px;" />
+        @* <i class="fa-brands fa-instagram"></i> *@
+    </a>
+    <a href="@midias.Facebook" class="nav-social-link">
+        <img src="~/images/socialmidia/facebook.png" alt="Facebook Icon" style="width: 40px;" />
+        @*  <i class="fa-brands fa-facebook"></i> *@
+    </a>
+    <a href="@midias.WhatsApp" class="nav-social-link">
+        <img src="~/images/socialmidia/whatts.png" alt="WhattsApp Icon" style="width: 40px;" />
+        @* <i class="fa-brands fa-whatsapp"></i> *@
+    </a>
+</div>

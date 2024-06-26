@@ -173,14 +173,13 @@ namespace MHDecora.Admin.Infra.Repository
             {
                // var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "tema");
                 var nomeArquivoAntigo = temaExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(GetPathImagens(), nomeArquivoAntigo);
-                File.Delete(caminhoCompletoAntigo);
-
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoAntigo);
+                File.Delete(filePath);
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoNovo);
+                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
                 {
                     arquivo.CopyTo(fileStream);
                 }

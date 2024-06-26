@@ -31,6 +31,7 @@ builder.Services.AddScoped<IMontagemService, MontagemService>();
 builder.Services.AddScoped<ITemaService, TemaService>();
 builder.Services.AddScoped<IContatoService, ContatoService>();
 builder.Services.AddScoped<IInstagramService, InstagramService>();
+builder.Services.AddScoped<IMidiaSocialService, MidiaSocialService>();
 
 
 // Registrar o serviço do repositório e a implementação
@@ -41,6 +42,7 @@ builder.Services.AddScoped<IMontagemRepository, MontagemRepository>();
 builder.Services.AddScoped<ITemaRepository, TemaRepository>();
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
 builder.Services.AddScoped<IInstagramRepository, InstagramAccess>();
+builder.Services.AddScoped<IMidiaSocialRepository, MidiaSocialRepository>();
 
 var app = builder.Build();
 

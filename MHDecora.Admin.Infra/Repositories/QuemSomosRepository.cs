@@ -39,21 +39,32 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             try
             {
+                var quemSomosExistente = await _adminContext.MH_QUEMSOMOS.FindAsync(dados.Id);
+
                 if (imagem != null && imagem.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
                     string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/quemsomos/", uniqueFileName);
-                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
                     {
                         imagem.CopyTo(fileStream);
                     }
+
                     dados.CaminhoImagem = uniqueFileName;
                 }
 
-                _adminContext.MH_QUEMSOMOS.Add(dados);
+                if (quemSomosExistente == null)
+                {
+                    _adminContext.MH_QUEMSOMOS.Add(dados);
+                }
+                else
+                {
+                    _adminContext.Entry<QuemSomos>(quemSomosExistente).State = EntityState.Detached;
+
+                    _adminContext.Entry(dados).State = EntityState.Modified;
+                }
+
                 await _adminContext.SaveChangesAsync();
-
-
             }
             catch (Exception ex)
             {

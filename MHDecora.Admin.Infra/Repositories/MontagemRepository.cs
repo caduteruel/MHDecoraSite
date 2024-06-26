@@ -60,7 +60,6 @@ namespace MHDecora.Admin.Infra.Repositories
                         response.TagsList.Add(tag2);
                     }
                 }
-
                 
                 return response;
             }
@@ -278,33 +277,30 @@ namespace MHDecora.Admin.Infra.Repositories
             if (arquivo1 != null)
             {
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(GetPathImagens(), nomeArquivoAntigo);
-                File.Delete(caminhoCompletoAntigo);
-
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+                File.Delete(filePath);
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
                 {
                     arquivo1.CopyTo(fileStream);
                 }
 
                 montagem.CaminhoImagem = nomeArquivoNovo;
-
             }
 
             if (arquivo2 != null)
             {
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(GetPathImagens(), nomeArquivoAntigo);
-                File.Delete(caminhoCompletoAntigo);
-
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+                File.Delete(filePath);
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
                 {
                     arquivo2.CopyTo(fileStream);
                 }
@@ -316,14 +312,13 @@ namespace MHDecora.Admin.Infra.Repositories
             if (arquivo3 != null)
             {
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(GetPathImagens(), nomeArquivoAntigo);
-                File.Delete(caminhoCompletoAntigo);
-
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+                File.Delete(filePath);
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
                 {
                     arquivo3.CopyTo(fileStream);
                 }
@@ -335,12 +330,12 @@ namespace MHDecora.Admin.Infra.Repositories
             if (arquivo4 != null)
             {
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                var caminhoCompletoAntigo = Path.Combine(GetPathImagens(), nomeArquivoAntigo);
-                File.Delete(caminhoCompletoAntigo);
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+                File.Delete(filePath);
 
 
                 var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
