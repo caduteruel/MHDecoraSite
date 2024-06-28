@@ -53,6 +53,12 @@
 
     </script> *@
 }
+
+<style>
+    .swiper-slide-tema img {
+        width: 90% !important;
+    }
+    </style>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <section class="theme" id="decoracoes">
@@ -66,7 +72,9 @@
                     <article class="theme-article swiper-slide" >
                         <a href="@Url.Action("ConsultaTagsTema", "Home", new { temaId = @tema.Id })" class="theme-link">
                             <div class="theme-image">
-                                <img src="@tema.CaminhoImagem" href="@Url.Action("ConsultaTagsTema", "Home", new { temaId = @tema.Id })" alt="" />
+                                <div class="swiper-slide-tema">
+                                    <img src="@tema.CaminhoImagem" href="@Url.Action("ConsultaTagsTema", "Home", new { temaId = @tema.Id })" alt="" />
+                                </div>
                             </div>
 
                             <div class="theme-data">

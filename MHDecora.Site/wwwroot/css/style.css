@@ -476,7 +476,7 @@ ul{
 .gallery-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: initial;
     gap: 25px;
 }
 

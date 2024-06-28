@@ -31,32 +31,241 @@
     
 </div> *@
 
-<section class="gallery-wrapper">
-    <div class="gallery-title">
-        <h1>Galeria</h1>
-    </div>
-    <div class="gallery-container">
+<!-- CSS do Owl Carousel -->
 
-        @if (Model != null)
-        {
-            foreach (var item in Model)
+
+
+
+<style>
+    /* Estilos adicionais para ajustar o layout do carrossel */
+    
+
+    .carrossel__titulo {
+        color: var(--laranja-secundario);
+        background-color: var(--branco-secundario);
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 1em 0 0.5em 0;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        display: none;
+    }
+
+    .swiper-pagination {
+        position: initial;
+        margin: .5em 0;
+    }
+
+    .swiper-pagination {
+        text-align: center; /* Centraliza as bolinhas de navegação */
+        margin-top: 10px; /* Espaçamento superior opcional */
+    }
+
+        .swiper-pagination .swiper-pagination-bullet {
+            width: 8px; /* Tamanho das bolinhas */
+            height: 8px;
+            background-color: #007bff; /* Cor das bolinhas */
+            opacity: 0.5; /* Opacidade das bolinhas */
+        }
+
+        .swiper-pagination .swiper-pagination-bullet-active {
+            opacity: 1; /* Opacidade da bolinha ativa */
+        }
+
+    /* Estilo para o container dos cards */
+    .card-container-gal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Estilo para cada card */
+    .card-gal {
+        border-radius: 15px;
+        box-shadow: -1px 1px 5px 3px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 270px; /* Largura do card */
+        padding: 15px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+        /* Estilo para a imagem dentro do card */
+        .card-gal img {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+    /* Estilo para o conteúdo de texto */
+    .card-content-gal {
+        text-align: left;
+        padding-top: 10px;
+    }
+
+    /* Estilo para o título */
+    .card-title-gal {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Estilo para a descrição */
+    .card-description-gal {
+        font-size: 14px;
+        color: #666;
+    }
+    </style>
+
+<section class="carrosel">
+    <h1 style="font-size: 2.5rem; text-align: center; margin-bottom: 20px; color: var(--color-primary);">GALERIA</h1>
+    
+    
+    
+    <!-- Slider main container -->
+    <div class="swiper galeria">
+        <!-- If we need pagination -->
+        <div class="swiper-pagination" hidden="hidden"></div>
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+
+
+            @* 
+            @if (Model != null)
             {
-                <div class="gallery">
-                    <div class="gallery-content">
-                        <img src="@item.CaminhoImagem" alt="" />
+                foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+       
+                        <div class="card-gal">
+                            <img src="@item.CaminhoImagem" alt="Imagem do card">
+                            <div class="card-content-gal">
+                                <div class="card-description-gal">@item.TextoImagem</div>
+                                <div class="card-title-gal">@item.Titulo</div>
+                            </div>
+                        </div>
 
-                        <p>@item.Titulo</p>
-                        <h1>@item.Categoria.Nome</h1>
+                    </div>
+                }
+            }
+
+ *@
+            <div class="swiper-slide">
+               @*  <div class="card">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
+                    <h5>Card 1</h5>
+                    <p>Descrição do Card 1.</p>
+                </div> *@
+
+                <div class="card-gal">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
+                    <div class="card-content-gal">
+                        <div class="card-description-gal">Descrição do Card</div>
+                        <div class="card-title-gal">Título do Card</div>                        
                     </div>
                 </div>
-            }
-        }
-    </div>
-    <div class="slider-nava">
-        <a class=""></a>
-        <a></a>
-        <a></a>
-    </div>
 
-    <a href="#contato" class="btn">Solicite um orçamento</a>
+            </div>
+      
+                        <div class="swiper-slide">
+               @*  <div class="card">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
+                    <h5>Card 1</h5>
+                    <p>Descrição do Card 1.</p>
+                </div> *@
+
+                <div class="card-gal">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
+                    <div class="card-content-gal">
+                        <div class="card-description-gal">Descrição do Card</div>
+                        <div class="card-title-gal">Título do Card</div>                        
+                    </div>
+                </div>
+
+            </div>
+
+                        <div class="swiper-slide">
+               @*  <div class="card">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
+                    <h5>Card 1</h5>
+                    <p>Descrição do Card 1.</p>
+                </div> *@
+
+                <div class="card-gal">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
+                    <div class="card-content-gal">
+                        <div class="card-description-gal">Descrição do Card</div>
+                        <div class="card-title-gal">Título do Card</div>                        
+                    </div>
+                </div>
+
+            </div>
+                        <div class="swiper-slide">
+               @*  <div class="card">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
+                    <h5>Card 1</h5>
+                    <p>Descrição do Card 1.</p>
+                </div> *@
+
+                <div class="card-gal">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
+                    <div class="card-content-gal">
+                        <div class="card-description-gal">Descrição do Card</div>
+                        <div class="card-title-gal">Título do Card</div>                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide">
+                @*  <div class="card">
+                <img src="~/images/gallery/galeria.png" alt="Imagem 1">
+                <h5>Card 1</h5>
+                <p>Descrição do Card 1.</p>
+                </div> *@
+
+                <div class="card-gal">
+                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
+                    <div class="card-content-gal">
+                        <div class="card-description-gal">Descrição do Card</div>
+                        <div class="card-title-gal">Título do Card</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper.galeria', {
+        slidesPerView: 4, // Mostra 4 slides por tela
+        spaceBetween: 20, // Espaçamento entre os slides
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true, // Permitir clicar nas bolinhas para navegar
+        },
+        // direction: 'ltr', // Direção da esquerda para a direita
+        // initialSlide: 0, // Começa a exibição a partir do primeiro slide (posição 0)
+        // centeredSlides: true, // Centralizar os slides
+    })
+</script>
+
+
+

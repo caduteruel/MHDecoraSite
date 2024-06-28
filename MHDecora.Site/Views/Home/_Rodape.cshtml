@@ -39,38 +39,36 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
 
-<script>
-    // JavaScript para exibir um alert ao carregar a página
-    window.onload = function () {
-        
-        $.ajax({
-            url: '/Home/Rodape',  // URL para a ação no backend que retorna os links
-            type: 'GET',  // ou 'POST' dependendo da sua necessidade
-            data: { /* Dados a enviar, se houver */ },
-            success: function (result) {
-                // Manipular a resposta do backend
-                if (result && result.length > 0) {
-                    var $ul = $('#dynamicLinks'); // Seleciona a ul onde os links serão inseridos
-                    $ul.empty(); // Limpa os links existentes, se houver
+@section Script {
+    <script>
+        // JavaScript para exibir um alert ao carregar a página
+        window.onload = function () {
 
-                    // Itera sobre os links recebidos do backend
-                    result.forEach(function (link) {
-                        // Cria um novo elemento li com o link recebido
-                        var $li = $('<li>');
-                        var $a = $('<a>').attr('href', link.url).text(link.nome); // Ajustado para usar link diretamente
-                        $li.append($a);
-                        $ul.append($li);
-                    });
-                } else {
-                    console.log('Nenhum link recebido do backend.');
+            $.ajax({
+                url: '/Home/Rodape',  // URL para a ação no backend que retorna os links
+                type: 'GET',  // ou 'POST' dependendo da sua necessidade
+                data: { /* Dados a enviar, se houver */ },
+                success: function (result) {
+                    // Manipular a resposta do backend
+                    if (result && result.length > 0) {
+                        var $ul = $('#dynamicLinks'); // Seleciona a ul onde os links serão inseridos
+                        $ul.empty(); // Limpa os links existentes, se houver
+
+                        // Itera sobre os links recebidos do backend
+                        result.forEach(function (link) {
+                            // Cria um novo elemento li com o link recebido
+                            var $li = $('<li>');
+                            var $a = $('<a>').attr('href', link.url).text(link.nome); // Ajustado para usar link diretamente
+                            $li.append($a);
+                            $ul.append($li);
+                        });
+                    } else {
+                        console.log('Nenhum link recebido do backend.');
+                    }
                 }
-            },
-            error: function (xhr, status, error) {
-                // Lidar com erros de requisição, se houver
-                console.error('Erro na requisição: ' + status + ' - ' + error);
-            }
-        });
-    };
-</script>
+            });
+        };
+    </script>
+}
