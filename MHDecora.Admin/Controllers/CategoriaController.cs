@@ -24,9 +24,9 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Salvar(Categoria categoria)
+        public async Task<IActionResult> Salvar(Categoria categoria, IFormFile imagem)
         {
-            var response = await _categoriaService.Criar(categoria);
+            var response = await _categoriaService.Criar(categoria, imagem);
 
             if (response)
             {
@@ -45,15 +45,15 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
         {
-            var banner = await _categoriaService.GetCategoriaById(id);
+            var categoria = await _categoriaService.GetCategoriaById(id);
 
-            return View(banner);
+            return View(categoria);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Editar(Categoria categoria)
+        public async Task<IActionResult> Editar(IFormFile arquivo, Categoria categoria)
         {
-            var response = await _categoriaService.Editar(categoria);
+            var response = await _categoriaService.Editar(categoria, arquivo);
 
             if (response)
             {
@@ -91,9 +91,9 @@ namespace MHDecora.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Adicionar(Categoria categoria)
+        public async Task<IActionResult> Adicionar(Categoria categoria, IFormFile arquivo)
         {
-            var response = await _categoriaService.Criar(categoria);
+            var response = await _categoriaService.Criar(categoria, arquivo);
 
             if (response)
             {

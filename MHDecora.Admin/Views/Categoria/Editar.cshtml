@@ -8,8 +8,9 @@
                 <h2>Editar Categoria</h2>
             </div>
             <div class="card-body">
-
-                <form id="formEditar" asp-action="Editar" method="post">
+                 @using (Html.BeginForm("Editar", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data", id = "formEditar" }))
+                {
+                    @*  <form id="formEditar" asp-action="Editar" method="post" enctype="multipart/form-data"> *@
                     <div class="row">
                         <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
                         <div class="col-sm-4">
@@ -21,7 +22,21 @@
                                 <label for="fname">Descrição</label>
                                 <input name="descricao" id="descricao" class="form-control" placeholder="Digite a descricao da categoria" value="@Model.Descricao">
                             </div>
-                        </div>                       
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o Arquivo</label>
+                                <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 mb-2">
+                            <div class="form-group">
+                                <label for="fname">Imagem</label>
+                                <img id="previewImage" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem da Categoria" />
+                            </div>
+                        </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
                         <a href="@Url.Action("Index", "Categoria")" class="btn btn-primary text-left">
@@ -33,7 +48,8 @@
                         </div>
                     </div>
 
-                </form>
+                    @* </form> *@
+                }
 
             </div>
         </div>
@@ -45,7 +61,38 @@
         function cancelar() {
             $("#nome").val('@Model.Nome.ToString()');
             $("#descricao").val('@(Model.Descricao ?? string.Empty)');
+        }
+        function previewFile() {
+            var preview = document.getElementById('previewImage');
+            var fileInput = document.getElementById('fileInput').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
             }
         }
+
+        // Adiciona um listener de mudança no campo de entrada do arquivo
+        document.getElementById('fileInput').addEventListener('change', previewFile);
+
+        // Impede submissões duplicadas
+        // var formSubmitted = false;
+        // document.getElementById('formEditar').addEventListener('submit', function (event) {
+        //     if (formSubmitted) {
+        //         event.preventDefault();
+        //         return;
+        //     }
+        //     formSubmitted = true;
+        // });
+
+
     </script>
 }
