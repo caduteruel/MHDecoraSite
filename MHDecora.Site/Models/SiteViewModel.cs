@@ -11,5 +11,6 @@ namespace MHDeroca.Site.Models
         public List<Tema> Temas { get; set; }
         public Contato Contato { get; set; }
         public List<Montagem> Galerias { get; set; }
+        public List<Categoria> Categorias { get; set; }
     }
 }
