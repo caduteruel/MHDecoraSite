@@ -18,17 +18,19 @@
                                 <label for="fname">Nome da Categoria</label>
                                 <input name="nome" id="nome" class="form-control" placeholder="Digite o nome da categoria" value="@Model.Nome">
                             </div>
-                            <div class="form-group">
-                                <label for="fname">Descrição</label>
-                                <input name="descricao" id="descricao" class="form-control" placeholder="Digite a descricao da categoria" value="@Model.Descricao">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="fname">Descrição</label>
+                                    <input name="descricao" id="descricao" class="form-control" placeholder="Digite a descricao da categoria" value="@Model.Descricao">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Selecione o Arquivo</label>
-                                <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
-                            </div>
-                        </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Selecione o Arquivo</label>
+                                    <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
+                                </div>
+                            </div>                            
+                        </div>                        
                     </div>
                     <div class="row">
                         <div class="col-sm-4 mb-2">
@@ -46,9 +48,7 @@
                             <button type="submit" class="btn btn-success">Salvar</button>
                             <button type="button" class="btn btn-light ml-2" onclick="cancelar()">Cancelar</button>
                         </div>
-                    </div>
-
-                    @* </form> *@
+                    </div>                 
                 }
 
             </div>

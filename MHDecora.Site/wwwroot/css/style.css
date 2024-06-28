@@ -1,4 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Gilroy:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*/
+@font-face {
+    font-family: 'Gilroy-Light';
+    src: url('../font/Gilroy-Light.otf') format('opentype');
+    font-weight: 700; /* Peso da fonte */
+    font-style: normal; /* Estilo da fonte (normal, italic, etc.) */
+    font-display: swap; /* Melhora o carregamento da fonte */
+}
+
+@font-face {
+    font-family: 'Gilroy-ExtraBold';
+    src: url('../font/Gilroy-ExtraBold.otf') format('opentype');
+    font-weight: 800; /* Peso da fonte */
+    font-style: normal; /* Estilo da fonte (normal, italic, etc.) */
+    font-display: swap; /* Melhora o carregamento da fonte */
+}
 
 :root {
     --color-primary: #7DCCDF;
@@ -15,11 +32,16 @@
 body {
     background: #fff;
     color: var(--color-black);
+    font-family: 'Gilroy-Light', Arial, sans-serif; /* Aplica Gilroy-Light como fonte padrão */
+}
+
+.negrito {
+    font-family: 'Gilroy-ExtraBold', Arial, sans-serif; /* Aplica Gilroy-ExtraBold para elementos negritos */
+    font-weight: 800; /* Garante que a fonte seja exibida como ExtraBold */
 }
 
 html {
     scroll-behavior: smooth;
-    font-family: "Poppins", sans-serif;
 }
 
 ul{
@@ -76,9 +98,11 @@ ul{
     transition: all .3s;
 }
 
-.nav .nav-items .nav-links a:hover {
-    color: var(--color-primary);
-}
+    .nav .nav-items .nav-links a:hover {
+        color: var(--color-primary);
+        font-weight: bold; /* Transforma o texto em negrito */
+        font-family: 'Gilroy-ExtraBold';
+    }
 
 .nav .nav-items .nav-links a.active {
     color: var(--color-primary);
@@ -270,7 +294,7 @@ ul{
     height: 2px; /* Espessura da linha */
     background-color: var(--color-primary); /* Cor da linha */
     margin: 0 auto; /* Centraliza a linha */
-    width: 40%;
+    width: 60%;
 }
 
  .about-content p {
@@ -343,7 +367,7 @@ ul{
 }
 
 .card .card-content p {
-    font-size: 14px;
+    font-size: 16px;
     color: #666;
     margin-bottom: 20px;
     text-align: start;
@@ -378,7 +402,7 @@ ul{
     transform: translate(-50%, -50%);
     color: white; 
     padding: 5px;
-    font-size: 2rem;
+    font-size: 20px;
     text-align: center;
 
 }
@@ -594,18 +618,18 @@ ul{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 25px;
     height: 180px;
 
 
 }
 
 .news {
-    width: 300px;
+    width: 289px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
-    height: 250px;
+    height: 289px;
     transition: .3s all;
 }
 
