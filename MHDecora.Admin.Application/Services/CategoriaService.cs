@@ -1,6 +1,7 @@
 ﻿using MHDecora.Admin.Application.Interfaces;
 using MHDecora.Admin.Domain.Entities;
 using MHDecora.Admin.Domain.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +20,14 @@ namespace MHDecora.Admin.Application.Services
             _categoriaRepository = categoriaRepository;
         }
 
-        public async Task<bool> Criar(Categoria categoria)
+        public async Task<bool> Criar(Categoria categoria, IFormFile imagem)
         {
-            return await _categoriaRepository.Criar(categoria);
+            return await _categoriaRepository.Criar(categoria, imagem);
         }
 
-        public async Task<bool> Editar(Categoria categoria)
+        public async Task<bool> Editar(Categoria categoria, IFormFile imagem)
         {
-            return await _categoriaRepository.Editar(categoria);
+            return await _categoriaRepository.Editar(categoria, imagem);
         }
 
         public async Task<bool> Excluir(int id)

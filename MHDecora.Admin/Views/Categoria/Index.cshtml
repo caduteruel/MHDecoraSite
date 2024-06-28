@@ -37,6 +37,7 @@
             <thead>
                 <tr>
                     <th>Id</th>
+                    <th>Imagem</th>
                     <th>Nome da Categoria</th>
                     <th>Descrição</th>
                     <th></th>
@@ -51,6 +52,9 @@
                         {
                                 <tr>
                                     <td>@item.Id</td>
+                                        <td class="py-0">
+                                            <img src="@item.CaminhoImagem" style="margin-top: 8px;max-width: 85px;" alt="Product Image">
+                                        </td>
                                     <td>@item.Nome</td>
                                     <td>@item.Descricao</td>
                                     <td>

@@ -8,8 +8,10 @@
                 <h2>Adicionar Categoria</h2>
             </div>
             <div class="card-body">
+                @using (Html.BeginForm("Adicionar", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data", id = "formAdicionar" }))
+                {
 
-                <form id="formEditar" asp-action="Adicionar" method="post">
+                    @* <form id="formEditar" asp-action="Adicionar" method="post"> *@
                     <div class="row">
                         <input hidden="hidden" id="Id" name="Id">
                         <div class="col-sm-4">
@@ -24,6 +26,20 @@
                                 <input name="descricao" id="descricao" class="form-control" placeholder="Digite o nome da descrição">
                             </div>
                         </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o Arquivo</label>
+                                <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 mb-2">
+                            <div class="form-group">
+                                <label id="labelImage" for="fname" style="display:none">Imagem</label>
+                                <img id="previewImage" src="#" class="img-fluid" alt="Imagem da Categoria" style="display:none" />
+                            </div>
+                        </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
                         <a href="@Url.Action("Index", "Categoria")" class="btn btn-primary text-left">
@@ -34,7 +50,8 @@
                             <button type="button" class="btn btn-light ml-2" onclick="cancelar()">Cancelar</button>
                         </div>
                     </div>
-                </form>
+                    @* </form> *@
+                }
 
             </div>
         </div>
@@ -43,9 +60,60 @@
 
 @section Scripts {
     <script>
+        $(document).ready(function () {
+            $('#formAdicionar').submit(function (e) {
+                e.preventDefault(); // Evita o envio padrão do formulário
+
+                var descricao = $("#descricao").val();
+                var nome = $("#nome").val();
+                var fileInput = $("#fileInput").val();
+
+                if (nome == null || !fileInput) {
+                    Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
+                    return;
+                }
+
+                // Se todos os campos estiverem preenchidos, envie o formulário
+                this.submit(); // Aqui corrigimos para enviar o formulário corretamente
+            });
+        });
         function cancelar() {
             $("#nome").val("");
             $('#descricao').val("");
+
+            $('#fileInput').wrap('<form>').closest('form').get(0).reset();
+            $('#fileInput').unwrap();
+
+            var label = document.getElementById('labelImage');
+            var preview = document.getElementById('previewImage');
+
+            preview.src = '';
+            preview.style.display = 'none';
+            label.style.display = 'none';
         }
+
+        function previewFile() {
+            var label = document.getElementById('labelImage');
+            var preview = document.getElementById('previewImage');
+            var fileInput = document.getElementById('fileInput').files[0];
+            var reader = new FileReader();
+
+            reader.onloadend = function () {
+                //$("#imagem").attr('display', 'inline-block');
+                preview.src = reader.result;
+                preview.style.display = 'block';
+                label.style.display = 'block';
+            }
+
+            if (fileInput) {
+                reader.readAsDataURL(fileInput);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        // Adiciona um listener de mudança no campo de entrada do arquivo
+        document.getElementById('fileInput').addEventListener('change', previewFile);
     </script>
 }
