@@ -8,7 +8,7 @@
                 <h2>Editar Categoria</h2>
             </div>
             <div class="card-body">
-                 @using (Html.BeginForm("Editar", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data", id = "formEditar" }))
+                @using (Html.BeginForm("Editar", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data", id = "formEditar" }))
                 {
                     @*  <form id="formEditar" asp-action="Editar" method="post" enctype="multipart/form-data"> *@
                     <div class="row">
@@ -18,19 +18,19 @@
                                 <label for="fname">Nome da Categoria</label>
                                 <input name="nome" id="nome" class="form-control" placeholder="Digite o nome da categoria" value="@Model.Nome">
                             </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="fname">Descrição</label>
-                                    <input name="descricao" id="descricao" class="form-control" placeholder="Digite a descricao da categoria" value="@Model.Descricao">
-                                </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">Descrição</label>
+                                <input name="descricao" id="descricao" class="form-control" placeholder="Digite a descricao da categoria" value="@Model.Descricao">
                             </div>
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label for="exampleFormControlFile1">Selecione o Arquivo</label>
-                                    <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
-                                </div>
-                            </div>                            
-                        </div>                        
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Selecione o Arquivo</label>
+                                <input type="file" name="arquivo" class="form-control-file" id="fileInput" accept="image/*">
+                            </div>
+                        </div>                                                
                     </div>
                     <div class="row">
                         <div class="col-sm-4 mb-2">

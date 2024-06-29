@@ -265,38 +265,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 return false;
             }
 
-            _adminContext.Entry<Montagem>(montagemExistente).State = EntityState.Detached;
-
-            // Função para excluir arquivo
-            void DeleteFile(string path)
-            {
-                if (File.Exists(path))
-                {
-                    File.Delete(path);
-                }
-            }
-
-            // Função para salvar novo arquivo
-            string SaveFile(IFormFile arquivo, int imagem)
-            {
-                string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
-
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    arquivo.CopyTo(fileStream);
-                }
-
-                switch (imagem)
-                {
-                    case 1: montagem.CaminhoImagem = uniqueFileName; break;
-                    case 2: montagem.CaminhoImagem2 = uniqueFileName; break;
-                    case 3: montagem.CaminhoImagem3 = uniqueFileName; break;
-                    case 4: montagem.CaminhoImagem4 = uniqueFileName; break;
-                }
-
-                return uniqueFileName;
-            }
+            _adminContext.Entry<Montagem>(montagemExistente).State = EntityState.Detached;            
 
             // Atualizar caminhos de imagens se o status for false
             if (!montagem.Status1) montagem.CaminhoImagem = montagemExistente.CaminhoImagem;
@@ -338,6 +307,37 @@ namespace MHDecora.Admin.Infra.Repositories
                 }
             }
 
+            // Função para excluir arquivo
+            void DeleteFile(string path)
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+
+            // Função para salvar novo arquivo
+            string SaveFile(IFormFile arquivo, int imagem)
+            {
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    arquivo.CopyTo(fileStream);
+                }
+
+                switch (imagem)
+                {
+                    case 1: montagem.CaminhoImagem = uniqueFileName; break;
+                    case 2: montagem.CaminhoImagem2 = uniqueFileName; break;
+                    case 3: montagem.CaminhoImagem3 = uniqueFileName; break;
+                    case 4: montagem.CaminhoImagem4 = uniqueFileName; break;
+                }
+
+                return uniqueFileName;
+            }
+
             // Atualizar tags
             montagem.Tags = tag != null && tag.Count > 0 ? string.Join(",", tag) : string.Empty;
 
@@ -347,7 +347,6 @@ namespace MHDecora.Admin.Infra.Repositories
 
             return true;
         }
-
 
         //public async Task<bool> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         //{
