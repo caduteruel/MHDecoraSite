@@ -21,6 +21,15 @@ namespace MHDecora.Admin.Domain.Entities
         [NotMapped]
         public List<Tag> TagsList { get; set; }
 
+        [NotMapped]
+        public bool Status1 { get; set; }
+        [NotMapped]
+        public bool Status2 { get; set; }
+        [NotMapped]
+        public bool Status3 { get; set; }
+        [NotMapped]
+        public bool Status4 { get; set; }
+
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
     }

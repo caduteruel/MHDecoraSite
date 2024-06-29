@@ -274,6 +274,14 @@ namespace MHDecora.Admin.Infra.Repositories
             montagem.CaminhoImagem3 = montagemExistente.CaminhoImagem3;
             montagem.CaminhoImagem4 = montagemExistente.CaminhoImagem4;
 
+            if (montagem.Status1)
+            {
+                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+                File.Delete(filePath);
+
+                montagem.CaminhoImagem = string.Empty;
+            }
             if (arquivo1 != null)
             {
                 var nomeArquivoAntigo = montagemExistente.CaminhoImagem;

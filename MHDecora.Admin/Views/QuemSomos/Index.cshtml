@@ -50,13 +50,17 @@
                                 <label id="labelImage" for="fname" style="display:none">Imagem</label>                               
                                 @if (@Model?.CaminhoImagem == null)
                                 {
-                                    <img id="previewImage" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                                    <img id="previewImage" src="~/images/quemsomos/56fee0f5-54b7-41a1-b8a7-9e1518f99848_intecredpng.png" class="img-fluid" alt="Imagem do Banner" style="display:none" />
                                 }
                                 else
                                 {
-                                    <img id="previewImage" src="@Model?.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                                    <img id="previewImage" src="~/images/quemsomos/56fee0f5-54b7-41a1-b8a7-9e1518f99848_intecredpng.png" class="img-fluid" alt="Imagem do Banner" />
                                 }
                             </div>
+       
+                            <button type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImage()">
+                                <i class="mdi mdi-delete"></i>
+                            </button>
                         </div>
                     </div>
                     
