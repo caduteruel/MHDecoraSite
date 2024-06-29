@@ -22,9 +22,11 @@ namespace MHDeroca.Site.Controllers
         private readonly IContatoService _contatoService;
         private readonly IInstagramService _instagramService;
         private readonly ICategoriaService _categoriaService;
+        private readonly IOrcamentoService _orcamentoService;
 
         public HomeController(ILogger<HomeController> logger, IMidiaSocialService midiaSocialService, IBannerService bannerService, IQuemSomosService quemSomosService, 
-            IMontagemService montagemService, ITemaService temaService, IContatoService contatoService, IInstagramService instagramService, IMemoryCache memoryCache, ICategoriaService categoriaService)
+            IMontagemService montagemService, ITemaService temaService, IContatoService contatoService, IInstagramService instagramService, IMemoryCache memoryCache, ICategoriaService categoriaService, IOrcamentoService orcamentoService)
+
         {
             _logger = logger;
             _midiaSocialService = midiaSocialService;
@@ -36,6 +38,7 @@ namespace MHDeroca.Site.Controllers
             _instagramService = instagramService;
             _memoryCache = memoryCache;
             _categoriaService = categoriaService;
+            _orcamentoService = orcamentoService;
         }
 
         public async Task<IActionResult> Index()
@@ -98,6 +101,8 @@ namespace MHDeroca.Site.Controllers
 
             ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
 
+            ViewData["PalavraPesquisada"] = texto;
+
             return View(montagens);
         }
 
@@ -148,6 +153,26 @@ namespace MHDeroca.Site.Controllers
             return Json(link); // Retorna os dados como JSON
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Orcamento (Orcamento orcamento)
+        {
+            //var result = await _orcamentoService.EnviarOrcamento(orcamento);
+
+            //validacao chamada acima
+            //if (1 == 1)
+            //{
+            //    Alert("Sucesso!", "Orcamento enviado com sucesso.", "success");
+            //}
+            //else
+            //{
+            //    Alert("Erro!", "Não foi possível enviar o Orcamento, contate a equipe MH Decora.", "danger");
+            //}
+
+            return RedirectToAction("Index");
+
+        }
+
+
         public IActionResult Privacy()
         {
             return View();
@@ -158,5 +183,12 @@ namespace MHDeroca.Site.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        private void Alert(string titulo, string mensagem, string alerta)
+        {
+            TempData["Titulo"] = titulo;
+            TempData["Mensagem"] = mensagem;
+            TempData["TipoAlerta"] = alerta;
+        }
+
     }
 }
