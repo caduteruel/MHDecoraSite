@@ -28,11 +28,8 @@
             <h1>Entre em contato <br />com nossa equipe</h1>
 
             <div class="map-icon">
-                <p>
-                    <i class="fa-solid fa-phone"></i><a href="tel:@(Model.Telefone.Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank">@(Model.Telefone)</a>
-                    @Model.Celular
-                </p>
-                <p><i class="fa-brands fa-whatsapp"></i><a href="tel:@(Model.Celular.Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank">@(Model.Celular)</a></p>
+                <p><i class="fa-solid fa-phone"></i>@Model.Celular</p>
+                <p><i class="fa-brands fa-whatsapp"></i>@Model.Telefone</p>
             </div>
 
             <div class="map-info">

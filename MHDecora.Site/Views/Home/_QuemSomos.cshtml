@@ -27,7 +27,9 @@
             </div>
             <div class="about-content">
                 <h1>@Model.Titulo</h1>
-                @Html.Raw(@Model.Descricao)
+                <div style="-webkit-text-stroke-width: thin;">
+                    @Html.Raw(@Model.Descricao)
+                </div>
             </div>
         </div>
     </div>
