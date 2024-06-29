@@ -9,7 +9,10 @@
 @await Html.PartialAsync("~/Views/Home/_QuemSomos.cshtml", Model.QuemSomos)
 
 <!-- Renderização da Partial View para o Montagens -->
-@await Html.PartialAsync("~/Views/Home/_Montagens.cshtml", Model.Montagens)
+@* @await Html.PartialAsync("~/Views/Home/_Montagens.cshtml", Model.Montagens) *@
+
+<!-- Renderização da Partial View para a Categorias -->
+@await Html.PartialAsync("~/Views/Home/_Categorias.cshtml", Model.Categorias)
 
 <!-- Renderização da Partial View para o Temas -->
 @await Html.PartialAsync("~/Views/Home/_Temas.cshtml", Model.Temas)

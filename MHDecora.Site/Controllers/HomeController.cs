@@ -21,9 +21,10 @@ namespace MHDeroca.Site.Controllers
         private readonly ITemaService _temaService;
         private readonly IContatoService _contatoService;
         private readonly IInstagramService _instagramService;
+        private readonly ICategoriaService _categoriaService;
 
         public HomeController(ILogger<HomeController> logger, IMidiaSocialService midiaSocialService, IBannerService bannerService, IQuemSomosService quemSomosService, 
-            IMontagemService montagemService, ITemaService temaService, IContatoService contatoService, IInstagramService instagramService, IMemoryCache memoryCache)
+            IMontagemService montagemService, ITemaService temaService, IContatoService contatoService, IInstagramService instagramService, IMemoryCache memoryCache, ICategoriaService categoriaService)
         {
             _logger = logger;
             _midiaSocialService = midiaSocialService;
@@ -34,6 +35,7 @@ namespace MHDeroca.Site.Controllers
             _contatoService = contatoService;
             _instagramService = instagramService;
             _memoryCache = memoryCache;
+            _categoriaService = categoriaService;
         }
 
         public async Task<IActionResult> Index()
@@ -46,6 +48,9 @@ namespace MHDeroca.Site.Controllers
 
             ////Quem Somos
             QuemSomos quemSomos = await _quemSomosService.Buscar();
+
+            //Categorias
+            List<Categoria> categorias = await _categoriaService.Buscar();
 
             ////Montagens
             List<Montagem> montagem = await _montagemService.Buscar();
@@ -81,6 +86,7 @@ namespace MHDeroca.Site.Controllers
             siteViewModel.Temas = tema;
             siteViewModel.Galerias = galeria;
             siteViewModel.Contato = contato;
+            siteViewModel.Categorias = categorias;
 
             return View(siteViewModel);
         }
@@ -104,6 +110,7 @@ namespace MHDeroca.Site.Controllers
             
             return View(montagens);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Detalhes(int montagemId)
