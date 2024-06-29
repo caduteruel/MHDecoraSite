@@ -1,65 +1,6 @@
-﻿@* <div class="container text-center">
-    <div style="margin-left: 11% !important; max-width: 75% !important;">
-        <div style="margin-left: 15% !important;">
-            <h2 class="mt-5 text-center">Orçamento</h2>
-            <hr class="hr-custom mb-4">
-        </div>
+﻿@model MHDecora.Site.Domain.Entities.Orcamento
 
-        <form action="#" method="post">
-            <div class="form-group row">
-                <label for="nome" class="col-sm-2 col-form-label text-left">Nome:</label>
-                <div class="col-sm-10">
-                    <input type="text" id="nome" name="nome" class="form-control" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="email" class="col-sm-2 col-form-label text-left">E-mail:</label>
-                <div class="col-sm-4">
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-
-                <label for="telefone" class="col-sm-2 col-form-label text-left">Telefone:</label>
-                <div class="col-sm-4">
-                    <input type="tel" id="telefone" name="telefone" class="form-control" required>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label for="data" class="col-sm-2 col-form-label text-left">Data:</label>
-                <div class="col-sm-4">
-                    <input type="date" id="data" name="data" class="form-control">
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-check">
-                        <input type="checkbox" id="ainda_nao_definido" name="ainda_nao_definido" class="form-check-input">
-                        <label class="form-check-label ml-2" for="ainda_nao_definido">Ainda não defini o dia</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group row" style="text-align: left;">
-                <div class="col-md-12">
-                    <label for="mais_informacoes" class="col-form-label">Mais informações (Tema, Local do evento, frete...):</label>
-                </div>
-                <div class="col-md-12">
-                    <textarea id="mais_informacoes" name="mais_informacoes" class="form-control" rows="4"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-10">
-                    <input type="submit" value="Enviar" class="btn btn-primary">
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
- *@
-
-<section class="contact-wrapper" id="contato">
+@* <section class="contact-wrapper" id="contato">
     <div class="contact-form">
         <h1 class="heading">Orçamento</h1>
 
@@ -110,8 +51,55 @@
                     <textarea class="input"
                               cols="30"
                               rows="5"
-                              placeholder="Suaa mensagem..."
+                              placeholder="Sua mensagem..."
                               required></textarea>
+                </div>
+
+                <input type="submit" class="input submit" value="Enviar" />
+            </form>
+        </div>
+    </div>
+</section> *@
+<section class="contact-wrapper" id="contato">
+    <div class="contact-form">
+        <h1 class="heading">Orçamento</h1>
+
+        <div class="contactForm">
+            <form asp-action="Orcamento" asp-controller="Home" method="post">
+                <div class="input-form">
+                    <label asp-for="Nome">Nome:</label>
+                    <input asp-for="Nome" class="input" placeholder="Nome" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+
+                <div class="input-form horizontal">
+                    <div class="input-group">
+                        <label asp-for="Email">E-mail:</label>
+                        <input asp-for="Email" class="input" placeholder="E-mail" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="input-group">
+                        <label asp-for="Telefone">Telefone:</label>
+                        <input asp-for="Telefone" class="input" placeholder="(99) 99999-9999" />
+                        <span asp-validation-for="Telefone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="input-form horizontal">
+                    <div class="input-group">
+                        <label asp-for="Data">Data:</label>
+                        <input asp-for="Data" class="input" placeholder="Data do evento" />
+                    </div>
+                    <div class="input-group checkbox-group">
+                        <input asp-for="AindaNaoDefiniODia" type="checkbox" class="checkbox" />
+                        <label asp-for="AindaNaoDefiniODia">Ainda não defini o dia</label>
+                    </div>
+                </div>
+
+                <div class="input-form">
+                    <p>Mais informações(Tema, Local do evento, Frete...)</p>
+                    <textarea asp-for="MaisInformacoes" class="input" cols="30" rows="5" placeholder="Sua mensagem..."></textarea>
+                    <span asp-validation-for="MaisInformacoes" class="text-danger"></span>
                 </div>
 
                 <input type="submit" class="input submit" value="Enviar" />

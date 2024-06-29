@@ -1,7 +1,20 @@
 ﻿@model SiteViewModel
 
+@* @{
+    string titulo = TempData["Titulo"] as string;
+    string mensagem = TempData["Mensagem"] as string;
+    string tipoAlerta = TempData["TipoAlerta"] as string;
+}
 
+@if (!string.IsNullOrEmpty(mensagem))
+{
+    <div id="autoCloseAlert" class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">
+        <strong>@titulo</strong> @mensagem
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+} *@
 
+<div id="msgAlert"></div>
 <!-- Renderização da Partial View para o Banner -->
 @await Html.PartialAsync("~/Views/Home/_Banner.cshtml", Model.Banners)
  
@@ -27,4 +40,7 @@
 @await Html.PartialAsync("~/Views/Home/_Contato.cshtml", Model.Contato)
 
 <!-- Renderização da Partial View para o Orçamento -->
-@await Html.PartialAsync("~/Views/Home/_Orcamento.cshtml")
+@await Html.PartialAsync("~/Views/Home/_Orcamento.cshtml", Model.Orcamento)
+
+@* <script src="~/js/site.js"></script> *@
+

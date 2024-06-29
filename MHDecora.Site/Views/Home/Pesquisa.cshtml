@@ -1,5 +1,10 @@
 ﻿@model List<MHDecora.Site.Domain.Entities.Montagem>
 
+@{
+    var palavraPesquisada = ViewData["PalavraPesquisada"] as string;
+}
+
+
 
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
@@ -22,7 +27,7 @@
                     <h1 class="text-center">Ops!</h1>
 
                     <p class="text-center">
-                        Não foi encontrado nenhum resuldao.
+                        Não foi encontrado nenhum resultado para "@palavraPesquisada".
                     </p>
                 </div>
                
@@ -30,7 +35,7 @@
             else
             {
                 <div class="filter-text">
-                    <span style="font-size: xxx-large">Você buscou por: "@Model.FirstOrDefault().Titulo"</span>
+                    <span style="font-size: xxx-large">Você buscou por: "@palavraPesquisada"</span>
                     <br />
                     <br />
                     <p>
