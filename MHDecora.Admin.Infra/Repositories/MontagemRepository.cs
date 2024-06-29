@@ -255,8 +255,7 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 await _adminContext.DisposeAsync();
             }
-        }        
-
+        }
         public async Task<bool> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         {
             var montagemExistente = await _adminContext.MH_MONTAGEM.FindAsync(montagem.Id);
@@ -268,106 +267,79 @@ namespace MHDecora.Admin.Infra.Repositories
 
             _adminContext.Entry<Montagem>(montagemExistente).State = EntityState.Detached;
 
-
-            montagem.CaminhoImagem = montagemExistente.CaminhoImagem;
-            montagem.CaminhoImagem2 = montagemExistente.CaminhoImagem2;
-            montagem.CaminhoImagem3 = montagemExistente.CaminhoImagem3;
-            montagem.CaminhoImagem4 = montagemExistente.CaminhoImagem4;
-
-            if (montagem.Status1)
+            // Função para excluir arquivo
+            void DeleteFile(string path)
             {
-                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
-                File.Delete(filePath);
-
-                montagem.CaminhoImagem = string.Empty;
-            }
-            if (arquivo1 != null)
-            {
-                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
-                File.Delete(filePath);
-
-                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
-                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
-
-                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+                if (File.Exists(path))
                 {
-                    arquivo1.CopyTo(fileStream);
+                    File.Delete(path);
                 }
-
-                montagem.CaminhoImagem = nomeArquivoNovo;
             }
 
-            if (arquivo2 != null)
+            // Função para salvar novo arquivo
+            string SaveFile(IFormFile arquivo, int imagem)
             {
-                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
-                File.Delete(filePath);
-
-                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
-                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
-
-                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
-                {
-                    arquivo2.CopyTo(fileStream);
-                }
-
-                montagem.CaminhoImagem2 = nomeArquivoNovo;
-
-            }
-
-            if (arquivo3 != null)
-            {
-                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
-                File.Delete(filePath);
-
-                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
-                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
-
-                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
-                {
-                    arquivo3.CopyTo(fileStream);
-                }
-
-                montagem.CaminhoImagem3 = nomeArquivoNovo;
-
-            }
-
-            if (arquivo4 != null)
-            {
-                var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
-                File.Delete(filePath);
-
-
-                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
-                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    arquivo4.CopyTo(fileStream);
+                    arquivo.CopyTo(fileStream);
                 }
 
-                montagem.CaminhoImagem4 = nomeArquivoNovo;
-
-            }
-
-            string tags = String.Empty;
-            if (tag.Count > 0)
-            {
-                foreach (var item in tag)
+                switch (imagem)
                 {
-                    tags = tags + "," + item;
+                    case 1: montagem.CaminhoImagem = uniqueFileName; break;
+                    case 2: montagem.CaminhoImagem2 = uniqueFileName; break;
+                    case 3: montagem.CaminhoImagem3 = uniqueFileName; break;
+                    case 4: montagem.CaminhoImagem4 = uniqueFileName; break;
                 }
 
-                montagem.Tags = tags.Remove(0, 1);
+                return uniqueFileName;
             }
-            else
+
+            // Atualizar caminhos de imagens se o status for false
+            if (!montagem.Status1) montagem.CaminhoImagem = montagemExistente.CaminhoImagem;
+            if (!montagem.Status2) montagem.CaminhoImagem2 = montagemExistente.CaminhoImagem2;
+            if (!montagem.Status3) montagem.CaminhoImagem3 = montagemExistente.CaminhoImagem3;
+            if (!montagem.Status4) montagem.CaminhoImagem4 = montagemExistente.CaminhoImagem4;
+
+            // Processar arquivos e estados
+            if (montagem.Status1)
             {
-                tags = String.Empty;
+                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem));
+                if (arquivo1 != null)
+                {
+                    montagem.CaminhoImagem = SaveFile(arquivo1, 1);
+                }
             }
+            if (montagem.Status2)
+            {
+                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem2));
+                if (arquivo2 != null)
+                {
+                    montagem.CaminhoImagem2 = SaveFile(arquivo2, 2);
+                }
+            }
+            if (montagem.Status3)
+            {
+                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem3));
+                if (arquivo3 != null)
+                {
+                    montagem.CaminhoImagem3 = SaveFile(arquivo3, 3);
+                }
+            }
+            if (montagem.Status4)
+            {
+                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem4));
+                if (arquivo4 != null)
+                {
+                    montagem.CaminhoImagem4 = SaveFile(arquivo4, 4);
+                }
+            }
+
+            // Atualizar tags
+            montagem.Tags = tag != null && tag.Count > 0 ? string.Join(",", tag) : string.Empty;
 
             _adminContext.Entry(montagem).State = EntityState.Modified;
 
@@ -375,6 +347,173 @@ namespace MHDecora.Admin.Infra.Repositories
 
             return true;
         }
+
+
+        //public async Task<bool> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
+        //{
+        //    var montagemExistente = await _adminContext.MH_MONTAGEM.FindAsync(montagem.Id);
+
+        //    if (montagemExistente == null)
+        //    {
+        //        return false;
+        //    }
+
+        //    _adminContext.Entry<Montagem>(montagemExistente).State = EntityState.Detached;
+
+        //    if(montagem.Status1 == false)
+        //    {
+        //        montagem.CaminhoImagem = montagemExistente.CaminhoImagem;
+        //    }
+        //    else if(montagem.Status1 == true)
+        //    {
+        //        montagemExistente.CaminhoImagem = montagem.CaminhoImagem;
+        //    }
+
+        //    if(montagem.Status2 == false)
+        //    {
+        //        montagem.CaminhoImagem2 = montagemExistente.CaminhoImagem2;
+        //    }
+        //    if(montagem.Status3 == false)
+        //    {
+        //        montagem.CaminhoImagem3 = montagemExistente.CaminhoImagem3;
+        //    }
+        //    if(montagem.Status4 == false)
+        //    {
+        //        montagem.CaminhoImagem4 = montagemExistente.CaminhoImagem4;
+        //    }
+
+
+        //    if (montagem.Status1)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+        //        montagem.CaminhoImagem = string.Empty;
+        //    }
+
+        //    if (montagem.Status2)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem2;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+        //        montagem.CaminhoImagem2 = string.Empty;
+        //    }
+
+        //    if (montagem.Status3)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem3;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+        //        montagem.CaminhoImagem3 = string.Empty;
+        //    }
+
+        //    if (montagem.Status4)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem4;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+        //        montagem.CaminhoImagem4 = string.Empty;
+        //    }
+
+
+
+        //    if (arquivo1 != null)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+        //        var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo1.FileName;
+        //        filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+
+        //        using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+        //        {
+        //            arquivo1.CopyTo(fileStream);
+        //        }
+
+        //        montagem.CaminhoImagem = nomeArquivoNovo;
+        //    }
+
+        //    if (arquivo2 != null)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+        //        var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo2.FileName;
+        //        filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+
+        //        using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+        //        {
+        //            arquivo2.CopyTo(fileStream);
+        //        }
+
+        //        montagem.CaminhoImagem2 = nomeArquivoNovo;
+
+        //    }
+
+        //    if (arquivo3 != null)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+        //        var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo3.FileName;
+        //        filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+
+        //        using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+        //        {
+        //            arquivo3.CopyTo(fileStream);
+        //        }
+
+        //        montagem.CaminhoImagem3 = nomeArquivoNovo;
+
+        //    }
+
+        //    if (arquivo4 != null)
+        //    {
+        //        var nomeArquivoAntigo = montagemExistente.CaminhoImagem;
+        //        string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoAntigo);
+        //        File.Delete(filePath);
+
+
+        //        var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo4.FileName;
+        //        filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", nomeArquivoNovo);
+
+        //        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        //        {
+        //            arquivo4.CopyTo(fileStream);
+        //        }
+
+        //        montagem.CaminhoImagem4 = nomeArquivoNovo;
+
+        //    }
+
+        //    string tags = String.Empty;
+        //    if (tag.Count > 0)
+        //    {
+        //        foreach (var item in tag)
+        //        {
+        //            tags = tags + "," + item;
+        //        }
+
+        //        montagem.Tags = tags.Remove(0, 1);
+        //    }
+        //    else
+        //    {
+        //        tags = String.Empty;
+        //    }
+
+        //    _adminContext.Entry(montagem).State = EntityState.Modified;
+
+        //    await _adminContext.SaveChangesAsync();
+
+        //    return true;
+        //}
 
         private string GetPathImagens()
         {
