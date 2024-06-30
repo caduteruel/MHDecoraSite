@@ -226,20 +226,20 @@ namespace MHDecora.Admin.Infra.Repositories
                     montagem.CaminhoImagem4 = uniqueFileName;
                 }
 
-                string tags = String.Empty;
-                if (tag.Count > 0)
-                {
-                    foreach (var item in tag)
-                    {
-                        tags = tags + "," + item;
-                    }
+                //string tags = String.Empty;
+                //if (tag.Count > 0)
+                //{
+                //    foreach (var item in tag)
+                //    {
+                //        tags = tags + "," + item;
+                //    }
 
-                    montagem.Tags = tags.Remove(0, 1);
-                }
-                else
-                {
-                    tags = String.Empty;
-                }
+                //    montagem.Tags = tags.Remove(0, 1);
+                //}
+                //else
+                //{
+                //    tags = String.Empty;
+                //}
 
                 _adminContext.MH_MONTAGEM.Add(montagem);
 

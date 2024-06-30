@@ -30,28 +30,21 @@
                 @using (Html.BeginForm("Salvar", "Montagem", FormMethod.Post, new { enctype = "multipart/form-data", id = "formAdicionar" }))
                 {
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="fname">Nome da Montagem</label>
                                 <input name="titulo" class="form-control" placeholder="Título da sessão" id="titulo">
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <label for="fname">Texto em cima da Imagem</label>
-                                <input name="textoImagem" class="form-control" placeholder="Texto da imagem" id="textoImagem">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="fname">Link do Botão</label>
                                 <input name="linkBotao" class="form-control" placeholder="Link do botão" id="linkBotao">
                             </div>
-                        </div>
-                        
+                        </div>                        
                     </div>
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="fname">Descrição</label>
                                 <textarea class="form-control" id="texto" name="texto" rows="5"></textarea>
@@ -69,7 +62,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="fname">Produto em Destaque</label>
                                 <div class="form-check">
@@ -118,25 +111,25 @@
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label id="labelImage1" for="fname" style="display:none">Imagem</label>
-                                <img id="previewImage1" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                                <img id="previewImage1" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label id="labelImage2" for="fname" style="display:none">Imagem</label>
-                                <img id="previewImage2" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                                <img id="previewImage2" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label id="labelImage3" for="fname" style="display:none">Imagem</label>
-                                <img id="previewImage3" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                                <img id="previewImage3" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label id="labelImage4" for="fname" style="display:none">Imagem</label>
-                                <img id="previewImage4" src="#" class="img-fluid" alt="Imagem do Banner" style="display:none" />
+                                <img id="previewImage4" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                         </div>
                   
@@ -144,8 +137,10 @@
 
                     <div class="row">
                         <div class="col-sm-12 mb-5">
-                            <label id="labelImage5" for="fname">Escolha as Tags</label>
-                            <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
+                            <label id="labelImage5" for="fname">Digite as Tags</label>
+                            <textarea class="form-control" id="tags" name="tags" data-placeholder="Digite as tag para ser encontrado nas buscas" rows="5"></textarea>
+
+                            @* <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
                                 <option value="">-- Escolha as tags --</option>
                                 @if (@ViewBag.Tags != null)
                                 {
@@ -154,7 +149,7 @@
                                         <option value="@ViewBag.Tags[i].Id">@ViewBag.Tags[i].Nome</option>
                                     }
                                 }                               
-                            </select>
+                            </select> *@
                         </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
@@ -178,34 +173,33 @@
 
 @section Scripts {
     
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
 
 
         $(document).ready(function () {
-            $('#tag').select2({
-                theme: "bootstrap-5",
-                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                placeholder: $(this).data('placeholder'),
-                closeOnSelect: false,
-            });
+            // $('#tag').select2({
+            //     theme: "bootstrap-5",
+            //     width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            //     placeholder: $(this).data('placeholder'),
+            //     closeOnSelect: false,
+            // });
 
             $('#formAdicionar').submit(function (e) {
                 e.preventDefault(); // Evita o envio padrão do formulário
 
                 var titulo = $("#titulo").val();
-                var textoImagem = $("#textoImagem").val();
+               // var textoImagem = $("#textoImagem").val();
               
                 var texto = $("#texto").val();
                 var categoria = $("#categoria").val();
 
                 var fileInput1 = $("#fileInput1").val();
-                var fileInput2 = $("#fileInput2").val();
-                var fileInput3 = $("#fileInput3").val();
-                var fileInput4 = $("#fileInput4").val();
+                //var fileInput2 = $("#fileInput2").val();
+               // var fileInput3 = $("#fileInput3").val();
+                //var fileInput4 = $("#fileInput4").val();
 
-                if (!titulo || !textoImagem || !texto || categoria == "0" || !fileInput1 || !fileInput2 || !fileInput3 || !fileInput4) {
+                if (!titulo || !texto || categoria == "0" || !fileInput1) {
                     Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }
@@ -218,7 +212,7 @@
         // Função para exibir a visualização da imagem quando um arquivo é selecionado
         function cancelar() {
             $("#titulo").val("");
-            $("#textoImagem").val("");
+           // $("#textoImagem").val("");
             $("#linkBotao").val("");
             $("#texto").val("");
             

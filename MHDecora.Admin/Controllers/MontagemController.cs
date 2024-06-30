@@ -42,7 +42,7 @@ namespace MHDecora.Admin.Controllers
         {
             var categorias = await _categoriaService.GetCategorias();
 
-            ViewBag.Tags = await _tagService.GetTags();
+            //ViewBag.Tags = await _tagService.GetTags();
 
             return View(categorias);
         }
