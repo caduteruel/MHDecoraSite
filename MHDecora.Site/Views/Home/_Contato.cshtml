@@ -24,12 +24,21 @@
 
 <section class="map-wrapper">
     <div class="map-container">
-        <div class="map-text">
-            <h1>Entre em contato <br />com nossa equipe</h1>
-
+        <div class="about-content-left map-text">
+            <h1>Entre em contato <br />com a nossa equipe</h1>
+          
             <div class="map-icon">
-                <p><i class="fa-solid fa-phone"></i>@Model.Celular</p>
-                <p><i class="fa-brands fa-whatsapp"></i>@Model.Telefone</p>
+
+                <p style="text-align: left; display: flex; justify-content: flex-end; align-items: center;">
+                    <img src="~/images/site/tel-contato.svg" style="width: 12px; margin-right: 10px;" />
+                    <a href="tel:@(Model.Telefone.Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank" style="-webkit-text-stroke-width: thin;font-size: large;">@(Model.Telefone)</a>
+                </p>
+
+                <p style="text-align: left; display: flex; justify-content: flex-end; align-items: center;">
+                    <img src="~/images/site/whatts-contato.svg" style="width: 23px; margin-right: 10px;" />
+                    <a href="tel:@(Model.Celular.Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank" style="-webkit-text-stroke-width: thin;font-size: large;">@(Model.Celular)</a>
+                </p>
+
             </div>
 
             <div class="map-info">
@@ -38,24 +47,38 @@
                 </div>
 
                 <div class="map-info-text">
-                    <h5>Horario de atendimento</h5>
+                    <h5 class="negrito" style="font-size: large; ">Horário de Atendimento:</h5>
                     <p>
-                        @Model.HorarioAtendimento
+                        <span style=" -webkit-text-stroke-width: thin;font-size: large;line-height: 1.5;">@Html.Raw(@Model.HorarioAtendimento)</span>
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="map">
+        <div class="map-info-text">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d932.1476799848972!2d-47.079841000000005!3d-22.895755899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x746aeca40efba353!2sParty%20To%20Go%20Loca%C3%A7%C3%B5es!5e0!3m2!1sen!2sbr!4v1695632839276!5m2!1sen!2sbr"
                     width="500" height="230" style="border: 2px solid #fff"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
 
 
-            <p style="text-align: left; display: flex; justify-content: flex-end; align-items: center;">
-                <i class="fa-solid fa-location-dot"></i>@Html.Raw(@Model.Endereco)
+            <p style="display: flex; margin-top: 10px;align-items: center;  line-height: 1.5;">
+                <img src="~/images/site/mapa-contato.svg" style="width: 27px; margin-right: 20px;" />
+                <a href="https://www.google.com/maps/place/Av.+Dr.+Alberto+Sarmento,+493+-+Jardim+Chapad%C3%A3o,+Campinas+-+SP,+13070-711" style="-webkit-text-stroke-width: thin;font-size: large;"
+                   target="_blank">
+                    @Html.Raw(@Model.Endereco)
+                </a>
             </p>
+
         </div>
     </div>
 </section>
+
+<script>
+    document.getElementById('enderecoLink').addEventListener('click', function (event) {
+        event.preventDefault();
+        var endereco = encodeURIComponent('@Model.Endereco');
+        var googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + endereco;
+        window.open(googleMapsUrl, '_blank');
+    });
+</script>

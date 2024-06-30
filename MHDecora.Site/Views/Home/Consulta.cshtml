@@ -13,26 +13,21 @@
     @{
         if (Model.Count() == 0)
         {
-            <div class="container-filter">
-                <div class="text-center" style="text-align: center;">
-                    <h1 class="text-center">Ops!</h1>
-
-                    <p class="text-center">
-                        Não foi encontrado nenhum resultado.
-                    </p>
-                </div>
-            </div>           
+            <div class="filter-text">
+                <span style="font-size: xxx-large">Categoria: "@Model.FirstOrDefault().Categoria.Nome"</span>
+                <br />
+                <br />
+                <p>
+                    Não foi encontrado nenhum resultado
+                </p>
+            </div>
         }
         else
         {
             <div class="container-filter">        
 
                 <div class="filter-text">
-                     <h1>@Model.FirstOrDefault().Titulo</h1>
-
-                    <p>
-                        @Model.FirstOrDefault().Texto
-                    </p>
+                     <h1>@Model.FirstOrDefault().Categoria.Nome</h1>
                 </div>
 
                 <div class="filter-buttons">

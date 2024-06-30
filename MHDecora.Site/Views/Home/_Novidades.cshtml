@@ -1,4 +1,5 @@
-﻿@using Newtonsoft.Json.Linq
+﻿@using MHDecora.Site.Domain.Entities
+@using Newtonsoft.Json.Linq
 
 @{
     IEnumerable<JToken> instagramPosts = null;
@@ -7,11 +8,17 @@
     {
         instagramPosts = ViewBag.InstagramPosts.SelectTokens("$..data[?(@.media_type == 'CAROUSEL_ALBUM')]");
     }
+
+    var RedeInstagram = ViewBag.RedeInstagram as ConfigSite;
 }
 
-<section class="swiper" style="height: 740px; margin-top: 50px;" id="novidades">
+<link href="~/css/lightbox2/css/lightbox.css" rel="stylesheet" /> />
+
+
+<section class="swiper" style="height: 720px; margin-top: 50px;" id="novidades">
     <div class="about-content">
-        <h1  style="font-size: 45px !important;"> Novidades</h1>
+        <h1 class="heading">Novidades</h1>
+
     </div>
     <div class="news-container">
         @if (instagramPosts != null)
@@ -21,8 +28,8 @@
                 @if (item.value.SelectToken("media_url") != null && item.idx < 8)
                 {
                     IEnumerable<JToken> children = item.value.SelectToken("children").SelectTokens("$..data[?(@.media_url != '')]");
-@* 
-                    <div class="col-md-3 item-novidade">
+
+                    <div class="news" style="width: 260px !important; height:260px !important;">
                         <a data-lightbox="@item.value.SelectToken("id")" href="@item.value.SelectToken("media_url")">
                             <img src="@item.value.SelectToken("media_url")">
                         </a>
@@ -35,42 +42,20 @@
                                 </a>
                             }
                         }
-                    </div> *@
-
-                    <div class="news">
-                        <img src="@item.value.SelectToken("media_url")" alt="" />
                     </div>
+
+                    @* <div class="news">
+                        <img src="@item.value.SelectToken("media_url")" alt="" />
+                    </div> *@
                 }
             }
         }
-        else
-        {
-
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                        <img src="/images/news/news1.jpg" alt="" />
-                    </div>
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                <img src="/images/news/news2.jpg" alt="" />
-                    </div>
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                <img src="/images/news/news3.jpg" alt="" />
-                    </div>
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                <img src="/images/news/news4.jpg" alt="" />
-                    </div>
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                <img src="/images/news/news5.jpg" alt="" />
-                    </div>
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                <img src="/images/news/news6.jpg" alt="" />
-                    </div>
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                <img src="/images/news/news7.jpg" alt="" />
-                    </div>
-            <div class="news" style="width: 260px !important; height:260px !important;">
-                <img src="/images/news/news8.jpg" alt="" />
-                    </div>
-            
-        }
+       
     </div>
 </section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/css/lightbox2/js/lightbox.js"></script>
+   
+}
+          
