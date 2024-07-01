@@ -23,26 +23,7 @@ namespace MHDecora.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var response = await _temaService.Buscar();                     
-
-            if(response != null)
-            {
-                
-                foreach (var item in response)
-                {
-                    string tags = String.Empty;
-                    if (item.Tags != null)
-                    {
-                        foreach (var elemnt in item.TagsList)
-                        {
-                            tags = tags + " - " + elemnt.Nome;
-                        }
-
-                        item.Tags = tags.Remove(0, 3);
-                    }
-                }
-            }
-
-
+                      
             if (response == null)
             {                
                 return View(response);

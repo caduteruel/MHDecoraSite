@@ -24,19 +24,7 @@ namespace MHDecora.Admin.Infra.Repository
 
             foreach (var item in listaTemas)
             {
-                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
-
-                if (item.Tags != null)
-                {
-                    var listaTags = item.Tags.Split(",");
-                    item.TagsList = new List<Tag>();
-
-                    foreach (var tag in listaTags)
-                    {
-                        var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
-                        item.TagsList.Add(tag2);
-                    }
-                }
+                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;                
             }
 
             return listaTemas;
