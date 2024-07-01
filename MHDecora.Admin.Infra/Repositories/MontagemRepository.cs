@@ -54,11 +54,11 @@ namespace MHDecora.Admin.Infra.Repositories
                     var listaTags = response.Tags.Split(",");
                     response.TagsList = new List<Tag>();
 
-                    foreach (var tag in listaTags)
-                    {
-                        var tag2 = _adminContext.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
-                        response.TagsList.Add(tag2);
-                    }
+                    //foreach (var tag in listaTags)
+                    //{
+                    //    var tag2 = _adminContext.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
+                    //    response.TagsList.Add(tag2);
+                    //}
                 }
                 
                 return response;
@@ -339,7 +339,7 @@ namespace MHDecora.Admin.Infra.Repositories
             }
 
             // Atualizar tags
-            montagem.Tags = tag != null && tag.Count > 0 ? string.Join(",", tag) : string.Empty;
+            //montagem.Tags = tag != null || tag.Count > 0 ? string.Join(",", tag) : string.Empty;
 
             _adminContext.Entry(montagem).State = EntityState.Modified;
 
