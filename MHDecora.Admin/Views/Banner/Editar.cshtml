@@ -87,9 +87,13 @@ else
             <div class="row">
                 <div class="col-sm-4 mb-2">
                     <div class="form-group">
-                        <label for="fname">Imagem</label>
-                        <img id="previewImage" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                        <label for="fname" id="lblImagem1">Imagem</label>
+                        <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
                     </div>
+                    <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
+                    <button id="btnImagem1" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(1)">
+                        <i class="mdi mdi-delete"></i>
+                    </button>
                 </div>
             </div>
             <div class="form-footer pt-5 border-top d-flex justify-content-between">
@@ -111,10 +115,36 @@ else
    
 <script>
     // Função para exibir a visualização da imagem quando um arquivo é selecionado
+
+        function apagarImagem(posicao) {
+
+            var concatenado = 'status' + posicao;
+            var statusX = document.getElementById(concatenado);
+
+            concatenado = 'lblImagem' + posicao;
+            var labelX = document.getElementById(concatenado);
+
+            contatenado = 'previewImagem' + posicao;
+            var previewX = document.getElementById(contatenado);
+
+            contatenado = 'btnImagem' + posicao;
+            var botaoX = document.getElementById(contatenado);
+
+            statusX.value = 'true';
+            previewX.src = '';
+            previewX.style.display = 'none';
+            labelX.style.display = 'none';
+            botaoX.style.display = 'none';
+        }
+
     function previewFile() {
-        var preview = document.getElementById('previewImage');
+
+        var status = document.getElementById('status1');  
+        var preview = document.getElementById('previewImagem');
         var fileInput = document.getElementById('fileInput').files[0];
         var reader = new FileReader();
+
+        statusX.value = 'true';
 
         reader.onloadend = function () {
             preview.src = reader.result;

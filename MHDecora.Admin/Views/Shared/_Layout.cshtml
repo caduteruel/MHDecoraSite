@@ -137,7 +137,12 @@
                 <span class="nav-text">Mídias Sociais</span>
             </a>
         </li>
-
+        <li>
+            <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Categoria" ? "active" : "")" asp-controller="Categoria" asp-action="Index">
+                <i class="mdi mdi-format-list-bulleted"></i>
+                <span class="nav-text">Categoria</span>
+            </a>
+        </li>
 @*         <li>
                             <a class="sidenav-item-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Rodape" ? "active" : "")" asp-controller="Rodape" asp-action="Index">
                                 <i class="mdi mdi-page-layout-footer"></i>
@@ -146,7 +151,7 @@
         </li> *@
 
 
-        <li class="has-sub">
+      @*   <li class="has-sub">
             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
                 aria-expanded="false" aria-controls="charts">
                                 <i class="mdi mdi-settings-outline"></i>
@@ -176,7 +181,7 @@
 
                 </div>
             </ul>
-        </li>
+        </li> *@
 
     </ul>              
 </div>

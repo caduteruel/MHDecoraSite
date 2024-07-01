@@ -54,7 +54,6 @@ namespace MHDecora.Admin.Infra.Migrations
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CaminhoImagem")
-                        .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Descricao")
@@ -87,6 +86,12 @@ namespace MHDecora.Admin.Infra.Migrations
 
                     b.Property<string>("HorarioAtendimento")
                         .IsRequired()
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("LinkEndereco")
+                        .HasColumnType("NVARCHAR2(2000)");
+
+                    b.Property<string>("LinkMapa")
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Telefone")
@@ -162,7 +167,6 @@ namespace MHDecora.Admin.Infra.Migrations
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("TextoImagem")
-                        .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Titulo")

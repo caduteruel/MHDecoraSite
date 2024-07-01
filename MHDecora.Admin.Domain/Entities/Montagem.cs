@@ -11,7 +11,7 @@ namespace MHDecora.Admin.Domain.Entities
         public string? CaminhoImagem2 { get; set; }
         public string? CaminhoImagem3 { get; set; }
         public string? CaminhoImagem4 { get; set; }
-        public string TextoImagem { get; set; }
+        public string? TextoImagem { get; set; }
         public string Texto { get; set; }        
         public string Titulo { get; set; }
         public string? LinkBotao { get; set; }

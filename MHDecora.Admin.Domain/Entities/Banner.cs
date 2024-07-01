@@ -15,5 +15,8 @@ namespace MHDecora.Admin.Domain.Entities
         public string? Descricao { get; set; }
         public string CaminhoImagem { get; set; }
         public int Ordem { get; set; }
+
+        [NotMapped]
+        public bool Status1 { get; set; }
     }
 }

@@ -43,6 +43,41 @@ namespace MHDecora.Admin.Infra.Repositories
 
                 dados.CaminhoImagem = quemSomosExistente.CaminhoImagem;
 
+                if (!dados.Status1) dados.CaminhoImagem = quemSomosExistente.CaminhoImagem;
+
+                if (dados.Status1)
+                {
+                    DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/quemsomos/", quemSomosExistente.CaminhoImagem));
+                    if (imagem != null)
+                    {
+                        dados.CaminhoImagem = SaveFile(imagem);
+                    }
+                }
+
+                void DeleteFile(string path)
+                {
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
+                }
+
+                // Função para salvar novo arquivo
+                string SaveFile(IFormFile arquivo)
+                {
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/quemsomos/", uniqueFileName);
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        arquivo.CopyTo(fileStream);
+                    }
+
+                    dados.CaminhoImagem = uniqueFileName;
+
+                    return uniqueFileName;
+                }
+
                 if (imagem != null && imagem.Length > 0)
                 {
                     string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;

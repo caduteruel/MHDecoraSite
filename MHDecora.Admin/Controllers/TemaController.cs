@@ -79,9 +79,9 @@ namespace MHDecora.Admin.Controllers
         {
             var tema = await _temaService.BuscarPorId(id);
 
-            var listaTags = await _tagService.GetTags();
+            //var listaTags = await _tagService.GetTags();
 
-            ViewBag.Tags = new SelectList(listaTags, "Id", "Nome");
+            //ViewBag.Tags = new SelectList(listaTags, "Id", "Nome");
 
             return View(tema);
         }

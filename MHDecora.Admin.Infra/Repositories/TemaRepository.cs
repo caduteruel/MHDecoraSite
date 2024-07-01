@@ -43,7 +43,7 @@ namespace MHDecora.Admin.Infra.Repository
 
                 foreach (var tag in listaTags)
                 {
-                    var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
+                    var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(tag)).FirstOrDefault();
                     tema.TagsList.Add(tag2);
                 }
             }            
@@ -155,26 +155,61 @@ namespace MHDecora.Admin.Infra.Repository
 
             _context.Entry<Tema>(temaExistente).State = EntityState.Detached;
 
-            tema.CaminhoImagem = temaExistente.CaminhoImagem;
+            if (!tema.Status1) tema.CaminhoImagem = temaExistente.CaminhoImagem;
 
-            if (arquivo != null)
+            if (tema.Status1)
             {
-               // var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "tema");
-                var nomeArquivoAntigo = temaExistente.CaminhoImagem;
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoAntigo);
-                File.Delete(filePath);
+                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", temaExistente.CaminhoImagem));
+                if (arquivo != null)
+                {
+                    tema.CaminhoImagem = SaveFile(arquivo);
+                }
+            }
 
-                var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
-                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoNovo);
+            void DeleteFile(string path)
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
 
-                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+            // Função para salvar novo arquivo
+            string SaveFile(IFormFile arquivo)
+            {
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     arquivo.CopyTo(fileStream);
                 }
 
-                tema.CaminhoImagem = nomeArquivoNovo;
+                tema.CaminhoImagem = uniqueFileName;
 
+                return uniqueFileName;
             }
+
+            //tema.CaminhoImagem = temaExistente.CaminhoImagem;
+
+            //if (arquivo != null)
+            //{
+            //   // var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "tema");
+            //    var nomeArquivoAntigo = temaExistente.CaminhoImagem;
+            //    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoAntigo);
+            //    File.Delete(filePath);
+
+            //    var nomeArquivoNovo = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+            //    filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/tema/", nomeArquivoNovo);
+
+            //    using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+            //    {
+            //        arquivo.CopyTo(fileStream);
+            //    }
+
+            //    tema.CaminhoImagem = nomeArquivoNovo;
+
+            //}
 
             string tags = String.Empty;
             if (tag.Count > 0)

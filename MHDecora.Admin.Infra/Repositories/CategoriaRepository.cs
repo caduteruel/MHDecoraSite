@@ -67,29 +67,64 @@ namespace MHDecora.Admin.Infra.Repositories
 
             _adminContext.Entry<Categoria>(categoriaExistente).State = EntityState.Detached;
 
+            if (!categoria.Status1) categoria.CaminhoImagem = categoriaExistente.CaminhoImagem;
 
-            categoria.CaminhoImagem = categoriaExistente.CaminhoImagem;
 
-            if (imagem != null)
+            //categoria.CaminhoImagem = categoriaExistente.CaminhoImagem;
+
+            if (categoriaExistente.Status1)
             {
-                var nomeArquivoAntigo = categoriaExistente.CaminhoImagem;
-
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", nomeArquivoAntigo);
-
-                File.Delete(filePath);
-
-                string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
-
-                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", uniqueFileName);
-
-
-                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", categoriaExistente.CaminhoImagem));
+                if (imagem != null)
                 {
-                    imagem.CopyTo(fileStream);
+                    categoria.CaminhoImagem = SaveFile(imagem);
+                }
+            }
+
+            void DeleteFile(string path)
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+
+            // Função para salvar novo arquivo
+            string SaveFile(IFormFile arquivo)
+            {
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", uniqueFileName);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    arquivo.CopyTo(fileStream);
                 }
 
                 categoria.CaminhoImagem = uniqueFileName;
+
+                return uniqueFileName;
             }
+
+            //if (imagem != null)
+            //{
+            //    var nomeArquivoAntigo = categoriaExistente.CaminhoImagem;
+
+            //    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", nomeArquivoAntigo);
+
+            //    File.Delete(filePath);
+
+            //    string uniqueFileName = Guid.NewGuid().ToString() + "_" + imagem.FileName;
+
+            //    filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", uniqueFileName);
+
+
+            //    using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+            //    {
+            //        imagem.CopyTo(fileStream);
+            //    }
+
+            //    categoria.CaminhoImagem = uniqueFileName;
+            //}
 
             _adminContext.Entry(categoria).State = EntityState.Modified;
             await _adminContext.SaveChangesAsync();
