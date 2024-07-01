@@ -33,7 +33,7 @@ namespace MHDecora.Admin.Infra.Repository
 
                     foreach (var tag in listaTags)
                     {
-                        var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
+                        var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(tag)).FirstOrDefault();
                         item.TagsList.Add(tag2);
                     }
                 }
@@ -55,7 +55,7 @@ namespace MHDecora.Admin.Infra.Repository
 
                 foreach (var tag in listaTags)
                 {
-                    var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(Convert.ToInt32(tag))).FirstOrDefault();
+                    var tag2 = _context.MH_TAGS.Where(x => x.Id.Equals(tag)).FirstOrDefault();
                     tema.TagsList.Add(tag2);
                 }
             }            

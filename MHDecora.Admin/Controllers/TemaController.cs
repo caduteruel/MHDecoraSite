@@ -24,23 +24,23 @@ namespace MHDecora.Admin.Controllers
         {
             var response = await _temaService.Buscar();                     
 
-            if(response != null)
-            {
+            //if(response != null)
+            //{
                 
-                foreach (var item in response)
-                {
-                    string tags = String.Empty;
-                    if (item.Tags != null)
-                    {
-                        foreach (var elemnt in item.TagsList)
-                        {
-                            tags = tags + " - " + elemnt.Nome;
-                        }
+            //    foreach (var item in response)
+            //    {
+            //        string tags = String.Empty;
+            //        if (item.Tags != null)
+            //        {
+            //            foreach (var elemnt in item.TagsList)
+            //            {
+            //                tags = tags + " - " + elemnt.Nome;
+            //            }
 
-                        item.Tags = tags.Remove(0, 3);
-                    }
-                }
-            }
+            //            item.Tags = tags.Remove(0, 3);
+            //        }
+            //    }
+            //}
 
 
             if (response == null)
@@ -98,9 +98,9 @@ namespace MHDecora.Admin.Controllers
         {
             var tema = await _temaService.BuscarPorId(id);
 
-            var listaTags = await _tagService.GetTags();
+            //var listaTags = await _tagService.GetTags();
 
-            ViewBag.Tags = new SelectList(listaTags, "Id", "Nome");
+            //ViewBag.Tags = new SelectList(listaTags, "Id", "Nome");
 
             return View(tema);
         }
