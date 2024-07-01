@@ -58,8 +58,10 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12 mb-5">
-                            <label id="labelImage5" for="tag">Escolha as Tags</label>
-                            <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
+                            <label id="labelImage5" for="tag">Digite as Tags</label>
+                            @Html.TextAreaFor(m => m.Tags, new { @class = "form-control", @rows = "5" })
+
+                            @* <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
                                 <option value="">-- Escolha as tags --</option>
                                 @{
                                     var itens = ViewBag.Tags;
@@ -88,7 +90,7 @@
                                         }
                                     }
                                 }
-                            </select>
+                            </select> *@
                         </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
@@ -107,15 +109,15 @@
 </div>
 
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
         $(document).ready(function () {
-            $('#tag').select2({
-                theme: "bootstrap-5",
-                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                placeholder: $(this).data('placeholder'),
-                closeOnSelect: false,
-            });
+            // $('#tag').select2({
+            //     theme: "bootstrap-5",
+            //     width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            //     placeholder: $(this).data('placeholder'),
+            //     closeOnSelect: false,
+            // });
 
             $('#formAdicionar').submit(function (e) {
                 e.preventDefault(); // Evita o envio padrão do formulário
@@ -123,8 +125,9 @@
                 var descricao = $("#texto").val();
                 var titulo = $("#titulo").val();
                 var fileInput = $("#fileInput").val();
+                var tags = $("#tags").val();
 
-                if (!descricao || !titulo || !fileInput) {
+                if (!descricao || !titulo || !fileInput || !tags) {
                     alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }
@@ -137,6 +140,7 @@
         function cancelar() {
             $("#texto").val("");
             $("#titulo").val("");
+            $("#tags").val("");
 
             $('#fileInput').wrap('<form>').closest('form').get(0).reset();
             $('#fileInput').unwrap();
