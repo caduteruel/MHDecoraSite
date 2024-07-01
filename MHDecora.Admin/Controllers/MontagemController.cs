@@ -50,6 +50,12 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Salvar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         {
+
+            //atribuindo Texto Imagem para o Nome correto da Categoria
+            var categoria = await _categoriaService.GetCategoriaById(montagem.CategoriaId);
+            var categoriaNome = categoria.Nome;
+            montagem.TextoImagem = categoriaNome;
+
             var response = await _montagemService.Salvar(montagem, arquivo1, arquivo2, arquivo3, arquivo4, tag);
 
             if (response)
@@ -99,6 +105,12 @@ namespace MHDecora.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Editar(Montagem montagem, IFormFile arquivo1, IFormFile arquivo2, IFormFile arquivo3, IFormFile arquivo4, List<string> tag)
         {
+
+            //buscar nome categoria
+            var categoria = await _categoriaService.GetCategoriaById(montagem.CategoriaId);
+            var categoriaNome = categoria.Nome;
+            montagem.TextoImagem = categoriaNome;
+
             var response = await _montagemService.Editar(montagem, arquivo1, arquivo2, arquivo3, arquivo4, tag);
 
             if (response)
