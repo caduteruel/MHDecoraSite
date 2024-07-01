@@ -144,28 +144,40 @@ namespace MHDecora.Site.Infra.Repositories
                         //                                (x.Tags != null && palavrasChaveTags.Any(tag => x.Tags.Contains(tag))))
                         //                            .ToList();
 
-                        var listaTemaTags = tema.Tags.Split(",").ToList();
+                        //var listaTemaTags = tema.Tags.Split(",").ToList();
+
+                        //var palavrasChaveTags = new HashSet<string>(listaTemaTags);
+
+
+                        //// Realiza a consulta inicial para obter todas as montagens
+                           //var todasMontagens = await _context.MH_MONTAGEM.AsNoTracking().ToListAsync();
+
+                        //// Filtra em memória utilizando expressões regulares para buscar parte do texto
+                        //   var regexPadrao = new Regex(string.Join("|", palavrasChaveTags.Select(p => Regex.Escape(p))));
+
+
+                        //var listaMontagens = todasMontagens
+                        //                                .Where(x => x.Tags != null && palavrasChaveTags.Any(tag => x.Tags.Contains(listaTemaTags.Any(t => tag.Contains(t))))
+
+                        var listaTemaTags = tema.Tags.Split(",").Select(tag => tag.Trim()).ToList();
 
                         var palavrasChaveTags = new HashSet<string>(listaTemaTags);
 
+                        // Obter todas as montagens do banco de dados
+                        var todasMontagens = await _context.MH_MONTAGEM.Include(x => x.Categoria).AsNoTracking().ToListAsync();
 
-                        // Realiza a consulta inicial para obter todas as montagens
-                           var todasMontagens = await _context.MH_MONTAGEM.AsNoTracking().ToListAsync();
-
-                        // Filtra em memória utilizando expressões regulares para buscar parte do texto
-                           var regexPadrao = new Regex(string.Join("|", palavrasChaveTags.Select(p => Regex.Escape(p))));
-
-
+                        // Filtrar em memória utilizando Any e Contains
                         var listaMontagens = todasMontagens
-                                                        .Where(x => x.Tags != null && palavrasChaveTags.Any(tag => x.Tags.Contains(tag)))
-                                                    .ToList();
+                            .Where(x => x.Tags != null && x.Tags.Split(",").Select(tag => tag.Trim()).Any(tag => palavrasChaveTags.Contains(tag)))
+                            .ToList();
+
 
 
 
                         // 1. Carregar todas as montagens do banco de dados
                         //var todasMontagens = _context.MH_MONTAGEM.AsNoTracking().ToList();
 
-                 
+
                         foreach (var item1 in listaMontagens)
                         {
                             item1.CaminhoImagem = GetPathImagens() + item1.CaminhoImagem;
@@ -183,7 +195,7 @@ namespace MHDecora.Site.Infra.Repositories
                             //    item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
                             //}
 
-                        if (listaMontagens != null)
+                        if (listaMontagens == null)
                         {
                             return new List<Montagem>();
                         }
