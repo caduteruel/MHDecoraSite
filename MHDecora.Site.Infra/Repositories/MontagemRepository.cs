@@ -72,13 +72,12 @@ namespace MHDecora.Site.Infra.Repositories
 
             montagem = await _context.MH_MONTAGEM.Where(x => x.Id == montagemId).FirstOrDefaultAsync();
 
-            montagem.CaminhoImagem = GetPathImagens() + montagem.CaminhoImagem;
-            montagem.CaminhoImagem2 = GetPathImagens() + montagem.CaminhoImagem2;
-            montagem.CaminhoImagem3 = GetPathImagens() + montagem.CaminhoImagem3;
-            montagem.CaminhoImagem4 = GetPathImagens() + montagem.CaminhoImagem4;
+            montagem.CaminhoImagem = montagem.CaminhoImagem == null ? montagem.CaminhoImagem : GetPathImagens() + montagem.CaminhoImagem;
+            montagem.CaminhoImagem2 = montagem.CaminhoImagem2 == null ? montagem.CaminhoImagem2 : GetPathImagens() + montagem.CaminhoImagem2;
+            montagem.CaminhoImagem3 = montagem.CaminhoImagem3 == null ? montagem.CaminhoImagem3 : GetPathImagens() + montagem.CaminhoImagem3;
+            montagem.CaminhoImagem4 = montagem.CaminhoImagem4 == null ? montagem.CaminhoImagem4 : GetPathImagens() + montagem.CaminhoImagem4;
 
             detalhe.ListaMontagem.Add(montagem);
-
 
             var atuais = await _context.MH_MONTAGEM.Take(4).ToListAsync();
             atuais.RemoveAt(0); // Remove o 0 que é o de cima :-)
@@ -173,10 +172,6 @@ namespace MHDecora.Site.Infra.Repositories
             var listaMontagens = await _context.MH_MONTAGEM
                                                     .Where(x => x.Texto.Contains(texto) || x.Titulo.Contains(texto))
                                                     .ToListAsync();
-
-
-
-
 
             if (listaMontagens.Any())
             {

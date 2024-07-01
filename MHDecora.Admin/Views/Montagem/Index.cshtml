@@ -7,6 +7,16 @@
     string tipoAlerta = TempData["TipoAlerta"] as string;
 }
 
+<style>
+    #productsTable {
+        max-width: 100%; /* Defina o tamanho máximo do contêiner conforme necessário */
+        overflow: hidden; /* Oculta barras de rolagem se houver conteúdo excedente */
+    }
+    #productsTable table {
+        width: 100%; /* Ajusta a largura da tabela para preencher o contêiner */
+    }
+</style>
+
 @if (!string.IsNullOrEmpty(mensagem))
 {
     <div id="autoCloseAlert" class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">

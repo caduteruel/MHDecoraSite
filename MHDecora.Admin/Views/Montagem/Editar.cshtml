@@ -31,28 +31,21 @@
                 {
                     <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="fname">Título da Sessão</label>
                                 <input name="titulo" class="form-control" placeholder="Título da sessão" id="titulo" value="@Model.Titulo">
                             </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <label for="fname">Texto em cima da Imagem</label>
-                                <input name="textoImagem" class="form-control" placeholder="Texto da imagem" id="textoImagem" value="@Model.TextoImagem">
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
+                        </div>                       
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="fname">Link do Botão</label>
                                 <input name="linkBotao" class="form-control" placeholder="Link do botão" id="linkBotao" value="@Model.LinkBotao">
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="fname">Texto em baixo da Imagem</label>
                                 @Html.TextAreaFor(m => m.Texto, new { @class = "form-control", @rows = "5" })
@@ -65,7 +58,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="fname">Produto em Destaque</label>
                                 <div class="form-check">
@@ -128,7 +121,7 @@
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label for="fname" id="lblImagem1">Imagem - 1</label>
-                                <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                                <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />/>
                             </div>
                             <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
                             <button id="btnImagem1" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(1)">
@@ -138,7 +131,7 @@
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label for="fname" id="lblImagem2">Imagem - 2</label>
-                                <img id="previewImagem2" src="@Model.CaminhoImagem2" class="img-fluid" alt="Imagem do Banner" />
+                                <img id="previewImagem2" src="@Model.CaminhoImagem2" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />/>
                             </div>
                             <input hidden="hidden" id="status2" name="status2" value="@Model.Status2">
                             <button id="btnImagem2" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(2)">
@@ -148,7 +141,7 @@
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label for="fname" id="lblImagem3">Imagem - 3</label>
-                                <img id="previewImagem3" src="@Model.CaminhoImagem3" class="img-fluid" alt="Imagem do Banner" />
+                                <img id="previewImagem3" src="@Model.CaminhoImagem3" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" /> />
                             </div>
                             <input hidden="hidden" id="status3" name="status3" value="@Model.Status3">
                             <button id="btnImagem3" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(3)">
@@ -158,7 +151,7 @@
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
                                 <label for="fname" id="lblImagem4">Imagem - 4</label>
-                                <img id="previewImagem4" src="@Model.CaminhoImagem4" class="img-fluid" alt="Imagem do Banner" />
+                                <img id="previewImagem4" src="@Model.CaminhoImagem4" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" /> />
                             </div>
                             <input  hidden="hidden" id="status4" name="status4" value="@Model.Status4">
                             <button id="btnImagem4" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(4)">
@@ -170,9 +163,10 @@
 
                     <div class="row">
                         <div class="col-sm-12 mb-5">
-                            <label id="labelImage5" for="fname">Escolha as Tags</label>
+                            <label id="labelImage5" for="fname">Digite as Tags</label>                            
+                            @Html.TextAreaFor(m => m.Tags, new { @class = "form-control", @rows = "5" })
 
-                            <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
+                            @* <select class="form-select" name="tag" id="tag" data-placeholder="Digite a tag" multiple>
                                 <option value="">-- Escolha as tags --</option>
                                 @{
                                     var itens = ViewBag.Tags;
@@ -201,7 +195,7 @@
                                         }
                                     }
                                 }
-                            </select>
+                            </select> *@
                         </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
@@ -228,28 +222,28 @@
 
 
         $(document).ready(function () {
-            $('#tag').select2({
-                theme: "bootstrap-5",
-                width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-                placeholder: $(this).data('placeholder'),
-                closeOnSelect: false,
-            });
+            // $('#tag').select2({
+            //     theme: "bootstrap-5",
+            //     width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+            //     placeholder: $(this).data('placeholder'),
+            //     closeOnSelect: false,
+            // });
 
             $('#formAdicionar').submit(function (e) {
                 e.preventDefault(); // Evita o envio padrão do formulário
 
                 var titulo = $("#titulo").val();
-                var textoImagem = $("#textoImagem").val();
+               // var textoImagem = $("#textoImagem").val();
                
                 var texto = $("#texto").val();
                 var categoria = $("#categoria").val();
 
                 var fileInput1 = $("#fileInput1").val();
-                var fileInput2 = $("#fileInput2").val();
-                var fileInput3 = $("#fileInput3").val();
-                var fileInput4 = $("#fileInput4").val();
+                // var fileInput2 = $("#fileInput2").val();
+                // var fileInput3 = $("#fileInput3").val();
+                // var fileInput4 = $("#fileInput4").val();
 
-                if (!titulo || !textoImagem || !texto || categoria == "0" || !fileInput1 || !fileInput2 || !fileInput3 || !fileInput4) {
+                if (!titulo || !texto || categoria == "0" || !fileInput1) {
                     Alert("Atenção!", "Verifique os campos se estão preenchidos.", "warning");
                     return;
                 }
@@ -284,7 +278,7 @@
         // Função para exibir a visualização da imagem quando um arquivo é selecionado
         function cancelar() {
             $("#titulo").val("");
-            $("#textoImagem").val("");
+          //  $("#textoImagem").val("");
             $("#linkBotao").val("");
             $("#texto").val("");
 

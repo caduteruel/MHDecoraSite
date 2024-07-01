@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MHDecora.Site.Domain.Entities
 {
@@ -11,5 +10,7 @@ namespace MHDecora.Site.Domain.Entities
         public string Celular { get; set; }
         public string HorarioAtendimento { get; set; }
         public string Endereco { get; set; }
+        //public string Mapa { get; set; }
+        //public string LinkEndereço { get; set; }
     }
 }
