@@ -13,8 +13,5 @@ namespace MHDecora.Admin.Domain.Entities
         public string? LinkEndereco { get; set; }
         public string? LinkMapa { get; set; }
 
-        public string? LinkEndereco { get; set; }
-        public string? LinkMapa { get; set; }
-
     }
 }
