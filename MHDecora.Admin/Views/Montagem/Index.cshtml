@@ -10,10 +10,14 @@
 <style>
     #productsTable {
         max-width: 100%; /* Defina o tamanho máximo do contêiner conforme necessário */
-        overflow: hidden; /* Oculta barras de rolagem se houver conteúdo excedente */
+        /* overflow: hidden; */ /* Oculta barras de rolagem se houver conteúdo excedente */
     }
     #productsTable table {
         width: 100%; /* Ajusta a largura da tabela para preencher o contêiner */
+    }
+
+    .dataTables_scrollBody {        
+        overflow: visible !important;
     }
 </style>
 

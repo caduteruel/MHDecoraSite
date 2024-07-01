@@ -31,15 +31,17 @@
 
                 </pre>
         </div>
-        <table id="productsTable" class="table table-hover table-product" style="width:100%">
+        <table id="productsTable" class="table table-hover table-product" style="width: 100%; table-layout: fixed;">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Endereço</th>
-                    <th>Horário de Atendimento</th>
-                    <th>Celular</th>
-                    <th>Telefone</th>
-                    <th></th>
+                    <th style="width: 10%;">Id</th>
+                    <th style="width: 25%;">Endereço</th>
+                    <th style="width: 10%;">Link Endereço Google Maps</th>
+                    <th style="width: 10%;">Horário de Atendimento</th>
+                    <th style="width: 10%;">Link Google Maps</th>
+                    <th style="width: 15%;">Celular</th>
+                    <th style="width: 15%;">Telefone</th>
+                    <th style="width: 5%;"></th>
                 </tr>
             </thead>
             <tbody>
@@ -52,7 +54,9 @@
                             <tr>
                                 <td>@item.Id</td>
                                 <td>@item.Endereco</td>
+                                <td>@item.LinkEndereco</td>
                                 <td>@item.HorarioAtendimento</td>
+                                <td>@item.LinkMapa</td>
                                 <td>@item.Celular</td>
                                 <td>@item.Telefone</td>
                                 <td>

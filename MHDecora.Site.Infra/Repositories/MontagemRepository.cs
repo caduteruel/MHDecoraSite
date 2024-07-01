@@ -169,9 +169,7 @@ namespace MHDecora.Site.Infra.Repositories
         public async Task<List<Montagem>> Pesquisa(string texto)
         {
 
-            var listaMontagens = await _context.MH_MONTAGEM
-                                                    .Where(x => x.Texto.Contains(texto) || x.Titulo.Contains(texto))
-                                                    .ToListAsync();
+            var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.Tags.Contains(texto)).ToListAsync();
 
             if (listaMontagens.Any())
             {
