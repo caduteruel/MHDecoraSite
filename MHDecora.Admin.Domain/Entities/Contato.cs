@@ -11,5 +11,8 @@ namespace MHDecora.Admin.Domain.Entities
         public string HorarioAtendimento { get; set; }
         public string Endereco { get; set; }
 
+        public string? LinkEndereco { get; set; }
+        public string? LinkMapa { get; set; }
+
     }
 }

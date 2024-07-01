@@ -13,5 +13,8 @@ namespace MHDecora.Admin.Domain.Entities
         public string? Tags { get; set; }
         [NotMapped]
         public List<Tag> TagsList { get; set; }
+
+        [NotMapped]
+        public bool Status1 { get; set; }
     }
 }

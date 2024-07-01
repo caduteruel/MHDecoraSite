@@ -51,9 +51,13 @@
                     <div class="row">
                         <div class="col-sm-4 mb-2">
                             <div class="form-group">
-                                <label id="labelImage" for="fname">Imagem</label>
-                                <img id="previewImage" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                                <label id="lblImagem1" for="fname">Imagem</label>
+                                <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
                             </div>
+                            <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
+                            <button id="btnImagem1" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(1)">
+                                <i class="mdi mdi-delete"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="row">
@@ -106,6 +110,29 @@
     </div>
 </div>
 
+<script>
+    function apagarImagem(posicao) {
+
+        var concatenado = 'status' + posicao;
+        var statusX = document.getElementById(concatenado);
+
+        concatenado = 'lblImagem' + posicao;
+        var labelX = document.getElementById(concatenado);
+
+        contatenado = 'previewImagem' + posicao;
+        var previewX = document.getElementById(contatenado);
+
+        contatenado = 'btnImagem' + posicao;
+        var botaoX = document.getElementById(contatenado);
+
+        statusX.value = 'true';
+        previewX.src = '';
+        previewX.style.display = 'none';
+        labelX.style.display = 'none';
+        botaoX.style.display = 'none';
+    }
+</script>
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
@@ -141,22 +168,26 @@
             $('#fileInput').wrap('<form>').closest('form').get(0).reset();
             $('#fileInput').unwrap();
 
-            var label = document.getElementById('labelImage');
-            var preview = document.getElementById('previewImage');
+            var label = document.getElementById('lblImagem1');
+            var preview = document.getElementById('previewImagem1');
 
             preview.src = '';
             preview.style.display = 'none';
             label.style.display = 'none';
 
-            var preview = document.getElementById('previewImage');
+            var preview = document.getElementById('previewImagem1');
         }
 
 
         function previewFile() {
+            var status = document.getElementById('status1');
             // var label = document.getElementById('labelImage1')
-            var preview = document.getElementById('previewImage');
+            var preview = document.getElementById('previewImagem1');
             var fileInput = document.getElementById('fileInput').files[0];
             var reader = new FileReader();
+
+            statusX.value = 'true';
+
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');

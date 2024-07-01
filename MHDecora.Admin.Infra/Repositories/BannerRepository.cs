@@ -138,29 +138,63 @@ namespace MHDecora.Admin.Infra.Repositories
 
             _adminContext.Entry<Banner>(bannerExistente).State = EntityState.Detached;
 
+            if (!banner.Status1) banner.CaminhoImagem = bannerExistente.CaminhoImagem;
 
-            banner.CaminhoImagem = bannerExistente.CaminhoImagem;
-
-            if (arquivo != null)
+            if (banner.Status1)
             {
-                var nomeArquivoAntigo = bannerExistente.CaminhoImagem;
+                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", bannerExistente.CaminhoImagem));
+                if (arquivo != null)
+                {
+                    banner.CaminhoImagem = SaveFile(arquivo);
+                }
+            }
 
-                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", nomeArquivoAntigo);
+            void DeleteFile(string path)
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
 
-                File.Delete(filePath);
-
+            // Função para salvar novo arquivo
+            string SaveFile(IFormFile arquivo)
+            {
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+                string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", uniqueFileName);
 
-                filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", uniqueFileName);
-                        
-
-                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     arquivo.CopyTo(fileStream);
                 }
 
                 banner.CaminhoImagem = uniqueFileName;
+
+                return uniqueFileName;
             }
+
+            //banner.CaminhoImagem = bannerExistente.CaminhoImagem;
+
+            //if (arquivo != null)
+            //{
+            //    var nomeArquivoAntigo = bannerExistente.CaminhoImagem;
+
+            //    string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", nomeArquivoAntigo);
+
+            //    File.Delete(filePath);
+
+            //    string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
+
+            //    filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/banner/", uniqueFileName);
+                        
+
+            //    using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
+            //    {
+            //        arquivo.CopyTo(fileStream);
+            //    }
+
+            //    banner.CaminhoImagem = uniqueFileName;
+            //}
 
             //_adminContext.Entry(bannerExistente).CurrentValues.SetValues(banner);
             
