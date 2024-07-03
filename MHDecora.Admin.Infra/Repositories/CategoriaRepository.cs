@@ -92,7 +92,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
                 string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", uniqueFileName);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
                 {
                     arquivo.CopyTo(fileStream);
                 }
@@ -186,14 +186,14 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             try
             {
-                List<Categoria> imagens =  await _adminContext.MH_CATEGORIAS.ToListAsync();
+                var listaCategorias =  await _adminContext.MH_CATEGORIAS.ToListAsync();
 
-                //foreach(var item in imagens)
-                //{
-                //    item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
-                //}
+                foreach (var img in listaCategorias)
+                {
+                    img.CaminhoImagem = GetPathImagens() + img.CaminhoImagem;
+                }
 
-                return imagens;
+                return listaCategorias;
                 
             }
             catch (Exception ex)
