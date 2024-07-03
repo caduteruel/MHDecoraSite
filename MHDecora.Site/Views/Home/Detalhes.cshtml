@@ -12,46 +12,16 @@
         {
             <div class="detail">
                 <h1 class="name" style="text-align: center">@Model.ListaMontagem[0].Titulo</h1>
-                                
-                    <div class="image">
-                        <img src="@Model.ListaMontagem[0].CaminhoImagem" id="image-principal" />
 
-                    @if (!string.IsNullOrEmpty(@Model.ListaMontagem[0].CaminhoImagem2) ||
-                         !string.IsNullOrEmpty(@Model.ListaMontagem[0].CaminhoImagem3) ||
-                         !string.IsNullOrEmpty(@Model.ListaMontagem[0].CaminhoImagem4))
-                    {
-                        <div class="image-grid">
-                            @{
-                                int cam = 2;
-                                int x = 2;
-                                while(x <= 4)
-                                {
-                                    string nomePropriedade = "CaminhoImagem" + cam;
-                                    string caminhoImagem = (string)Model.ListaMontagem[0].GetType().GetProperty(nomePropriedade)?.GetValue(Model.ListaMontagem[0], null);
+                <div class="image">
+                    <img src="@Model.ListaMontagem[0].CaminhoImagem" id="image-principal" />
 
-                                    if (!string.IsNullOrEmpty(caminhoImagem))
-                                    {
-                                        <img src="@caminhoImagem" />                                     
-
-                                    }
-                                    cam++;
-                                    x++;
-                                } 
-
-                                if (x == 2)
-                                {
-                                    <img src="~/images/site/blank.png" style="cursor:default;" />
-                                    <img src="~/images/site/blank.png" style="cursor:default;" />
-                                }
-                                else if (x == 5)
-                                {
-                                    <img src="~/images/site/blank.png" style="cursor:default;" />
-                                } 
-                            }
-                            
-                        </div>
-                    }
+                    <div class="image-grid">
+                        <img src="@Model.ListaMontagem[0].CaminhoImagem2" />
+                        <img src="@Model.ListaMontagem[0].CaminhoImagem3" />
+                        <img src="@Model.ListaMontagem[0].CaminhoImagem4" />
                     </div>
+                </div>
                 
                 <div class="content">
                     <h1 class="name">Descrição do produto</h1>
