@@ -188,10 +188,10 @@ namespace MHDecora.Admin.Infra.Repositories
             {
                 List<Categoria> imagens =  await _adminContext.MH_CATEGORIAS.ToListAsync();
 
-                foreach(var item in imagens)
-                {
-                    item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
-                }
+                //foreach(var item in imagens)
+                //{
+                //    item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                //}
 
                 return imagens;
                 
