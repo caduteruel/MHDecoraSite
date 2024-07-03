@@ -248,7 +248,7 @@ ul{
 .about-container {
     width: 80%;
     margin: 0 auto;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
     margin-top: 50px;
 }
 
@@ -485,7 +485,7 @@ ul{
 
 
 .theme-image img {
-    width: 150px;
+    width: 150px !important;
     border: 2px solid #D64F77;
     padding: 5px;
     height: 150px;
@@ -765,7 +765,7 @@ section.contact-wrapper {
 
 .contact-wrapper .input {
     width: 100%;
-    max-width: 600px;
+   /* max-width: 600px;*/
     border: none;
     font-size: 0.9rem;
     padding: 1em;
@@ -1029,7 +1029,7 @@ footer ul li a {
     position: relative;
     max-width: 1350px;
     width: 100%;
-    margin: 50px auto;
+    margin: 10px auto;
     padding: 20px;
 }
 
@@ -1425,6 +1425,7 @@ select {
 
 }
 
+
 @media (min-width: 1600px) {
 
     .about-container {
@@ -1480,6 +1481,8 @@ select {
         padding: 25px 15px;
         box-sizing: border-box;
     }
+
+
 }
 
 @media (max-width: 1400px) {
@@ -1515,8 +1518,8 @@ select {
         color: black;
         font-size: 30px;
         font-weight: 300;
-        border-bottom: 4px solid var(--color-primary) ;
-        margin-bottom: 25px;
+/*        border-bottom: 4px solid var(--color-primary) ;
+*/        margin-bottom: 25px;
     }
 
     .map-container i {
@@ -1606,13 +1609,14 @@ select {
 @media (max-width: 991px) {
     .product-box {
         width: 750px;
-        grid-template-areas: 
-        "info info"
-        "images description";
+        grid-template-areas:
+            "info info"
+            "images description";
     }
-    .product-box .product-basic-info .product-options a {
-        padding: 8.5px 12px;
-    }
+
+        .product-box .product-basic-info .product-options a {
+            padding: 8.5px 12px;
+        }
 
     .slider-box {
         grid-template-columns: 100%;
@@ -1622,9 +1626,9 @@ select {
         height: 400px;
     }
 
-    .slider-image img {
-        border-radius: 20px 20px 0 0;
-    }
+        .slider-image img {
+            border-radius: 0;
+        }
 
     .slider-text {
         font-size: 50px;
@@ -1633,15 +1637,71 @@ select {
         padding: 20px;
     }
 
-   
-.gallery-wrapper .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    text-align: center;
-    margin-top: 20px;
-}
+
+    .gallery-wrapper .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .theme-image img {
+        border: 2px solid #D64F77;
+        padding: 5px;
+        height: 181px;
+        text-align: center;
+        border-radius: 48%;
+        object-fit: cover;
+    }
+
+    .swiper-wrapper.tema {
+        margin-left: 60px;
+    }
+
+    .swiper-slide-tema img {
+        width: 50% !important;
+    }
+
+
+    section.contact-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 98%;
+        max-width: 341px;
+        margin: 20px;
+        height: 71vh;
+        text-align: center;
+    }
+
+    .contact-wrapper .input {
+        width: 100%;
+    }
+
+    .map-info-text {
+        width: 250px;
+    }
+
+    .frame-contato {
+        width: inherit;
+    }
+
+    .carousel-item {
+        display: none; /* Esconder todos os itens do carrossel */
+    }
+
+        .carousel-item:nth-child(-n+4) {
+            display: block; /* Mostrar apenas os 4 primeiros itens do carrossel */
+        }
+
+    .swiper.novidade {
+        width: auto;
+    }
+
+  
 
 }
 
@@ -1849,7 +1909,7 @@ select {
         align-items: center;
         text-align: center;
         z-index: 100;
-        top: 50px;
+        top: 100px;
         left: -100%;
         width: 100%;
         height: 100%;
@@ -1864,7 +1924,7 @@ select {
 
     .nav .nav-items .nav-links {
         line-height: 40px;
-        margin: 30px 0;
+        margin: 10px 0;
     }
 
     .nav .nav-items .nav-links a {
@@ -1901,7 +1961,7 @@ select {
     .about-content h1 {
         font-size: 30px;
         text-align: center;
-        background-color: var(--color-primary);
+        /*background-color: var(--color-primary);*/
         padding: 10px;
         border-radius: 5px;
         width: 100%;
@@ -1959,7 +2019,7 @@ select {
     }
 
     .contact-wrapper .input{
-        width: 70%;
+        width: 100%;
       
     }
     
@@ -1999,25 +2059,24 @@ select {
     .map-wrapper {
         margin-top: 130rem;
     }
-        
+
     .map-container {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 300px;
+        width: 350px;
         border-radius: 10px;
         margin: 0 auto;
-        padding: 20px 20px;
-
+        padding: 40px 0px;
     }
 
     .map-text h1 {
         color: black;
         font-size: 30px;
         font-weight: 300;
-        border-bottom: 4px solid var(--color-primary) ;
-        margin-bottom: 25px;
+/*        border-bottom: 4px solid var(--color-primary) ;
+*/        margin-bottom: 25px;
     }
 
     .map-container i {
