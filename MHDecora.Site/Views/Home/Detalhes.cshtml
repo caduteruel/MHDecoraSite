@@ -6,6 +6,99 @@
     string url = "https://wa.me/" + numero + "?text=" + System.Uri.EscapeDataString(texto);
 }
 
+
+
+<style>
+    /* Estilos adicionais para ajustar o layout do carrossel */
+
+
+    .carrossel__titulo {
+        color: var(--laranja-secundario);
+        background-color: var(--branco-secundario);
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 1em 0 0.5em 0;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        display: none;
+    }
+
+    .swiper-pagination {
+        position: initial;
+        margin: .5em 0;
+    }
+
+    .swiper-pagination {
+        text-align: center; /* Centraliza as bolinhas de navegação */
+        margin-top: 10px; /* Espaçamento superior opcional */
+    }
+
+        .swiper-pagination .swiper-pagination-bullet {
+            width: 8px; /* Tamanho das bolinhas */
+            height: 8px;
+            background-color: #007bff; /* Cor das bolinhas */
+            opacity: 0.5; /* Opacidade das bolinhas */
+        }
+
+        .swiper-pagination .swiper-pagination-bullet-active {
+            opacity: 1; /* Opacidade da bolinha ativa */
+        }
+
+    /* Estilo para o container dos cards */
+    .card-container-gal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Estilo para cada card */
+    .card-gal {
+        border-radius: 15px;
+        box-shadow: -1px 1px 5px 3px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 270px; /* Largura do card */
+        padding: 15px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+        /* Estilo para a imagem dentro do card */
+        .card-gal img {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+    /* Estilo para o conteúdo de texto */
+    .card-content-gal {
+        text-align: left;
+        padding-top: 10px;
+    }
+
+    /* Estilo para o título */
+    .card-title-gal {
+        font-style: normal; /* Estilo da fonte (normal, italic, etc.) */
+        font-display: swap;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+
+    /* Estilo para a descrição */
+    .card-description-gal {
+        font-size: 16px;
+        color: #666;
+    }
+</style>
 <div class="container">
     @{
         if (Model != null)
@@ -16,11 +109,21 @@
                 <div class="image">
                     <img src="@Model.ListaMontagem[0].CaminhoImagem" id="image-principal" />
 
-                    <div class="image-grid">
-                        <img src="@Model.ListaMontagem[0].CaminhoImagem2" />
-                        <img src="@Model.ListaMontagem[0].CaminhoImagem3" />
-                        <img src="@Model.ListaMontagem[0].CaminhoImagem4" />
-                    </div>
+                        <div class="image-grid">
+
+                        @if (Model.ListaMontagem[0].CaminhoImagem2 != null)
+                        {
+                            <img src="@Model.ListaMontagem[0].CaminhoImagem2" />
+                        }
+                        @if (@Model.ListaMontagem[0].CaminhoImagem3 != null) {
+                            <img src="@Model.ListaMontagem[0].CaminhoImagem3" />
+                        }
+                        @if (@Model.ListaMontagem[0].CaminhoImagem4 != null) {
+                            <img src="@Model.ListaMontagem[0].CaminhoImagem4" />
+                        }
+                        </div>
+                    
+                  
                 </div>
                 
                 <div class="content">
@@ -47,8 +150,8 @@
                     <div class="card" data-name="" style="display: block;">
                         <img src="@Model.ListaMontagem[x].CaminhoImagem" alt="recent">
                         <div class="card-body">
-                            <h6 class="card-title">@Model.ListaMontagem[x].Titulo</h6>
-                            <p class="card-text">@Model.ListaMontagem[x].TextoImagem</p>
+                            <h6 class="card-title-gal">@Model.ListaMontagem[x].Titulo</h6>
+                            <p class="card-title-gal negrito">@Model.ListaMontagem[x].TextoImagem</p>
                             <a href="/Home/Detalhes?montagemId=@Model.ListaMontagem[x].Id" class="btn">Saiba mais</a>
                         </div>
                     </div>

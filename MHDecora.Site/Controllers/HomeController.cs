@@ -68,16 +68,16 @@ namespace MHDeroca.Site.Controllers
             Contato contato = await _contatoService.GetContato();
 
             ////Novidades
-            //if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
-            //{
-            //    cacheValue = _instagramService.GetRecentsPosts().Result;
+            if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
+            {
+                cacheValue = _instagramService.GetRecentsPosts().Result;
 
-            //    var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
 
-            //    _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
-            //}
+                _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
+            }
 
-            //ViewBag.InstagramPosts = cacheValue;
+            ViewBag.InstagramPosts = cacheValue;
 
             ViewData["MidiaSocial"] = midiaSocial;
 
