@@ -177,7 +177,7 @@ namespace MHDecora.Admin.Infra.Repositories
         {
             Categoria imagem = await _adminContext.MH_CATEGORIAS.FirstOrDefaultAsync(x => x.Id == id);
 
-            imagem.CaminhoImagem = GetPathImagens() + imagem.CaminhoImagem;
+            //imagem.CaminhoImagem = GetPathImagens() + imagem.CaminhoImagem;
 
             return imagem;
         }

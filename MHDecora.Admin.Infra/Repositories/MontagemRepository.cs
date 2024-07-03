@@ -327,7 +327,7 @@ namespace MHDecora.Admin.Infra.Repositories
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
                 string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", uniqueFileName);
 
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                using (var fileStream = new FileStream(filePath, FileMode.CreateNew))
                 {
                     arquivo.CopyTo(fileStream);
                 }
