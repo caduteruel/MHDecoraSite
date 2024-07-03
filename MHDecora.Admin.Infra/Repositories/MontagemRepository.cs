@@ -276,7 +276,9 @@ namespace MHDecora.Admin.Infra.Repositories
             // Processar arquivos e estados
             if (montagem.Status1)
             {
-                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem));
+                if(montagemExistente.CaminhoImagem != null)
+                    DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem));
+
                 if (arquivo1 != null)
                 {
                     montagem.CaminhoImagem = SaveFile(arquivo1, 1);
@@ -284,7 +286,8 @@ namespace MHDecora.Admin.Infra.Repositories
             }
             if (montagem.Status2)
             {
-                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem2));
+                if (montagemExistente.CaminhoImagem2 != null)
+                    DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem2));
                 if (arquivo2 != null)
                 {
                     montagem.CaminhoImagem2 = SaveFile(arquivo2, 2);
@@ -292,7 +295,8 @@ namespace MHDecora.Admin.Infra.Repositories
             }
             if (montagem.Status3)
             {
-                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem3));
+                if (montagemExistente.CaminhoImagem3 != null)
+                    DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem3));
                 if (arquivo3 != null)
                 {
                     montagem.CaminhoImagem3 = SaveFile(arquivo3, 3);
@@ -300,7 +304,8 @@ namespace MHDecora.Admin.Infra.Repositories
             }
             if (montagem.Status4)
             {
-                DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem4));
+                if (montagemExistente.CaminhoImagem4 != null)
+                    DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/montagem/", montagemExistente.CaminhoImagem4));
                 if (arquivo4 != null)
                 {
                     montagem.CaminhoImagem4 = SaveFile(arquivo4, 4);
