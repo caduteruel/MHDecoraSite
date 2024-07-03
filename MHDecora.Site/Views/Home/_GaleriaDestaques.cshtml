@@ -163,88 +163,27 @@
             }
 
  *@
-            <div class="swiper-slide">
-               @*  <div class="card">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
-                    <h5>Card 1</h5>
-                    <p>Descrição do Card 1.</p>
-                </div> *@
 
-                <div class="card-gal">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
-                    <div class="card-content-gal">
-                        <div class="card-description-gal">Descrição do Card</div>
-                        <div class="card-title-gal negrito">Título do Card</div>                        
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+
+
+                        <div class="card-gal">
+                            <img src="@item.CaminhoImagem" alt="Imagem do card">
+                            <div class="card-content-gal">
+                                <div class="card-description-gal">@item.Titulo</div>
+                                <div class="card-title-gal negrito">@item.Categoria.Nome</div>                        
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                }
+            }
 
-            </div>
-      
-                        <div class="swiper-slide">
-               @*  <div class="card">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
-                    <h5>Card 1</h5>
-                    <p>Descrição do Card 1.</p>
-                </div> *@
-
-                <div class="card-gal">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
-                    <div class="card-content-gal">
-                        <div class="card-description-gal">Descrição do Card</div>
-                        <div class="card-title-gal negrito">Título do Card</div>
-                    </div>
-                </div>
-
-            </div>
-
-                        <div class="swiper-slide">
-               @*  <div class="card">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
-                    <h5>Card 1</h5>
-                    <p>Descrição do Card 1.</p>
-                </div> *@
-
-                <div class="card-gal">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
-                    <div class="card-content-gal">
-                        <div class="card-description-gal">Descrição do Card</div>
-                        <div class="card-title-gal negrito">Título do Card</div>
-                    </div>
-                </div>
-
-            </div>
-                        <div class="swiper-slide">
-               @*  <div class="card">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem 1">
-                    <h5>Card 1</h5>
-                    <p>Descrição do Card 1.</p>
-                </div> *@
-
-                <div class="card-gal">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
-                    <div class="card-content-gal">
-                        <div class="card-description-gal">Descrição do Card</div>
-                        <div class="card-title-gal negrito">Título do Card</div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="swiper-slide">
-                @*  <div class="card">
-                <img src="~/images/gallery/galeria.png" alt="Imagem 1">
-                <h5>Card 1</h5>
-                <p>Descrição do Card 1.</p>
-                </div> *@
-
-                <div class="card-gal">
-                    <img src="~/images/gallery/galeria.png" alt="Imagem do card">
-                    <div class="card-content-gal">
-                        <div class="card-description-gal">Descrição do Card</div>
-                        <div class="card-title-gal negrito">Título do Card</div>
-                    </div>
-                </div>
-
-            </div>
+   
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
