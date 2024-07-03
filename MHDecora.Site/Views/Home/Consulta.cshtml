@@ -8,13 +8,116 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<body style="min-height: 100vh">
 
-    @{
-        if (Model.Count() == 0)
+<style>
+    /* Estilos adicionais para ajustar o layout do carrossel */
+    
+
+    .carrossel__titulo {
+        color: var(--laranja-secundario);
+        background-color: var(--branco-secundario);
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 1em 0 0.5em 0;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        display: none;
+    }
+
+    .swiper-pagination {
+        position: initial;
+        margin: .5em 0;
+    }
+
+    .swiper-pagination {
+        text-align: center; /* Centraliza as bolinhas de navegação */
+        margin-top: 10px; /* Espaçamento superior opcional */
+    }
+
+        .swiper-pagination .swiper-pagination-bullet {
+            width: 8px; /* Tamanho das bolinhas */
+            height: 8px;
+            background-color: #007bff; /* Cor das bolinhas */
+            opacity: 0.5; /* Opacidade das bolinhas */
+        }
+
+        .swiper-pagination .swiper-pagination-bullet-active {
+            opacity: 1; /* Opacidade da bolinha ativa */
+        }
+
+    /* Estilo para o container dos cards */
+    .card-container-gal {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Estilo para cada card */
+    .card-gal {
+        border-radius: 15px;
+        box-shadow: -1px 1px 5px 3px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 270px; /* Largura do card */
+        padding: 15px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+        /* Estilo para a imagem dentro do card */
+        .card-gal img {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+    /* Estilo para o conteúdo de texto */
+    .card-content-gal {
+        text-align: left;
+        padding-top: 10px;
+    }
+
+    /* Estilo para o título */
+    .card-title-gal {
+ 
+        font-style: normal; /* Estilo da fonte (normal, italic, etc.) */
+        font-display: swap;
+        font-size: 16px;
+         font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+
+    /* Estilo para a descrição */
+    .card-description-gal {
+        font-size: 16px;
+        color: #666;
+    }
+    </style>
+
+
+<body style="min-height: 100vh">
+    <div class="container-filter">
+    @{ 
+        if (Model.FirstOrDefault().CaminhoImagem == null)
         {
             <div class="filter-text">
-                <span style="font-size: xxx-large">Categoria: "@Model.FirstOrDefault().Categoria.Nome"</span>
+                @if (Model.FirstOrDefault().Categoria != null)
+                {
+                    <span style="font-size: xxx-large">Categoria: "@Model.FirstOrDefault().Categoria.Nome"</span>
+                }
+                else
+                {
+                    <span style="font-size: xxx-large">Tema: "@Model.FirstOrDefault().NomeTema"</span>
+                }
+
                 <br />
                 <br />
                 <p>
@@ -29,7 +132,10 @@
                 <div class="filter-text">
                      <h1>@Model.FirstOrDefault().Categoria.Nome</h1>
                 </div>
-
+                    <br />
+                    <p style="text-align: center;font-size: larger;margin-bottom: 40px;">
+                        @Model.FirstOrDefault().Categoria.Descricao
+                    </p>
                 <div class="filter-buttons">
                     <select id="filter-select" name="filters">
                         <option value="" disabled selected>Filtrar por</option>
@@ -47,8 +153,9 @@
                                 <div class="card" data-name="">
                                     <img src="@item.CaminhoImagem" alt="recent" />
                                     <div class="card-body">
-                                        <h6 class="card-title">@item.Titulo</h6>
-                                        <p class="card-text">@item.TextoImagem</p>
+
+                                            <h6 class="card-title-gal">@item.Titulo</h6>
+                                            <p class="card-title-gal negrito">@item.TextoImagem</p>
                                         <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
                                     </div>
                                 </div>
@@ -70,7 +177,7 @@
         }
     }
     
-
+    </div>
 
     <script src="~/js/main.js"></script>
 

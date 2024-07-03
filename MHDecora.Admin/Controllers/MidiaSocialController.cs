@@ -22,37 +22,6 @@ namespace MHDecora.Admin.Controllers
             return View(contato);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Adicionar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Adicionar(MidiaSocial miMidiaSocialdiaSocial)
-        {
-            var response = await _midiaSocialService.Criar(miMidiaSocialdiaSocial);
-
-            if (response)
-            {
-                Alert("Sucesso!", "As Mídias Sociais foram cadastradas.", "success");
-            }
-            else
-            {
-                Alert("Erro!", "Não foi possível criar as mídias sociais, contate a equipe de suporte.", "danger");
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Editar(int midiaSocialId)
-        {
-            var contato = await _midiaSocialService.GetById(midiaSocialId);
-
-            return View(contato);
-        }
-
         [HttpPost]
         public async Task<IActionResult> Editar(MidiaSocial midiaSocial)
         {
@@ -69,24 +38,7 @@ namespace MHDecora.Admin.Controllers
 
             return RedirectToAction("Index");
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Excluir(int midiaSocialId)
-        {
-            bool result = await _midiaSocialService.Excluir(midiaSocialId);
-
-            if (result)
-            {
-                Alert("Sucesso!", "As Mídias Sociais foram excluídas.", "success");
-            }
-            else
-            {
-                Alert("Erro!", "Não foi possível excluir as mídias sociais, contate a equipe de suporte.", "danger");
-            }
-
-            return RedirectToAction("Index");
-        }
-
+       
         private void Alert(string titulo, string mensagem, string alerta)
         {
             TempData["Titulo"] = titulo;

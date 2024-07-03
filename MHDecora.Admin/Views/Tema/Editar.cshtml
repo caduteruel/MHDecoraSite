@@ -54,10 +54,6 @@
                                 <label id="lblImagem1" for="fname">Imagem</label>
                                 <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
                             </div>
-                            <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
-                            <button id="btnImagem1" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(1)">
-                                <i class="mdi mdi-delete"></i>
-                            </button>
                         </div>
                     </div>
                     <div class="row">
@@ -111,29 +107,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    function apagarImagem(posicao) {
-
-        var concatenado = 'status' + posicao;
-        var statusX = document.getElementById(concatenado);
-
-        concatenado = 'lblImagem' + posicao;
-        var labelX = document.getElementById(concatenado);
-
-        contatenado = 'previewImagem' + posicao;
-        var previewX = document.getElementById(contatenado);
-
-        contatenado = 'btnImagem' + posicao;
-        var botaoX = document.getElementById(contatenado);
-
-        statusX.value = 'true';
-        previewX.src = '';
-        previewX.style.display = 'none';
-        labelX.style.display = 'none';
-        botaoX.style.display = 'none';
-    }
-</script>
 
 @section Scripts {
 
@@ -190,9 +163,7 @@
             var fileInput = document.getElementById('fileInput').files[0];
             var reader = new FileReader();
 
-            statusX.value = 'true';
-
-
+         
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');
                 preview.src = reader.result;

@@ -19,38 +19,7 @@ namespace MHDecora.Admin.Controllers
         {
             var contato = await _contatoService.GetContato();
 
-            return View(contato);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Adicionar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Adicionar(Contato contato)
-        {
-            var response = await _contatoService.Criar(contato);
-
-            if (response)
-            {
-                Alert("Sucesso!", "O Contato foi cadastrado.", "success");
-            }
-            else
-            {
-                Alert("Erro!", "Não foi possível criar o contato, contate a equipe de suporte.", "danger");
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Editar(int id)
-        {
-            var contato = await _contatoService.GetContatoById(id);
-
-            return View(contato);
+            return View(contato.FirstOrDefault());
         }
 
         [HttpPost]
@@ -70,22 +39,6 @@ namespace MHDecora.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Excluir(int contatoId)
-        {
-            bool result = await _contatoService.Excluir(contatoId);
-
-            if (result)
-            {
-                Alert("Sucesso!", "O Contato foi excluído.", "success");
-            }
-            else
-            {
-                Alert("Erro!", "Não foi possível excluir a contato, contate a equipe de suporte.", "danger");
-            }
-
-            return RedirectToAction("Index");
-        }
 
         private void Alert(string titulo, string mensagem, string alerta)
         {

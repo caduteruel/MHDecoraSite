@@ -61,6 +61,19 @@ namespace MHDecora.Site.Infra.Repositories
 
             }
 
+            if (listaMontagens.Count() == 0)
+            {
+                var categoria = await _context.MH_CATEGORIAS.Where(x => x.Id == categoriaId).FirstOrDefaultAsync();
+
+                Montagem montagem = new Montagem();
+
+                montagem.Categoria = new Categoria();
+
+                montagem.Categoria.Nome = categoria.Nome;
+
+                listaMontagens.Add(montagem);
+            }
+
             return listaMontagens;
         }
 
@@ -132,11 +145,15 @@ namespace MHDecora.Site.Infra.Repositories
                         item1.CaminhoImagem4 = GetPathImagens() + item1.CaminhoImagem4;
                     }
 
-                    if (listaMontagens == null)
+                    if (listaMontagens.Count() == 0)
                     {
-                        return new List<Montagem>();
+                        Montagem montagem = new Montagem();
+
+                        montagem.NomeTema = tema.Titulo;
+
+                        listaMontagens.Add(montagem);
                     }
-                    
+
                     return listaMontagens;
                 }
 

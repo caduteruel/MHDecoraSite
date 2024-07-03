@@ -40,11 +40,14 @@ namespace MHDecora.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Adicionar()
         {
-            var categorias = await _categoriaService.GetCategorias();
+            //var categorias = await _categoriaService.GetCategorias();
+
+            var listaCategoria = await _categoriaService.GetCategorias();
 
             //ViewBag.Tags = await _tagService.GetTags();
+            ViewBag.Categorias = new SelectList(listaCategoria, "Id", "Nome");
 
-            return View(categorias);
+            return View(new Montagem());
         }
 
         [HttpPost]

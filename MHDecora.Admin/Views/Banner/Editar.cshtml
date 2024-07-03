@@ -129,7 +129,7 @@ else
 
             contatenado = 'btnImagem' + posicao;
             var botaoX = document.getElementById(contatenado);
-
+                       
             statusX.value = 'true';
             previewX.src = '';
             previewX.style.display = 'none';
@@ -140,11 +140,11 @@ else
     function previewFile() {
 
         var status = document.getElementById('status1');  
-        var preview = document.getElementById('previewImagem');
+        var preview = document.getElementById('previewImagem1');
         var fileInput = document.getElementById('fileInput').files[0];
         var reader = new FileReader();
-
-        statusX.value = 'true';
+                
+        status1.value = 'true';
 
         reader.onloadend = function () {
             preview.src = reader.result;

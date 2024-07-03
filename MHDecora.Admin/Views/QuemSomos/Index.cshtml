@@ -48,12 +48,8 @@
                         <div class="col-sm-4 mb-2">
                             <div class="form-group">
                                 <label for="fname" id="lblImagem1">Imagem</label>
-                                <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
-                            </div>
-                            <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
-                            <button id="btnImagem1" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(1)">
-                                <i class="mdi mdi-delete"></i>
-                            </button>
+                                <img id="previewImage1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" />
+                            </div>                 
                         </div>
                     </div>
                     
@@ -103,28 +99,7 @@
         </div>
     </div>
 </div>
-<script>
-    function apagarImagem(posicao) {
 
-        var concatenado = 'status' + posicao;
-        var statusX = document.getElementById(concatenado);
-
-        concatenado = 'lblImagem' + posicao;
-        var labelX = document.getElementById(concatenado);
-
-        contatenado = 'previewImagem' + posicao;
-        var previewX = document.getElementById(contatenado);
-
-        contatenado = 'btnImagem' + posicao;
-        var botaoX = document.getElementById(contatenado);
-
-        statusX.value = 'true';
-        previewX.src = '';
-        previewX.style.display = 'none';
-        labelX.style.display = 'none';
-        botaoX.style.display = 'none';
-    }
-</script>
 @section Scripts {
     <script>
        
@@ -146,7 +121,7 @@
                 // Seleciona a div com a classe ql-editor
                 var editor = document.querySelector('.ql-editor').innerHTML;
 
-                var preview = document.getElementById('previewImage');
+                var preview = document.getElementById('previewImage1');
 
                 var descricao = $("#titulo").val();
                 var fileInput = $("#fileInput").val();
@@ -172,8 +147,8 @@
             $('#fileInput').wrap('<form>').closest('form').get(0).reset();
             $('#fileInput').unwrap();
 
-            var label = document.getElementById('labelImage');
-            var preview = document.getElementById('previewImage');
+            var label = document.getElementById('labelImage1');
+            var preview = document.getElementById('previewImage1');
 
             preview.src = '';
             preview.style.display = 'none';
@@ -182,14 +157,12 @@
 
         // Função para exibir a visualização da imagem quando um arquivo é selecionado
         function previewFile() {
-
-            var status = document.getElementById('status1');
-            var label = document.getElementById('lblImagem');
-            var preview = document.getElementById('previewImage');
+           
+            var label = document.getElementById('lblImagem1');
+            var preview = document.getElementById('previewImage1');
             var fileInput = document.getElementById('fileInput').files[0];
             var reader = new FileReader();
 
-            statusX.value = 'true';
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');

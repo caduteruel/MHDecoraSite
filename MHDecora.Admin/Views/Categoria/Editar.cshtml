@@ -36,12 +36,8 @@
                         <div class="col-sm-4 mb-2">
                             <div class="form-group">
                                 <label for="fname" id="lblImagem1">Imagem</label>
-                                <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem da Categoria" />
+                                <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem da Categoria" style="width: 360px !important; height:293px !important;" />
                             </div>
-                            <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
-                            <button id="btnImagem1" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(1)">
-                                <i class="mdi mdi-delete"></i>
-                            </button>
                         </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
@@ -60,29 +56,6 @@
     </div>
 </div>
 
-<script>
-
-    function apagarImagem(posicao) {
-
-        var concatenado = 'status' + posicao;
-        var statusX = document.getElementById(concatenado);
-
-        concatenado = 'lblImagem' + posicao;
-        var labelX = document.getElementById(concatenado);
-
-        contatenado = 'previewImagem' + posicao;
-        var previewX = document.getElementById(contatenado);
-
-        contatenado = 'btnImagem' + posicao;
-        var botaoX = document.getElementById(contatenado);
-
-        statusX.value = 'true';
-        previewX.src = '';
-        previewX.style.display = 'none';
-        labelX.style.display = 'none';
-        botaoX.style.display = 'none';
-    }
-</script>
 
 @section Scripts {
     <script>
@@ -90,15 +63,13 @@
             $("#nome").val('@Model.Nome.ToString()');
             $("#descricao").val('@(Model.Descricao ?? string.Empty)');
         }
+
         function previewFile() {
             var status = document.getElementById('status1');
-            var preview = document.getElementById('previewImagem');
+            var preview = document.getElementById('previewImagem1');
             var fileInput = document.getElementById('fileInput').files[0];
             var reader = new FileReader();
-
-            statusX.value = 'true';
-
-
+            
             reader.onloadend = function () {
                 preview.src = reader.result;
                 preview.style.display = 'block';

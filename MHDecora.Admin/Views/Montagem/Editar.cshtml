@@ -1,19 +1,6 @@
 ﻿@model MHDecora.Admin.Domain.Entities.Montagem
 
-@{
-    ViewBag.Title = "Adicionar Banner";
-    string titulo = TempData["Titulo"] as string;
-    string mensagem = TempData["Mensagem"] as string;
-    string tipoAlerta = TempData["TipoAlerta"] as string;
-}
 
-@if (!string.IsNullOrEmpty(mensagem))
-{
-    <div id="autoCloseAlert" class="alert alert-@tipoAlerta alert-dismissible fade show" role="alert">
-        <strong>@titulo</strong> @mensagem
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-    </div>
-}
 
 <div id="msgAlert"></div>
 
@@ -120,7 +107,7 @@
                     <div class="row">
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label for="fname" id="lblImagem1">Imagem - 1</label>
+                                <label for="fname" id="lblImagem1">Imagem 1</label>
                                 <img id="previewImagem1" src="@Model.CaminhoImagem" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                             <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
@@ -130,7 +117,7 @@
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label for="fname" id="lblImagem2">Imagem - 2</label>
+                                <label for="fname" id="lblImagem2">Imagem 2</label>
                                 <img id="previewImagem2" src="@Model.CaminhoImagem2" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                             <input hidden="hidden" id="status2" name="status2" value="@Model.Status2">
@@ -140,7 +127,7 @@
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label for="fname" id="lblImagem3">Imagem - 3</label>
+                                <label for="fname" id="lblImagem3">Imagem 3</label>
                                 <img id="previewImagem3" src="@Model.CaminhoImagem3" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                             <input hidden="hidden" id="status3" name="status3" value="@Model.Status3">
@@ -150,7 +137,7 @@
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label for="fname" id="lblImagem4">Imagem - 4</label>
+                                <label for="fname" id="lblImagem4">Imagem 4</label>
                                 <img id="previewImagem4" src="@Model.CaminhoImagem4" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
                             <input  hidden="hidden" id="status4" name="status4" value="@Model.Status4">
@@ -216,7 +203,7 @@
 
 </div>
 @section Scripts {
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+ 
 
     <script>
 
@@ -258,20 +245,20 @@
             var concatenado = 'status' + posicao;
             var statusX = document.getElementById(concatenado);
 
-            concatenado = 'lblImagem' + posicao;
-            var labelX = document.getElementById(concatenado);
+            //concatenado = 'lblImagem' + posicao;
+            //var labelX = document.getElementById(concatenado);
 
             contatenado = 'previewImagem' + posicao;
             var previewX = document.getElementById(contatenado);
             
-            contatenado = 'btnImagem' + posicao;
-            var botaoX = document.getElementById(contatenado);
+           // contatenado = 'btnImagem' + posicao;
+            //var botaoX = document.getElementById(contatenado);
 
             statusX.value = 'true';
             previewX.src = '';
             previewX.style.display = 'none';
-            labelX.style.display = 'none';
-            botaoX.style.display = 'none';
+            //labelX.style.display = 'none';
+           // botaoX.style.display = 'none';
         }
 
 
@@ -285,8 +272,8 @@
             $('#fileInput').wrap('<form>').closest('form').get(0).reset();
             $('#fileInput').unwrap();
 
-            var label = document.getElementById('labelImage');
-            var preview = document.getElementById('previewImagem');
+            var label = document.getElementById('labelImage1');
+            var preview = document.getElementById('previewImagem1');
 
             preview.src = '';
             preview.style.display = 'none';
@@ -301,7 +288,7 @@
             var fileInput = document.getElementById('fileInput1').files[0];
             var reader = new FileReader();
 
-            statusX.value = 'true';
+            status.value = 'true';
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');
@@ -325,7 +312,7 @@
             var fileInput = document.getElementById('fileInput2').files[0];
             var reader = new FileReader();
 
-            statusX.value = 'true';
+            status.value = 'true';
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');
@@ -344,12 +331,12 @@
 
         function previewFile3() {
             // var label = document.getElementById('labelImage3');
-            var status = document.getElementById('status2');
+            var status = document.getElementById('status3');
             var preview = document.getElementById('previewImagem3');
             var fileInput = document.getElementById('fileInput3').files[0];
             var reader = new FileReader();
 
-            statusX.value = 'true';
+            status.value = 'true';
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');
@@ -368,12 +355,12 @@
 
         function previewFile4() {
             // var label = document.getElementById('labelImage4');
-            var status = document.getElementById('status2');
+            var status = document.getElementById('status4');
             var preview = document.getElementById('previewImagem4');
             var fileInput = document.getElementById('fileInput4').files[0];
             var reader = new FileReader();
 
-            statusX.value = 'true';
+            status.value = 'true';
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');

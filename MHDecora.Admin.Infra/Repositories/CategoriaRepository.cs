@@ -67,17 +67,14 @@ namespace MHDecora.Admin.Infra.Repositories
 
             _adminContext.Entry<Categoria>(categoriaExistente).State = EntityState.Detached;
 
-            if (!categoria.Status1) categoria.CaminhoImagem = categoriaExistente.CaminhoImagem;
+            categoria.CaminhoImagem = categoriaExistente.CaminhoImagem;
 
-
-            //categoria.CaminhoImagem = categoriaExistente.CaminhoImagem;
-
-            if (categoriaExistente.Status1)
+            if (categoriaExistente != null)
             {
                 DeleteFile(Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", categoriaExistente.CaminhoImagem));
                 if (imagem != null)
                 {
-                    categoria.CaminhoImagem = SaveFile(imagem);
+                    SaveFile(imagem);
                 }
             }
 
@@ -90,7 +87,7 @@ namespace MHDecora.Admin.Infra.Repositories
             }
 
             // Função para salvar novo arquivo
-            string SaveFile(IFormFile arquivo)
+            void SaveFile(IFormFile arquivo)
             {
                 string uniqueFileName = Guid.NewGuid().ToString() + "_" + arquivo.FileName;
                 string filePath = Path.Combine("/var/aspnetcore/mhdecora_imagens/categoria/", uniqueFileName);
@@ -101,8 +98,6 @@ namespace MHDecora.Admin.Infra.Repositories
                 }
 
                 categoria.CaminhoImagem = uniqueFileName;
-
-                return uniqueFileName;
             }
 
             //if (imagem != null)

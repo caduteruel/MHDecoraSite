@@ -42,7 +42,7 @@ namespace MHDecora.Site.Infra.Repository
 
         public async Task<List<Banner>> BuscarTodos()
         {
-            var listaBanner = await _context.MH_BANNERS.ToListAsync();
+            var listaBanner = await _context.MH_BANNERS.OrderBy(x => x.Ordem).ToListAsync();
 
             foreach (var img in listaBanner)
             {

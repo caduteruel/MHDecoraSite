@@ -1,4 +1,4 @@
-﻿@model List<MHDecora.Admin.Domain.Entities.Categoria>
+﻿@model MHDecora.Admin.Domain.Entities.Montagem
 
 @{
     ViewBag.Title = "Adicionar Banner";
@@ -53,13 +53,15 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect12">Categoria</label>
-                                <select class="form-control" name="categoriaId" id="categoriaId">
+                                @Html.DropDownListFor(f => f.CategoriaId, ViewBag.Categorias as SelectList, "-- Selecione a categoria --", new { @class = "form-control" })
+
+                                @* <select class="form-control" name="categoriaId" id="categoriaId">
                                     <option value="0">-- Selecione a categoria --</option>
                                     @for (int i = 0; i < Model.Count; i++)
                                     {
                                         <option value="@Model[i].Id">@Model[i].Nome</option>
                                     }
-                                </select>
+                                </select> *@
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -87,50 +89,70 @@
                                 <label for="exampleFormControlFile1">Selecione o arquivo Principal</label>
                                 <input type="file" name="arquivo1" class="form-control-file" id="fileInput1" accept="image/*">
                             </div>
+                            
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Selecione o arquivo do Topo </label>
                                 <input type="file" name="arquivo2" class="form-control-file" id="fileInput2" accept="image/*">
                             </div>
+                           
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Selecione o arquivo do Meio</label>
                                 <input type="file" name="arquivo3" class="form-control-file" id="fileInput3" accept="image/*">
                             </div>
+                            
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Selecione o arquivo de Baixo</label>
                                 <input type="file" name="arquivo4" class="form-control-file" id="fileInput4" accept="image/*">
                             </div>
+                            
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label id="labelImage1" for="fname" style="display:none">Imagem</label>
+                                <label id="labelImage1" for="fname">Imagem 1</label>
                                 <img id="previewImage1" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
+                            <input hidden="hidden" id="status1" name="status1" value="@Model.Status1">
+                            <button id="btnImagem1" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(1)">
+                                <i class="mdi mdi-delete"></i>
+                            </button>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label id="labelImage2" for="fname" style="display:none">Imagem</label>
+                                <label id="labelImage2" for="fname">Imagem 2</label>
                                 <img id="previewImage2" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
+                            <input hidden="hidden" id="status2" name="status2" value="@Model.Status2">
+                            <button id="btnImagem2" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(2)">
+                                <i class="mdi mdi-delete"></i>
+                            </button>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label id="labelImage3" for="fname" style="display:none">Imagem</label>
+                                <label id="labelImage3" for="fname">Imagem 3</label>
                                 <img id="previewImage3" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
+                            <input hidden="hidden" id="status3" name="status3" value="@Model.Status3">
+                            <button id="btnImagem3" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(3)">
+                                <i class="mdi mdi-delete"></i>
+                            </button>
                         </div>
                         <div class="col-sm-3 mb-2">
                             <div class="form-group">
-                                <label id="labelImage4" for="fname" style="display:none">Imagem</label>
+                                <label id="labelImage4" for="fname">Imagem 4</label>
                                 <img id="previewImage4" src="#" class="img-fluid" alt="Imagem do Banner" style="width: 360px !important; height:293px !important; display:none" />
                             </div>
+                            <input hidden="hidden" id="status4" name="status4" value="@Model.Status4">
+                            <button id="btnImagem4" type="button" class="mb-1 btn btn-icon btn-outline google-plus btn-rounded-circle" data-toggle="tooltip" data-placement="bottom" title="Apagar Imagem" onclick="apagarImagem(4)">
+                                <i class="mdi mdi-delete"></i>
+                            </button>
                         </div>
                   
                     </div>
@@ -209,6 +231,27 @@
             });
         });
 
+        function apagarImagem(posicao) {
+
+            var concatenado = 'status' + posicao;
+            var statusX = document.getElementById(concatenado);
+
+            //concatenado = 'lblImagem' + posicao;
+            //var labelX = document.getElementById(concatenado);
+
+            contatenado = 'previewImage' + posicao;
+            var previewX = document.getElementById(contatenado);
+
+            // contatenado = 'btnImagem' + posicao;
+            //var botaoX = document.getElementById(contatenado);
+
+            statusX.value = 'true';
+            previewX.src = '';
+            previewX.style.display = 'none';
+            //labelX.style.display = 'none';
+            // botaoX.style.display = 'none';
+        }
+
         // Função para exibir a visualização da imagem quando um arquivo é selecionado
         function cancelar() {
             $("#titulo").val("");
@@ -219,8 +262,8 @@
             $('#fileInput').wrap('<form>').closest('form').get(0).reset();
             $('#fileInput').unwrap();
 
-            var label = document.getElementById('labelImage');
-            var preview = document.getElementById('previewImage');
+            var label = document.getElementById('labelImage1');
+            var preview = document.getElementById('previewImage1');
 
             preview.src = '';
             preview.style.display = 'none';
@@ -233,6 +276,8 @@
             var preview = document.getElementById('previewImage1');
             var fileInput = document.getElementById('fileInput1').files[0];
             var reader = new FileReader();
+
+            status1.value = 'true';
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');
@@ -255,6 +300,8 @@
             var fileInput = document.getElementById('fileInput2').files[0];
             var reader = new FileReader();
 
+            status2.value = 'true';
+
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');
                 preview.src = reader.result;
@@ -276,6 +323,8 @@
             var fileInput = document.getElementById('fileInput3').files[0];
             var reader = new FileReader();
 
+            status3.value = 'true';
+
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');
                 preview.src = reader.result;
@@ -296,6 +345,8 @@
             var preview = document.getElementById('previewImage4');
             var fileInput = document.getElementById('fileInput4').files[0];
             var reader = new FileReader();
+
+            status4.value = 'true';
 
             reader.onloadend = function () {
                 //$("#imagem").attr('display', 'inline-block');

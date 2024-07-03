@@ -1,7 +1,6 @@
 ﻿@model MHDecora.Admin.Domain.Entities.MidiaSocial
 
 @{
-    ViewBag.Title = "Tags";
     string titulo = TempData["Titulo"] as string;
     string mensagem = TempData["Mensagem"] as string;
     string tipoAlerta = TempData["TipoAlerta"] as string;
@@ -15,97 +14,58 @@
     </div>
 }
 
-<div id="msgAlert"></div>
-
-<!-- Products Inventory -->
-<div class="card card-default">
-    <div class="card-header">
-        <h2>Mídias Sociais</h2>
-
-        <a href="@Url.Action("Adicionar", "MidiaSocial")" class="btn btn-primary">
-            <i class="mdi mdi-plus mr-1"></i> Adicionar
-        </a>
-
-    </div>
-    <div class="card-body">
-        <div class="collapse" id="collapse-data-tables">
-            <pre class="language-html mb-4">
-
-                </pre>
-        </div>
-        <table id="productsTable" class="table table-hover table-product" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Instagram</th>
-                    <th>Facebook</th>
-                    <th>WhatsApp</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @{
-                    if (Model != null)
-                    {
-                       
-                            <tr>
-                                <td>@Model.Id</td>
-                                <td>@Model.Instagram</td>
-                                <td>@Model.Facebook</td>
-                                <td>@Model.WhatsApp</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="@Url.Action("Editar", "MidiaSocial", new { midiaSocialId = @Model.Id })">Editar</a>
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" onclick="setaID(@Model.Id)" id="excluirMidiaSocial" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        
-                    }
-                }
-
-            </tbody>
-        </table>
-
-    </div>
-</div>
-
-@* Apagar *@
-<div class="modal fade" id="modalApagar" tabindex="-1" role="dialog" aria-labelledby="modalApagarLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        @using (Html.BeginForm("Excluir", "MidiaSocial", FormMethod.Post, new { enctype = "multipart/form-data", id = "formExcluir" }))
-        {
-            <input type="hidden" value="" id="midiaSocialId" name="midiaSocialId">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalApagarLabel">Confirmar Exclusão</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Tem certeza que deseja excluir essas Mídias Sociais?
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger" id="confirmarExclusao">Sim</button>
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
-                </div>
+<div class="row">
+    <div class="col-xl-12">
+        <!-- Basic Examples -->
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Editar Mídias Sociais</h2>
             </div>
-        }
+            <div class="card-body">
+
+                <form id="formEditar" asp-action="Editar" method="post">
+                    <div class="row">
+                        <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">Instagram</label>
+                                <input name="instagram" id="instagram" class="form-control" value="@Model.Instagram" placeholder="Digite o instagram">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">Facebook</label>
+                                <input name="facebook" id="facebook" class="form-control" value="@Model.Facebook" placeholder="Digite o facebook">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="fname">WhatsApp</label>
+                                <input name="whatsapp" id="whatsapp" class="form-control" value="@Model.WhatsApp" placeholder="Digite o whatsapp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer pt-5 border-top d-flex justify-content-between">
+                        
+                        <div>
+                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button type="button" class="btn btn-light ml-2" onclick="cancelar()">Cancelar</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <script>
-        function setaID(id) {
-            $('#midiaSocialId').val(id);
+        function cancelar() {
+            $("#instagram").val("");
+            $("#facebook").val("");
+            $("#whatsapp").val("");
         }
     </script>
 }

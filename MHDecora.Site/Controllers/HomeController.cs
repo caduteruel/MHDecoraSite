@@ -112,7 +112,7 @@ namespace MHDeroca.Site.Controllers
             List<Montagem> montagens = await _montagemService.BuscarPorCategoria(categoriaId);
             
             ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
-            
+           
             return View(montagens);
         }
 

@@ -1,7 +1,6 @@
-﻿@model IEnumerable<MHDecora.Admin.Domain.Entities.Contato>
+﻿@model MHDecora.Admin.Domain.Entities.Contato
 
 @{
-    ViewBag.Title = "Banners";
     string titulo = TempData["Titulo"] as string;
     string mensagem = TempData["Mensagem"] as string;
     string tipoAlerta = TempData["TipoAlerta"] as string;
@@ -15,102 +14,86 @@
     </div>
 }
 
-<!-- Products Inventory -->
-<div class="card card-default">
-    <div class="card-header">
-        <h2>Contato</h2>
-
-        <a href="@Url.Action("Adicionar", "Contato")" class="btn btn-primary">
-            <i class="mdi mdi-plus mr-1"></i> Adicionar
-        </a>
-
-    </div>
-    <div class="card-body">
-        <div class="collapse" id="collapse-data-tables">
-            <pre class="language-html mb-4">
-
-                </pre>
-        </div>
-        <table id="productsTable" class="table table-hover table-product" style="width: 100%; table-layout: fixed;">
-            <thead>
-                <tr>
-                    <th style="width: 10%;">Id</th>
-                    <th style="width: 25%;">Endereço</th>
-                    <th style="width: 10%;">Link Endereço Google Maps</th>
-                    <th style="width: 10%;">Horário de Atendimento</th>
-                    <th style="width: 10%;">Link Google Maps</th>
-                    <th style="width: 15%;">Celular</th>
-                    <th style="width: 15%;">Telefone</th>
-                    <th style="width: 5%;"></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @{
-                    if (Model != null)
-                    {
-                        foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@item.Endereco</td>
-                                <td>@item.LinkEndereco</td>
-                                <td>@item.HorarioAtendimento</td>
-                                <td>@item.LinkMapa</td>
-                                <td>@item.Celular</td>
-                                <td>@item.Telefone</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="@Url.Action("Editar", "Contato", new { Id = @item.Id })">Editar</a>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#modalApagar" onclick="setaID(@item.Id)" id="excluirConato" href="#">Excluir</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
-                    }
-                }
-
-            </tbody>
-        </table>
-
-    </div>
-</div>
-
-@* Apagar *@
-<div class="modal fade" id="modalApagar" tabindex="-1" role="dialog" aria-labelledby="modalApagarLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        @using (Html.BeginForm("Excluir", "Contato", FormMethod.Post, new { enctype = "multipart/form-data", id = "formExcluir" }))
-        {
-            <input type="hidden" value="" id="contatoId" name="contatoId">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalApagarLabel">Confirmar Exclusão</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Tem certeza que deseja excluir o contato?
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger" id="confirmarExclusao">Sim</button>
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Não</button>
-                </div>
+<div class="row">
+    <div class="col-xl-12">
+        <!-- Basic Examples -->
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Editar Contato</h2>
             </div>
-        }
+            <div class="card-body">
+
+                <form id="formEditar" asp-action="Editar" method="post">
+                    <input hidden="hidden" id="Id" name="Id" value="@Model.Id">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="fname">Endereço</label>
+                                <input name="endereco" id="endereco" class="form-control" value="@Model.Endereco" placeholder="Digite o endereço">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="fname">Link do Endereço para Google Maps</label>
+                                <input name="linkEndereco" id="linkEndereco" class="form-control" value="@Model.LinkEndereco" placeholder="Digite link do endereço">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="fname">Link do Google Maps</label>
+                                <input name="linkMapa" id="linkMapa" class="form-control" value="@Model.LinkMapa" placeholder="Digite link do mapa">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="fname">Horario de Atendimento</label>
+                                <input name="horarioAtendimento" id="horarioAtendimento" class="form-control" value="@Model.HorarioAtendimento" placeholder="Digite o horario de atendimento">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="fname">Celular</label>
+                                <input name="celular" id="celular" class="form-control" value="@Model.Celular" placeholder="Digite o celular">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="fname">Telefone</label>
+                                <input name="telefone" id="telefone" class="form-control" value="@Model.Telefone" placeholder="Digite o telefone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer pt-5 border-top d-flex justify-content-between">
+                
+                        <div>
+                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button type="button" class="btn btn-light ml-2" onclick="cancelar()">Cancelar</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <script>
-        function setaID(id) {
-            $('#contatoId').val(id);
+        function cancelar() {
+            $("#endereco").val("");
+            $("#horarioAtendimento").val("");
+            $("#celular").val("");
+            $("#telefone").val("");
+            $("#linkEndereco").val("");
+            $("#linkMapa").val("");
         }
     </script>
 }

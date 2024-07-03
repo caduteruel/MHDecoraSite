@@ -1,6 +1,7 @@
 ﻿using MHDecora.Admin.Domain.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MHDecora.Site.Domain.Entities
 {
@@ -21,6 +22,8 @@ namespace MHDecora.Site.Domain.Entities
 
         [NotMapped]
         public List<Tag> TagsList { get; set; }
+        [NotMapped]
+        public string NomeTema { get; set; }
 
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }

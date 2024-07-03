@@ -25,7 +25,17 @@ namespace MHDecora.Site.Infra.Repositories
         {
             var listaCategorias = await _context.MH_CATEGORIAS.ToListAsync();
 
+            foreach (var img in listaCategorias)
+            {
+                img.CaminhoImagem = GetPathImagens() + img.CaminhoImagem;
+            }
+
             return listaCategorias;
+        }
+
+        private string GetPathImagens()
+        {
+            return _configuration["ImagePath:Imagens"] + "/categoria/";
         }
     }
 }
