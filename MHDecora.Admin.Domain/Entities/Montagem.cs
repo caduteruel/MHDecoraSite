@@ -32,5 +32,8 @@ namespace MHDecora.Admin.Domain.Entities
 
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
+
+        public int? TemaId { get; set; }
+        public virtual Tema Tema { get; set; }
     }
 }

@@ -63,7 +63,7 @@ namespace MHDecora.Site.Infra.Repositories
 
             if (listaMontagens.Count() == 0)
             {
-                var categoria = await _context.MH_CATEGORIAS.Where(x => x.Id == categoriaId).FirstOrDefaultAsync();
+                var categoria = await _context.MH_CATEGORIAS.Where(x => x.Id == categoriaId).FirstOrDefaultAsync();            
 
                 Montagem montagem = new Montagem();
 

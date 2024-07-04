@@ -147,7 +147,10 @@
             <div class="filterable-cards-detalhe">
                 @for (var x = 1; x < Model.ListaMontagem.Count(); x ++)
                 {
-                    <div class="card" data-name="" style="display: block;">
+                    var montagem = Model.ListaMontagem[x];
+                    if (montagem.Id != Model.ListaMontagem[0].Id)
+                    {
+                        <div class="card" data-name="" style="display: block;">
                         <img src="@Model.ListaMontagem[x].CaminhoImagem" alt="recent">
                         <div class="card-body">
                             <h6 class="card-title-gal">@Model.ListaMontagem[x].Titulo</h6>
@@ -155,6 +158,7 @@
                             <a href="/Home/Detalhes?montagemId=@Model.ListaMontagem[x].Id" class="btn">Saiba mais</a>
                         </div>
                     </div>
+                    }
                 }
             </div>
 
