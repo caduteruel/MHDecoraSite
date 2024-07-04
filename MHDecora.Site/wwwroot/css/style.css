@@ -1168,7 +1168,7 @@ select {
 
 
 .filterable-cards-detalhe {
-    display: -webkit-box;
+    display: contents;
     gap: 36px;
     margin-top: 25px;
 }
