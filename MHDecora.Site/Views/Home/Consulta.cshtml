@@ -160,19 +160,6 @@
                                     </div>
                                 </div>
                             }
-
-                                foreach (var item in Model)
-                                {
-                                    <div class="card" data-name="">
-                                        <img src="@item.CaminhoImagem" alt="recent" />
-                                        <div class="card-body">
-
-                                            <h6 class="card-title-gal">@item.Titulo</h6>
-                                            <p class="card-title-gal negrito">@item.TextoImagem</p>
-                                            <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
-                                        </div>
-                                    </div>
-                                }
                         }
                     }
                 </div>
