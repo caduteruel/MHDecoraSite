@@ -32,6 +32,7 @@ namespace MHDecora.Site.Infra.Repositories
         {
             var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.MontagemDestaque)
                                                                                         .Include(x => x.Categoria)
+                                                                                        .Include(x => x.Tema)
                                                                                         .ToListAsync();
 
 
@@ -41,6 +42,9 @@ namespace MHDecora.Site.Infra.Repositories
                 item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
                 item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
                 item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
+
+                if(item.TemaId != null)
+                    item.NomeTema = BuscarTema((int)item.TemaId);
             }
 
             return listaMontagens;
@@ -50,6 +54,7 @@ namespace MHDecora.Site.Infra.Repositories
         {
             var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.CategoriaId == categoriaId)
                                                            .Include(x => x.Categoria)
+                                                           .Include(x => x.Tema)
                                                            .ToListAsync();
 
             foreach (var item in listaMontagens)
@@ -59,7 +64,12 @@ namespace MHDecora.Site.Infra.Repositories
                 item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
                 item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
 
+                if(item.TemaId != null)
+                    //Nome do Tema
+                    item.NomeTema = BuscarTema((int)item.TemaId);
             }
+
+            
 
             if (listaMontagens.Count() == 0)
             {
@@ -162,6 +172,20 @@ namespace MHDecora.Site.Infra.Repositories
             catch (Exception ex)
             {
                 throw new Exception("Ocorreu um erro ao processar: " + ex.Message);
+            }
+        }
+
+        private string BuscarTema(int temaId)
+        {
+            try
+            {
+                var tema = _context.MH_TEMA.Where(x => x.Id == temaId).FirstOrDefault();
+                var nomeTema = tema.Titulo;
+                return nomeTema;
+            }
+            catch
+            {
+                return null;
             }
         }
 
