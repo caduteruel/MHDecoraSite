@@ -197,10 +197,10 @@ a{
         text-align: center;
         grid-template-columns: 1fr;
     }
-        .detail .image img {
-            width: 365px;
-            height: 25vh;
-        } 
+    .detail .image img {
+        width: 365px;
+        height: 25vh;
+    } 
     .detail .name{
         font-size: x-large;
         margin: 0;
