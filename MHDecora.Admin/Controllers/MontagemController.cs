@@ -14,12 +14,14 @@ namespace MHDecora.Admin.Controllers
         private readonly ITagService _tagService;
         private readonly IMontagemService _montagemService;
         private readonly ICategoriaService _categoriaService;
+        private readonly ITemaService _temaService;
 
-        public MontagemController(IMontagemService montagemService, ICategoriaService categoriaService, ITagService tagService)
+        public MontagemController(IMontagemService montagemService, ICategoriaService categoriaService, ITagService tagService, ITemaService temaService)
         {
             _montagemService = montagemService;
             _categoriaService = categoriaService;
             _tagService = tagService;
+            _temaService = temaService;
         }
 
         [HttpGet]
@@ -46,6 +48,10 @@ namespace MHDecora.Admin.Controllers
 
             //ViewBag.Tags = await _tagService.GetTags();
             ViewBag.Categorias = new SelectList(listaCategoria, "Id", "Nome");
+
+            var listaTemas = await _temaService.Buscar();
+
+            ViewBag.Temas = new SelectList(listaTemas, "Id", "Titulo");
 
             return View(new Montagem());
         }
@@ -96,11 +102,14 @@ namespace MHDecora.Admin.Controllers
             var response = await _montagemService.GetById(id);
 
             var listaCategoria = await _categoriaService.GetCategorias();
+
+            var listaTemas = await _temaService.Buscar();
                    
             var listaTags = await _tagService.GetTags();
             
             ViewBag.Tags = new SelectList(listaTags, "Id", "Nome");
             ViewBag.Categorias = new SelectList(listaCategoria, "Id", "Nome");
+            ViewBag.Temas = new SelectList(listaTemas, "Id", "Titulo");
                
             return View(response);
         }

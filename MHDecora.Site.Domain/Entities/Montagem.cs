@@ -25,6 +25,9 @@ namespace MHDecora.Site.Domain.Entities
         [NotMapped]
         public string NomeTema { get; set; }
 
+        [NotMapped]
+        public int? TemaId { get; set; }
+
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
     }
