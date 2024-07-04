@@ -1027,7 +1027,7 @@ footer ul li a {
 
 .container-filter {
     position: relative;
-    max-width: 1350px;
+    max-width: 1430px;
     width: 100%;
     margin: 10px auto;
     padding: 20px;
@@ -1101,6 +1101,7 @@ select {
     gap: 36px;
     margin-top: 25px;
     flex-wrap: wrap;
+    padding: inherit;
 }
 
 
