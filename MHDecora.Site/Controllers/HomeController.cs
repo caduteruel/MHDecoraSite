@@ -124,6 +124,14 @@ namespace MHDeroca.Site.Controllers
 
             ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
 
+            foreach (var item in detalhe.ListaMontagem)
+            {
+                item.CaminhoImagem = "/images/decoration/decoration1.jpg";
+                item.CaminhoImagem2 = "/images/decoration/decoration2.jpg";
+                item.CaminhoImagem3 = "/images/decoration/decoration3.jpg";
+                item.CaminhoImagem4 = "/images/decoration/decoration4.jpg";
+
+            }
             return View(detalhe);
         }
 

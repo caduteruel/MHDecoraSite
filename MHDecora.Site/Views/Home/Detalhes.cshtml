@@ -107,24 +107,28 @@
                 <h1 class="name" style="text-align: center">@Model.ListaMontagem[0].Titulo</h1>
 
                 <div class="image">
+                    <!-- Imagem principal -->
                     <img src="@Model.ListaMontagem[0].CaminhoImagem" id="image-principal" style="width: auto !important;" />
 
-                        <div class="image-grid">
-
+                    <!-- Container para imagens menores -->
+                    <div class="image-grid">
+                        <!-- Imagens menores -->
                         @if (Model.ListaMontagem[0].CaminhoImagem2 != null)
                         {
-                            <img src="@Model.ListaMontagem[0].CaminhoImagem2" />
+                            <img src="@Model.ListaMontagem[0].CaminhoImagem2" class="imagem-menor" />
                         }
-                        @if (@Model.ListaMontagem[0].CaminhoImagem3 != null) {
-                            <img src="@Model.ListaMontagem[0].CaminhoImagem3" />
+                        @if (Model.ListaMontagem[0].CaminhoImagem3 != null)
+                        {
+                            <img src="@Model.ListaMontagem[0].CaminhoImagem3" class="imagem-menor" />
                         }
-                        @if (@Model.ListaMontagem[0].CaminhoImagem4 != null) {
-                            <img src="@Model.ListaMontagem[0].CaminhoImagem4" />
+                        @if (Model.ListaMontagem[0].CaminhoImagem4 != null)
+                        {
+                            <img src="@Model.ListaMontagem[0].CaminhoImagem4" class="imagem-menor" />
                         }
-                        </div>
-                    
-                  
+                    </div>
                 </div>
+
+
                 
                 <div class="content">
                     <h1 class="name">Descrição do produto</h1>
@@ -166,8 +170,28 @@
     </a> *@
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <script type="text/javascript">
+
+    // Executa o código após o carregamento do documento
+    $(document).ready(function () {
+        // Seleciona todas as imagens menores com a classe 'imagem-menor'
+        $('.imagem-menor').click(function () {
+            // Salva o caminho da imagem principal atual
+            var caminhoImagemPrincipal = $('#image-principal').attr('src');
+
+            // Obtém o caminho da imagem clicada (menor)
+            var caminhoNovaImagemPrincipal = $(this).attr('src');
+
+            // Altera a imagem principal para a imagem clicada (menor)
+            $('#image-principal').attr('src', caminhoNovaImagemPrincipal);
+
+            // Altera a imagem clicada (menor) para a imagem principal anterior
+            $(this).attr('src', caminhoImagemPrincipal);
+        });
+    });
         // let products = null;
         // // get data from file json
         // fetch("../data/products.json")
@@ -177,47 +201,49 @@
         //         showDetail();
         //     });
 
-        function showDetail() {
-            // remove default data from HTML
-            let detail = document.querySelector(".detail");
-            let listProduct = document.querySelector(".listProduct");
-            let productId = new URLSearchParams(window.location.search).get("id");
-            let thisProduct = products.filter((value) => value.id == productId)[0];
-            // if there is no product with id = productId => return to home page
-            if (!thisProduct) {
-                window.location.href = "/";
-            }
+        // function showDetail() {
+        //     // remove default data from HTML
+        //     let detail = document.querySelector(".detail");
+        //     let listProduct = document.querySelector(".listProduct");
+        //     let productId = new URLSearchParams(window.location.search).get("id");
+        //     let thisProduct = products.filter((value) => value.id == productId)[0];
+        //     // if there is no product with id = productId => return to home page
+        //     if (!thisProduct) {
+        //         window.location.href = "/";
+        //     }
 
-            detail.querySelector(".image img").src = thisProduct.image;
-            detail.querySelector(".name").innerText = thisProduct.name;
-            detail.querySelector(".description").innerText =
-                "" + thisProduct.description;
+        //     detail.querySelector(".image img").src = thisProduct.image;
+        //     detail.querySelector(".name").innerText = thisProduct.name;
+        //     detail.querySelector(".description").innerText =
+        //         "" + thisProduct.description;
 
-            products
-                .filter((value) => value.id != productId)
-                .slice(0, 4) // Limit to the first 4 products
-                .forEach((product) => {
-                    let newProduct = document.createElement("a");
-                    newProduct.href = "detail.html?id=" + product.id;
-                    newProduct.classList.add("item");
-                    newProduct.innerHTML = `<img src="${product.image}" alt="">
-              <h2>${product.name}</h2><a href=${newProduct.href}>Saiba mais</a>
-              `;
-                    listProduct.appendChild(newProduct);
-                });
-        }
+        //     products
+        //         .filter((value) => value.id != productId)
+        //         .slice(0, 4) // Limit to the first 4 products
+        //         .forEach((product) => {
+        //             let newProduct = document.createElement("a");
+        //             newProduct.href = "detail.html?id=" + product.id;
+        //             newProduct.classList.add("item");
+        //             newProduct.innerHTML = `<img src="${product.image}" alt="">
+        //       <h2>${product.name}</h2><a href=${newProduct.href}>Saiba mais</a>
+        //       `;
+        //             listProduct.appendChild(newProduct);
+        //         });
+        // }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const principalImage = document.getElementById("image-principal");
-            const gridImages = document.querySelectorAll(".image-grid img");
+            // document.addEventListener("DOMContentLoaded", function () {
+            // const principalImage = document.getElementById("image-principal");
+            // const gridImages = document.querySelectorAll(".image-grid img");
 
-            gridImages.forEach(function (img) {
-                img.addEventListener("click", function () {
-                    if (!this.src.includes("blank")) {   // Verifica se é o qruivo em branco
-                        principalImage.src = this.src;
-                    }
-                });
-            });
-        });
+            //     gridImages.forEach(function (img) {
+            //         img.addEventListener("click", function () {
+            //            // if (!this.src.includes("blank")) {   // Verifica se é o qruivo em branco
+            //                 principalImage.src = this.src;
+            //            // }
+            //         });
+            //     });
+
+
+            // });
         
     </script>
