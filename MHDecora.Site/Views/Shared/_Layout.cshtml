@@ -96,18 +96,18 @@
 
 
         // Lógica para adicionar classe 'active' ao link conforme a navegação
-        $(window).on('scroll', function () {
-            var scrollPos = $(document).scrollTop();
-            $('.section').each(function () {
-                var top = $(this).offset().top - 200;
-                var bottom = top + $(this).outerHeight();
-                if (scrollPos >= top && scrollPos <= bottom) {
-                    $('.nav-links a').removeClass('active');
-                    var id = $(this).attr('id');
-                    $('.nav-links a[href="#' + id + '"]').addClass('active');
-                }
-            });
-        });
+        // $(window).on('scroll', function () {
+        //     var scrollPos = $(document).scrollTop();
+        //     $('.section').each(function () {
+        //         var top = $(this).offset().top - 200;
+        //         var bottom = top + $(this).outerHeight();
+        //         if (scrollPos >= top && scrollPos <= bottom) {
+        //             $('.nav-links a').removeClass('active');
+        //             var id = $(this).attr('id');
+        //             $('.nav-links a[href="#' + id + '"]').addClass('active');
+        //         }
+        //     });
+        // });
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)

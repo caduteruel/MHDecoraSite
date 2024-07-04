@@ -1657,7 +1657,7 @@ select {
     }
 
     .swiper-wrapper.tema {
-        margin-left: 60px;
+        margin-left: 80px;
     }
 
     .swiper-slide-tema img {
@@ -1672,7 +1672,7 @@ select {
         justify-content: center;
         width: 98%;
         max-width: 341px;
-        margin: 20px;
+        /*margin: 20px;*/
         height: 71vh;
         text-align: center;
     }
@@ -1699,6 +1699,7 @@ select {
 
     .swiper.novidade {
         width: auto;
+        height: 2350px !important;
     }
 
   
@@ -1840,7 +1841,7 @@ select {
         justify-content: center;
         align-items: center;
         width: auto;
-        margin: 5rem 0;
+        margin: 0rem 0;
     }
 
     .theme-container h1 {
@@ -1989,14 +1990,14 @@ select {
         font-size: 16px;
     }
 
-   
-    
+
+
     .theme {
         display: flex;
         justify-content: center;
         align-items: center;
         width: auto;
-        margin: 5rem 0;
+        margin: -5rem 0;
     }
 
     .theme-container h1 {
@@ -2057,7 +2058,7 @@ select {
     }
 
     .map-wrapper {
-        margin-top: 130rem;
+        margin-top: 4rem;
     }
 
     .map-container {
