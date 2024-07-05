@@ -31,12 +31,12 @@
 
                 <p style="text-align: left; display: flex; justify-content: flex-end; align-items: center;">
                     <img src="~/images/site/tel-contato.svg" style="width: 12px; margin-right: 10px;" />
-                    <a href="tel:@(Model.Telefone.Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank" style="-webkit-text-stroke-width: thin;font-size: large;">@(Model.Telefone)</a>
+                    <a href="tel:@(Model.Telefone.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""))" target="_blank" style="-webkit-text-stroke-width: thin;font-size: large;">@(Model.Telefone)</a>
                 </p>
-
+               
                 <p style="text-align: left; display: flex; justify-content: flex-end; align-items: center;">
                     <img src="~/images/site/whatts-contato.svg" style="width: 23px; margin-right: 10px;" />
-                    <a href="tel:@(Model.Celular.Replace("(", "").Replace(")", "").Replace(" ", ""))" target="_blank" style="-webkit-text-stroke-width: thin;font-size: large;">@(Model.Celular)</a>
+                    <a href="https://wa.me/@(Model.Celular.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""))" target="_blank" style="-webkit-text-stroke-width: thin;font-size: large;">@(Model.Celular)</a>
                 </p>
 
             </div>

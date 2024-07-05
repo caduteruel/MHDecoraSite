@@ -82,13 +82,27 @@ namespace MHDeroca.Site.Controllers
             ViewData["MidiaSocial"] = midiaSocial;
 
             //ViewModel
-            SiteViewModel siteViewModel = new SiteViewModel();            
+            SiteViewModel siteViewModel = new SiteViewModel();
+
+
+            banner[0].CaminhoImagem = "/images/banner/banner-1.png";
+            banner[1].CaminhoImagem = "/images/banner/banner2.png";
             siteViewModel.Banners = banner;
+
+            quemSomos.CaminhoImagem = "/images/about/about.png";
             siteViewModel.QuemSomos = quemSomos;
+
+            
             siteViewModel.Montagens = montagem;
             siteViewModel.Temas = tema;
+
             siteViewModel.Galerias = galeria;
             siteViewModel.Contato = contato;
+
+
+            categorias[0].CaminhoImagem = "/images/category/categoria-1.png";
+            categorias[1].CaminhoImagem = "/images/category/categoria-2.png";
+            categorias[2].CaminhoImagem = "/images/category/categoria-3.png";
             siteViewModel.Categorias = categorias;
 
             return View(siteViewModel);
