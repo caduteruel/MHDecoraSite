@@ -68,42 +68,27 @@ namespace MHDeroca.Site.Controllers
             Contato contato = await _contatoService.GetContato();
 
             ////Novidades
-            //if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
-            //{
-            //    cacheValue = _instagramService.GetRecentsPosts().Result;
+            if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
+            {
+                cacheValue = _instagramService.GetRecentsPosts().Result;
 
-            //    var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
 
-            //    _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
-            //}
+                _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
+            }
 
-            //ViewBag.InstagramPosts = cacheValue;
+            ViewBag.InstagramPosts = cacheValue;
 
             ViewData["MidiaSocial"] = midiaSocial;
 
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();
-
-
-            banner[0].CaminhoImagem = "/images/banner/banner-1.png";
-            banner[1].CaminhoImagem = "/images/banner/banner2.png";
             siteViewModel.Banners = banner;
-
-            quemSomos.CaminhoImagem = "/images/about/about.png";
-            siteViewModel.QuemSomos = quemSomos;
-
-            
+            siteViewModel.QuemSomos = quemSomos;            
             siteViewModel.Montagens = montagem;
             siteViewModel.Temas = tema;
-
             siteViewModel.Galerias = galeria;
             siteViewModel.Contato = contato;
-
-
-            categorias[0].CaminhoImagem = "/images/category/categoria-1.png";
-            categorias[1].CaminhoImagem = "/images/category/categoria-2.png";
-            categorias[2].CaminhoImagem = "/images/category/categoria-3.png";
-            siteViewModel.Categorias = categorias;
 
             return View(siteViewModel);
         }
