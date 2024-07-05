@@ -111,11 +111,11 @@
             <div class="filter-text">
                 @if (Model.FirstOrDefault().Categoria != null)
                 {
-                    <span style="font-size: xxx-large">Categoria: "@Model.FirstOrDefault().Categoria.Nome"</span>
+                    <span style="font-size: xxx-large">Categoria: "@Model.FirstOrDefault().NomeTema"</span>
                 }
                 else
                 {
-                    <span style="font-size: xxx-large">Tema: "@Model.FirstOrDefault().Categoria.Nome"</span>
+                    <span style="font-size: xxx-large">Tema: "@Model.FirstOrDefault().NomeTema"</span>
                 }
 
                 <br />
@@ -130,7 +130,7 @@
             <div class="container-filter">        
 
                 <div class="filter-text">
-                     <h1>@Model.FirstOrDefault().Categoria.Nome</h1>
+                     <h1>@Model.FirstOrDefault().NomeTema</h1>
                 </div>
                     <br />
                      @*<p style="text-align: center;font-size: larger;margin-bottom: 40px;">
@@ -155,7 +155,7 @@
                                     <div class="card-body">
 
                                             <h6 class="card-title-gal">@item.Titulo</h6>
-                                            <p class="card-title-gal negrito">@item.Categoria.Nome</p>
+                                            <p class="card-title-gal negrito">@item.NomeTema</p>
                                         <a href="@Url.Action("Detalhes", "Home", new { montagemId = item.Id })" class="btn">Saiba mais</a>
                                     </div>
                                 </div>

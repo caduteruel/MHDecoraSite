@@ -52,9 +52,9 @@ namespace MHDecora.Site.Infra.Repositories
 
         public async Task<List<Montagem>> BuscarPorCategoria(int categoriaId)
         {
+
             var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.CategoriaId == categoriaId)
                                                            .Include(x => x.Categoria)
-                                                           .Include(x => x.Tema)
                                                            .ToListAsync();
 
             foreach (var item in listaMontagens)
@@ -63,10 +63,6 @@ namespace MHDecora.Site.Infra.Repositories
                 item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
                 item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
                 item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
-
-                if(item.TemaId != null)
-                    //Nome do Tema
-                    item.NomeTema = BuscarTema((int)item.TemaId);
             }
 
             
@@ -100,12 +96,33 @@ namespace MHDecora.Site.Infra.Repositories
             montagem.CaminhoImagem3 = montagem.CaminhoImagem3 == null ? montagem.CaminhoImagem3 : GetPathImagens() + montagem.CaminhoImagem3;
             montagem.CaminhoImagem4 = montagem.CaminhoImagem4 == null ? montagem.CaminhoImagem4 : GetPathImagens() + montagem.CaminhoImagem4;
 
+            //if(montagem. != null)
+            //    montagem.NomeTema = 
+
             detalhe.ListaMontagem.Add(montagem);
 
-            var atuais = await _context.MH_MONTAGEM.Take(4).ToListAsync();
-            atuais.RemoveAt(0); // Remove o 0 que é o de cima :-)
 
-            foreach (var item in atuais)
+
+
+            var listaTemaTags = montagem.Tags.Split(",").Select(tag => tag.Trim()).ToList();
+
+            var palavrasChaveTags = new HashSet<string>(listaTemaTags);
+
+            // Obter todas as montagens do banco de dados
+            var todasMontagens = await _context.MH_MONTAGEM.Include(x => x.Categoria).AsNoTracking().ToListAsync();
+
+            // Filtrar em memória utilizando Any e Contains
+            var listaMontagens = todasMontagens
+                .Where(x => x.Tags != null && x.Tags.Split(",").Select(tag => tag.Trim()).Any(tag => palavrasChaveTags.Contains(tag)))
+                .Take(4)
+                .ToList();
+
+
+            //var atuais = await listaMontagens.Take(4);
+            
+            //atuais.RemoveAt(0); // Remove o 0 que é o de cima :-)
+
+            foreach (var item in listaMontagens)
             {
                 if (item.CaminhoImagem.Contains("/images/"))
                 {
@@ -153,6 +170,8 @@ namespace MHDecora.Site.Infra.Repositories
                         item1.CaminhoImagem2 = GetPathImagens() + item1.CaminhoImagem2;
                         item1.CaminhoImagem3 = GetPathImagens() + item1.CaminhoImagem3;
                         item1.CaminhoImagem4 = GetPathImagens() + item1.CaminhoImagem4;
+                        item1.NomeTema = tema.Titulo;
+                        
                     }
 
                     if (listaMontagens.Count() == 0)

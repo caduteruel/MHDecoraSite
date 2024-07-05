@@ -134,7 +134,7 @@ namespace MHDeroca.Site.Controllers
 
             ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
 
-            return View("Consulta", montagens);
+            return View(montagens);
         }
 
         [HttpGet]

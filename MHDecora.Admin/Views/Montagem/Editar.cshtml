@@ -46,13 +46,6 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="categoriaId">Tema</label>
-                                @Html.DropDownListFor(f => f.TemaId, ViewBag.Temas as SelectList, "-- Selecione o tema --", new { @class = "form-control" })
-                            </div>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <div class="form-group">
                                 <label for="fname">Produto em Destaque</label>
                                 <div class="form-check">
                                     @if (Model.MontagemDestaque)
