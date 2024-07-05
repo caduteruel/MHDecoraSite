@@ -84,11 +84,12 @@ namespace MHDeroca.Site.Controllers
             //ViewModel
             SiteViewModel siteViewModel = new SiteViewModel();
             siteViewModel.Banners = banner;
-            siteViewModel.QuemSomos = quemSomos;            
+            siteViewModel.QuemSomos = quemSomos;
             siteViewModel.Montagens = montagem;
             siteViewModel.Temas = tema;
             siteViewModel.Galerias = galeria;
             siteViewModel.Contato = contato;
+            siteViewModel.Categorias = categorias;
 
             return View(siteViewModel);
         }
