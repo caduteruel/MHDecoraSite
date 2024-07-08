@@ -1,9 +1,9 @@
 ﻿ @model MHDecora.Site.Domain.Entities.Detalhe
 
 @{
-    string numero = "5519983603822"; // Substitua com o número desejado, incluindo o código do país
-    string texto = "Título: " + Model.ListaMontagem[0].Titulo; // Texto pré-definido a ser incluído na mensagem
-    string url = "https://wa.me/" + numero + "?text=" + System.Uri.EscapeDataString(texto);
+    // string numero = "5519983603822"; // Substitua com o número desejado, incluindo o código do país
+    // string texto = "Título: " + Model.ListaMontagem[0].Titulo; // Texto pré-definido a ser incluído na mensagem
+    // string url = "https://wa.me/" + numero + "?text=" + System.Uri.EscapeDataString(texto);
 }
 
 
@@ -133,9 +133,11 @@
                 <div class="content mb-3">
                     <h1 class="name">Descrição do produto</h1>
 
-                    <div class="description">@Model.ListaMontagem[0].Texto</div>
+                    <div class="description">
+                        @Html.Raw(@Model.ListaMontagem[0].Texto)
+                    </div>
                     <div class="buttons">
-                        <a href="@url" target="_blank">Solicitar orçamento</a>
+                        <a href="@Model.ListaMontagem[0].LinkBotao" target="_blank">Solicitar orçamento</a>
                     </div>
                 </div>
             </div>

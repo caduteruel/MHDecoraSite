@@ -83,6 +83,52 @@ namespace MHDecora.Site.Infra.Repositories
             return listaMontagens;
         }
 
+        public async Task<List<Montagem>> BuscarPorFiltro(int categoriaId, string filter)
+        {
+            List<Montagem> listaMontagens = new List<Montagem>();
+            if(filter == "order")
+            {
+                listaMontagens = await _context.MH_MONTAGEM
+                                                   .Where(x => x.CategoriaId == categoriaId)
+                                                   .Include(x => x.Categoria)
+                                                   .OrderBy(x => x.Titulo)  // Ordena no lado do cliente
+                                                   .ToListAsync();
+            }
+            else
+            {
+                listaMontagens = await _context.MH_MONTAGEM.Where(x => x.CategoriaId == categoriaId)
+                                                   .Include(x => x.Categoria)
+                                                   .OrderByDescending(x => x.DataCadastro)
+                                                   .ToListAsync();
+            }
+
+
+            foreach (var item in listaMontagens)
+            {
+                item.CaminhoImagem = GetPathImagens() + item.CaminhoImagem;
+                item.CaminhoImagem2 = GetPathImagens() + item.CaminhoImagem2;
+                item.CaminhoImagem3 = GetPathImagens() + item.CaminhoImagem3;
+                item.CaminhoImagem4 = GetPathImagens() + item.CaminhoImagem4;
+            }
+
+
+
+            if (listaMontagens.Count() == 0)
+            {
+                var categoria = await _context.MH_CATEGORIAS.Where(x => x.Id == categoriaId).FirstOrDefaultAsync();
+
+                Montagem montagem = new Montagem();
+
+                montagem.Categoria = new Categoria();
+
+                montagem.Categoria.Nome = categoria.Nome;
+
+                listaMontagens.Add(montagem);
+            }
+
+            return listaMontagens;
+        }
+
         public async Task<Detalhe> BuscarPorId(int montagemId)
         {
             Detalhe detalhe = new Detalhe();
@@ -115,6 +161,7 @@ namespace MHDecora.Site.Infra.Repositories
             var listaMontagens = todasMontagens
                 .Where(x => x.Tags != null && x.Tags.Split(",").Select(tag => tag.Trim()).Any(tag => palavrasChaveTags.Contains(tag)))
                 .Take(4)
+                .OrderByDescending(x => x.DataCadastro)
                 .ToList();
 
 

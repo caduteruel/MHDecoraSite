@@ -33,6 +33,11 @@ namespace MHDecora.Site.Application
             return await _montagemRepository.BuscarPorCategoria(categoriaId);
         }
 
+        public async Task<List<Montagem>> BuscarPorFiltro(int categoriaId, string filter)
+        {
+            return await _montagemRepository.BuscarPorFiltro(categoriaId, filter);
+        }
+
         public async Task<Detalhe> BuscarPorId(int montagemId)
         {
             return await _montagemRepository.BuscarPorId(montagemId);

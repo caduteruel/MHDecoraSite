@@ -136,13 +136,16 @@
                      @*<p style="text-align: center;font-size: larger;margin-bottom: 40px;">
                          @Model.FirstOrDefault().Categoria.Descricao
                      </p>*@
-                <div class="filter-buttons">
-                    <select id="filter-select" name="filters">
-                        <option value="" disabled selected>Filtrar por</option>
-                        <option value="order" data-name="order">Ordem Alfabética</option>
-                        <option value="recent" data-name="recent">Recentes</option>
-                    </select>
-                </div>
+                    <form asp-controller="Home" asp-action="Filtro" method="get" class="nav-search" id="filterForm">
+                        <input type="hidden" id="@Model.FirstOrDefault().CategoriaId" name="categoriaId" value="1" />
+                        <div class="filter-buttons">
+                            <select id="filter-select" name="filters" onchange="submitForm()">
+                                <option value="" disabled selected>Filtrar por</option>
+                                <option value="order" data-name="order">Ordem Alfabética</option>
+                                <option value="recent" data-name="recent">Recentes</option>
+                            </select>
+                        </div>
+                    </form>
 
                 <div class="filterable-cards">
                     @{
@@ -179,6 +182,13 @@
     </div>
 
     <script src="~/js/main.js"></script>
+
+
+    <script>
+        function submitForm() {
+            document.getElementById('filterForm').submit();
+        }
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

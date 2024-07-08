@@ -1,4 +1,5 @@
 ﻿using MHDecora.Site.Domain.Entities;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace MHDecora.Site.Application.Interfaces
 {
@@ -10,5 +11,6 @@ namespace MHDecora.Site.Application.Interfaces
         Task<List<Montagem>> BuscarPorTagsTema(int temaId);
         Task<List<Montagem>> Pesquisa(string texto);
         Task<Detalhe> BuscarPorId(int montagemId);
+        Task<List<Montagem>> BuscarPorFiltro(int categoriaId, string filter);
     }
 }

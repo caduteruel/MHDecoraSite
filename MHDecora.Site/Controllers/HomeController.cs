@@ -68,16 +68,16 @@ namespace MHDeroca.Site.Controllers
             Contato contato = await _contatoService.GetContato();
 
             ////Novidades
-            if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
-            {
-                cacheValue = _instagramService.GetRecentsPosts().Result;
+            //if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
+            //{
+            //    cacheValue = _instagramService.GetRecentsPosts().Result;
 
-                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
+            //    var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
 
-                _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
-            }
+            //    _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
+            //}
 
-            ViewBag.InstagramPosts = cacheValue;
+            //ViewBag.InstagramPosts = cacheValue;
 
             ViewData["MidiaSocial"] = midiaSocial;
 
@@ -116,6 +116,15 @@ namespace MHDeroca.Site.Controllers
             return View(montagens);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Filtro(string filters, int categoriaId)
+        {
+            var result = await _montagemService.BuscarPorFiltro(categoriaId, filters);
+
+            ViewData["MidiaSocial"] = await _midiaSocialService.GetMidiaSocial();
+
+            return View("Consulta", result);
+        }
 
         [HttpGet]
         public async Task<IActionResult> Detalhes(int montagemId)
