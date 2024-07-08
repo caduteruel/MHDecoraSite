@@ -20,7 +20,9 @@ namespace MHDecora.Site.Domain.Entities
         public bool MontagemDestaque { get; set; }
         public string? Tags { get; set; }
 
-        public DateTime DataCadastro = DateTime.UtcNow;
+        //public DateTime? DataCadastro { get; set; } = DateTime.UtcNow;
+
+        public DateTime? DataCadastrado { get; set; } = DateTime.UtcNow;
 
         [NotMapped]
         public List<Tag> TagsList { get; set; }
