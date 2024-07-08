@@ -107,7 +107,7 @@ namespace MHDeroca.Site.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Consulta(int categoriaId)
+        public async Task<IActionResult> Consulta(int categoriaId) 
         {
             List<Montagem> montagens = await _montagemService.BuscarPorCategoria(categoriaId);
             

@@ -3,6 +3,7 @@ using System;
 using MHDecora.Site.Infra;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -11,9 +12,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace MHDecora.Site.Infra.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20240708193211_DataCadastro")]
+    partial class DataCadastro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,10 +154,7 @@ namespace MHDecora.Site.Infra.Migrations
                     b.Property<int>("CategoriaId")
                         .HasColumnType("NUMBER(10)");
 
-                    b.Property<DateTime?>("DataCadastrado")
-                        .HasColumnType("TIMESTAMP(7)");
-
-                    b.Property<DateTime?>("DataCadastro")
+                    b.Property<DateTime>("DataCadastro")
                         .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<string>("LinkBotao")

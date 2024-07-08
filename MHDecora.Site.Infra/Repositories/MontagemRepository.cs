@@ -96,10 +96,11 @@ namespace MHDecora.Site.Infra.Repositories
             }
             else
             {
-                listaMontagens = await _context.MH_MONTAGEM.Where(x => x.CategoriaId == categoriaId)
-                                                   .Include(x => x.Categoria)
-                                                   .OrderByDescending(x => x.DataCadastro)
-                                                   .ToListAsync();
+                listaMontagens = await _context.MH_MONTAGEM
+                                                    .Where(x => x.CategoriaId == categoriaId)
+                                                    .Include(x => x.Categoria)
+                                                    .OrderByDescending(x => x.DataCadastrado)
+                                                    .ToListAsync();
             }
 
 
@@ -147,7 +148,7 @@ namespace MHDecora.Site.Infra.Repositories
 
             detalhe.ListaMontagem.Add(montagem);
 
-
+             
 
 
             var listaTemaTags = montagem.Tags.Split(",").Select(tag => tag.Trim()).ToList();
@@ -161,7 +162,7 @@ namespace MHDecora.Site.Infra.Repositories
             var listaMontagens = todasMontagens
                 .Where(x => x.Tags != null && x.Tags.Split(",").Select(tag => tag.Trim()).Any(tag => palavrasChaveTags.Contains(tag)))
                 .Take(4)
-                .OrderByDescending(x => x.DataCadastro)
+                .OrderByDescending(x => x.DataCadastrado)
                 .ToList();
 
 
