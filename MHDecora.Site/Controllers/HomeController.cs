@@ -68,16 +68,16 @@ namespace MHDeroca.Site.Controllers
             Contato contato = await _contatoService.GetContato();
 
             ////Novidades
-            if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
-            {
-                cacheValue = _instagramService.GetRecentsPosts().Result;
+            //if (!_memoryCache.TryGetValue("InstagramPostsCache", out JObject cacheValue))
+            //{
+            //    cacheValue = _instagramService.GetRecentsPosts().Result;
 
-                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
+            //    var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromHours(2));
 
-                _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
-            }
+            //    _memoryCache.Set("InstagramPostsCache", cacheValue, cacheEntryOptions);
+            //}
 
-            ViewBag.InstagramPosts = cacheValue;
+            //ViewBag.InstagramPosts = cacheValue;
 
             ViewData["MidiaSocial"] = midiaSocial;
 
@@ -149,14 +149,14 @@ namespace MHDeroca.Site.Controllers
         [HttpGet]
         public async Task<IActionResult> Rodape()
         {
-            List<Montagem> montagem = await _montagemService.Buscar();
+            List<Categoria> categoria = await _categoriaService.Buscar();
 
             var link = new List<object>
             {
-                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[0].CategoriaId }), Nome = montagem[0].Titulo },
-                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[1].CategoriaId }), Nome = montagem[1].Titulo },
-                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[2].CategoriaId }), Nome = montagem[2].Titulo },
-                new { Url = Url.Action("Consulta", "Home", new { categoriaId = montagem[3].CategoriaId }), Nome = montagem[3].Titulo }
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = categoria[0].Id }), Nome = categoria[0].Nome },
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = categoria[1].Id }), Nome = categoria[1].Nome },
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = categoria[2].Id }), Nome = categoria[2].Nome },
+                new { Url = Url.Action("Consulta", "Home", new { categoriaId = categoria[3].Id }), Nome = categoria[3].Nome }
             };
 
             return Json(link); // Retorna os dados como JSON

@@ -39,15 +39,15 @@
 </div>
 
 
-@* <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> *@
 
-@section Script {
+
     <script>
         // JavaScript para exibir um alert ao carregar a página
-        window.onload = function () {
 
+        $(document).ready(function () {
+           
             $.ajax({
-                url: '/Home/Rodape',  // URL para a ação no backend que retorna os links
+                url: '@Url.Action("Rodape", "Home")',  // URL para a ação no backend que retorna os links
                 type: 'GET',  // ou 'POST' dependendo da sua necessidade
                 data: { /* Dados a enviar, se houver */ },
                 success: function (result) {
@@ -69,6 +69,6 @@
                     }
                 }
             });
-        };
+       });
     </script>
-}
+

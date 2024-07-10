@@ -107,6 +107,17 @@
     }
 
 
+    .footer {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        background-color: var(--color-primary);
+        color: #fff;
+        padding: 15px 10% !important;
+        justify-content: center !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        width: 100% !important;
+    }
     </style>
 
 
@@ -179,7 +190,7 @@
         
     </div>
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/main.js"></script>
 
     <script>
@@ -306,6 +317,29 @@
                     filterDropdown.classList.remove("active");
                 }
             });
+
+
+            
+
+
         });
+
+        $(document).ready(function () {
+            // Seleciona o elemento do footer
+
+            var footer = document.getElementById('rodape');
+
+            // Aplica os estilos usando JavaScript
+            footer.style.display = 'flex';
+            footer.style.flexWrap = 'wrap';
+            footer.style.backgroundColor = 'var(--color-primary)';
+            footer.style.color = '#fff';
+            footer.style.padding = '15px 10%';
+            footer.style.justifyContent = 'center';
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
+            footer.style.width = '100%';
+        });
+
     </script>
 </body>
