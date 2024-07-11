@@ -36,12 +36,6 @@ namespace MHDecora.Admin.Controllers
                 return View(response);
             }
 
-
-            foreach (var item in response)
-            {
-                item.CaminhoImagem = "../images/montagem/845f62da-cd69-4b22-a865-3de708a0d5d5_desenvolvedor_junior_salario.PNG";
-            }
-
             return View(response);
         }
 

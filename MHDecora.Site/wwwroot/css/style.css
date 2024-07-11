@@ -1984,6 +1984,7 @@ select {
     .detail .image img {
         width: 324px;
         height: 30vh;
+        object-fit: cover;
     }
     .card-image::before {
         content: "";
