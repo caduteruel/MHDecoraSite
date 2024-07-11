@@ -55,6 +55,7 @@ namespace MHDecora.Site.Infra.Repositories
 
             var listaMontagens = await _context.MH_MONTAGEM.Where(x => x.CategoriaId == categoriaId)
                                                            .Include(x => x.Categoria)
+                                                           .OrderByDescending(x => x.DataCadastrado)
                                                            .ToListAsync();
 
             foreach (var item in listaMontagens)

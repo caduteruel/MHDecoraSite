@@ -7,16 +7,19 @@
     string tipoAlerta = TempData["TipoAlerta"] as string;
 }
 
+
+
 <style>
     #productsTable {
         max-width: 100%; /* Defina o tamanho máximo do contêiner conforme necessário */
         /* overflow: hidden; */ /* Oculta barras de rolagem se houver conteúdo excedente */
     }
-    #productsTable table {
-        width: 100%; /* Ajusta a largura da tabela para preencher o contêiner */
-    }
 
-    .dataTables_scrollBody {        
+        #productsTable table {
+            width: 100%; /* Ajusta a largura da tabela para preencher o contêiner */
+        }
+
+    .dataTables_scrollBody {
         overflow: visible !important;
     }
 </style>
@@ -32,9 +35,14 @@
 <div id="msgAlert"></div>
 
 <!-- Products Inventory -->
+
+@* <link id="main-css-href" rel="stylesheet" href="~/css/style.css" />
+<script src="~/plugins/nprogress/nprogress.js"></script> *@
+
 <div class="card card-default">
     <div class="card-header">
         <h2>Montagens</h2>
+
 
         <a href="@Url.Action("Adicionar", "Montagem")" class="btn btn-primary">
             <i class="mdi mdi-plus mr-1"></i> Adicionar
@@ -96,6 +104,7 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td></td>
                             </tr>
                         }
                     }
@@ -106,6 +115,12 @@
 
     </div>
 </div>
+
+@* <script src="~/plugins/jquery/jquery.min.js"></script>
+<script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> *@
+
+@* <script src="~/plugins/datatables/datatables-1.10.18/js/jquery.datatables.min.js"></script> 
+<script src="~/js/custom.js"></script> *@
 
 @* Apagar *@
 <div class="modal fade" id="modalApagar" tabindex="-1" role="dialog" aria-labelledby="modalApagarLabel" aria-hidden="true">
@@ -132,7 +147,10 @@
     </div>
 </div>
 
+
+
 @section Scripts {
+
     <script>
         function setaID(id) {
             $('#montagemId').val(id);
