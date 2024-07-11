@@ -1983,7 +1983,7 @@ select {
 
     .detail .image img {
         width: 324px;
-        height: 25vh;
+        height: 30vh;
     }
     .card-image::before {
         content: "";
@@ -2259,8 +2259,8 @@ select {
                 color: black;
                 font-size: 30px;
                 font-weight: 300;
-                /*        border-bottom: 4px solid var(--color-primary) ;
-*/ margin-bottom: 25px;
+                /*        border-bottom: 4px solid var(--color-primary) ;*/ 
+                margin-bottom: 25px;
             }
 
             .map-container i {
@@ -2344,10 +2344,49 @@ select {
                 margin-left: -32px !important;
             }
 
-            .swiper-slide-tema img {
-                width: 57% !important;
-            }
+         
+            
+
+            
         }
+
+    
+}
+
+@media (min-width: 400px) and (max-width: 430px) {
+    .swiper {
+        width: 356px;
     }
 
+    .swiper-slide-tema img {
+        width: 58% !important;
+    }
 
+    .card-wrapper .card-title h1 {
+        position: relative;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.9rem;
+        padding: 0px 58px;
+        font-weight: 400;
+    }
+
+    .about-content h1 {
+        font-size: 30px;
+        text-align: center;
+        /* background-color: var(--color-primary); */
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .filterable-cards {
+        display: -webkit-box;
+        gap: 36px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+        padding: inherit;
+        margin-left: 10px;
+    }
+}
