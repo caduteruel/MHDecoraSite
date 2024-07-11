@@ -144,22 +144,22 @@
         }
     }
 
-    @if(Model.ListaMontagem.Count() > 0)
+    @if(Model.ListaMontagem.Count() > 1 && Model.ListaMontagem.Any(x => x.Id != Model.ListaMontagem[0].Id))
     {
-        <div class="product-list">
-            <div class="title negrito"><strong>Veja também</strong></div>
+            <div class="product-list">
+                <div class="title negrito"><strong>Veja também</strong></div>
 
-            <div class="listProduct">
+                <div class="listProduct">
 
 
-                <div class="filterable-cards-detalhe">
-                    @for (var x = 1; x < Model.ListaMontagem.Count(); x++)
-                    {
-                        var montagem = Model.ListaMontagem[x];
-                        if (montagem.Id != Model.ListaMontagem[0].Id)
+                    <div class="filterable-cards-detalhe">
+                        @for (var x = 1; x < Model.ListaMontagem.Count(); x++)
                         {
-                            <div class="card" data-name="" style="display: block;">
-                                <img src="@Model.ListaMontagem[x].CaminhoImagem" alt="recent">
+                            var montagem = Model.ListaMontagem[x];
+                            if (montagem.Id != Model.ListaMontagem[0].Id)
+                            {
+                                <div class="card" data-name="" style="display: block;">
+                                    <img src="@Model.ListaMontagem[x].CaminhoImagem" alt="recent">
                                 <div class="card-body">
                                     <h6 class="card-title-gal">@Model.ListaMontagem[x].Titulo</h6>
                                     <p class="card-title-gal negrito">@Model.ListaMontagem[x].TextoImagem</p>
@@ -172,7 +172,9 @@
 
             </div>
         </div>
+        
     }
+    
 
 
     @* <a href="../index.html" class="btn-back">
