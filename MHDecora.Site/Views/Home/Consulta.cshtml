@@ -137,7 +137,7 @@
                          @Model.FirstOrDefault().Categoria.Descricao
                      </p>*@
                     <form asp-controller="Home" asp-action="Filtro" method="get" class="nav-search" id="filterForm">
-                        <input type="hidden" id="@Model.FirstOrDefault().CategoriaId" name="categoriaId" value="1" />
+                        <input type="hidden" id="@Model.FirstOrDefault().CategoriaId" name="categoriaId" value="@Model.FirstOrDefault().CategoriaId" />
                         <div class="filter-buttons">
                             <select id="filter-select" name="filters" onchange="submitForm()">
                                 <option value="" disabled selected>Filtrar por</option>
