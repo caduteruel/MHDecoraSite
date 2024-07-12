@@ -14,10 +14,10 @@
 </div>
 <div class="footer-col">
     <ul id="dynamicLinks">
-        <li><a href="#">Decorações</a></li>
-        <li><a href="#">Pegue e monte</a></li>
-        <li><a href="#">Mini table</a></li>
-        <li><a href="#">Projetos personalizados</a></li>
+        <li><a href="~/Home/Consulta?categoriaId=1">Decorações</a></li>
+        <li><a href="~/Home/Consulta?categoriaId=122">Pegue e monte</a></li>
+        <li><a href="~/Home/Consulta?categoriaId=121">Mini table</a></li>
+        <li><a href="~/Home/Consulta?categoriaId=123">Projetos personalizados</a></li>
     </ul>
 </div>
 <div class="footer-col autorais">
@@ -44,31 +44,31 @@
     <script>
         // JavaScript para exibir um alert ao carregar a página
 
-        $(document).ready(function () {
+       //  $(document).ready(function () {
            
-            $.ajax({
-                url: '@Url.Action("Rodape", "Home")',  // URL para a ação no backend que retorna os links
-                type: 'GET',  // ou 'POST' dependendo da sua necessidade
-                data: { /* Dados a enviar, se houver */ },
-                success: function (result) {
-                    // Manipular a resposta do backend
-                    if (result && result.length > 0) {
-                        var $ul = $('#dynamicLinks'); // Seleciona a ul onde os links serão inseridos
-                        $ul.empty(); // Limpa os links existentes, se houver
+       //      $.ajax({
+       //          url: '@Url.Action("Rodape", "Home")',  // URL para a ação no backend que retorna os links
+       //          type: 'GET',  // ou 'POST' dependendo da sua necessidade
+       //          data: { /* Dados a enviar, se houver */ },
+       //          success: function (result) {
+       //              // Manipular a resposta do backend
+       //              if (result && result.length > 0) {
+       //                  var $ul = $('#dynamicLinks'); // Seleciona a ul onde os links serão inseridos
+       //                  $ul.empty(); // Limpa os links existentes, se houver
 
-                        // Itera sobre os links recebidos do backend
-                        result.forEach(function (link) {
-                            // Cria um novo elemento li com o link recebido
-                            var $li = $('<li>');
-                            var $a = $('<a>').attr('href', link.url).text(link.nome); // Ajustado para usar link diretamente
-                            $li.append($a);
-                            $ul.append($li);
-                        });
-                    } else {
-                        console.log('Nenhum link recebido do backend.');
-                    }
-                }
-            });
-       });
+       //                  // Itera sobre os links recebidos do backend
+       //                  result.forEach(function (link) {
+       //                      // Cria um novo elemento li com o link recebido
+       //                      var $li = $('<li>');
+       //                      var $a = $('<a>').attr('href', link.url).text(link.nome); // Ajustado para usar link diretamente
+       //                      $li.append($a);
+       //                      $ul.append($li);
+       //                  });
+       //              } else {
+       //                  console.log('Nenhum link recebido do backend.');
+       //              }
+       //          }
+       //      });
+       // });
     </script>
 
