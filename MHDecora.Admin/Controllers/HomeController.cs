@@ -1,3 +1,5 @@
+using MHDecora.Admin.Application.Interfaces;
+using MHDecora.Admin.Domain.Interfaces;
 using MHDecora.Admin.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -13,11 +15,14 @@ namespace MHDecora.Admin.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
+        private readonly IMidiaSocialService _midiasService;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration,
+            IMidiaSocialService midiasService)
         {
             _logger = logger;
             _configuration = configuration;
+            _midiasService = midiasService;
         }
 
         [AllowAnonymous]

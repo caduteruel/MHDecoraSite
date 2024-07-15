@@ -44,6 +44,24 @@
                                 <input name="whatsapp" id="whatsapp" class="form-control" value="@Model.WhatsApp" placeholder="Digite o whatsapp">
                             </div>
                         </div>
+@*                         <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="meta">Meta</label>
+                                <textarea class="form-control" id="meta" name="Meta" rows="5">@Model.Meta</textarea>
+                            </div>
+                        </div> *@
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="googleAnalytics">Google Analytics</label>
+                                <textarea class="form-control" id="googleAnalytics" name="GoogleAnalytics" rows="5">@Model.GoogleAnalytics</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="googleAds">Google Ads</label>
+                                <textarea class="form-control" id="googleAds" name="GoogleAds" rows="5">@Model.GoogleAds</textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-footer pt-5 border-top d-flex justify-content-between">
                         
@@ -66,6 +84,9 @@
             $("#instagram").val("");
             $("#facebook").val("");
             $("#whatsapp").val("");
+            $("#meta").val("");
+            $("#googleAds").val("");
+            $("#googleAnalytics").val("");
         }
     </script>
 }

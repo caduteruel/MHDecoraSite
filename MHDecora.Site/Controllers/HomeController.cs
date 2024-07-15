@@ -91,6 +91,11 @@ namespace MHDeroca.Site.Controllers
             siteViewModel.Contato = contato;
             siteViewModel.Categorias = categorias;
 
+            var midias = await _midiaSocialService.GetMidiaSocial();
+
+            ViewBag.Ads = midias.GoogleAds;
+            ViewBag.Analytics = midias.GoogleAnalytics;
+
             return View(siteViewModel);
         }
 
