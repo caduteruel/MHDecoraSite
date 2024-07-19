@@ -751,11 +751,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Application\\MHDecora.Site.Application.csproj",
+      "projectUniqueName": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Application\\MHDecora.Site.Application.csproj",
       "projectName": "MHDecora.Site.Application",
-      "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Application\\MHDecora.Site.Application.csproj",
+      "projectPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Application\\MHDecora.Site.Application.csproj",
       "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Application\\obj\\",
+      "outputPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -773,11 +773,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Domain\\MHDecora.Site.Domain.csproj": {
-              "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Domain\\MHDecora.Site.Domain.csproj"
+            "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Domain\\MHDecora.Site.Domain.csproj": {
+              "projectPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Domain\\MHDecora.Site.Domain.csproj"
             },
-            "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Infra\\MHDecora.Site.Infra.csproj": {
-              "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Infra\\MHDecora.Site.Infra.csproj"
+            "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Infra\\MHDecora.Site.Infra.csproj": {
+              "projectPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Infra\\MHDecora.Site.Infra.csproj"
             }
           }
         }

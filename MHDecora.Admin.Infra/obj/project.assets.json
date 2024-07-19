@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
+      "projectUniqueName": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
       "projectName": "MHDecora.Admin.Infra",
-      "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
+      "projectPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Infra\\MHDecora.Admin.Infra.csproj",
       "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Infra\\obj\\",
+      "outputPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,8 +54,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
-              "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
+            "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj": {
+              "projectPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj"
             }
           }
         }

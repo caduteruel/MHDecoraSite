@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V4dezZEwG+YK4CklrluOAwTH1oSS9QiytXxmTqlbSqYOxM/1dC1f9FcJjMFSr2mcPm1/bitH60yKYPMuBOlZLQ==",
+  "dgSpecHash": "vqdtyLeTKncimx+XgIW4E+DMfIOALote93Wm/VIVNvbx7kgplIefxSkeHGzC8QdASF5Ec6EiZElHlPa21Yc3cQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Site.Infra\\MHDecora.Site.Infra.csproj",
+  "projectFilePath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Site.Infra\\MHDecora.Site.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cadut\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.2\\microsoft.entityframeworkcore.8.0.2.nupkg.sha512",
     "C:\\Users\\cadut\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.2\\microsoft.entityframeworkcore.abstractions.8.0.2.nupkg.sha512",

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+      "projectUniqueName": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
       "projectName": "MHDecora.Admin.Domain",
-      "projectPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
+      "projectPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Domain\\MHDecora.Admin.Domain.csproj",
       "packagesPath": "C:\\Users\\cadut\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin.Domain\\obj\\",
+      "outputPath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cadut\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rHXHSYBcsD6NpzpRs20wgufAbLoWI/JIRVLOPGBJjsMx4pS5D1SloPRTShRYsj8xvhqgpubTVaGIwJ6YKAZpbA==",
+  "dgSpecHash": "kF+X7fbURuBD9qZ1wXpkrS9cqHU/+GMj+/lxUZzhjjykIgtGQ3GuPv40oQUal7lfV3oKxcSnRHuhUVuXzx5FyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cadut\\source\\repos\\MHDecoraSiteAdmin\\MHDecoraSite\\MHDecora.Admin\\MHDecora.Admin.csproj",
+  "projectFilePath": "C:\\_reposMhDecora\\mhdecorasite\\MHDecora.Admin\\MHDecora.Admin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cadut\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\cadut\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
